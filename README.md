@@ -7,7 +7,7 @@ Info
 `isbntools` provides several useful methods and functions 
 to validate, clean and transform ISBN strings.
 
-Typical usage::
+Typical usage:
 
 ```python
 
