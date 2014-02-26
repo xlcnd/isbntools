@@ -55,10 +55,10 @@ def _check_digit10(firstninedigits):
     remainder = int(val % 11)
     if remainder == 0:
         tenthdigit = 0
-    elif remainder == 10:
-        tenthdigit = 'X'
     else:
         tenthdigit = 11 - remainder
+    if tenthdigit == 10:
+        tenthdigit = 'X'
     return str(tenthdigit)
 
 
