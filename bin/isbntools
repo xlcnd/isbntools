@@ -5,6 +5,6 @@ from isbntools import __version__
 
 print("isbntools - tools for extracting, cleaning and transforming ISBNs")
 print(("Version %s" % __version__))
-print()
+print("")
 print("Copyright (C) 2014  Alexandre Lima Conde")
 print("License LGPL v3")
