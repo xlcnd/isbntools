@@ -30,7 +30,7 @@ setup(
              'bin/isbn_mask','bin/isbn_info','bin/isbn_meta',
              'bin/isbntools',
              ],
-    license='LICENSE-LGPL.txt',
+    license='LGPL v3',
     description='Extract, clean and transform ISBNs (International Standard Book Number).',
     long_description=open('README.md').read(),
     classifiers=[
