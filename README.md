@@ -15,26 +15,26 @@ Typical usage::
     import isbntools
 ```
 
-Several scripts are provided to use from the command line::
+Several scripts are provided to use from the command line:
 
-* `to_isbn10` `ISBN13` :: transforms an ISBN10 number to ISBN13
-* `to_isbn13` `ISBN10` :: transforms an ISBN13 number to ISBN10
-* `isbn_info` `ISBN`   :: gives you the `group identifier` of the ISBN
-* `isbn_mask` `ISBN`   :: *masks* (hyphenate) an ISBN (split it by identifiers)
-* `isbn_meta` `ISBN`   :: gives you the main metadata associated with the ISBN (uses wcat.org)
-* `isbn_validate`      :: to use with *posix pipes* (e.g. `cat ISBNs | isbn_validate`)
-* `isbntools`          :: writes version and copyright notice
+* `to_isbn10` `ISBN13` : transforms an ISBN10 number to ISBN13
+* `to_isbn13` `ISBN10` : transforms an ISBN13 number to ISBN10
+* `isbn_info` `ISBN`   : gives you the `group identifier` of the ISBN
+* `isbn_mask` `ISBN`   : *masks* (hyphenate) an ISBN (split it by identifiers)
+* `isbn_meta` `ISBN`   : gives you the main metadata associated with the ISBN (uses wcat.org)
+* `isbn_validate`      : to use with *posix pipes* (e.g. `cat ISBNs | isbn_validate`)
+* `isbntools`          : writes version and copyright notice
 
 
 Install
 -------
 
 ```
-`pip install isbntools`
-or
-`easy_install isbntools`
-or
-`pip install isbntools-0.7.2.tar.gz` (first you have to download the file!) 
+pip install isbntools
+     or
+easy_install isbntools
+     or
+pip install isbntools-0.7.2.tar.gz (first you have to download the file!) 
 ```
 
 Known Issues
