@@ -34,7 +34,7 @@ pip install isbntools
      or
 easy_install isbntools
      or
-pip install isbntools-0.7.2.tar.gz (first you have to download the file!) 
+pip install isbntools-0.7.2.zip (first you have to download the file!) 
 ```
 
 Known Issues
@@ -49,7 +49,7 @@ Known Issues
 ISBN
 ----
 
-To know about ISBN::
+To know about ISBN:
 
 * http://en.wikipedia.org/wiki/International_Standard_Book_Number
 * http://www.isbn-international.org/
