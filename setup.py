@@ -25,6 +25,7 @@ setup(
     author='Alexandre Conde',
     author_email='alexandreconde@hotmail.com',
     url='https://github.com/xlcnd/isbntools',
+    download_url='https://github.com/xlcnd/isbntools/archive/master.zip',
     packages=['isbntools','isbntools/data'],
     scripts=['bin/isbn_validate','bin/to_isbn10','bin/to_isbn13',
              'bin/isbn_mask','bin/isbn_info','bin/isbn_meta',
