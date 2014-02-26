@@ -4,7 +4,7 @@ ISBN tools
 Info
 ----
 
-`isbntools` provides several useful methods and functions 
+`isbntools` provides several useful methods and functions
 to validate, clean and transform ISBN strings.
 
 Typical usage:
@@ -17,13 +17,13 @@ Typical usage:
 
 Several scripts are provided to use from the command line:
 
-* `to_isbn10` `ISBN13` : transforms an ISBN10 number to ISBN13
-* `to_isbn13` `ISBN10` : transforms an ISBN13 number to ISBN10
-* `isbn_info` `ISBN`   : gives you the `group identifier` of the ISBN
-* `isbn_mask` `ISBN`   : *masks* (hyphenate) an ISBN (split it by identifiers)
-* `isbn_meta` `ISBN`   : gives you the main metadata associated with the ISBN (uses wcat.org)
-* `isbn_validate`      : to use with *posix pipes* (e.g. `cat ISBNs | isbn_validate`)
-* `isbntools`          : writes version and copyright notice
+* `to_isbn10 ISBN13` : transforms an ISBN10 number to ISBN13
+* `to_isbn13 ISBN10` : transforms an ISBN13 number to ISBN10
+* `isbn_info ISBN`   : gives you the *group identifier* of the ISBN
+* `isbn_mask ISBN`   : *masks* (hyphenate) an ISBN (split it by identifiers)
+* `isbn_meta ISBN`   : gives you the main metadata associated with the ISBN (uses wcat.org)
+* `isbn_validate`    : to use with *posix pipes* (e.g. `cat ISBNs | isbn_validate`)
+* `isbntools`        : writes version and copyright notice
 
 
 Install
@@ -34,15 +34,15 @@ pip install isbntools
      or
 easy_install isbntools
      or
-pip install isbntools-0.7.2.zip (first you have to download the file!) 
+pip install isbntools-0.7.2.zip (first you have to download the file!)
 ```
 
 Known Issues
 ------------
 
-1. Some of the methods don't work with ISBNs with group identifier `979` 
+1. Some of the methods don't work with ISBNs with group identifier `979`
    (will be fixed in next version)
-2. The `meta` method and the `isbn_meta` script sometimes gives a wrong result, 
+2. The `meta` method and the `isbn_meta` script sometimes gives a wrong result,
    this is due to errors on the wcat.org service
 
 
