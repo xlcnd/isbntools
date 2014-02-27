@@ -15,7 +15,7 @@ def stdin_validate():
     """
     for line in sys.stdin:
         line = line.strip()
-        print(get_canonical_isbn(line))
+        print((get_canonical_isbn(line)))
        
         
 if __name__ == "__main__":
