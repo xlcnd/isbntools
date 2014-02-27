@@ -35,7 +35,7 @@ pip install isbntools
      or
 easy_install isbntools
      or
-pip install isbntools-0.7.2.zip (first you have to download the file!)
+pip install isbntools-0.7.3.zip (first you have to download the file!)
 ```
 
 Known Issues
