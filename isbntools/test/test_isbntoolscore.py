@@ -31,6 +31,7 @@ def test_is_isbn10():
 
 def test_is_isbn13():
     assert_equals(is_isbn13('9780826497529'), True)
+    assert_equals(is_isbn13('9791090636071'), True)
     assert_equals(is_isbn13('9780826497520'), False)
 
 
@@ -103,4 +104,5 @@ def test_mask():
     assert_equals(mask('9781590593561'), '978-1-59059-356-1')
     assert_equals(mask('9789993075899'), '978-99930-75-89-9')
     assert_equals(mask('0-330284983'), '0-330-28498-3')
+    assert_equals(mask('9791090636071'), '979-10-90636-07-1')
     assert_equals(mask(''), None)

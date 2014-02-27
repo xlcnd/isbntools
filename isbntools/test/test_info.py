@@ -17,3 +17,4 @@ def test_infogroup():
                   'German (Germany, Austria, Switzerland)')
     assert_equals(infogroup('92xxxxxxxxxxx'), None)
     assert_equals(infogroup(''), None)
+    assert_equals(infogroup('9791090636071'), 'France')

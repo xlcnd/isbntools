@@ -59,7 +59,8 @@ or:
 Known Issues
 ============
 
-1. Some of the methods don't work with ISBNs with group identifier ``979``
+1. The script `isbn_info` and the method `isbntools.info` don't work with ISBNs 
+   with group identifier ``979``
    (will be fixed in the next major version)
 
 2. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result

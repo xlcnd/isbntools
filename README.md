@@ -41,7 +41,8 @@ pip install isbntools-0.7.3.zip (first you have to download the file!)
 Known Issues
 ------------
 
-1. Some of the methods don't work with ISBNs with group identifier `979`
+1. The script `isbn_info` and the method `isbntools.info` don't work with ISBNs
+   with group identifier ``979``
    (will be fixed in the next major version)
 2. The `meta` method and the `isbn_meta` script sometimes give a wrong result
    (this is due to errors on the wcat.org service)
