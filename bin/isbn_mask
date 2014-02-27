@@ -4,12 +4,13 @@
 import sys
 from isbntools import mask
 
+
 def usage():
     print('Usage: isbn_mask ISBN')
-    
-    
+
+
 if __name__ == "__main__":
     try:
-        print(mask(sys.argv[1]))
+        print((mask(sys.argv[1])))
     except:
         usage
