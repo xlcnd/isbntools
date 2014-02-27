@@ -53,7 +53,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-0.7.2.tar.gz
+    $ pip install isbntools-0.7.3.tar.gz
 
 
 Known Issues
