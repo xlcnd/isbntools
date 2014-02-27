@@ -5,18 +5,18 @@ import sys
 from .isbntools import get_canonical_isbn
 
 
-def isbn_stdin_validate():
+def stdin_validate():
     """ Helper function to validate ISBNs from sys.stdin
 
-    It will output all valide ISBNs that receive from input.
+    It will output all valid ISBNs that receive from input.
 
     Usage:
     cat ISBNs| isbn_stdin_validate
     """
     for line in sys.stdin:
         line = line.strip()
-        get_canonical_isbn(line)
+        print(get_canonical_isbn(line))
        
         
 if __name__ == "__main__":
-    isbn_stdin_validate()
+    stdin_validate()
