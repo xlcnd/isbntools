@@ -4,13 +4,13 @@
 import sys
 from isbntools import info
 
+
 def usage():
     print('Usage: isbn_info ISBN')
-       
-    
+
+
 if __name__ == "__main__":
     try:
         print(info(sys.argv[1]))
     except:
         usage
-    
