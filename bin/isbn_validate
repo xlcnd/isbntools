@@ -11,6 +11,6 @@ def usage():
     
 if __name__ == "__main__":
     try:
-        print(get_canonical_isbn(sys.argv[1]))
+        print((get_canonical_isbn(sys.argv[1])))
     except:
         usage
