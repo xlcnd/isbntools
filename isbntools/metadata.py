@@ -68,7 +68,7 @@ class WCATQuery():
         canonical['ISBN-13'] = isbn
 
         if 'author' in records:
-            canonical['Authors'] = str(records['author']).replace('.', '')
+            canonical['Authors'] = records['author']
         else:
             canonical['Authors'] = []
         return canonical
