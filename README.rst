@@ -27,7 +27,9 @@ Several scripts are provided to use from the command line:
 
 * ``isbn_meta ISBN``   : gives you the main metadata associated with the ISBN (uses wcat.org)
 
-* ``isbn_validate``    : to use with *posix pipes* (e.g. ``cat ISBNs | isbn_validate``)
+* ``isbn_validate ISBN``   : validates ISBN10 and ISBN13 
+
+* ``isbn_stdin_validate``  : to use with *posix pipes* (e.g. ``cat ISBNs | isbn_stdin_validate``)
 
 * ``isbntools``        : writes version and copyright notice
 
