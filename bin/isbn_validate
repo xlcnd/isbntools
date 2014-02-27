@@ -4,6 +4,7 @@
 import sys
 from isbntools import get_canonical_isbn
 
+
 def usage():
     print('Usage: isbn_validate ISBN')
        
@@ -13,4 +14,3 @@ if __name__ == "__main__":
         print(get_canonical_isbn(sys.argv[1]))
     except:
         usage
-    

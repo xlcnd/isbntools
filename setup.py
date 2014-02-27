@@ -29,7 +29,7 @@ setup(
     packages=['isbntools','isbntools/data'],
     scripts=['bin/isbn_validate','bin/to_isbn10','bin/to_isbn13',
              'bin/isbn_mask','bin/isbn_info','bin/isbn_meta',
-             'bin/isbntools',
+             'bin/isbntools','bin/isbn_stdin_validate',
              ],
     license='LGPL v3',
     description='Extract, clean and transform ISBNs (International Standard Book Number).',
