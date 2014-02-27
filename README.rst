@@ -18,7 +18,7 @@ Typical usage:
 Several scripts are provided to use from the command line:
 
 * ``to_isbn10 ISBN13`` : transforms an ISBN10 number to ISBN13
-    
+
 * ``to_isbn13 ISBN10`` : transforms an ISBN13 number to ISBN10
 
 * ``isbn_info ISBN``   : gives you the *group identifier* of the ISBN
@@ -58,10 +58,10 @@ Known Issues
 ============
 
 1. Some of the methods don't work with ISBNs with group identifier ``979``
-   (will be fixed in next version)
+   (will be fixed in the next major version)
 
-2. The ``meta`` method and the ``isbn_meta`` script sometimes gives a wrong result,
-   this is due to errors on the wcat.org service
+2. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
+   (this is due to errors on the wcat.org service)
 
 
 ISBN

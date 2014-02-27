@@ -41,9 +41,9 @@ Known Issues
 ------------
 
 1. Some of the methods don't work with ISBNs with group identifier `979`
-   (will be fixed in next version)
-2. The `meta` method and the `isbn_meta` script sometimes gives a wrong result,
-   this is due to errors on the wcat.org service
+   (will be fixed in the next major version)
+2. The `meta` method and the `isbn_meta` script sometimes give a wrong result
+   (this is due to errors on the wcat.org service)
 
 
 ISBN
