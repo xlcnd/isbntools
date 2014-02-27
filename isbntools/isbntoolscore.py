@@ -32,7 +32,8 @@ from .infogroup import infogroup
 
 
 
-RE_ISBN10 = r'ISBN\x20(?=.{13}$)\d{1,5}([- ])\d{1,7}\1\d{1,6}\1(\d|X)$'
+RE_ISBN10 = r'ISBN\x20(?=.{13}$)\d{1,5}([- ])\d{1,7}\1\d{1,6}\1(\d|X)$|[- 0-9X]{10,16}'
+RE_ISBN13 = r'97[89]{1}(?:-?\d){10,16}|97[89]{1}[- 0-9]{10,16}'
 RE_STRICT = r'^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$'
 RE_NORMAL = r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|[-0-9X]{10,16}'
 RE_LOOSE = r'[- 0-9X]{10,16}'
@@ -82,7 +83,7 @@ def _check_digit13(firsttwelvedigits):
 
 def _check_structure10(isbn10like):
     """ Looks like a isbn-10? """
-    match = re.match(RE_ISBN10, 'ISBN ' + isbn10like)
+    match = re.match(RE_ISBN10, isbn10like)
     if match:
         return True
     else:
@@ -91,11 +92,10 @@ def _check_structure10(isbn10like):
 
 def _check_structure13(isbn13like):
     """ Looks like an isbn-13? """
-    if isbn13like.split('-')[0] != ISBN13_PREFIX:
-        return False
+    if re.match(RE_ISBN13, isbn13like):
+        return True
     else:
-        isbn10like = isbn13like[3:]
-        return _check_structure10(isbn10like)
+        return False
 
 
 def is_isbn10(isbn10):

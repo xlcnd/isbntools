@@ -1,2 +1,3 @@
 v0.7.2, 2014-02-26 -- Initial release.
 v0.7.3, 2014-02-27 -- Insert the missing `isbn_stdin_validate`.
+v0.7.4, 2014-02-28 -- All methods and scripts work with identifier `979` 
