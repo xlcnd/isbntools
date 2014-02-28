@@ -2,6 +2,7 @@
 CHANGES.txt
 LICENSE-LGPL.txt
 README.md
+README.rst
 setup.py
 bin/isbn_info
 bin/isbn_mask
