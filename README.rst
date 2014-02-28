@@ -92,6 +92,8 @@ or:
 
     $ pip install isbntools-0.7.4.tar.gz
 
+(first you have to download the file!)
+
 
 Known Issues
 ============
