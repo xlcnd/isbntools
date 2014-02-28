@@ -1,67 +1,122 @@
 Metadata-Version: 1.1
 Name: isbntools
-Version: 0.7.2
+Version: 0.7.4
 Author: Alexandre Conde
 Author-email: alexandreconde at hotmail com
 Home-page: https://github.com/xlcnd/isbntools
-Download-url: UNKNOWN
+Download-url: https://github.com/xlcnd/isbntools/archive/master.zip
 Summary: Extract, clean and transform ISBNs (International Standard Book Number).
-License: LICENSE-LGPL.txt
-Description: ISBN tools
+License: LGPL v3
+Description: 
+        ==========
+        ISBN tools
         ==========
         
         Info
-        ----
+        ====
         
-        `isbntools` provides several useful methods and functions 
+        ``isbntools`` provides several useful methods and functions
         to validate, clean and transform ISBN strings.
         
-        Typical usage:
+        Typical usage (as library):
         
-        ```python
+        .. code-block:: python
         
             #!/usr/bin/env python
             import isbntools
-        ```
+            ...
         
         Several scripts are provided to use from the command line:
         
-        * `to_isbn10` `ISBN13` : transforms an ISBN10 number to ISBN13
-        * `to_isbn13` `ISBN10` : transforms an ISBN13 number to ISBN10
-        * `isbn_info` `ISBN`   : gives you the `group identifier` of the ISBN
-        * `isbn_mask` `ISBN`   : *masks* (hyphenate) an ISBN (split it by identifiers)
-        * `isbn_meta` `ISBN`   : gives you the main metadata associated with the ISBN (uses wcat.org)
-        * `isbn_validate`      : to use with *posix pipes* (e.g. `cat ISBNs | isbn_validate`)
-        * `isbntools`          : writes version and copyright notice
+        .. code-block:: bash
+        
+            $ to_isbn10 ISBN13
+        
+        transforms an ISBN10 number to ISBN13.
+        
+        .. code-block:: bash
+        
+            $ to_isbn13 ISBN10
+        
+        transforms an ISBN13 number to ISBN10.
+        
+        .. code-block:: bash
+        
+            $ isbn_info ISBN
+        
+        gives you the *group identifier* of the ISBN.
+        
+        .. code-block:: bash
+        
+            $ isbn_mask ISBN
+        
+        *masks* (hyphenate) an ISBN (split it by identifiers).
+        
+        .. code-block:: bash
+        
+            $ isbn_meta ISBN
+        
+        gives you the main metadata associated with the ISBN (uses wcat.org).
+        
+        .. code-block:: bash
+        
+            $ isbn_validate ISBN
+        
+        validates ISBN10 and ISBN13.
+        
+        .. code-block:: bash
+        
+            $ isbn_stdin_validate
+        
+        to use with *posix pipes* (e.g. ``cat ISBNs | isbn_stdin_validate``).
+        
+        .. code-block:: bash
+        
+            $ isbntools
+        
+        writes version and copyright notice.
+        
+        *Many more scripts could be written with the library*,
+        using the methods for extraction, cleaning, validation and standardization of ISBNs.
         
         
         Install
-        -------
+        =======
         
-        ```
-        pip install isbntools
-             or
-        easy_install isbntools
-             or
-        pip install isbntools-0.7.2.zip (first you have to download the file!) 
-        ```
+        From a command line enter:
+        
+        .. code-block:: bash
+        
+            $ pip install isbntools
+        
+        or:
+        
+        .. code-block:: bash
+        
+            $ easy_install isbntools
+        
+        or:
+        
+        .. code-block:: bash
+        
+            $ pip install isbntools-0.7.4.tar.gz
+        
         
         Known Issues
-        ------------
+        ============
         
-        1. Some of the methods don't work with ISBNs with group identifier `979` 
-           (will be fixed in next version)
-        2. The `meta` method and the `isbn_meta` script sometimes gives a wrong result, 
-           this is due to errors on the wcat.org service
+        1. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
+           (this is due to errors on the wcat.org service)
         
         
         ISBN
-        ----
+        ====
         
         To know about ISBN:
         
-        * http://en.wikipedia.org/wiki/International_Standard_Book_Number
-        * http://www.isbn-international.org/
+        *  http://en.wikipedia.org/wiki/International_Standard_Book_Number
+        
+        *  http://www.isbn-international.org/
 Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Developers
@@ -71,4 +126,5 @@ Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
 Classifier: Topic :: Text Processing :: General
+
 
