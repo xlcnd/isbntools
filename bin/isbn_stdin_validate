@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from isbntools import get_canonical_isbn
+import re
+from isbntools import get_isbnlike, get_canonical_isbn
 
 
 def stdin_validate():
@@ -15,8 +16,18 @@ def stdin_validate():
     """
     for line in sys.stdin:
         line = line.strip()
-        print((get_canonical_isbn(line)))
-       
-        
+        buf = re.sub("\[|\]|'|-", "", repr(get_isbnlike(line)))
+        buf = buf.strip()
+        if ',' in buf:
+            for b in buf.split(','):
+                b = get_canonical_isbn(b.strip())
+                if b:
+                    print(b)
+        else:
+            buf = get_canonical_isbn(buf)
+            if buf:
+                print(buf)
+
+
 if __name__ == "__main__":
     stdin_validate()
