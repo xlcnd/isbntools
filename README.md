@@ -73,13 +73,24 @@ using the methods for extraction, cleaning, validation and standardization of IS
 Install
 -------
 
+```bash
+
+    $ pip install isbntools
 ```
-pip install isbntools
-     or
-easy_install isbntools
-     or
-pip install isbntools-0.7.4.zip (first you have to download the file!)
+or:
+
+```bash
+
+    $ easy_install isbntools
 ```
+or:
+
+```bash
+
+    $ pip install isbntools-0.7.4.zip
+```
+(first you have to download the file!)
+
 
 Known Issues
 ------------
