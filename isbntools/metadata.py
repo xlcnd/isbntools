@@ -82,6 +82,8 @@ def query(isbn):
     return query.records(isbn)
 
 
+
+
 if __name__ == "__main__":
     r = query(sys.argv[1].replace('-',''))
     sys.stdout.write('ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n' %

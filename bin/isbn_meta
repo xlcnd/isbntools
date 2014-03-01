@@ -11,8 +11,13 @@ FORMATR = 'ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n'
 def usage():
     print('Usage: isbn_meta ISBN')
 
+def quiet_errors(exc_type, exc_value, traceback):
+    sys.stderr.write('ERROR::%s\n' % exc_value)
+
 
 if __name__ == "__main__":
+    # error handling
+    sys.excepthook = quiet_errors
     try:
         r = meta(sys.argv[1])
         sys.stdout.write(FORMATR % (r['ISBN-13'], r['Title'], r['Authors'],

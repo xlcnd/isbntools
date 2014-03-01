@@ -67,8 +67,58 @@ to use with *posix pipes* (e.g. ``cat ISBNs | isbn_stdin_validate``).
 
 writes version and copyright notice.
 
-*Many more scripts could be written with the library*,
+Many more scripts could be written with the `isbntools` library,
 using the methods for extraction, cleaning, validation and standardization of ISBNs.
+
+Just for fun, suppose I want the *most spoken about* book with certain words in his title.
+For a *quick-and-dirty solution*, enter the following code in a file
+and save it as `isbn_tmsa_book.py`.
+
+.. code-block:: python
+
+    #!/usr/bin/env python
+    import sys
+    import httplib2
+    from isbntools import *
+
+    query = sys.argv[1].replace(' ', '+')
+    SEARCH_URL = "http://www.google.com/search?q=%s+ISBN" % query
+
+    headers = {'User-Agent': 'w3m/0.5.2'}
+    http = httplib2.Http()
+    resp, content = http.request(SEARCH_URL, headers=headers)
+
+    isbns = get_isbnlike(content)
+
+    for item in isbns:
+        ib = get_canonical_isbn(item, output='ISBN-13')
+        if ib: break
+
+    print("The ISBN of the most `spoken-about` book with this title is %s" % ib)
+    print("")
+    print("... and the book is:")
+    print("")
+    print((meta(ib)))
+
+Then in a command line (in the same directory):
+
+.. code-block:: bash
+
+    $ python isbn_tmsa_book.py 'noise'
+
+In my case I get::
+
+
+    The ISBN of the most `spoken-about` book with this title is 9780143105985
+
+    ... and the book is:
+
+    {'Publisher': u'Penguin Books', 'Language': u'eng', 'Title': u'White noise',
+    'Year': u'2009', 'ISBN-13': '9780143105985', 'Authors': u'Don DeLillo ;
+    introduction by Richard Powers.'}
+
+
+Have fun!
 
 
 Install
@@ -90,7 +140,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-0.7.4.tar.gz
+    $ pip install isbntools-0.7.5.tar.gz
 
 (first you have to download the file!)
 
