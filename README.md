@@ -79,15 +79,16 @@ and save it as `isbn_tmsa_book.py`.
 
     #!/usr/bin/env python
     import sys
-    import httplib2
+    import urllib2
     from isbntools import *
 
     query = sys.argv[1].replace(' ', '+')
     SEARCH_URL = "http://www.google.com/search?q=%s+ISBN" % query
 
     headers = {'User-Agent': 'w3m/0.5.2'}
-    http = httplib2.Http()
-    resp, content = http.request(SEARCH_URL, headers=headers)
+    request = urllib2.Request(SEARCH_URL, headers=headers)
+    response = urllib2.urlopen(request)
+    content = response.read()
 
     isbns = get_isbnlike(content)
 
