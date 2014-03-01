@@ -7,7 +7,7 @@ Queries worldcat.org for metadata
 NOTE: uses the xisbn service
 """
 
-import httplib2
+import urllib2
 import re
 import sys
 import json
@@ -21,42 +21,42 @@ PATT_YEAR = re.compile(r'\d{4}')
 
 class WCATQuery():
 
-    def __init__(self):
+    def __init__(self, isbn):
         """
         Constructor
         """
-        self.http = httplib2.Http()
+        self.isbn = isbn
+        headers = {'User-Agent': SIGN_UA}
+        request = urllib2.Request(SEARCH_URL % isbn, headers=headers)
+        try:
+            response = urllib2.urlopen(request)
+        except urllib2.HTTPError as e:
+            raise Exception('Error:%s' % e.code)
+        except urllib2.URLError as e:
+            raise Exception('Error:%s' % e.reason)
 
-    def _request(self, isbn):
-        """
-        Puts the request to the service
-        """
-        headers = {'connection': 'keep-alive', 'User-Agent': SIGN_UA}
-        resp, content = self.http.request(SEARCH_URL % isbn, headers=headers)
-        if resp['status'] != '200':
-            raise Exception('Server error! Check the url...%s' % resp)
+        content = response.read()
         if BOOK_NOT_FOUND in content:
             raise Exception('Book not found! Check the isbn...%s' % isbn)
         if OUT_OF_SERVICE in content:
             raise Exception('Temporarily out of service. Try later!')
-        self.response = content
+        self.content = content
 
-    def _parse_response(self, isbn):
+    def _parse_content(self):
         """
-        Parse the response from the service
+        Parse the content from the service
         """
-        data = json.loads(self.response)
+        data = json.loads(self.content)
         if 'list' in data:
             return data['list'][0]
         else:
             raise Exception('Error:%s' % data['stat'])
 
-    def records(self, isbn):
+    def records(self):
         """
         Classifies canonically the records from the parsed response
         """
-        self._request(isbn)
-        records = self._parse_response(isbn)
+        records = self._parse_content()
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
@@ -65,7 +65,7 @@ class WCATQuery():
         canonical['Language'] = records['lang']
         canonical['Publisher'] = records['publisher']
         canonical['Year'] = records['year']
-        canonical['ISBN-13'] = isbn
+        canonical['ISBN-13'] = self.isbn
 
         if 'author' in records:
             canonical['Authors'] = records['author']
@@ -78,13 +78,11 @@ def query(isbn):
     """
     Command Line API to the class
     """
-    query = WCATQuery()
-    return query.records(isbn)
-
-
+    query = WCATQuery(isbn)
+    return query.records()
 
 
 if __name__ == "__main__":
-    r = query(sys.argv[1].replace('-',''))
+    r = query(sys.argv[1].replace('-', ''))
     sys.stdout.write('ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n' %
           (r['ISBN-13'], r['Title'], r['Authors'], r['Publisher'], r['Year']))
