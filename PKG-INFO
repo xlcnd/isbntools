@@ -1,12 +1,12 @@
-Metadata-Version: 1.1
+Metadata-Version: 1.0
 Name: isbntools
-Version: 0.7.4
-Author: Alexandre Conde
-Author-email: alexandreconde at hotmail com
-Home-page: https://github.com/xlcnd/isbntools
-Download-url: https://github.com/xlcnd/isbntools/archive/master.zip
+Version: 0.7.5
 Summary: Extract, clean and transform ISBNs (International Standard Book Number).
+Home-page: https://github.com/xlcnd/isbntools
+Author: Alexandre Conde
+Author-email: alexandreconde@hotmail.com
 License: LGPL v3
+Download-URL: https://github.com/xlcnd/isbntools/archive/master.zip
 Description: 
         ==========
         ISBN tools
@@ -16,7 +16,8 @@ Description:
         ====
         
         ``isbntools`` provides several useful methods and functions
-        to validate, clean and transform ISBN strings.
+        to validate, clean, transform, hyphenate and 
+        get metadata for ISBN strings.
         
         Typical usage (as library):
         
@@ -76,8 +77,58 @@ Description:
         
         writes version and copyright notice.
         
-        *Many more scripts could be written with the library*,
+        Many more scripts could be written with the `isbntools` library,
         using the methods for extraction, cleaning, validation and standardization of ISBNs.
+        
+        Just for fun, suppose I want the *most spoken about* book with certain words in his title.
+        For a *quick-and-dirty solution*, enter the following code in a file
+        and save it as `isbn_tmsa_book.py`.
+        
+        .. code-block:: python
+        
+            #!/usr/bin/env python
+            import sys
+            import httplib2
+            from isbntools import *
+        
+            query = sys.argv[1].replace(' ', '+')
+            SEARCH_URL = "http://www.google.com/search?q=%s+ISBN" % query
+        
+            headers = {'User-Agent': 'w3m/0.5.2'}
+            http = httplib2.Http()
+            resp, content = http.request(SEARCH_URL, headers=headers)
+        
+            isbns = get_isbnlike(content)
+        
+            for item in isbns:
+                ib = get_canonical_isbn(item, output='ISBN-13')
+                if ib: break
+        
+            print("The ISBN of the most `spoken-about` book with this title is %s" % ib)
+            print("")
+            print("... and the book is:")
+            print("")
+            print((meta(ib)))
+        
+        Then in a command line (in the same directory):
+        
+        .. code-block:: bash
+        
+            $ python isbn_tmsa_book.py 'noise'
+        
+        In my case I get::
+        
+        
+            The ISBN of the most `spoken-about` book with this title is 9780143105985
+        
+            ... and the book is:
+        
+            {'Publisher': u'Penguin Books', 'Language': u'eng', 'Title': u'White noise',
+            'Year': u'2009', 'ISBN-13': '9780143105985', 'Authors': u'Don DeLillo ;
+            introduction by Richard Powers.'}
+        
+        
+        Have fun!
         
         
         Install
@@ -99,7 +150,9 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-0.7.4.tar.gz
+            $ pip install isbntools-0.7.5.tar.gz
+        
+        (first you have to download the file!)
         
         
         Known Issues
@@ -117,14 +170,14 @@ Description:
         *  http://en.wikipedia.org/wiki/International_Standard_Book_Number
         
         *  http://www.isbn-international.org/
+        
+        
 Platform: UNKNOWN
-Classifier: Development Status :: 4 - Beta
-Classifier: Intended Audience :: Developers
-Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
-Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3
-Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
 Classifier: Topic :: Text Processing :: General
-
-
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
