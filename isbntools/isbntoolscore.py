@@ -279,5 +279,3 @@ def meta(isbn):
 def info(isbn):
     """ Language or country assigned to this ISBN """
     return infogroup(isbn)
-
-
