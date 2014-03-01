@@ -32,8 +32,9 @@ setup(
              'bin/isbntools','bin/isbn_stdin_validate',
              ],
     license='LGPL v3',
-    description='Extract, clean and transform ISBNs (International Standard Book Number).',
+    description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
+    keywords='ISBN, validate, transform, hyphenate, metadata',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',

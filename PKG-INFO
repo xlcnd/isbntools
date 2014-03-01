@@ -1,12 +1,12 @@
-Metadata-Version: 1.0
+Metadata-Version: 1.1
 Name: isbntools
-Version: 0.7.5
-Summary: Extract, clean and transform ISBNs (International Standard Book Number).
-Home-page: https://github.com/xlcnd/isbntools
+Version: 0.8.1
 Author: Alexandre Conde
-Author-email: alexandreconde@hotmail.com
+Author-email: alexandreconde at hotmail com
+Home-page: https://github.com/xlcnd/isbntools
+Download-url: https://github.com/xlcnd/isbntools/archive/master.zip
+Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 License: LGPL v3
-Download-URL: https://github.com/xlcnd/isbntools/archive/master.zip
 Description: 
         ==========
         ISBN tools
@@ -88,15 +88,16 @@ Description:
         
             #!/usr/bin/env python
             import sys
-            import httplib2
+            import urllib2
             from isbntools import *
         
             query = sys.argv[1].replace(' ', '+')
             SEARCH_URL = "http://www.google.com/search?q=%s+ISBN" % query
         
             headers = {'User-Agent': 'w3m/0.5.2'}
-            http = httplib2.Http()
-            resp, content = http.request(SEARCH_URL, headers=headers)
+            request = urllib2.Request(SEARCH_URL, headers=headers)
+            response = urllib2.urlopen(request)
+            content = response.read()
         
             isbns = get_isbnlike(content)
         
@@ -150,7 +151,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-0.7.5.tar.gz
+            $ pip install isbntools-0.8.1.tar.gz
         
         (first you have to download the file!)
         
@@ -170,14 +171,14 @@ Description:
         *  http://en.wikipedia.org/wiki/International_Standard_Book_Number
         
         *  http://www.isbn-international.org/
-        
-        
+Keywords: ISBN, validate, transform, hyphenate, metadata
 Platform: UNKNOWN
-Classifier: Programming Language :: Python
-Classifier: Programming Language :: Python :: 3
-Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
-Classifier: Operating System :: OS Independent
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Developers
-Classifier: Topic :: Text Processing :: General
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: General
+
