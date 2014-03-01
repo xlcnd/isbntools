@@ -7,7 +7,8 @@ Info
 ====
 
 ``isbntools`` provides several useful methods and functions
-to validate, clean and transform ISBN strings.
+to validate, clean, transform, hyphenate and 
+get metadata for ISBN strings.
 
 Typical usage (as library):
 
