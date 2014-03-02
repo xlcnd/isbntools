@@ -271,9 +271,9 @@ def mask(isbn):
     return
 
 
-def meta(isbn):
+def meta(isbn, service='wcat'):
     """ metadata from wcat.org"""
-    return query(isbn)
+    return query(isbn, service)
 
 
 def info(isbn):
