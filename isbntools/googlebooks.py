@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 
-import urllib2
 import re
 import sys
 import json
@@ -20,7 +19,7 @@ PATT_YEAR = re.compile(r'\d{4}')
 class GOOBQuery(object):
     """
     Queries the Google Books (JSON API v1) for metadata
-    """ 
+    """
 
     def __init__(self, isbn):
         """
