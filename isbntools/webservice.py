@@ -10,7 +10,7 @@ UA = 'webservice (gzip)'
 
 class WEBQuery(object):
     """
-    Base class to query web services
+    Class to query web services 
     """
 
     def __init__(self, url, user_agent=UA):
