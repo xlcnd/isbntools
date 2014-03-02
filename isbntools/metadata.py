@@ -19,7 +19,7 @@ SEARCH_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?method=getMetada
 PATT_YEAR = re.compile(r'\d{4}')
 
 
-class WCATQuery():
+class WCATQuery(object):
 
     def __init__(self, isbn):
         """
