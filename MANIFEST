@@ -13,9 +13,12 @@ bin/isbntools
 bin/to_isbn10
 bin/to_isbn13
 isbntools/__init__.py
+isbntools/googlebooks.py
 isbntools/infogroup.py
 isbntools/isbntoolscore.py
 isbntools/metadata.py
+isbntools/wcat.py
+isbntools/webservice.py
 isbntools/data/__init__.py
 isbntools/data/data4info.py
 isbntools/data/data4mask.py

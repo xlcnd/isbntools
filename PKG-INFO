@@ -1,12 +1,12 @@
-Metadata-Version: 1.1
+Metadata-Version: 1.0
 Name: isbntools
-Version: 0.8.1
-Author: Alexandre Conde
-Author-email: alexandreconde at hotmail com
-Home-page: https://github.com/xlcnd/isbntools
-Download-url: https://github.com/xlcnd/isbntools/archive/master.zip
+Version: 0.8.2
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
+Home-page: https://github.com/xlcnd/isbntools
+Author: Alexandre Conde
+Author-email: alexandreconde@hotmail.com
 License: LGPL v3
+Download-URL: https://github.com/xlcnd/isbntools/archive/master.zip
 Description: 
         ==========
         ISBN tools
@@ -151,7 +151,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-0.8.1.tar.gz
+            $ pip install isbntools-0.8.2.tar.gz
         
         (first you have to download the file!)
         
@@ -171,14 +171,15 @@ Description:
         *  http://en.wikipedia.org/wiki/International_Standard_Book_Number
         
         *  http://www.isbn-international.org/
-Keywords: ISBN, validate, transform, hyphenate, metadata
+        
+        
+Keywords: ISBN,validate,transform,hyphenate,metadata
 Platform: UNKNOWN
-Classifier: Development Status :: 4 - Beta
-Classifier: Intended Audience :: Developers
-Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
-Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3
-Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
 Classifier: Topic :: Text Processing :: General
-
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
