@@ -57,11 +57,7 @@ class WCATQuery(object):
         canonical['Publisher'] = records['publisher']
         canonical['Year'] = records['year']
         canonical['ISBN-13'] = self.isbn
-
-        if 'author' in records:
-            canonical['Authors'] = '[%s]' % records['author']
-        else:
-            canonical['Authors'] = []
+        canonical['Authors'] = '[%s]' % records.get('author', '')
         return canonical
 
 
