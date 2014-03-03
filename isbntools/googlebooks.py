@@ -55,19 +55,13 @@ class GOOBQuery(object):
         canonical = {}
         canonical['Title'] = records['title'].replace(' :', ':')
         canonical['Language'] = records['language']
-        if 'publisher' in records:
-            canonical['Publisher'] = records['publisher']
-        else:
-            canonical['Publisher'] = ''
+        canonical['Publisher'] = records.get('publisher', '')
         if 'publishedDate' in records and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
         else:
             canonical['Year'] = ''
         canonical['ISBN-13'] = self.isbn
-        if 'authors' in records:
-            canonical['Authors'] = repr(records['authors'])
-        else:
-            canonical['Authors'] = []
+        canonical['Authors'] = repr(records.get('authors', []))
         return canonical
 
 
