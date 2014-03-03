@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: isbntools
-Version: 0.8.2
+Version: 0.8.3
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
 Author: Alexandre Conde
@@ -16,7 +16,7 @@ Description:
         ====
         
         ``isbntools`` provides several useful methods and functions
-        to validate, clean, transform, hyphenate and 
+        to validate, clean, transform, hyphenate and
         get metadata for ISBN strings.
         
         Typical usage (as library):
@@ -151,7 +151,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-0.8.2.tar.gz
+            $ pip install isbntools-0.8.3.tar.gz
         
         (first you have to download the file!)
         
@@ -160,7 +160,8 @@ Description:
         ============
         
         1. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
-           (this is due to errors on the wcat.org service)
+           (this is due to errors on the worldcat.org service), in alternative you could
+           use the Google Books service (e.g. ``isbn_meta 9781107008267 goob``)
         
         
         ISBN
@@ -175,8 +176,7 @@ Description:
         
 Keywords: ISBN,validate,transform,hyphenate,metadata
 Platform: UNKNOWN
-Classifier: Programming Language :: Python
-Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2.7
 Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
 Classifier: Operating System :: OS Independent
 Classifier: Development Status :: 4 - Beta
