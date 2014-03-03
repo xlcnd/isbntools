@@ -70,14 +70,6 @@ def test_get_isbnlike():
 #     pass
 
 
-# def test_meta(isbn, key, service, prt='pprint'):
-#     pass
-
-
-# def test_info(isbn):
-#     pass
-
-
 def test_canonical():
     assert_equals(canonical('ISBN 9789720404427'), '9789720404427')
     assert_equals(canonical('ISBN-9780826497529'), '9780826497529')
@@ -99,7 +91,7 @@ def test_mask():
     assert_equals(mask('9500404427'), '950-04-0442-7')
     assert_equals(mask('9800101942'), '980-01-0194-2')
     assert_equals(mask('9813018399'), '981-3018-39-9')
-    assert_equals(mask('9786001191251'), '978-600-119-125-1')        
+    assert_equals(mask('9786001191251'), '978-600-119-125-1')
     assert_equals(mask('9780321534965'), '978-0-321-53496-5')
     assert_equals(mask('9781590593561'), '978-1-59059-356-1')
     assert_equals(mask('9789993075899'), '978-99930-75-89-9')
