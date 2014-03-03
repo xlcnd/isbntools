@@ -126,7 +126,7 @@ Have fun!
 Install
 =======
 
-From a command line enter:
+From the command line enter:
 
 .. code-block:: bash
 

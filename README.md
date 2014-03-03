@@ -128,6 +128,8 @@ Have fun!
 Install
 -------
 
+From the command line enter:
+
 ```bash
 
     $ pip install isbntools
