@@ -7,7 +7,7 @@ Info
 ====
 
 ``isbntools`` provides several useful methods and functions
-to validate, clean, transform, hyphenate and 
+to validate, clean, transform, hyphenate and
 get metadata for ISBN strings.
 
 Typical usage (as library):
@@ -151,7 +151,8 @@ Known Issues
 ============
 
 1. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
-   (this is due to errors on the worldcat.org service)
+   (this is due to errors on the worldcat.org service), in alternative you could
+   use the Google Books service (e.g. ``isbn_meta 9781849692342 goob``)
 
 
 ISBN

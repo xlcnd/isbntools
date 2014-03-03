@@ -9,7 +9,7 @@ FORMATR = 'ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n'
 
 
 def usage():
-    print('Usage: isbn_meta ISBN')
+    print('Usage: isbn_meta ISBN [wcat|goob]')
 
 def quiet_errors(exc_type, exc_value, traceback):
     sys.stderr.write('ERROR::%s\n' % exc_value)
@@ -19,7 +19,11 @@ if __name__ == "__main__":
     # error handling
     sys.excepthook = quiet_errors
     try:
-        r = meta(sys.argv[1])
+        if len(sys.argv) == 3:
+            service = sys.argv[2]
+        else:
+            service = 'wcat'
+        r = meta(sys.argv[1], service)
         sys.stdout.write(FORMATR % (r['ISBN-13'], r['Title'], r['Authors'],
                                     r['Publisher'], r['Year']))
     except:
