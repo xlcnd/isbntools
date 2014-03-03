@@ -3,5 +3,6 @@ v0.7.3, 2014-02-27 -- Insert the missing `isbn_stdin_validate`.
 v0.7.4, 2014-02-28 -- All methods and scripts work with identifier `979`.
 v0.7.5, 2014-03-01 -- Fix small errors and a small example on how to use the library.
 v0.8.1, 2014-03-02 -- Uses urllib2 instead of httplib2.
-v0.8.2, 2014-03-03 -- Refactor `meta` and add Google Books API. 
-v0.8.3, 2014-03-03 -- Performance and stability. 
+v0.8.2, 2014-03-03 -- Refactor `meta` and add Google Books API.
+v0.8.3, 2014-03-03 -- Performance and stability.
+v0.8.4, 2014-03-04 -- Performance and stability 2.
