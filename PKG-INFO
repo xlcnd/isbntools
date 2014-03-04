@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: isbntools
-Version: 0.8.3
+Version: 0.8.4
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
 Author: Alexandre Conde
@@ -67,9 +67,9 @@ Description:
         
         .. code-block:: bash
         
-            $ isbn_stdin_validate
+            $ ... | isbn_stdin_validate
         
-        to use with *posix pipes* (e.g. ``cat ISBNs | isbn_stdin_validate``).
+        to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_stdin_validate``).
         
         .. code-block:: bash
         
@@ -135,7 +135,7 @@ Description:
         Install
         =======
         
-        From a command line enter:
+        From the command line enter:
         
         .. code-block:: bash
         
@@ -151,9 +151,10 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-0.8.3.tar.gz
+            $ pip install isbntools-0.8.4.tar.gz
         
-        (first you have to download the file!)
+        (first you have to download the file and in some cases you have to preced the
+        command by ``sudo``!)
         
         
         Known Issues
