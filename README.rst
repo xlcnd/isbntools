@@ -58,9 +58,9 @@ validates ISBN10 and ISBN13.
 
 .. code-block:: bash
 
-    $ isbn_stdin_validate
+    $ ... | isbn_stdin_validate
 
-to use with *posix pipes* (e.g. ``cat ISBNs | isbn_stdin_validate``).
+to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_stdin_validate``).
 
 .. code-block:: bash
 
