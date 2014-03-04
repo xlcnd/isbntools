@@ -8,20 +8,21 @@ from ..data.data4tests import ISBNs
 
 
 # nose tests
+
 # def test__check_digit10(firstninedigits):
 #     pass
 
 
 # def test__check_digit13(firsttwelvedigits):
-#     pass
+#     return
 
 
 # def test__check_structure10(isbn10like):
-#     pass
+#     return
 
 
 # def test__check_structure13(isbn13like):
-#     pass
+#     return
 
 
 def test_is_isbn10():
@@ -45,8 +46,10 @@ def test_to_isbn13():
     assert_equals(to_isbn13('0826497520'), '9780826497529')  # ISBN10 not valid
 
 
-# def test_clean(isbnlike):
-#     pass
+def test_clean():
+    assert_equals(clean(' 978.0826.497529'), '9780826497529')
+    assert_equals(clean('ISBN: 9791090636071'), 'ISBN 9791090636071')
+    assert_equals(clean('978,0826497520'), '9780826497520')
 
 
 # def test_notisbn(isbnlike, level='strict'):
