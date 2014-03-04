@@ -146,7 +146,8 @@ or:
 
     $ pip install isbntools-0.8.4.zip
 ```
-(first you have to download the file!)
+(first you have to download the file and in some cases you have to preced the
+command by `sudo`!)
 
 
 Known Issues
