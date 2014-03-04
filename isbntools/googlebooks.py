@@ -2,18 +2,14 @@
 # -*- coding: utf-8 -*-
 
 
-import re
-import sys
 import json
 import webservice
 
 
 UA = 'isbntools (gzip)'
-SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+%s'\
-              '&fields=items/volumeInfo(title,authors,publisher,publishedDate,language)'
-OUT_OF_SERVICE = 'Temporarily out of service'
-BOOK_NOT_FOUND = 'No results match your search'
-PATT_YEAR = re.compile(r'\d{4}')
+SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+%s&fields='\
+    'items/volumeInfo(title,authors,publisher,publishedDate,language)'
+OUT_OF_SERVICE = 'out of service'
 
 
 class GOOBQuery(object):
@@ -28,7 +24,7 @@ class GOOBQuery(object):
         self.isbn = isbn
         data = webservice.query(SERVICE_URL % isbn, UA)
 
-        if BOOK_NOT_FOUND in data:
+        if data == '{}':
             raise Exception('Book not found! Check the isbn...%s' % isbn)
         if OUT_OF_SERVICE in data:
             raise Exception('Temporarily out of service. Try later!')
@@ -71,9 +67,3 @@ def query(isbn):
     """
     query = GOOBQuery(isbn)
     return query.records()
-
-
-if __name__ == "__main__":
-    r = query(sys.argv[1].replace('-', ''))
-    sys.stdout.write('ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n' %
-          (r['ISBN-13'], r['Title'], r['Authors'], r['Publisher'], r['Year']))

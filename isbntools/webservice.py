@@ -17,6 +17,7 @@ class WEBQuery(object):
         """
         Constructor
         """
+        # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}
         request = urllib2.Request(url, headers=headers)
         try:
