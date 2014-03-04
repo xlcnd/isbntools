@@ -23,13 +23,11 @@
 Tools for extracting, cleaning, transforming and validating ISBN ids.
 """
 
-
 import re
 import logging
 from .data.data4mask import ranges
 from .metadata import query
 from .infogroup import infogroup
-
 
 
 RE_ISBN10 = r'ISBN\x20(?=.{13}$)\d{1,5}([- ])\d{1,7}\1\d{1,6}\1(\d|X)$|[- 0-9X]{10,16}'
@@ -160,7 +158,13 @@ def clean(isbnlike):
 
 
 def notisbn(isbnlike, level='strict'):
-    """ Multiple checks with the goal to invalidate isbn-like """
+    """ Multiple checks with the goal to invalidate isbn-like
+
+    These values are possible for `level`:
+       * `strict` for certain they are not ISBNs (default)
+       * `loose`  only filters obvious NO ISBNs
+
+    """
     isbnlike = canonical(isbnlike)
     if len(isbnlike) not in [10, 13]:
         return True
@@ -180,7 +184,7 @@ def notisbn(isbnlike, level='strict'):
 def get_isbnlike(text, level='normal'):
     """ Extracts all substrings that seem like ISBNs
 
-    Three levels are possible:
+    Three values are possible for `level`:
        * `strict` almost as certain they are ISBNs
        * `normal` (default)
        * `loose`  catch many as possible
@@ -201,6 +205,12 @@ def get_isbnlike(text, level='normal'):
 def get_canonical_isbn(isbnlike, output='bouth'):
     """ Checks for ISBN-10 or ISBN-13 format
         and returns a ISBN in `canonical` form
+
+    'output` can be:
+       * `isbn-10`
+       * `isbn-13`
+       * `bouth` (default)
+
     """
     regex = re.compile(RE_STRICT)
 
@@ -271,8 +281,8 @@ def mask(isbn):
     return
 
 
-def meta(isbn, service='wcat'):
-    """ metadata from wcat.org"""
+def meta(isbn, service='default'):
+    """ Metadata from worldcat.org ('wcat'), Google Books ('goob') , ..."""
     return query(isbn, service)
 
 
