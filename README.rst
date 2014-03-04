@@ -142,7 +142,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-0.8.4.tar.gz
+    $ pip install isbntools-1.0.0.tar.gz
 
 (first you have to download the file and in some cases you have to preced the
 command by ``sudo``!)
