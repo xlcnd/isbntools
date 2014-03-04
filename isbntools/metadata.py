@@ -16,5 +16,4 @@ def query(isbn, service='wcat'):
     else:
         print(('Error:%s is not a recognized service!' % service))
         return
-    if canonical:
-        return canonical
+    return canonical
