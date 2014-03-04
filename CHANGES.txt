@@ -6,3 +6,4 @@ v0.8.1, 2014-03-02 -- Uses urllib2 instead of httplib2.
 v0.8.2, 2014-03-03 -- Refactor `meta` and add Google Books API.
 v0.8.3, 2014-03-03 -- Performance and stability.
 v0.8.4, 2014-03-04 -- Performance and stability 2.
+v1.0.0, 2014-03-05 -- Stable version.

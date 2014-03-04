@@ -144,7 +144,7 @@ or:
 
 ```bash
 
-    $ pip install isbntools-0.8.4.zip
+    $ pip install isbntools-1.0.0.zip
 ```
 (first you have to download the file and in some cases you have to preced the
 command by `sudo`!)
