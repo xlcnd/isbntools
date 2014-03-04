@@ -39,7 +39,7 @@ setup(
         'Programming Language :: Python :: 2.7',
         'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
         'Operating System :: OS Independent',
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Topic :: Text Processing :: General',
         'Topic :: Software Development :: Libraries :: Python Modules',
