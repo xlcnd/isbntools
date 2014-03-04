@@ -156,7 +156,7 @@ def clean(isbnlike):
     """ Clean isbn (only legal characters) """
     cisbn = [c for c in isbnlike if c in LEGAL]
     buf = re.sub('\s*-\s*', '-', ''.join(cisbn))
-    return re.sub('\s+', ' ', buf)
+    return re.sub('\s+', ' ', buf).strip()
 
 
 def notisbn(isbnlike, level='strict'):
