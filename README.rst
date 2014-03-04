@@ -64,16 +64,23 @@ to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_stdin_validate``).
 
 .. code-block:: bash
 
+    $ isbn_stdin_validate "words from title and author name"
+
+a *fuzzy* script that returns the *most probable* ISBN from a set of words! 
+You could verify the result with ``isbn_meta``.
+
+.. code-block:: bash
+
     $ isbntools
 
 writes version and copyright notice.
 
-Many more scripts could be written with the `isbntools` library,
+Many more scripts could be written with the ``isbntools`` library,
 using the methods for extraction, cleaning, validation and standardization of ISBNs.
 
 Just for fun, suppose I want the *most spoken about* book with certain words in his title.
 For a *quick-and-dirty solution*, enter the following code in a file
-and save it as `isbn_tmsa_book.py`.
+and save it as ``isbn_tmsa_book.py``.
 
 .. code-block:: python
 

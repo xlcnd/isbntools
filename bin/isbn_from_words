@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+import sys
+import urllib2
+from isbntools import get_isbnlike, get_canonical_isbn
+
+
+def quiet_errors(exc_type, exc_value, traceback):
+    sys.stderr.write('CRITICAL::%s\n' % exc_value)
+
+
+if __name__ == "__main__":
+    sys.excepthook = quiet_errors
+
+    if len(sys.argv) != 2:
+        print(("Usage: %s 'AUTHOR TITLE'" % sys.argv[0]))
+        sys.exit(1)
+
+    query = sys.argv[1].replace(' ', '+')
+    SEARCH_URL = "http://www.google.com/search?q=%s+ISBN" % query
+
+    headers = {'User-Agent': 'w3m/0.5.2'}
+    request = urllib2.Request(SEARCH_URL, headers=headers)
+    response = urllib2.urlopen(request)
+    content = response.read()
+
+    isbns = get_isbnlike(content)
+
+    for item in isbns:
+        ib = get_canonical_isbn(item, output='ISBN-13')
+        if ib: break
+    print(ib)
