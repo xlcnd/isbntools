@@ -21,9 +21,6 @@
     :alt: Built Status
 
 
-==========
-ISBN tools
-==========
 
 Info
 ====
