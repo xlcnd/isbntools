@@ -3,7 +3,7 @@
 [![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v1.0.1)](https://travis-ci.org/xlcnd/isbntools)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v1.0.2)](https://travis-ci.org/xlcnd/isbntools)
 
 
 ISBN tools
@@ -158,7 +158,7 @@ or:
 
 ```bash
 
-    $ pip install isbntools-1.0.1.zip
+    $ pip install isbntools-1.0.2.zip
 ```
 (first you have to download the file and in some cases you have to preced the
 command by `sudo`!)
@@ -169,7 +169,7 @@ Known Issues
 
 1. The `meta` method and the `isbn_meta` script sometimes give a wrong result
    (this is due to errors on the worldcat.org service), in alternative you could
-   use the Google Books service (e.g. `isbn_meta 9781.0.108267 goob`)
+   use the Google Books service (e.g. `isbn_meta 9781.0.208267 goob`)
 
 
 ISBN
