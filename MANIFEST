@@ -3,6 +3,7 @@ CHANGES.txt
 LICENSE-LGPL.txt
 README.md
 README.rst
+requirements.txt
 setup.py
 bin/isbn_from_words
 bin/isbn_info
