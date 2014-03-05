@@ -24,7 +24,11 @@ Description:
         .. image:: https://pypip.in/license/isbntools/badge.png
             :target: https://pypi.python.org/pypi/isbntools/
             :alt: License
-         
+        
+        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v1.0.1   
+            :target: https://travis-ci.org/xlcnd/isbntools
+            :alt: Built Status
+        
         
         ==========
         ISBN tools
