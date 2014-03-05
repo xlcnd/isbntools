@@ -2,17 +2,16 @@
 # -*- coding: utf-8 -*-
 
 
-import re
 import json
 import webservice
 
 
 UA = 'isbntools (gzip)'
+# TODO use format=python?
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
     'method=getMetadata&format=json&fl=*'
 OUT_OF_SERVICE = 'Temporarily out of service'
 BOOK_NOT_FOUND = 'No results match your search'
-PATT_YEAR = re.compile(r'\d{4}')
 
 
 class WCATQuery(object):
