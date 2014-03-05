@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import urllib
 import urllib2
 import gzip
 from StringIO import StringIO
@@ -13,13 +14,18 @@ class WEBQuery(object):
     Class to query web services
     """
 
-    def __init__(self, url, user_agent=UA):
+    def __init__(self, url, user_agent=UA, values=None):
         """
         Constructor
         """
         # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}
-        request = urllib2.Request(url, headers=headers)
+        # if 'data' does a PUT request (data must be urlencoded)
+        if values:
+            data = urllib.urlencode(values)
+        else:
+            data = None
+        request = urllib2.Request(url, data, headers=headers)
         try:
             self.response = urllib2.urlopen(request)
         except urllib2.HTTPError as e:
