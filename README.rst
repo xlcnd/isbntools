@@ -160,7 +160,9 @@ Have fun!
 Install
 =======
 
-From the command line enter:
+From the command line enter (in some cases you have to preced the
+command by ``sudo``):
+
 
 .. code-block:: bash
 
@@ -178,8 +180,7 @@ or:
 
     $ pip install isbntools-1.0.2.tar.gz
 
-(first you have to download the file and in some cases you have to preced the
-command by ``sudo``!)
+(first you have to download the file!)
 
 
 Known Issues
