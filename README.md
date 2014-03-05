@@ -73,7 +73,7 @@ to use with *posix pipes* (e.g. `cat FILE_WITH_ISBNs | isbn_stdin_validate`).
     $ isbn_from_words "words from title and author name"
 ```
 a *fuzzy* script that returns the *most probable* ISBN from a set of words.
-You could verify the result with `isbn_meta`!
+(You can verify the result with `isbn_meta`)!
 
 ```bash
 
