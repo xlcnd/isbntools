@@ -24,7 +24,8 @@ if __name__ == "__main__":
         else:
             service = 'wcat'
         r = meta(sys.argv[1], service)
-        sys.stdout.write(FORMATR % (r['ISBN-13'], r['Title'], r['Authors'],
+        sys.stdout.write(FORMATR % (r['ISBN-13'], r['Title'], 
+                                    r['Authors'].replace('.', ''),
                                     r['Publisher'], r['Year']))
     except:
         usage
