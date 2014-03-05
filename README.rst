@@ -48,7 +48,7 @@ gives you the *group identifier* of the ISBN.
 
     $ isbn_meta ISBN
 
-gives you the main metadata associated with the ISBN (uses wcat.org).
+gives you the main metadata associated with the ISBN (uses worldcat.org).
 
 .. code-block:: bash
 
