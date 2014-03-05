@@ -5,6 +5,7 @@ README.md
 README.rst
 requirements.txt
 setup.py
+bin/isbn_editions
 bin/isbn_from_words
 bin/isbn_info
 bin/isbn_mask
