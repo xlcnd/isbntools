@@ -46,9 +46,9 @@ class WEBQuery(object):
         return data
 
 
-def query(url, user_agent=UA):
+def query(url, user_agent=UA, values=None):
         """
         Query to a web service
         """
-        service = WEBQuery(url, user_agent=UA)
+        service = WEBQuery(url, user_agent, values)
         return service.data()

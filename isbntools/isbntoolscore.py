@@ -28,6 +28,7 @@ import logging
 from .data.data4mask import ranges
 from .metadata import query
 from .infogroup import infogroup
+from .wcated import query as qed
 
 
 RE_ISBN10 = r'ISBN\x20(?=.{13}$)\d{1,5}([- ])\d{1,7}\1\d{1,6}\1(\d|X)$|[- 0-9X]{10,16}'
@@ -289,3 +290,8 @@ def meta(isbn, service='default'):
 def info(isbn):
     """ Language or country assigned to this ISBN """
     return infogroup(isbn)
+
+
+def editions(isbn):
+    """ Returns the list of ISBNs of editions related with this ISBN """
+    return qed(isbn)
