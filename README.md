@@ -5,6 +5,15 @@ ISBN tools
 Info
 ----
 
+[![Downloads](https://pypip.in/d/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+
+[![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+
+[![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+
+[![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+
+
 `isbntools` provides several useful methods and functions
 to validate, clean, transform, hyphenate and
 get metadata for ISBN strings.
