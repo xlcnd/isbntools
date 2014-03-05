@@ -4,6 +4,7 @@ LICENSE-LGPL.txt
 README.md
 README.rst
 setup.py
+bin/isbn_from_words
 bin/isbn_info
 bin/isbn_mask
 bin/isbn_meta
@@ -17,6 +18,7 @@ isbntools/googlebooks.py
 isbntools/infogroup.py
 isbntools/isbntoolscore.py
 isbntools/metadata.py
+isbntools/regestry.py
 isbntools/wcat.py
 isbntools/webservice.py
 isbntools/data/__init__.py
