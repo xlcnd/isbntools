@@ -3,6 +3,7 @@
 [![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v1.0.1)](https://travis-ci.org/xlcnd/isbntools)
 
 
 ISBN tools

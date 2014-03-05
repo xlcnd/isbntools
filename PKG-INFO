@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: isbntools
-Version: 0.8.4
+Version: 1.0.1
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
 Author: Alexandre Conde
@@ -8,6 +8,24 @@ Author-email: alexandreconde@hotmail.com
 License: LGPL v3
 Download-URL: https://github.com/xlcnd/isbntools/archive/master.zip
 Description: 
+        
+        .. image:: https://pypip.in/d/isbntools/badge.png
+            :target: https://pypi.python.org/pypi/isbntools/
+            :alt: Downloads
+        
+        .. image:: https://pypip.in/v/isbntools/badge.png
+            :target: https://pypi.python.org/pypi/isbntools/
+            :alt: Latest Version
+        
+        .. image:: https://pypip.in/format/isbntools/badge.png
+            :target: https://pypi.python.org/pypi/isbntools/
+            :alt: Download format
+        
+        .. image:: https://pypip.in/license/isbntools/badge.png
+            :target: https://pypi.python.org/pypi/isbntools/
+            :alt: License
+         
+        
         ==========
         ISBN tools
         ==========
@@ -57,7 +75,7 @@ Description:
         
             $ isbn_meta ISBN
         
-        gives you the main metadata associated with the ISBN (uses wcat.org).
+        gives you the main metadata associated with the ISBN (uses worldcat.org).
         
         .. code-block:: bash
         
@@ -73,16 +91,23 @@ Description:
         
         .. code-block:: bash
         
+            $ isbn_from_words "words from title and author name"
+        
+        a *fuzzy* script that returns the *most probable* ISBN from a set of words! 
+        You could verify the result with ``isbn_meta``.
+        
+        .. code-block:: bash
+        
             $ isbntools
         
         writes version and copyright notice.
         
-        Many more scripts could be written with the `isbntools` library,
+        Many more scripts could be written with the ``isbntools`` library,
         using the methods for extraction, cleaning, validation and standardization of ISBNs.
         
         Just for fun, suppose I want the *most spoken about* book with certain words in his title.
         For a *quick-and-dirty solution*, enter the following code in a file
-        and save it as `isbn_tmsa_book.py`.
+        and save it as ``isbn_tmsa_book.py``.
         
         .. code-block:: python
         
@@ -151,7 +176,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-0.8.4.tar.gz
+            $ pip install isbntools-1.0.1.tar.gz
         
         (first you have to download the file and in some cases you have to preced the
         command by ``sudo``!)
@@ -162,7 +187,7 @@ Description:
         
         1. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
            (this is due to errors on the worldcat.org service), in alternative you could
-           use the Google Books service (e.g. ``isbn_meta 9781107008267 goob``)
+           use the Google Books service (e.g. ``isbn_meta 9781.0.108267 goob``)
         
         
         ISBN
@@ -180,7 +205,7 @@ Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 2.7
 Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
 Classifier: Operating System :: OS Independent
-Classifier: Development Status :: 4 - Beta
+Classifier: Development Status :: 5 - Production/Stable
 Classifier: Intended Audience :: Developers
 Classifier: Topic :: Text Processing :: General
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
