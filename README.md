@@ -6,8 +6,6 @@
 [![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v1.0.2)](https://travis-ci.org/xlcnd/isbntools)
 
 
-ISBN tools
-==========
 
 Info
 ----
@@ -55,7 +53,8 @@ gives you the *group identifier* of the ISBN.
 
     $ isbn_meta ISBN
 ```
-gives you the main metadata associated with the ISBN (uses worldcat.org).
+gives you the main metadata associated with the ISBN (uses worldcat.org), to
+use the Google Books service enter `isbn_meta ISBN goob`.
 
 ```bash
 
@@ -169,7 +168,7 @@ Known Issues
 
 1. The `meta` method and the `isbn_meta` script sometimes give a wrong result
    (this is due to errors on the worldcat.org service), in alternative you could
-   use the Google Books service (e.g. `isbn_meta 9781.0.208267 goob`)
+   use the Google Books service (e.g. `isbn_meta 9780143105985 goob`).
 
 
 ISBN

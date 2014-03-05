@@ -16,7 +16,7 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v1.0.2   
+.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v1.0.2
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
@@ -67,7 +67,8 @@ gives you the *group identifier* of the ISBN.
 
     $ isbn_meta ISBN
 
-gives you the main metadata associated with the ISBN (uses worldcat.org).
+gives you the main metadata associated with the ISBN (uses worldcat.org), to
+use the Google Books service enter ``isbn_meta ISBN goob``.
 
 .. code-block:: bash
 
@@ -85,7 +86,7 @@ to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_stdin_validate``).
 
     $ isbn_from_words "words from title and author name"
 
-a *fuzzy* script that returns the *most probable* ISBN from a set of words! 
+a *fuzzy* script that returns the *most probable* ISBN from a set of words!
 You could verify the result with ``isbn_meta``.
 
 .. code-block:: bash
@@ -179,7 +180,7 @@ Known Issues
 
 1. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
    (this is due to errors on the worldcat.org service), in alternative you could
-   use the Google Books service (e.g. ``isbn_meta 9781.0.208267 goob``)
+   use the Google Books service (e.g. ``isbn_meta 9780143105985 goob``).
 
 
 ISBN
