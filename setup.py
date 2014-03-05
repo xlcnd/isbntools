@@ -30,7 +30,7 @@ setup(
     scripts=['bin/isbn_validate','bin/to_isbn10','bin/to_isbn13',
              'bin/isbn_mask','bin/isbn_info','bin/isbn_meta',
              'bin/isbntools','bin/isbn_stdin_validate',
-             'bin/isbn_from_words',
+             'bin/isbn_from_words','bin/isbn_editions',
              ],
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',

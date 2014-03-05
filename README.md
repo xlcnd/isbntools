@@ -58,6 +58,13 @@ use the Google Books service enter `isbn_meta ISBN goob`.
 
 ```bash
 
+    $ isbn_editions ISBN
+```
+gives you the ISBNs of other editions of the given ISBN (uses worldcat.org)
+[collection of ISBNs that represent a given book].
+
+```bash
+
     $ isbn_validate ISBN
 ```
 validates ISBN10 and ISBN13.
