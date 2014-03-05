@@ -1,18 +1,15 @@
 
+[![Downloads](https://pypip.in/d/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+[![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+[![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+[![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+
+
 ISBN tools
 ==========
 
 Info
 ----
-
-[![Downloads](https://pypip.in/d/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-
-[![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-
-[![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-
-[![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-
 
 `isbntools` provides several useful methods and functions
 to validate, clean, transform, hyphenate and
@@ -73,7 +70,7 @@ to use with *posix pipes* (e.g. `cat FILE_WITH_ISBNs | isbn_stdin_validate`).
 
 ```bash
 
-    $ isbn_stdin_validate "words from title and author name"
+    $ isbn_from_words "words from title and author name"
 ```
 a *fuzzy* script that returns the *most probable* ISBN from a set of words.
 You could verify the result with `isbn_meta`!

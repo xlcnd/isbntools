@@ -1,10 +1,4 @@
 
-==========
-ISBN tools
-==========
-
-Info
-====
 
 .. image:: https://pypip.in/d/isbntools/badge.png
     :target: https://pypi.python.org/pypi/isbntools/
@@ -22,6 +16,13 @@ Info
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
  
+
+==========
+ISBN tools
+==========
+
+Info
+====
 
 ``isbntools`` provides several useful methods and functions
 to validate, clean, transform, hyphenate and
@@ -81,7 +82,7 @@ to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_stdin_validate``).
 
 .. code-block:: bash
 
-    $ isbn_stdin_validate "words from title and author name"
+    $ isbn_from_words "words from title and author name"
 
 a *fuzzy* script that returns the *most probable* ISBN from a set of words! 
 You could verify the result with ``isbn_meta``.
