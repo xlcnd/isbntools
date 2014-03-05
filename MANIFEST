@@ -21,6 +21,7 @@ isbntools/isbntoolscore.py
 isbntools/metadata.py
 isbntools/regestry.py
 isbntools/wcat.py
+isbntools/wcated.py
 isbntools/webservice.py
 isbntools/data/__init__.py
 isbntools/data/data4info.py

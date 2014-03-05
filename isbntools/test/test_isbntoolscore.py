@@ -3,7 +3,10 @@
 
 
 from nose.tools import assert_equals, assert_raises
-from ..isbntoolscore import _check_digit10, _check_digit13, _check_structure10, _check_structure13, is_isbn10, is_isbn13, to_isbn10, to_isbn13, canonical, clean, notisbn, get_isbnlike, get_canonical_isbn, mask
+from ..isbntoolscore import _check_digit10, _check_digit13, _check_structure10,\
+    _check_structure13, is_isbn10, is_isbn13, to_isbn10, to_isbn13, \
+    canonical, clean, notisbn, get_isbnlike, get_canonical_isbn, \
+    mask, editions
 from ..data.data4tests import ISBNs
 
 
@@ -72,7 +75,6 @@ def test_get_isbnlike():
     assert_equals(len(get_isbnlike(ISBNs, 'strict')), 69)
     assert_equals(len(get_isbnlike(ISBNs, 'loose')), 81)
     assert_equals(get_isbnlike(ISBNs, 'e'), None)
-    # assert_raises(TypeError, len(get_isbnlike(ISBNs, 'e')))
 
 
 # def test_isbn_stdin_validate():
@@ -122,3 +124,9 @@ def test_mask():
     assert_equals(mask('0-330284983'), '0-330-28498-3')
     assert_equals(mask('9791090636071'), '979-10-90636-07-1')
     assert_equals(mask(''), None)
+
+
+def test_editions():
+    assert_equals(len(editions('9780156001311')), 19)
+    assert_equals(len(editions('9780151446476')), 19)
+    assert_raises(TypeError, len(editions('9780151446476')))
