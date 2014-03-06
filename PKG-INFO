@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: isbntools
-Version: 1.0.1
+Version: 1.0.2
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
 Author: Alexandre Conde
@@ -25,14 +25,11 @@ Description:
             :target: https://pypi.python.org/pypi/isbntools/
             :alt: License
         
-        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v1.0.1   
+        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v1.0.2
             :target: https://travis-ci.org/xlcnd/isbntools
             :alt: Built Status
         
         
-        ==========
-        ISBN tools
-        ==========
         
         Info
         ====
@@ -79,7 +76,15 @@ Description:
         
             $ isbn_meta ISBN
         
-        gives you the main metadata associated with the ISBN (uses worldcat.org).
+        gives you the main metadata associated with the ISBN (uses worldcat.org), to
+        use the Google Books service enter ``isbn_meta ISBN goob``.
+        
+        .. code-block:: bash
+        
+            $ isbn_editions ISBN
+        
+        gives you the ISBNs of other editions of the given ISBN (uses worldcat.org)
+        [collection of ISBNs that represent a given book].
         
         .. code-block:: bash
         
@@ -97,8 +102,8 @@ Description:
         
             $ isbn_from_words "words from title and author name"
         
-        a *fuzzy* script that returns the *most probable* ISBN from a set of words! 
-        You could verify the result with ``isbn_meta``.
+        a *fuzzy* script that returns the *most probable* ISBN from a set of words!
+        (You can verify the result with ``isbn_meta``)!
         
         .. code-block:: bash
         
@@ -164,7 +169,9 @@ Description:
         Install
         =======
         
-        From the command line enter:
+        From the command line enter (in some cases you have to preced the
+        command by ``sudo``):
+        
         
         .. code-block:: bash
         
@@ -180,10 +187,9 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-1.0.1.tar.gz
+            $ pip install isbntools-1.0.2.tar.gz
         
-        (first you have to download the file and in some cases you have to preced the
-        command by ``sudo``!)
+        (first you have to download the file!)
         
         
         Known Issues
@@ -191,7 +197,7 @@ Description:
         
         1. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
            (this is due to errors on the worldcat.org service), in alternative you could
-           use the Google Books service (e.g. ``isbn_meta 9781.0.108267 goob``)
+           use the Google Books service (e.g. ``isbn_meta 9780143105985 goob``).
         
         
         ISBN
