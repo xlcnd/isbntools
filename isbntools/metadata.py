@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from regestry import services
+from registry import services
 
 
 def query(isbn, service='default'):

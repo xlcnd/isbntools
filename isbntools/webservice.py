@@ -16,7 +16,7 @@ class WEBQuery(object):
 
     def __init__(self, url, user_agent=UA, values=None):
         """
-        Constructor (KISS without subclassing urllib2.BaseHandler!)
+        Initializer (KISS without subclassing urllib2.BaseHandler!)
         """
         # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}

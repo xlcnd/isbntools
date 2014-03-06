@@ -20,7 +20,7 @@ class WCATEdQuery(object):
 
     def __init__(self, isbn):
         """
-        Constructor
+        Initializer
         """
         self.isbn = isbn
         data = webservice.query(SERVICE_URL % isbn, UA)
