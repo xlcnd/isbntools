@@ -64,5 +64,5 @@ def query(isbn):
     """
     Command Line API to the class
     """
-    query = WCATQuery(isbn)
-    return query.records()
+    q = WCATQuery(isbn)
+    return q.records()
