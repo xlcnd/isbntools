@@ -66,5 +66,5 @@ def query(isbn):
     """
     Command Line API to the class
     """
-    query = GOOBQuery(isbn)
-    return query.records()
+    q = GOOBQuery(isbn)
+    return q.records()

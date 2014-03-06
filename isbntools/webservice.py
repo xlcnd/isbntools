@@ -20,7 +20,7 @@ class WEBQuery(object):
         """
         # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}
-        # if 'data' does a PUT request (data must be urlencoded)
+        # if 'data' it does a PUT request (data must be urlencoded)
         if values:
             data = urllib.urlencode(values)
         else:
