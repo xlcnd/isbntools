@@ -9,4 +9,4 @@ v0.8.4, 2014-03-04 -- Performance and stability 2.
 v1.0.0, 2014-03-05 -- Stable version.
 v1.0.1, 2014-03-05 -- Correcting an annoying typo!
 v1.0.2, 2014-03-06 -- A new `editions` method and script and a lot of small tweeks. 
-v1.0.3, 2014-03-07 -- ... 
+v1.0.3, 2014-03-07 -- Add isbndb as a provider and more documentation for devs. 
