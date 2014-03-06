@@ -20,7 +20,7 @@ isbntools/googlebooks.py
 isbntools/infogroup.py
 isbntools/isbntoolscore.py
 isbntools/metadata.py
-isbntools/regestry.py
+isbntools/registry.py
 isbntools/wcat.py
 isbntools/wcated.py
 isbntools/webservice.py
