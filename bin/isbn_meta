@@ -3,29 +3,30 @@
 
 import sys
 from isbntools import meta
+from isbntools import registry
 
 
 FORMATR = 'ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n'
 
 
-def usage():
-    print('Usage: isbn_meta ISBN [wcat|goob]')
-
-def quiet_errors(exc_type, exc_value, traceback):
-    sys.stderr.write('ERROR::%s\n' % exc_value)
+def usage(available="wcat|goob|isbndb|..."):
+    sys.stderr.write('Usage: isbn_meta ISBN [%s]\n  ...  or try with '
+                     'another service in list!\n' % available)
 
 
 if __name__ == "__main__":
-    # error handling
-    sys.excepthook = quiet_errors
+    providers = registry.services.keys()
+    providers.remove('default')
+    available = '|'.join(providers)
+    
     try:
         if len(sys.argv) == 3:
             service = sys.argv[2]
         else:
-            service = 'wcat'
+            service = 'default'
         r = meta(sys.argv[1], service)
         sys.stdout.write(FORMATR % (r['ISBN-13'], r['Title'], 
                                     r['Authors'].replace('.', ''),
                                     r['Publisher'], r['Year']))
     except:
-        usage
+        usage(available)

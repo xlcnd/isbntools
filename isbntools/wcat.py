@@ -7,16 +7,17 @@ import webservice
 
 
 UA = 'isbntools (gzip)'
-# TODO use format=python?
+
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
     'method=getMetadata&format=json&fl=*'
+
 OUT_OF_SERVICE = 'Temporarily out of service'
 BOOK_NOT_FOUND = 'No results match your search'
 
 
 class WCATQuery(object):
     """
-    Queries the Google Books (JSON API v1) for metadata
+    Queries the worldcat.org service for metadata
     """
 
     def __init__(self, isbn):
@@ -36,7 +37,7 @@ class WCATQuery(object):
         """
         Parse the data from the service (JSON -> py obj)
         """
-        data = json.loads(self.data)
+        data = json.loads(self.data)   # <-- data is now unicode
         if 'list' in data:
             return data['list'][0]
         else:
