@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+# To use the `isbndb.com` web service you should get an **API KEY** that you
+# should write in the file `keys.py`.
+
+# It is very easy to add *new* providers of metadata. Just write a file
+# following the pattern of `wcat.py`, `googlebooks.py`, ... in the `isbntools`
+# folder. Then you have to register it in the `registry.py`, and *thats all*!
+
+
 import re
 import json
 import webservice
