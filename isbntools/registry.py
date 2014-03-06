@@ -3,13 +3,16 @@
 
 import wcat
 import googlebooks
+import isbndb
+# <-- put your service here
 
 
 """
-Regestry for metadata services
+Registry for metadata services
 """
-services = {'default': wcat.query,
+services = {'default': wcat.query,   # <-- you have to define a default service
             'wcat': wcat.query,
+            'isbndb': isbndb.query,
             'goob': googlebooks.query,
-            'googlebooks': googlebooks.query
+            # <-- put your service here
             }

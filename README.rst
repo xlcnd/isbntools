@@ -183,12 +183,30 @@ or:
 (first you have to download the file!)
 
 
+For Devs
+========
+
+To use the ``isbndb.com`` web service you should get an **API KEY** that you
+should write in the file ``keys.py``.
+
+It is very easy to add *new* providers of metadata. Just write a file
+following the pattern of ``wcat.py``, ``googlebooks.py``, ... in the ``isbntools``
+folder. Then you have to register it in the ``registry.py``, and *thats all*!
+
+If you need high quality metadata in your app, the only solution is to use 
+*polling* of several providers (*in a next release I will provide a framework
+``databee`` to do this fast and easy*:)). 
+
+
 Known Issues
 ============
 
 1. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
    (this is due to errors on the worldcat.org service), in alternative you could
    use the Google Books service (e.g. ``isbn_meta 9780143105985 goob``).
+   
+2. The ``isbntools`` tries to work always with unicode, however this doesn't 
+   solve errors of lost information due to bad encode/decode at the origin!
 
 
 ISBN

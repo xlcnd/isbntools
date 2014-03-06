@@ -7,8 +7,10 @@ from ast import literal_eval
 
 
 UA = 'isbntools (gzip)'
+
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
               'method=getEditions&format=python'
+
 OUT_OF_SERVICE = 'Temporarily out of service'
 BOOK_NOT_FOUND = 'No results match your search'
 
