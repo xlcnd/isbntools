@@ -9,7 +9,7 @@ from isbntools import registry
 FORMATR = 'ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n'
 
 
-def usage(available="wcat|goob|isbndb|..."):
+def usage(available="wcat|goob|..."):
     sys.stderr.write('Usage: isbn_meta ISBN [%s]\n  ...  or try with '
                      'another service in list!\n' % available)
 
