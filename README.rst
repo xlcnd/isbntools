@@ -74,8 +74,7 @@ use the Google Books service enter ``isbn_meta ISBN goob``.
 
     $ isbn_editions ISBN
 
-gives you the ISBNs of other editions of the given ISBN (uses worldcat.org)
-[collection of ISBNs that represent a given book].
+gives the collection of ISBNs that represent a given book (uses worldcat.org).
 
 .. code-block:: bash
 
@@ -193,8 +192,8 @@ If you need high quality metadata in your app, the only solution is to use
 For now, you can extended the lib by using the classes and functions exposed in
 ``isbntools.dev``, namely:
 
-* ``webservice`` a class that handles the access to web 
-  services (just by passing an url) and supports ``gzip``. 
+* ``webservice`` a class that handles the access to web
+  services (just by passing an url) and supports ``gzip``.
   You can subclass it to extend the functionality... it
   is used in the next classes.
 
@@ -205,7 +204,7 @@ For now, you can extended the lib by using the classes and functions exposed in
   using the ``worldcat.org xisbn service`` (you only have to provide an ISBN).
 
 * ``wcated`` a class that retrives and parses collections of ISBNs related
-  with a given book, using the worldcat.org xisbn service 
+  with a given book, using the worldcat.org xisbn service
   (you only have to provide an ISBN).
 
 * ``isbndb`` a class that retrives and parses book metadata,
