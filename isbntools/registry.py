@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from . import wcat
-from . import googlebooks
-# from . import isbndb               # <-- HERE
+from .dev import wcat
+from .dev import googlebooks
+# from .dev import isbndb               # <-- HERE
 
 """
 Registry for metadata services

@@ -12,8 +12,8 @@
 
 import re
 import json
-import webservice
-from keys import keys
+from . import webservice
+from .keys import keys
 
 UA = 'isbntools (gzip)'
 
