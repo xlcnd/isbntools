@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-import webservice
+from . import webservice
 from ast import literal_eval
 
 

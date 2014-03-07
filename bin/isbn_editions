@@ -18,6 +18,6 @@ if __name__ == "__main__":
     sys.excepthook = quiet_errors
     try:
         for ib in editions(sys.argv[1]):
-            print ib
+            print(ib)
     except:
         usage
