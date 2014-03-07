@@ -35,7 +35,7 @@ class WCATEdQuery(object):
 
     def _parse_data(self):
         """
-        Parse the data from the service (repr -> obj)
+        Parse the data from the service (REPR -> OBJ)
         """
         data = literal_eval(self.data)
         if 'list' in data:
@@ -53,7 +53,7 @@ class WCATEdQuery(object):
 
 def query(isbn):
     """
-    Command Line API to the class
+    Function API to the class
     """
     q = WCATEdQuery(isbn)
     return q.records()

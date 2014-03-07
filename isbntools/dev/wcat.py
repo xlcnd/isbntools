@@ -63,7 +63,7 @@ class WCATQuery(object):
 
 def query(isbn):
     """
-    Command Line API to the class
+    Function API to the class
     """
     q = WCATQuery(isbn)
     return q.records()
