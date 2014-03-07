@@ -28,7 +28,7 @@ import logging
 from .data.data4mask import ranges
 from .metadata import query
 from .infogroup import infogroup
-from .wcated import query as qed
+from .dev.wcated import query as qed
 
 
 RE_ISBN10 = r'ISBN\x20(?=.{13}$)\d{1,5}([- ])\d{1,7}\1\d{1,6}\1(\d|X)$|[- 0-9X]{10,16}'
