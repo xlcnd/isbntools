@@ -22,7 +22,7 @@ class WCATQuery(object):
 
     def __init__(self, isbn):
         """
-        Initializer
+        Initializer & call webservice & handle errors
         """
         self.isbn = isbn
         data = webservice.query(SERVICE_URL % isbn, UA)
@@ -35,7 +35,7 @@ class WCATQuery(object):
 
     def _parse_data(self):
         """
-        Parse the data from the service (JSON -> py obj)
+        Parse the data from JSON -> PY
         """
         data = json.loads(self.data)   # <-- data is now unicode
         if 'list' in data:

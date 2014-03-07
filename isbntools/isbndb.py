@@ -31,7 +31,7 @@ class ISBNDBQuery():
 
     def __init__(self, isbn):
         """
-        Initiator
+        Initializer & call webservice & handle errors
         """
         self.isbn = isbn
         data = webservice.query(SERVICE_URL % (keys['isbndb'], isbn), UA)
@@ -44,7 +44,7 @@ class ISBNDBQuery():
 
     def _parse_data(self):
         """
-        Classifies canonically the records from the parsed response
+        Parse the data from JSON -> PY
         """
         data = json.loads(self.data)  # <-- data is now unicode
         if 'data' in data:
