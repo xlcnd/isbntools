@@ -3,7 +3,7 @@
 
 
 import json
-import webservice
+from . import webservice
 
 
 UA = 'isbntools (gzip)'
