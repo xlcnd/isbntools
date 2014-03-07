@@ -187,8 +187,8 @@ For Devs
 ========
 
 If you need high quality metadata in your app, the only solution is to use
-*polling* of several providers (*soon I will provide a framework
-``databee`` to do this fast and easy*:)).
+*polling* of several providers (*soon* I will provide a framework
+``databee`` to do this fast and easy).
 
 
 Known Issues
