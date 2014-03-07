@@ -22,7 +22,7 @@ class WCATEdQuery(object):
 
     def __init__(self, isbn):
         """
-        Initializer
+        Initializer & call webservice & handle errors
         """
         self.isbn = isbn
         data = webservice.query(SERVICE_URL % isbn, UA)
