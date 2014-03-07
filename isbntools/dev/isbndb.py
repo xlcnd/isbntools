@@ -81,7 +81,7 @@ class ISBNDBQuery():
 
 def query(isbn):
     """
-    Command Line API to the class
+    Function API to the class
     """
     q = ISBNDBQuery(isbn)
     return q.records()
