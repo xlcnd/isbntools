@@ -190,6 +190,32 @@ If you need high quality metadata in your app, the only solution is to use
 *polling* of several providers (*soon* I will provide a framework
 ``databee`` to do this fast and easy).
 
+For now, you can extended the lib by using the classes and functions exposed in
+``isbntools.dev``, namely:
+
+* ``webservice`` a class that handles the access to web 
+  services (just by passing an url) and supports ``gzip``. 
+  You can subclass it to extend the functionality... it
+  is used in the next classes.
+
+* ``googlebooks`` a class that retrives and parses book metadata,
+  using Google Books API (you only have to provide an ISBN).
+
+* ``wcat`` a class that retrives and parses book metadata,
+  using the ``worldcat.org xisbn service`` (you only have to provide an ISBN).
+
+* ``wcated`` a class that retrives and parses collections of ISBNs related
+  with a given book, using the worldcat.org xisbn service 
+  (you only have to provide an ISBN).
+
+* ``isbndb`` a class that retrives and parses book metadata,
+  using the ``isbndb.org service`` (you only have to provide an ISBN and an
+  **API key**).
+
+All these classes follow a simple design pattern and, if you follow it, will be
+very easy to integrate your classes with the rest of the lib.
+
+
 
 Known Issues
 ============
