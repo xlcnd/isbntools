@@ -197,7 +197,7 @@ For now, you can extended the lib by using the classes and functions exposed in
   using the `worldcat.org xisbn service` (you only have to provide an ISBN).
 
 * `wcated` a class that retrives and parses collections of ISBNs related
-  with a given book, using the worldcat.org xisbn service
+  with a given book, using the `worldcat.org xisbn service`
   (you only have to provide an ISBN).
 
 * `isbndb` a class that retrives and parses book metadata,
