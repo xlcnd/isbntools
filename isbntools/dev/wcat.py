@@ -2,52 +2,37 @@
 # -*- coding: utf-8 -*-
 
 
-import json
 from . import webservice
+from .webquery import WEBQuery
 
 
 UA = 'isbntools (gzip)'
-
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
     'method=getMetadata&format=json&fl=*'
 
-OUT_OF_SERVICE = 'Temporarily out of service'
-BOOK_NOT_FOUND = 'No results match your search'
 
-
-class WCATQuery(object):
+class WCATQuery(WEBQuery):
     """
     Queries the worldcat.org service for metadata
     """
-
+    
     def __init__(self, isbn):
         """
-        Initializer & call webservice & handle errors
+        Initializer
         """
         self.isbn = isbn
-        data = webservice.query(SERVICE_URL % isbn, UA)
-
-        if BOOK_NOT_FOUND in data:
-            raise Exception('Book not found! Check the isbn...%s' % isbn)
-        if OUT_OF_SERVICE in data:
-            raise Exception('Temporarily out of service. Try later!')
-        self.data = data
-
-    def _parse_data(self):
-        """
-        Parse the data from JSON -> PY
-        """
-        data = json.loads(self.data)   # <-- data is now unicode
-        if 'list' in data:
-            return data['list'][0]
-        else:
-            raise Exception('Error:%s' % data['stat'])
+        WEBQuery.__init__(self, SERVICE_URL % isbn, UA)
 
     def records(self):
         """
-        Classifies canonically the records from the parsed response
+        Classifies (canonically) the parsed data
         """
-        records = self._parse_data()
+        WEBQuery.check_data(self)
+        data = WEBQuery.parse_data(self)
+        if 'list' in data:
+            records = data['list'][0]
+        else:
+            raise Exception('Error:%s' % data['stat']) 
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language

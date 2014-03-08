@@ -30,4 +30,5 @@ isbntools/dev/isbndb.py
 isbntools/dev/keys.py
 isbntools/dev/wcat.py
 isbntools/dev/wcated.py
+isbntools/dev/webquery.py
 isbntools/dev/webservice.py

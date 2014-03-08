@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 
-import json
 from . import webservice
+from .webquery import WEBQuery
 
 
 UA = 'isbntools (gzip)'
@@ -12,10 +12,8 @@ SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+%s&fields='\
     'items/volumeInfo(title,authors,publisher,publishedDate,language)'\
     '&maxResults=1'
 
-OUT_OF_SERVICE = 'out of service'
 
-
-class GOOBQuery(object):
+class GOOBQuery(WEBQuery):
     """
     Queries the Google Books (JSON API v1) for metadata
     """
@@ -25,29 +23,18 @@ class GOOBQuery(object):
         Initializer & call webservice & handle errors
         """
         self.isbn = isbn
-        data = webservice.query(SERVICE_URL % isbn, UA)
-
-        if data == '{}':
-            raise Exception('Book not found! Check the isbn...%s' % isbn)
-        if OUT_OF_SERVICE in data:
-            raise Exception('Temporarily out of service. Try later!')
-        self.data = data
-
-    def _parse_data(self):
-        """
-        Parse the data from JSON -> PY
-        """
-        data = json.loads(self.data)
-        if 'items' in data:
-            return data['items'][0]['volumeInfo']
-        else:
-            raise Exception('Error:no data for %s' % self.isbn)
+        WEBQuery.__init__(self, SERVICE_URL % isbn, UA)
 
     def records(self):
         """
-        Classifies canonically the records from the parsed response
+        Classifies (canonically) the parsed data
         """
-        records = self._parse_data()
+        WEBQuery.check_data(self)
+        data = WEBQuery.parse_data(self)
+        if 'items' in data:
+            records = data['items'][0]['volumeInfo']
+        else:
+            raise Exception('Error:no data for %s' % self.isbn)
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language

@@ -6,20 +6,16 @@
 # should write in the file `keys.py`.
 
 # It is very easy to add *new* providers of metadata. Just write a file
-# following the pattern of `wcat.py`, `googlebooks.py`, ... in the `isbntools`
+# following the pattern of `wcat.py`, `googlebooks.py`, ... in the `isbntools/dev`
 # folder. Then you have to register it in the `registry.py`, and *thats all*!
 
 
 import re
-import json
 from . import webservice
 from .keys import keys
 
 UA = 'isbntools (gzip)'
-
 SERVICE_URL = 'http://isbndb.com/api/v2/json/%s/book/%s'
-OUT_OF_SERVICE = 'Temporarily out of service'
-BOOK_NOT_FOUND = 'No results match your search'
 
 PATT_YEAR = re.compile(r'\d{4}')
 
@@ -34,30 +30,25 @@ class ISBNDBQuery():
         Initializer & call webservice & handle errors
         """
         self.isbn = isbn
-        data = webservice.query(SERVICE_URL % (keys['isbndb'], isbn), UA)
-
-        if BOOK_NOT_FOUND in data:
-            raise Exception('Book not found! Check the isbn...%s' % isbn)
-        if OUT_OF_SERVICE in data:
-            raise Exception('Temporarily out of service. Try later!')
-        self.data = data
+        WEBQuery.__init__(self, SERVICE_URL % isbn, UA)
 
     def _parse_data(self):
         """
         Parse the data from JSON -> PY
         """
         data = json.loads(self.data)  # <-- data is now unicode
-        if 'data' in data:
-            return data['data'][0]
-        else:
-            raise Exception('ERROR:%s' % data['error'])
 
     def records(self):
         """
-        Classifies canonically the records from the parsed response
+        Classifies (canonically) the parsed data
         """
-        records = self._parse_data()
-
+        WEBQuery.check_data(self)
+        data = WEBQuery.parse_data(self)
+        if 'data' in data:
+            records = data['data'][0]
+        else:
+            raise Exception('Error:%s' % data['error'])
+            
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         canonical = {}
@@ -75,7 +66,6 @@ class ISBNDBQuery():
 
         authors = [a['name'] for a in records['author_data']]
         canonical['Authors'] = repr(authors)
-
         return canonical
 
 
