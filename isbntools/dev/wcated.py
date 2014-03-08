@@ -2,20 +2,16 @@
 # -*- coding: utf-8 -*-
 
 
-from . import webservice
 from ast import literal_eval
-
+from . import webservice
+from .webquery import WEBQuery
 
 UA = 'isbntools (gzip)'
-
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
               'method=getEditions&format=python'
 
-OUT_OF_SERVICE = 'Temporarily out of service'
-BOOK_NOT_FOUND = 'No results match your search'
 
-
-class WCATEdQuery(object):
+class WCATEdQuery(WEBQuery):
     """
     Queries the worldcat.org service for related ISBNs
     """
@@ -25,29 +21,19 @@ class WCATEdQuery(object):
         Initializer & call webservice & handle errors
         """
         self.isbn = isbn
-        data = webservice.query(SERVICE_URL % isbn, UA)
-
-        if BOOK_NOT_FOUND in data:
-            raise Exception('Book not found! Check the isbn...%s' % isbn)
-        if OUT_OF_SERVICE in data:
-            raise Exception('Temporarily out of service. Try later!')
-        self.data = data
-
-    def _parse_data(self):
-        """
-        Parse the data from the service (REPR -> OBJ)
-        """
-        data = literal_eval(self.data)
-        if 'list' in data:
-            return [ib['isbn'][0] for ib in data['list']]
-        else:
-            raise Exception('Error:%s' % data['stat'])
+        WEBQuery.__init__(self, SERVICE_URL % isbn, UA)
 
     def records(self):
         """
         Returns the records from the parsed response
         """
-        records = self._parse_data()
+        WEBQuery.check_data(self)
+        data = WEBQuery.parse_data(self, parser=literal_eval)
+        
+        if 'list' in data:
+            records = [ib['isbn'][0] for ib in data['list']]
+        else:
+            raise Exception('Error:%s' % data['stat'])        
         return records
 
 
