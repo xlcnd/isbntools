@@ -14,7 +14,7 @@ BOOK_NOT_FOUND = 'No results match your search'
 
 class WEBQuery(object):
     """
-    Queries a webservice
+    Base class to query a webservice and parse the result to py objects
     """
 
     def __init__(self, service_url, ua=UA):
@@ -22,7 +22,7 @@ class WEBQuery(object):
         Initializer & call webservice
         """
         self.data = webservice.query(service_url, ua)
-        
+
     def check_data(self):
         """
         Checks the data & handle errors
@@ -39,6 +39,3 @@ class WEBQuery(object):
         Parse the data (default JSON -> PY)
         """
         return parser(self.data)   # <-- data is now unicode
-
-
-
