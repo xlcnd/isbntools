@@ -6,12 +6,13 @@
 # should write in the file `keys.py`.
 
 # It is very easy to add *new* providers of metadata. Just write a file
-# following the pattern of `wcat.py`, `googlebooks.py`, ... in the `isbntools/dev`
-# folder. Then you have to register it in the `registry.py`, and *thats all*!
+# following the pattern of `wcat.py`, `googlebooks.py`, ...
+# in the `isbntools/dev` folder. Then you have to register it in the
+# `registry.py`, and *thats all*!
 
 
 import re
-from . import webservice
+from .webquery import WEBQuery
 from .keys import keys
 
 UA = 'isbntools (gzip)'
@@ -30,13 +31,7 @@ class ISBNDBQuery():
         Initializer & call webservice & handle errors
         """
         self.isbn = isbn
-        WEBQuery.__init__(self, SERVICE_URL % isbn, UA)
-
-    def _parse_data(self):
-        """
-        Parse the data from JSON -> PY
-        """
-        data = json.loads(self.data)  # <-- data is now unicode
+        WEBQuery.__init__(self, SERVICE_URL % (keys['isbndb'], isbn), UA)
 
     def records(self):
         """
@@ -48,7 +43,7 @@ class ISBNDBQuery():
             records = data['data'][0]
         else:
             raise Exception('Error:%s' % data['error'])
-            
+
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         canonical = {}

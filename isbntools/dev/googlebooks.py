@@ -1,13 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-from . import webservice
 from .webquery import WEBQuery
 
-
 UA = 'isbntools (gzip)'
-
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+%s&fields='\
     'items/volumeInfo(title,authors,publisher,publishedDate,language)'\
     '&maxResults=1'
