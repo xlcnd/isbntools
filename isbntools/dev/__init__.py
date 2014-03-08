@@ -1,7 +1,8 @@
-__all__ = ['webservice', 'wcat', 'wcated', 'googlebooks', 'isbndb']
+__all__ = ['webservice', 'webquery', 'wcat', 'wcated', 'googlebooks', 'isbndb']
 
 
 from . import webservice
+from . import webquery
 from . import wcat
 from . import wcated
 from . import googlebooks

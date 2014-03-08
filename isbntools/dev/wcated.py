@@ -3,7 +3,6 @@
 
 
 from ast import literal_eval
-from . import webservice
 from .webquery import WEBQuery
 
 UA = 'isbntools (gzip)'
@@ -29,11 +28,11 @@ class WCATEdQuery(WEBQuery):
         """
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self, parser=literal_eval)
-        
+
         if 'list' in data:
             records = [ib['isbn'][0] for ib in data['list']]
         else:
-            raise Exception('Error:%s' % data['stat'])        
+            raise Exception('Error:%s' % data['stat'])
         return records
 
 
