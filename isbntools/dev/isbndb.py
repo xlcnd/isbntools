@@ -40,6 +40,7 @@ class ISBNDBQuery():
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
         if 'data' in data:
+            # put the selected data in records
             records = data['data'][0]
         else:
             raise Exception('Error:%s' % data['error'])

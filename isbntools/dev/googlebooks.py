@@ -28,6 +28,7 @@ class GOOBQuery(WEBQuery):
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
         if 'items' in data:
+            # put the selected data in records
             records = data['items'][0]['volumeInfo']
         else:
             raise Exception('Error:no data for %s' % self.isbn)

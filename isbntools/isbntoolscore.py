@@ -239,7 +239,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
             return to_isbn13(cisbn) if len(cisbn) == 10 else cisbn
 
 
-def mask(isbn):
+def mask(isbn, separator='-'):
     """ Transforms a canonical ISBN to a `masked` one
 
     `Mask` the ISBN, separating by identifier
@@ -276,7 +276,7 @@ def mask(isbn):
         if isbn10:
             group = group[4:]
             check = check10
-        return '-'.join([group, ib[cur + 1:cur + idx + 1],
+        return separator.join([group, ib[cur + 1:cur + idx + 1],
                          ib[cur + idx + 1:-1], check])
     logging.warning('identifier not found! Please, update the program.')
     return

@@ -27,6 +27,7 @@ class WCATQuery(WEBQuery):
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
         if 'list' in data:
+            # put the selected data in records 
             records = data['list'][0]
         else:
             raise Exception('Error:%s' % data['stat'])
@@ -40,6 +41,7 @@ class WCATQuery(WEBQuery):
         canonical['Year'] = records['year']
         canonical['ISBN-13'] = self.isbn
         canonical['Authors'] = '[%s]' % records.get('author', '')
+        
         return canonical
 
 
