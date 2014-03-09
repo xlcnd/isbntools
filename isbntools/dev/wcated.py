@@ -30,6 +30,7 @@ class WCATEdQuery(WEBQuery):
         data = WEBQuery.parse_data(self, parser=literal_eval)
 
         if 'list' in data:
+            # put the selected data in records
             records = [ib['isbn'][0] for ib in data['list']]
         else:
             raise Exception('Error:%s' % data['stat'])
