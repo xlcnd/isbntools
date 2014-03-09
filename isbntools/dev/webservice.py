@@ -1,12 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import socket
 import urllib
 import urllib2
 import gzip
 from StringIO import StringIO
 
 UA = 'webservice (gzip)'
+
+# socket timeout is not exposed at urllib2 level
+# so I had to import the module and set a default
+# value for all the sockets (timeout in seconds) 
+timeout = 10
+socket.setdefaulttimeout(timeout)
 
 
 class WEBQuery(object):
