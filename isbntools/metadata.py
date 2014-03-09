@@ -14,6 +14,5 @@ def query(isbn, service='default'):
     Queries worldcat.org, Google Books (JSON API), ... for metadata
     """
     if service not in services:
-        print(('Error:%s is not a recognized service!' % service))
-        return
+        raise Exception(('Error:%s is not a recognized service!' % service))
     return services[service](isbn)
