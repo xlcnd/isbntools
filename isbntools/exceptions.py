@@ -14,4 +14,12 @@ def quiet_errors(exc_type, exc_value, traceback):
     
 
 
+class NotRecognizedServiceError(Exception):
+    """ Exception raised when the service is not in registry.py 
+    """
     
+    def __init__(self, service):
+        self.message = "Error: (%s) is not a recognized service" % service
+        
+    def __str__(self):
+        return getattr(self, 'message', '')

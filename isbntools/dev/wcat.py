@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import logging
 from .webquery import WEBQuery
+from .exceptions import WPDataWrongShapeError
+
 
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
@@ -26,11 +29,16 @@ class WCATQuery(WEBQuery):
         """
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
-        if 'list' in data:
+        try:
             # put the selected data in records 
             records = data['list'][0]
-        else:
-            raise Exception('Error:%s' % data['stat'])
+        except:
+            try:
+                extra = data['stat']
+                logging.debug(extra)
+            except:
+                pass
+            raise WPDataWrongShapeError(self.isbn)
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
