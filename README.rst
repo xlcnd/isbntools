@@ -37,7 +37,7 @@ Typical usage (as library):
     import isbntools
     ...
 
-Several scripts are provided to use from the command line:
+Several scripts are provided to use **from the command line**:
 
 .. code-block:: bash
 
