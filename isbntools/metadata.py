@@ -9,12 +9,10 @@ from .registry import services
 # however this should be done at top level due to strong side effects...
 socket.setdefaulttimeout(10)
 
-def query(isbn, service='default', udf=None):
+def query(isbn, service='default'):
     """
     Queries worldcat.org, Google Books (JSON API), ... for metadata
     """
-    if udf:
-        return udf(service, isbn)
     if service not in services:
         raise Exception(('Error:%s is not a recognized service!' % service))
     return services[service](isbn)
