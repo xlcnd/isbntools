@@ -13,9 +13,9 @@ def mask(isbn, separator='-'):
     return msk(isbn, separator)
 
 
-def meta(isbn, service='default'):
+def meta(isbn, service='default', udf=None):
     """ Metadata from worldcat.org ('wcat'), Google Books ('goob') , ..."""
-    return query(isbn, service)
+    return query(isbn, service, udf)
 
 
 def info(isbn):
