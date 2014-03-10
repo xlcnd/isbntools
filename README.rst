@@ -186,10 +186,9 @@ For Devs
 ========
 
 If you need high quality metadata in your app, the only solution is to use
-*polling* of several providers (*soon* I will provide a framework
-``databee`` to do this fast and easy).
+*polling* of several providers.
 
-For now, you can extended the lib by using the classes and functions exposed in
+You can extend the lib by using the classes and functions exposed in
 ``isbntools.dev``, namely:
 
 * ``webservice`` a class that handles the access to web
