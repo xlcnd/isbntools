@@ -24,6 +24,7 @@ isbntools/metadata.py
 isbntools/registry.py
 isbntools/data/__init__.py
 isbntools/data/data4info.py
+isbntools/data/data4mask (copy).py
 isbntools/data/data4mask.py
 isbntools/data/data4tests.py
 isbntools/dev/__init__.py
