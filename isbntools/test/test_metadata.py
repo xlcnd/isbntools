@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+""" 
+D25 |-> RELEASE MINIMAL TESTING. I DON'T WANTED TO BE BLACKLISTED BY THE SERVICES <-| 
+"""
 
 from ..metadata import query
 from nose.tools import assert_equals, assert_raises
