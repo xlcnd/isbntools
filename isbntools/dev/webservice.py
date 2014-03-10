@@ -6,6 +6,7 @@ import urllib
 import urllib2
 import gzip
 from StringIO import StringIO
+from .exceptions import WSHTTPError, WSURLError
 
 UA = 'webservice (gzip)'
 
@@ -30,9 +31,9 @@ class WEBQuery(object):
         try:
             self.response = urllib2.urlopen(request)
         except urllib2.HTTPError as e:
-            raise Exception('Error:%s' % e.code)
+            raise WSHTTPError(e.code)
         except urllib2.URLError as e:
-            raise Exception('Error:%s' % e.reason)
+            raise WSURLError(e.reason)
 
     def data(self):
         """

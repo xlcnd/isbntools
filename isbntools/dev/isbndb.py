@@ -39,11 +39,16 @@ class ISBNDBQuery():
         """
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
-        if 'data' in data:
-            # put the selected data in records
+        try:
+            # put the selected data in records 
             records = data['data'][0]
-        else:
-            raise Exception('Error:%s' % data['error'])
+        except:
+            try:
+                extra = data['error']
+                logging.debug(extra)
+            except:
+                pass
+            raise WPDataWrongShapeError(self.isbn)
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language

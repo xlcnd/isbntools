@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import logging
 from .webquery import WEBQuery
+from .exceptions import WPDataWrongShapeError
 
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+%s&fields='\
@@ -27,11 +29,16 @@ class GOOBQuery(WEBQuery):
         """
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
-        if 'items' in data:
-            # put the selected data in records
+        try:
+            # put the selected data in records 
             records = data['items'][0]['volumeInfo']
-        else:
-            raise Exception('Error:no data for %s' % self.isbn)
+        except:
+            try:
+                extra = data['stat']
+                logging.debug(extra)
+            except:
+                pass
+            raise WPDataWrongShapeError(self.isbn)        
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
