@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: isbntools
-Version: 2.0.1
+Version: 2.0.3
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
 Author: Alexandre Conde
@@ -25,7 +25,7 @@ Description:
             :target: https://pypi.python.org/pypi/isbntools/
             :alt: License
         
-        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.0.1
+        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.0.3
             :target: https://travis-ci.org/xlcnd/isbntools
             :alt: Built Status
         
@@ -83,8 +83,7 @@ Description:
         
             $ isbn_editions ISBN
         
-        gives you the ISBNs of other editions of the given ISBN (uses worldcat.org)
-        [collection of ISBNs that represent a given book].
+        gives the collection of ISBNs that represent a given book (uses worldcat.org).
         
         .. code-block:: bash
         
@@ -187,7 +186,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-2.0.1.tar.gz
+            $ pip install isbntools-2.0.3.tar.gz
         
         (first you have to download the file!)
         
@@ -196,16 +195,20 @@ Description:
         ========
         
         If you need high quality metadata in your app, the only solution is to use
-        *polling* of several providers (*soon* I will provide a framework
-        ``databee`` to do this fast and easy).
+        *polling* of several providers.
         
-        For now, you can extended the lib by using the classes and functions exposed in
+        You can extend the lib by using the classes and functions exposed in
         ``isbntools.dev``, namely:
         
-        * ``webservice`` a class that handles the access to web 
-          services (just by passing an url) and supports ``gzip``. 
-          You can subclass it to extend the functionality... it
-          is used in the next classes.
+        * ``webservice`` a class that handles the access to web
+          services (just by passing an url) and supports ``gzip``.
+          You can subclass it to extend the functionality... but
+          probably you don't need to use it! It is used in the next class.
+        
+        * ``webquery`` a class that uses ``webservice`` to retrive and parse
+          data from a web service. You can build a new provider of metadata
+          by subclassing this class. The following classes do that
+          (by using the *call pattern*).
         
         * ``googlebooks`` a class that retrives and parses book metadata,
           using Google Books API (you only have to provide an ISBN).
@@ -214,7 +217,7 @@ Description:
           using the ``worldcat.org xisbn service`` (you only have to provide an ISBN).
         
         * ``wcated`` a class that retrives and parses collections of ISBNs related
-          with a given book, using the worldcat.org xisbn service 
+          with a given book, using the ``worldcat.org xisbn service``
           (you only have to provide an ISBN).
         
         * ``isbndb`` a class that retrives and parses book metadata,
@@ -254,5 +257,6 @@ Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGP
 Classifier: Operating System :: OS Independent
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
 Classifier: Topic :: Text Processing :: General
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
