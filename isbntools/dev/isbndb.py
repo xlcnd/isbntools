@@ -40,7 +40,7 @@ class ISBNDBQuery():
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
         try:
-            # put the selected data in records 
+            # put the selected data in records
             records = data['data'][0]
         except:
             try:

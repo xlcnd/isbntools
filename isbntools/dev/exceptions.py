@@ -10,24 +10,24 @@ The classes in isbntools.dev should use the exceptions below.
 class ISBNToolsException(Exception):
     """ Base class for isbntools.dev exceptions
 
-    This exception should not be raised directly, 
+    This exception should not be raised directly,
     only subclasses of this exception should be used!
     """
-    
+
     def __init__(self, msg=None):
         if msg:
             self.message = '%s (%s)' % (self.message, msg)
-        
+
     def __str__(self):
         return getattr(self, 'message', '')
 
 
 class WSHTTPError(ISBNToolsException):
-    """ Exception raised for HTTP related errors 
+    """ Exception raised for HTTP related errors
     """
     message = "Error: an HTTP error has ocurred"
- 
-    
+
+
 class WSURLError(ISBNToolsException):
     """ Exception raised for URL related errors
     """
@@ -50,9 +50,3 @@ class WPDataWrongShapeError(ISBNToolsException):
     """ Exception raised when the data hasn't the expected format
     """
     message = "Error: the data hasn't the expected format"
-
-
-
-#class NotValidMetadataError(ISBNToolsException):
-
-
