@@ -162,6 +162,9 @@ def notisbn(isbnlike, level='strict'):
        * `loose`  only filters obvious NO ISBNs
 
     """
+    if level not in ('strict', 'loose'):
+        logging.error('level as no option %s' % level)
+        return
     isbnlike = canonical(isbnlike)
     if len(isbnlike) not in [10, 13]:
         return True
@@ -203,12 +206,16 @@ def get_canonical_isbn(isbnlike, output='bouth'):
     """ Checks for ISBN-10 or ISBN-13 format
         and returns a ISBN in `canonical` form
 
-    'output` can be:
-       * `isbn-10`
-       * `isbn-13`
+    `output` can be:
+       * `isbn10`
+       * `isbn13`
        * `bouth` (default)
 
     """
+    if output not in ('bouth', 'isbn10', 'isbn13'):
+        logging.error('output as no option %s' % output)
+        return
+        
     regex = re.compile(RE_STRICT)
 
     if regex.search(isbnlike):
@@ -230,6 +237,6 @@ def get_canonical_isbn(isbnlike, output='bouth'):
         if (str(check) == last):
             if output == 'bouth':
                 return cisbn
-            if output == 'isbn-10':
+            if output == 'isbn10':
                 return cisbn if len(cisbn) == 10 else to_isbn10(cisbn)
             return to_isbn13(cisbn) if len(cisbn) == 10 else cisbn

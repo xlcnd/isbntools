@@ -2,19 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from isbntools import editions 
+from isbntools import editions, quiet_errors
 
 
 def usage():
     print('Usage: isbn_editions ISBN')
 
 
-def quiet_errors(exc_type, exc_value, traceback):
-    sys.stderr.write('ERROR::%s\n' % exc_value)
-
-
 if __name__ == "__main__":
-    # error handling
     sys.excepthook = quiet_errors
     try:
         for ib in editions(sys.argv[1]):
