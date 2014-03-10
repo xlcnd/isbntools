@@ -42,6 +42,7 @@ setup(
         'Operating System :: OS Independent',
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
+        'Intended Audience :: End Users/Desktop',
         'Topic :: Text Processing :: General',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
