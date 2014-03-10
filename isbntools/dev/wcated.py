@@ -31,7 +31,7 @@ class WCATEdQuery(WEBQuery):
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self, parser=literal_eval)
         try:
-            # put the selected data in records 
+            # put the selected data in records
             records = [ib['isbn'][0] for ib in data['list']]
         except:
             try:

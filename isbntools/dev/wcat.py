@@ -30,7 +30,7 @@ class WCATQuery(WEBQuery):
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
         try:
-            # put the selected data in records 
+            # put the selected data in records
             records = data['list'][0]
         except:
             try:
@@ -49,7 +49,7 @@ class WCATQuery(WEBQuery):
         canonical['Year'] = records['year']
         canonical['ISBN-13'] = self.isbn
         canonical['Authors'] = '[%s]' % records.get('author', '')
-        
+
         return canonical
 
 

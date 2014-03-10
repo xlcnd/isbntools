@@ -30,7 +30,7 @@ class GOOBQuery(WEBQuery):
         WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
         try:
-            # put the selected data in records 
+            # put the selected data in records
             records = data['items'][0]['volumeInfo']
         except:
             try:
@@ -38,7 +38,7 @@ class GOOBQuery(WEBQuery):
                 logging.debug(extra)
             except:
                 pass
-            raise WPDataWrongShapeError(self.isbn)        
+            raise WPDataWrongShapeError(self.isbn)
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language

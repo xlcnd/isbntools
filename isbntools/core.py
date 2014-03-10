@@ -215,7 +215,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
     if output not in ('bouth', 'isbn10', 'isbn13'):
         logging.error('output as no option %s' % output)
         return
-        
+
     regex = re.compile(RE_STRICT)
 
     if regex.search(isbnlike):
