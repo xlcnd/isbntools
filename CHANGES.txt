@@ -13,3 +13,4 @@ v1.0.3, 2014-03-07 -- Change in the way providers hook to main program.
 v1.0.4, 2014-03-07 -- (NOT RELEASED) Changed interfaces for devs, so new major version 2.0.1. 
 v2.0.1, 2014-03-08 -- isbntools.dev!
 v2.0.2, 2014-03-08 -- Major module rearrange. 
+v2.0.3, 2014-03-08 -- Better error handling. 
