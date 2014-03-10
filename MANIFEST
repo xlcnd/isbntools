@@ -3,6 +3,7 @@ CHANGES.txt
 LICENSE-LGPL.txt
 README.md
 README.rst
+requirements-dev.txt
 requirements.txt
 setup.py
 bin/isbn_editions
