@@ -23,7 +23,7 @@ Typical usage (as library):
     ...
 ```
 
-Several scripts are provided to use from the command line:
+Several scripts are provided to use **from the command line**:
 
 ```bash
 
