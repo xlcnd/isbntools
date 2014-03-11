@@ -48,7 +48,8 @@ class ISBNDBQuery():
         except:
             try:
                 extra = data['error']
-                logging.debug(extra)
+                logging.debug('WPDataWrongShapeError for % with data %s' %
+                              (self.isbn, extra))
             except:
                 pass
             raise WPDataWrongShapeError(self.isbn)
