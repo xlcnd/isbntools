@@ -11,6 +11,8 @@ UA = 'isbntools (gzip)'
 OUT_OF_SERVICE = 'Temporarily out of service'
 BOOK_NOT_FOUND = 'No results match your search'
 
+logger = logging.getLogger(__name__)
+
 
 class WEBQuery(object):
     """
@@ -29,13 +31,13 @@ class WEBQuery(object):
         Checks the data & handle errors
         """
         if self.data == '{}':
-            logging.warning('WQDataNotFoundError for %s' % self.url)
+            logger.warning('WQDataNotFoundError for %s' % self.url)
             raise WQDataNotFoundError(self.url)
         if BOOK_NOT_FOUND in self.data:
-            logging.warning('WQDataNotFoundError for %s' % self.url)
+            logger.warning('WQDataNotFoundError for %s' % self.url)
             raise WQDataNotFoundError(self.url)
         if OUT_OF_SERVICE in self.data:
-            logging.critical('WQServiceIsDownError for %s' % self.url)
+            logger.critical('WQServiceIsDownError for %s' % self.url)
             raise WQServiceIsDownError(self.url)
 
     def parse_data(self, parser=json.loads):

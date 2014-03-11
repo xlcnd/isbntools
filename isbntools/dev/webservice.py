@@ -11,6 +11,8 @@ from .exceptions import WSHTTPError, WSURLError
 
 UA = 'webservice (gzip)'
 
+logger = logging.getLogger(__name__)
+
 
 class WEBQuery(object):
     """
@@ -32,12 +34,12 @@ class WEBQuery(object):
         try:
             self.response = urllib2.urlopen(request)
         except urllib2.HTTPError as e:
-            logging.critical('WSHTTPError for %s with code %s' %
-                             (url, e.code))
+            logger.critical('WSHTTPError for %s with code %s' %
+                            (url, e.code))
             raise WSHTTPError(e.code)
         except urllib2.URLError as e:
-            logging.critical('WSURLError for %s with  reason %s' %
-                             (url, e.reason))
+            logger.critical('WSURLError for %s with  reason %s' %
+                            (url, e.reason))
             raise WSURLError(e.reason)
 
     def data(self):

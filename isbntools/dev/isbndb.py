@@ -23,6 +23,8 @@ SERVICE_URL = 'http://isbndb.com/api/v2/json/%s/book/%s'
 
 PATT_YEAR = re.compile(r'\d{4}')
 
+logger = logging.getLogger(__name__)
+
 
 class ISBNDBQuery():
     """
@@ -48,8 +50,8 @@ class ISBNDBQuery():
         except:
             try:
                 extra = data['error']
-                logging.debug('WPDataWrongShapeError for % with data %s' %
-                              (self.isbn, extra))
+                logger.debug('WPDataWrongShapeError for % with data %s' %
+                             (self.isbn, extra))
             except:
                 pass
             raise WPDataWrongShapeError(self.isbn)

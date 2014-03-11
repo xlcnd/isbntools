@@ -10,6 +10,8 @@ UA = 'isbntools (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
     'method=getMetadata&format=json&fl=*'
 
+logger = logging.getLogger(__name__)
+
 
 class WCATQuery(WEBQuery):
     """
@@ -35,8 +37,8 @@ class WCATQuery(WEBQuery):
         except:
             try:
                 extra = data['stat']
-                logging.debug('WPDataWrongShapeError for % with data %s' %
-                              (self.isbn, extra))
+                logger.debug('WPDataWrongShapeError for % with data %s' %
+                             (self.isbn, extra))
             except:
                 pass
             raise WPDataWrongShapeError(self.isbn)
