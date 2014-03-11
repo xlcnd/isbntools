@@ -10,6 +10,8 @@ SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+%s&fields='\
     'items/volumeInfo(title,authors,publisher,publishedDate,language)'\
     '&maxResults=1'
 
+logger = logging.getLogger(__name__)
+
 
 class GOOBQuery(WEBQuery):
     """
@@ -35,8 +37,8 @@ class GOOBQuery(WEBQuery):
         except:
             try:
                 extra = data['stat']
-                logging.debug('WPDataWrongShapeError for % with data %s' %
-                              (self.isbn, extra))
+                logger.debug('WPDataWrongShapeError for % with data %s' %
+                             (self.isbn, extra))
             except:
                 pass
             raise WPDataWrongShapeError(self.isbn)
