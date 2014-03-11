@@ -26,6 +26,8 @@ Tools for extracting, cleaning, transforming and validating ISBN ids.
 import re
 import logging
 
+logger = logging.getLogger(__name__)
+
 
 RE_ISBN10 = r'ISBN\x20(?=.{13}$)\d{1,5}([- ])\d{1,7}\1\d{1,6}\1(\d|X)$|[- 0-9X]{10,16}'
 RE_ISBN13 = r'97[89]{1}(?:-?\d){10,16}|97[89]{1}[- 0-9]{10,16}'
@@ -163,7 +165,7 @@ def notisbn(isbnlike, level='strict'):
 
     """
     if level not in ('strict', 'loose'):
-        logging.error('level as no option %s' % level)
+        logger.error('level as no option %s' % level)
         return
     isbnlike = canonical(isbnlike)
     if len(isbnlike) not in [10, 13]:
@@ -197,7 +199,7 @@ def get_isbnlike(text, level='normal'):
     elif level == 'loose':
         isbnlike = re.compile(RE_LOOSE, re.I | re.M | re.S)
     else:
-        logging.error('level as no option %s' % level)
+        logger.error('level as no option %s' % level)
         return
     return isbnlike.findall(text)
 
@@ -213,7 +215,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
 
     """
     if output not in ('bouth', 'isbn10', 'isbn13'):
-        logging.error('output as no option %s' % output)
+        logger.error('output as no option %s' % output)
         return
 
     regex = re.compile(RE_STRICT)
