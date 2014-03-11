@@ -4,7 +4,7 @@
 
 import sys
 import urllib2
-from isbntools import get_isbnlike, get_canonical_isbn, quite_errors
+from isbntools import get_isbnlike, get_canonical_isbn, quiet_errors
 
 
 
