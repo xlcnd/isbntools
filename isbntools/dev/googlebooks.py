@@ -43,15 +43,16 @@ class GOOBQuery(WEBQuery):
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         canonical = {}
+        canonical['ISBN-13'] = self.isbn
         canonical['Title'] = records['title'].replace(' :', ':')
-        canonical['Language'] = records['language']
+        canonical['Authors'] = repr(records.get('authors', []))
         canonical['Publisher'] = records.get('publisher', '')
         if 'publishedDate' in records and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
         else:
             canonical['Year'] = ''
-        canonical['ISBN-13'] = self.isbn
-        canonical['Authors'] = repr(records.get('authors', []))
+        canonical['Language'] = records['language']
+
         return canonical
 
 
