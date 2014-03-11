@@ -7,6 +7,7 @@ from isbntools import info
 
 def usage():
     print('Usage: isbn_info ISBN')
+    sys.exit(1)
 
 
 if __name__ == "__main__":
