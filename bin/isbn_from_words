@@ -4,11 +4,8 @@
 
 import sys
 import urllib2
-from isbntools import get_isbnlike, get_canonical_isbn
+from isbntools import get_isbnlike, get_canonical_isbn, quite_errors
 
-
-def quiet_errors(exc_type, exc_value, traceback):
-    sys.stderr.write('CRITICAL::%s\n' % exc_value)
 
 
 if __name__ == "__main__":
@@ -29,6 +26,6 @@ if __name__ == "__main__":
     isbns = get_isbnlike(content)
 
     for item in isbns:
-        ib = get_canonical_isbn(item, output='ISBN-13')
+        ib = get_canonical_isbn(item, output='isbn13')
         if ib: break
     print(ib)

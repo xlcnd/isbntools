@@ -112,7 +112,7 @@ and save it as `isbn_tmsa_book.py`.
     isbns = get_isbnlike(content)
 
     for item in isbns:
-        ib = get_canonical_isbn(item, output='ISBN-13')
+        ib = get_canonical_isbn(item, output='isbn13')
         if ib: break
 
     print("The ISBN of the most `spoken-about` book with this title is %s" % ib)
