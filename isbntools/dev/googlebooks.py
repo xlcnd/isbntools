@@ -24,12 +24,12 @@ class GOOBQuery(WEBQuery):
         """
         self.isbn = isbn
         WEBQuery.__init__(self, SERVICE_URL % isbn, UA)
+        WEBQuery.check_data(self)
 
     def records(self):
         """
         Classifies (canonically) the parsed data
         """
-        WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
         try:
             # put the selected data in records
