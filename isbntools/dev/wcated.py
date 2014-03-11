@@ -25,12 +25,12 @@ class WCATEdQuery(WEBQuery):
         """
         self.isbn = isbn
         WEBQuery.__init__(self, SERVICE_URL % isbn, UA)
+        WEBQuery.check_data(self)
 
     def records(self):
         """
         Returns the records from the parsed response
         """
-        WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self, parser=literal_eval)
         try:
             # put the selected data in records
