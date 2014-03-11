@@ -14,23 +14,28 @@ def quiet_errors(exc_type, exc_value, traceback):
     sys.stderr.write('Error: %s\n' % exc_value)
 
 
-class NotRecognizedServiceError(Exception):
+class ISBNToolsException(Exception):
+    """ Base class for isbntools exceptions
+
+    This exception should not be raised directly,
+    only subclasses of this exception should be used!
+    """
+    
+    def __str__(self):
+        return getattr(self, 'message', '')
+
+
+class NotRecognizedServiceError(ISBNToolsException):
     """ Exception raised when the service is not in registry.py
     """
-
+    
     def __init__(self, service):
         self.message = "(%s) is not a recognized service" % service
 
-    def __str__(self):
-        return getattr(self, 'message', '')
 
-
-class NotValidISBNError(Exception):
+class NotValidISBNError(ISBNToolsException):
     """ Exception raised when the ISBN is not valid
     """
-
+    
     def __init__(self, isbnlike):
         self.message = "(%s) is not a valid ISBN" % isbnlike
-
-    def __str__(self):
-        return getattr(self, 'message', '')
