@@ -7,7 +7,7 @@ The classes in isbntools.dev should use the exceptions below.
 """
 
 
-class ISBNToolsException(Exception):
+class ISBNToolsDevException(Exception):
     """ Base class for isbntools.dev exceptions
 
     This exception should not be raised directly,
@@ -22,31 +22,31 @@ class ISBNToolsException(Exception):
         return getattr(self, 'message', '')
 
 
-class WSHTTPError(ISBNToolsException):
+class WSHTTPError(ISBNToolsDevException):
     """ Exception raised for HTTP related errors
     """
     message = "an HTTP error has ocurred"
 
 
-class WSURLError(ISBNToolsException):
+class WSURLError(ISBNToolsDevException):
     """ Exception raised for URL related errors
     """
     message = "an URL error has ocurred"
 
 
-class WQDataNotFoundError(ISBNToolsException):
+class WQDataNotFoundError(ISBNToolsDevException):
     """ Exception raised when there is no target data from the service
     """
     message = "the target data was not found"
 
 
-class WQServiceIsDownError(ISBNToolsException):
+class WQServiceIsDownError(ISBNToolsDevException):
     """ Exception raised when the service is not available
     """
     message = "the service is down (try later)"
 
 
-class WPDataWrongShapeError(ISBNToolsException):
+class WPDataWrongShapeError(ISBNToolsDevException):
     """ Exception raised when the data hasn't the expected format
     """
     message = "the data hasn't the expected format"
