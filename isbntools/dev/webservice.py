@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
+import logging
 import urllib
 import urllib2
 import gzip
@@ -31,8 +32,12 @@ class WEBQuery(object):
         try:
             self.response = urllib2.urlopen(request)
         except urllib2.HTTPError as e:
+            logging.critical('WSHTTPError for %s with code %s' %
+                             (url, e.code))
             raise WSHTTPError(e.code)
         except urllib2.URLError as e:
+            logging.critical('WSURLError for %s with  reason %s' %
+                             (url, e.reason))
             raise WSURLError(e.reason)
 
     def data(self):

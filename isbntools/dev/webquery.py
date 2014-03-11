@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
+import logging
 import json
 from . import webservice
 from .exceptions import WQDataNotFoundError, WQServiceIsDownError
@@ -21,6 +21,7 @@ class WEBQuery(object):
         """
         Initializer & call webservice
         """
+        self.url = service_url
         self.data = webservice.query(service_url, ua)
 
     def check_data(self):
@@ -28,11 +29,14 @@ class WEBQuery(object):
         Checks the data & handle errors
         """
         if self.data == '{}':
-            raise WQDataNotFoundError()
+            logging.warning('WQDataNotFoundError for %s' % self.url)
+            raise WQDataNotFoundError(self.url)
         if BOOK_NOT_FOUND in self.data:
-            raise WQDataNotFoundError()
+            logging.warning('WQDataNotFoundError for %s' % self.url)
+            raise WQDataNotFoundError(self.url)
         if OUT_OF_SERVICE in self.data:
-            raise WQServiceIsDownError()
+            logging.critical('WQServiceIsDownError for %s' % self.url)
+            raise WQServiceIsDownError(self.url)
 
     def parse_data(self, parser=json.loads):
         """

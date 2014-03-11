@@ -36,7 +36,8 @@ class WCATEdQuery(WEBQuery):
         except:
             try:
                 extra = data['stat']
-                logging.debug(extra)
+                logging.debug('WPDataWrongShapeError for % with data %s' %
+                              (self.isbn, extra))
             except:
                 pass
             raise WPDataWrongShapeError(self.isbn)
