@@ -19,7 +19,18 @@ class NotRecognizedServiceError(Exception):
     """
 
     def __init__(self, service):
-        self.message = "Error: (%s) is not a recognized service" % service
+        self.message = "(%s) is not a recognized service" % service
+
+    def __str__(self):
+        return getattr(self, 'message', '')
+
+
+class NotValidISBNError(Exception):
+    """ Exception raised when the ISBN is not valid
+    """
+
+    def __init__(self, isbnlike):
+        self.message = "(%s) is not a valid ISBN" % isbnlike
 
     def __str__(self):
         return getattr(self, 'message', '')
