@@ -11,9 +11,12 @@
 # `registry.py`, and *thats all*!
 
 
+import logging
 import re
 from .webquery import WEBQuery
 from .keys import keys
+from .exceptions import WPDataWrongShapeError
+
 
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'http://isbndb.com/api/v2/json/%s/book/%s'
@@ -53,20 +56,19 @@ class ISBNDBQuery():
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         canonical = {}
-
-        canonical['Title'] = records['title']
-        canonical['Language'] = records['language'] or 'English'
-        canonical['Publisher'] = records['publisher_name']
         canonical['ISBN-13'] = self.isbn
         assert self.isbn == records['isbn13'], "isbn was mungled!"
+        canonical['Title'] = records['title']
+        authors = [a['name'] for a in records['author_data']]
+        canonical['Authors'] = repr(authors)
+        canonical['Publisher'] = records['publisher_name']
         canonical['Year'] = ''
         if 'edition_info' in records:
             match = re.search(PATT_YEAR, records['edition_info'])
             if match:
                 canonical['Year'] = match.group(0)
+        canonical['Language'] = records['language'] or 'English'
 
-        authors = [a['name'] for a in records['author_data']]
-        canonical['Authors'] = repr(authors)
         return canonical
 
 
