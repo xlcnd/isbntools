@@ -26,7 +26,7 @@ PATT_YEAR = re.compile(r'\d{4}')
 logger = logging.getLogger(__name__)
 
 
-class ISBNDBQuery():
+class ISBNDBQuery(WEBQuery):
     """
     Queries the isbndb.org service for metadata
     """
@@ -37,12 +37,12 @@ class ISBNDBQuery():
         """
         self.isbn = isbn
         WEBQuery.__init__(self, SERVICE_URL % (keys['isbndb'], isbn), UA)
+        WEBQuery.check_data(self)
 
     def records(self):
         """
         Classifies (canonically) the parsed data
         """
-        WEBQuery.check_data(self)
         data = WEBQuery.parse_data(self)
         try:
             # put the selected data in records
@@ -70,7 +70,7 @@ class ISBNDBQuery():
             match = re.search(PATT_YEAR, records['edition_info'])
             if match:
                 canonical['Year'] = match.group(0)
-        canonical['Language'] = records['language'] or 'English'
+        canonical['Language'] = records.get('language', 'English')
 
         return canonical
 
