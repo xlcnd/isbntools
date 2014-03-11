@@ -14,6 +14,7 @@ logging.basicConfig(level=logging.DEBUG)
 def usage(available="wcat|goob|..."):
     sys.stderr.write('Usage: isbn_meta ISBN [%s]\n  ...  or try with '
                      'another service in list!\n' % available)
+    sys.exit(1)
 
 
 if __name__ == "__main__":
