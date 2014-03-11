@@ -1,1 +1,1 @@
-nosetests>=1.1.2
+nose>=1.1.2
