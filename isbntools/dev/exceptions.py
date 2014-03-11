@@ -25,28 +25,28 @@ class ISBNToolsException(Exception):
 class WSHTTPError(ISBNToolsException):
     """ Exception raised for HTTP related errors
     """
-    message = "Error: an HTTP error has ocurred"
+    message = "an HTTP error has ocurred"
 
 
 class WSURLError(ISBNToolsException):
     """ Exception raised for URL related errors
     """
-    message = "Error: an URL error has ocurred"
+    message = "an URL error has ocurred"
 
 
 class WQDataNotFoundError(ISBNToolsException):
     """ Exception raised when there is no target data from the service
     """
-    message = "Error: the target data was not found"
+    message = "the target data was not found"
 
 
 class WQServiceIsDownError(ISBNToolsException):
     """ Exception raised when the service is not available
     """
-    message = "Error: the service is down (try later)"
+    message = "the service is down (try later)"
 
 
 class WPDataWrongShapeError(ISBNToolsException):
     """ Exception raised when the data hasn't the expected format
     """
-    message = "Error: the data hasn't the expected format"
+    message = "the data hasn't the expected format"
