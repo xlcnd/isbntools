@@ -2,11 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import logging
 from isbntools import meta
 from isbntools import registry
 
 
 FORMATR = 'ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n'
+logging.basicConfig(level=logging.DEBUG)
 
 
 def usage(available="wcat|goob|..."):
