@@ -14,7 +14,7 @@ UA = 'webservice (gzip)'
 logger = logging.getLogger(__name__)
 
 
-class WEBQuery(object):
+class WEBService(object):
     """
     Class to query web services
     """
@@ -59,5 +59,5 @@ def query(url, user_agent=UA, values=None):
         """
         Query to a web service
         """
-        service = WEBQuery(url, user_agent, values)
+        service = WEBService(url, user_agent, values)
         return service.data()
