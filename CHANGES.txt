@@ -15,3 +15,4 @@ v2.0.1, 2014-03-08 -- isbntools.dev!
 v2.0.2, 2014-03-09 -- Major module rearrange.
 v2.0.3, 2014-03-11 -- Better error handling (fix issue: #2 err-regression).
 v2.0.4, 2014-03-12 -- Fixing major regression error in isbndb.py.  
+v2.0.5, 2014-03-13 -- TENTATIVE: ??? 
