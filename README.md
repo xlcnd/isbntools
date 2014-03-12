@@ -187,7 +187,9 @@ You can extend the lib by using the classes and functions exposed in
 * `webquery` a class that uses `webservice` to retrive and parse
   data from a web service. You can build a new provider of metadata
   by subclassing this class. The following classes do that
-  (by using the *call pattern*).
+  (by using the *call pattern*). His main methods allow passing custom
+  functions (*handlers*) that specialize them to specific needs (`data_checker` and
+  `parser`).
 
 * `googlebooks` a class that retrives and parses book metadata,
   using Google Books API (you only have to provide an ISBN).
