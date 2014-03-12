@@ -4,7 +4,8 @@
 
 import logging
 from .data.data4mask import ranges
-from .core import canonical, to_isbn13 
+from .core import canonical, to_isbn13
+
 
 def mask(isbn, separator='-'):
     """ Transforms a canonical ISBN to a `masked` one
@@ -44,21 +45,6 @@ def mask(isbn, separator='-'):
             group = group[4:]
             check = check10
         return separator.join([group, ib[cur + 1:cur + idx + 1],
-                         ib[cur + idx + 1:-1], check])
+                              ib[cur + idx + 1:-1], check])
     logging.warning('identifier not found! Please, update the program.')
     return
-
-
-def meta(isbn, service='default'):
-    """ Metadata from worldcat.org ('wcat'), Google Books ('goob') , ..."""
-    return query(isbn, service)
-
-
-def info(isbn):
-    """ Language or country assigned to this ISBN """
-    return infogroup(isbn)
-
-
-def editions(isbn):
-    """ Returns the list of ISBNs of editions related with this ISBN """
-    return qed(isbn)
