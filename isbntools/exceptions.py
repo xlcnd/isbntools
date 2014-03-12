@@ -11,7 +11,7 @@ def quiet_errors(exc_type, exc_value, traceback):
                from isbntools import quiet_errors
                sys.excepthook = quiet_errors
     """
-    sys.stderr.write('Error: %s\n' % exc_value)
+    sys.stderr.write('Error: %s\n' % exc_value)  # pragma: no cover
 
 
 class ISBNToolsException(Exception):
@@ -20,15 +20,15 @@ class ISBNToolsException(Exception):
     This exception should not be raised directly,
     only subclasses of this exception should be used!
     """
-    
+
     def __str__(self):
-        return getattr(self, 'message', '')
+        return getattr(self, 'message', '')   # pragma: no cover
 
 
 class NotRecognizedServiceError(ISBNToolsException):
     """ Exception raised when the service is not in registry.py
     """
-    
+
     def __init__(self, service):
         self.message = "(%s) is not a recognized service" % service
 
@@ -36,6 +36,6 @@ class NotRecognizedServiceError(ISBNToolsException):
 class NotValidISBNError(ISBNToolsException):
     """ Exception raised when the ISBN is not valid
     """
-    
+
     def __init__(self, isbnlike):
         self.message = "(%s) is not a valid ISBN" % isbnlike

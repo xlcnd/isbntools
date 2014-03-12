@@ -19,7 +19,7 @@ class ISBNToolsDevException(Exception):
             self.message = '%s (%s)' % (self.message, msg)
 
     def __str__(self):
-        return getattr(self, 'message', '')
+        return getattr(self, 'message', '') # pragma: no cover
 
 
 class WSHTTPError(ISBNToolsDevException):

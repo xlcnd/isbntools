@@ -34,7 +34,7 @@ class GOOBQuery(WEBQuery):
         try:
             # put the selected data in records
             records = data['items'][0]['volumeInfo']
-        except:
+        except:             # pragma: no cover
             try:
                 extra = data['stat']
                 logger.debug('WPDataWrongShapeError for % with data %s' %
@@ -52,7 +52,7 @@ class GOOBQuery(WEBQuery):
         canonical['Publisher'] = records.get('publisher', '')
         if 'publishedDate' in records and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
-        else:
+        else:         # pragma: no cover
             canonical['Year'] = ''
         canonical['Language'] = records['language']
 

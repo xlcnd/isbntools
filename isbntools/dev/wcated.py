@@ -35,7 +35,7 @@ class WCATEdQuery(WEBQuery):
         try:
             # put the selected data in records
             records = [ib['isbn'][0] for ib in data['list']]
-        except:
+        except:    # pragma: no cover
             try:
                 extra = data['stat']
                 logger.debug('WPDataWrongShapeError for % with data %s' %

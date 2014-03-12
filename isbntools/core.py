@@ -125,22 +125,16 @@ def to_isbn10(isbn13):
     if isbn13[:3] != ISBN13_PREFIX:
         return None
     isbn10 = isbn13[3:]
-    last_digit = _check_digit10(isbn10[:-1])
+    check = _check_digit10(isbn10[:-1])
     # Change check digit
-    if last_digit:
-        return isbn10[:-1] + last_digit
-    else:
-        return None
+    return isbn10[:-1] + check if check else None
 
 
 def to_isbn13(isbn10):
     """ isbn-10 to isbn-13 """
     isbn13 = ISBN13_PREFIX + isbn10[:-1]
-    last_digit = _check_digit13(isbn13)
-    if last_digit:
-        return isbn13 + last_digit
-    else:
-        return None
+    check = _check_digit13(isbn13)
+    return isbn13 + check if check else None
 
 
 def canonical(isbnlike):
