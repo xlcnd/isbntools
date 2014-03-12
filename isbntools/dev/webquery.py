@@ -26,10 +26,12 @@ class WEBQuery(object):
         self.url = service_url
         self.data = webservice.query(service_url, ua)
 
-    def check_data(self):
+    def check_data(self, data_checker=None):
         """
         Checks the data & handle errors
         """
+        if data_checker:
+            return data_checker(self.data)
         if self.data == '{}':
             logger.warning('WQDataNotFoundError for %s' % self.url)
             raise WQDataNotFoundError(self.url)
