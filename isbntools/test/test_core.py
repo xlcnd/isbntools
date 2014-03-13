@@ -112,3 +112,4 @@ def test_canonical():
     assert_equals(canonical('isbn9780826497529'), '9780826497529')
     assert_equals(canonical('isbn 0826497527'), '0826497527')
 
+# flake8: noqa

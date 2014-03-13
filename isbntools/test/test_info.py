@@ -24,3 +24,4 @@ def test_ext_info():
     assert_equals(info('9524712946'), 'Finland')
     assert_raises(Exception, info, '')
 
+# flake8: noqa

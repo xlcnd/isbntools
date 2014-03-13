@@ -23,3 +23,4 @@ def test_ext_meta():
     assert_equals(len(repr(meta('9781849692342', 'goob'))), 209)
     assert_equals(len(repr(meta('9780321534965', 'wcat'))), 257)
     assert_equals(len(repr(meta('9780321534965'))), 257)
+# flake8: noqa
