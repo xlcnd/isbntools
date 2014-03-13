@@ -154,19 +154,19 @@ command by `sudo`):
 
     $ pip install isbntools
 ```
-or:
+this installs from (pypi)[https://pypi.python.org/pypi/isbntools] or:
 
 ```bash
 
     $ easy_install isbntools
 ```
-or:
+this installs from (pypi)[https://pypi.python.org/pypi/isbntools] too, or (to install locally in *Linux* or *Mac OS X*):
 
 ```bash
 
-    $ pip install isbntools-2.0.6.zip
+    $ pip install isbntools-2.0.6.tar.gz
 ```
-(first you have to download the file!)
+but first you have to (download)[https://pypi.python.org/packages/source/i/isbntools/isbntools-2.0.5.tar.gz] the file!
 
 
 
