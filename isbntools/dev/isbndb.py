@@ -37,12 +37,14 @@ class ISBNDBQuery(WEBQuery):
         """
         self.isbn = isbn
         WEBQuery.__init__(self, SERVICE_URL % (keys['isbndb'], isbn), UA)
+        # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
     def records(self):
         """
         Classifies (canonically) the parsed data
         """
+        # this service uses JSON, so stay with the default parser
         data = WEBQuery.parse_data(self)
         try:
             # put the selected data in records
