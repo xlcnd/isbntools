@@ -50,3 +50,10 @@ class WPDataWrongShapeError(ISBNToolsDevException):
     """ Exception raised when the data hasn't the expected format
     """
     message = "the data hasn't the expected format"
+    
+    
+class WPNotValidMetadataError(ISBNToolsDevException):
+    """ Exception raised when the metadata hasn't the expected format
+    """
+    message = "the metadata hasn't the expected format"
+

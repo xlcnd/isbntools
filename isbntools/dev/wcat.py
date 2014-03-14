@@ -3,6 +3,7 @@
 
 import logging
 from .webquery import WEBQuery
+from .data import stdmeta
 from .exceptions import WPDataWrongShapeError
 
 
@@ -48,14 +49,14 @@ class WCATQuery(WEBQuery):
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         canonical = {}
-        canonical['ISBN-13'] = self.isbn
+        canonical['ISBN-13'] = unicode(self.isbn)
         canonical['Title'] = records['title'].replace(' :', ':')
-        canonical['Authors'] = '[%s]' % records.get('author', '')
+        canonical['Authors'] = [records.get('author', '')]
         canonical['Publisher'] = records['publisher']
         canonical['Year'] = records['year']
         canonical['Language'] = records['lang']
-
-        return canonical
+        # call stdmeta for extra cleanning and validation
+        return stdmeta(canonical)
 
 
 def query(isbn):

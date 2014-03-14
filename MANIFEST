@@ -30,8 +30,10 @@ isbntools/data/data4info.py
 isbntools/data/data4mask.py
 isbntools/data/data4tests.py
 isbntools/dev/__init__.py
+isbntools/dev/data.py
 isbntools/dev/exceptions.py
 isbntools/dev/googlebooks.py
+isbntools/dev/helpers.py
 isbntools/dev/isbndb.py
 isbntools/dev/keys.py
 isbntools/dev/wcat.py

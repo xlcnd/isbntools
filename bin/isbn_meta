@@ -29,7 +29,7 @@ if __name__ == "__main__":
             service = 'default'
         r = meta(sys.argv[1], service)
         sys.stdout.write(FORMATR % (r['ISBN-13'], r['Title'],
-                                    r['Authors'].replace('.', ''),
+                                    repr(r['Authors']).replace('.', ''),
                                     r['Publisher'], r['Year']))
     except:
         usage(available)
