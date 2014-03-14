@@ -3,7 +3,7 @@
 
 
 from nose.tools import assert_equals, assert_raises
-from ..ext import mask, editions
+from ..ext import mask, editions, isbn_from_words
 
 
 # nose tests
@@ -35,4 +35,8 @@ def test_editions():
     assert_equals(len(editions('9780156001311')), 19)
     assert_equals(len(editions('9780151446476')), 19)
     assert_raises(TypeError, len(editions('9780151446476')))
+
+
+def test_isbn_from_words():
+    assert_equals(len(isbn_from_words('old men and sea')), 13)
 # flake8: noqa

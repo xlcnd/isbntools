@@ -15,5 +15,5 @@ if __name__ == "__main__":
         print(("Usage: %s 'AUTHOR TITLE'" % sys.argv[0]))
         sys.exit(1)
 
-    query = sys.argv[1].replace(' ', '+')
+    query = sys.argv[1]
     print((isbn_from_words(query)))
