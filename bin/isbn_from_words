@@ -4,7 +4,7 @@
 
 import sys
 import urllib2
-from isbntools import get_isbnlike, get_canonical_isbn, quiet_errors
+from isbntools import isbn_from_words, quiet_errors
 
 
 
@@ -16,16 +16,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     query = sys.argv[1].replace(' ', '+')
-    SEARCH_URL = "http://www.google.com/search?q=%s+ISBN" % query
-
-    headers = {'User-Agent': 'w3m/0.5.2'}
-    request = urllib2.Request(SEARCH_URL, headers=headers)
-    response = urllib2.urlopen(request)
-    content = response.read()
-
-    isbns = get_isbnlike(content)
-
-    for item in isbns:
-        ib = get_canonical_isbn(item, output='isbn13')
-        if ib: break
-    print(ib)
+    print((isbn_from_words(query)))
