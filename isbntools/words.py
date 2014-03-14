@@ -13,7 +13,7 @@ def goos(words):
     """
     Uses Google Search to get an ISBN from words from title and author's name
     """
-    search_url = "http://www.google.com/search?q=%s+ISBN" % words
+    search_url = "http://www.google.com/search?q=%s+ISBN" % words.replace(' ', '+')
     user_agent = 'w3m/0.5.2'
 
     content = webservice.query(search_url, user_agent)
