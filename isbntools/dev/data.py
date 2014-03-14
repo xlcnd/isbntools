@@ -95,7 +95,7 @@ class Metadata(object):
         self._content = dict.fromkeys(list(FIELDS), u'')
         self._content['Authors'] = [u'']
 
-    def __str__(self):
+    def __str__(self):   # praga: no cover
         """
         How should metadata be printed
         """

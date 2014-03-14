@@ -235,7 +235,7 @@ Known Issues
 3. Periodically new blocks of ISBNs are issued to agencies. The ``range`` of
    these blocks is on a database that ``mask`` uses. So it could happen, if you
    have a version of ``isbntools`` that is too old, ``mask`` doesn't work for
-   valid (recent) issued ISBNs. The solution? Update **``isbntools`` often**!
+   valid (recent) issued ISBNs. The solution? **Update isbntools often**!
 
 
 ISBN
