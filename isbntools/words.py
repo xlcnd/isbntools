@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 def goos(words):
-    """ 
+    """
     Uses Google Search to get an ISBN from words from title and author's name
     """
     search_url = "http://www.google.com/search?q=%s+ISBN" % words
@@ -22,7 +22,8 @@ def goos(words):
 
     for item in isbns:
         isbn = get_canonical_isbn(item, output='isbn13')
-        if isbn: break
+        if isbn:
+            break
     if not isbn:
         logger.debug('No ISBN found for %s' % words)
         return

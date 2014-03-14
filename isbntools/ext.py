@@ -27,7 +27,8 @@ def info(isbn):
 def editions(isbn):
     """ Returns the list of ISBNs of editions related with this ISBN """
     return qed(isbn)
-    
+
+
 def isbn_from_words(words):
     """ Returns the most probable ISBN from a list of words from title
         and author's name (uses Google Search)
