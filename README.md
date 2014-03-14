@@ -179,31 +179,39 @@ If you need high quality metadata in your app, the only solution is to use
 You can extend the lib by using the classes and functions exposed in
 `isbntools.dev`, namely:
 
-* `webservice` a class that handles the access to web
+* `WEBService` a class that handles the access to web
   services (just by passing an url) and supports `gzip`.
   You can subclass it to extend the functionality... but
   probably you don't need to use it! It is used in the next class.
 
-* `webquery` a class that uses `webservice` to retrive and parse
+* `WEBQuery` a class that uses `WEBService` to retrive and parse
   data from a web service. You can build a new provider of metadata
   by subclassing this class. The following classes do that
   (by using the *call pattern*). His main methods allow passing custom
   functions (*handlers*) that specialize them to specific needs (`data_checker` and
   `parser`).
 
-* `googlebooks` a class that retrives and parses book metadata,
+* `GOOBQuery` a class that retrives and parses book metadata,
   using Google Books API (you only have to provide an ISBN).
+  The main features can be implemented by a call to `googlebooks.query` function!
 
-* `wcat` a class that retrives and parses book metadata,
+* `WCATQuery` a class that retrives and parses book metadata,
   using the `worldcat.org xisbn service` (you only have to provide an ISBN).
+  The main features can be implemented by a call to `wcat.query` function!
 
-* `wcated` a class that retrives and parses collections of ISBNs related
+* `WCATEdQuery` a class that retrives and parses collections of ISBNs related
   with a given book, using the `worldcat.org xisbn service`
   (you only have to provide an ISBN).
+  The main features can be implemented by a call to `wcated.query` function!
 
-* `isbndb` a class that retrives and parses book metadata,
+* `ISBNDBQuery` a class that retrives and parses book metadata,
   using the `isbndb.org service` (you only have to provide an ISBN and an
   **API key**).
+  The main features can be implemented by a call to `isbndb.query` function!
+
+* `Metadata` a class that structures, cleans and 'validates' records of
+  metadata. The main features can be implemented by a call to `stdmeta`
+  function!
 
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
