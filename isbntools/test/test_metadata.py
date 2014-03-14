@@ -13,14 +13,14 @@ from nose.tools import assert_equals, assert_raises
 def test_query():
     # test query from metadata
     assert_raises(Exception, query, '9781849692342', 'goog')
-    assert_equals(len(repr(query('9781849692342', 'goob'))), 209)
+    assert_equals(len(repr(query('9781849692342', 'goob'))), 208)
     assert_raises(Exception, query, '9781849692342', 'wcat')
-    assert_equals(len(repr(query('9780321534965', 'wcat'))), 257)
-    assert_equals(len(repr(query('9780321534965'))), 257)
+    assert_equals(len(repr(query('9780321534965', 'wcat'))), 258)
+    assert_equals(len(repr(query('9780321534965'))), 258)
 
 def test_ext_meta():
     # test meta from core
-    assert_equals(len(repr(meta('9781849692342', 'goob'))), 209)
-    assert_equals(len(repr(meta('9780321534965', 'wcat'))), 257)
-    assert_equals(len(repr(meta('9780321534965'))), 257)
+    assert_equals(len(repr(meta('9781849692342', 'goob'))), 208)
+    assert_equals(len(repr(meta('9780321534965', 'wcat'))), 258)
+    assert_equals(len(repr(meta('9780321534965'))), 258)
 # flake8: noqa

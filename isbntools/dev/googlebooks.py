@@ -3,6 +3,7 @@
 
 import logging
 from .webquery import WEBQuery
+from .data import stdmeta
 from .exceptions import WPDataWrongShapeError
 
 UA = 'isbntools (gzip)'
@@ -48,17 +49,17 @@ class GOOBQuery(WEBQuery):
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         canonical = {}
-        canonical['ISBN-13'] = self.isbn
+        canonical['ISBN-13'] = unicode(self.isbn)
         canonical['Title'] = records['title'].replace(' :', ':')
-        canonical['Authors'] = repr(records.get('authors', []))
+        canonical['Authors'] = records.get('authors', [])
         canonical['Publisher'] = records.get('publisher', '')
         if 'publishedDate' in records and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
         else:         # pragma: no cover
             canonical['Year'] = ''
         canonical['Language'] = records['language']
-
-        return canonical
+        # call stdmeta for extra cleanning and validation
+        return stdmeta(canonical)
 
 
 def query(isbn):

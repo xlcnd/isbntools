@@ -14,6 +14,7 @@
 import logging
 import re
 from .webquery import WEBQuery
+from .data import stdmeta
 from .keys import keys
 from .exceptions import WPDataWrongShapeError
 
@@ -65,7 +66,7 @@ class ISBNDBQuery(WEBQuery):
         assert self.isbn == records['isbn13'], "isbn was mungled!"
         canonical['Title'] = records['title']
         authors = [a['name'] for a in records['author_data']]
-        canonical['Authors'] = repr(authors)
+        canonical['Authors'] = authors
         canonical['Publisher'] = records['publisher_name']
         canonical['Year'] = ''
         if 'edition_info' in records:
@@ -73,8 +74,8 @@ class ISBNDBQuery(WEBQuery):
             if match:
                 canonical['Year'] = match.group(0)
         canonical['Language'] = records.get('language', 'English')
-
-        return canonical
+        # call stdmeta for extra cleanning and validation
+        return stdmeta(canonical)
 
 
 def query(isbn):
