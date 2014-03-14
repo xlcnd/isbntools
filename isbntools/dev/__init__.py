@@ -3,16 +3,20 @@ __all__ = ['webservice', 'webquery', 'exceptions',
            'WSHTTPError', 'WSURLError', 'WQDataNotFoundError',
            'WQServiceIsDownError', 'WPDataWrongShapeError',
            'WPNotValidMetadataError', 'Metadata', 'stdmeta',
-           'normalize_space'
+           'normalize_space', 'WEBService', 'WEBQuery', 'WCATQuery',
+           'WCATEdQuery', 'GOOBQuery', 'ISBNDBQuery',
+           'WSHTTPError', 'WSURLError',
+           'WQDataNotFoundError', 'WQServiceIsDownError',
+           'WPDataWrongShapeError', 'WPNotValidMetadataError'
            ]
 
 
-from . import webservice
-from . import webquery
-from . import wcat
-from . import wcated
-from . import googlebooks
-from . import isbndb
+from .webservice import WEBService
+from .webquery import WEBQuery
+from .wcat import WCATQuery
+from .wcated import WCATEdQuery
+from .googlebooks import GOOBQuery
+from .isbndb import ISBNDBQuery
 from .exceptions import (WSHTTPError, WSURLError,
                          WQDataNotFoundError, WQServiceIsDownError,
                          WPDataWrongShapeError, WPNotValidMetadataError)
