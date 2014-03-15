@@ -51,7 +51,7 @@ class WCATQuery(WEBQuery):
         canonical = {}
         canonical['ISBN-13'] = unicode(self.isbn)
         canonical['Title'] = records['title'].replace(' :', ':')
-        canonical['Authors'] = [records.get('author', '')]
+        canonical['Authors'] = [records.get('author', u'')]
         canonical['Publisher'] = records['publisher']
         canonical['Year'] = records['year']
         canonical['Language'] = records['lang']
