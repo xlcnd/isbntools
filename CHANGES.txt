@@ -18,4 +18,5 @@ v2.0.4, 2014-03-12 -- Fixing major regression error in isbndb.py.
 v2.0.5, 2014-03-13 -- Webquery customization by `function passing`.
 v2.0.6, 2014-03-14 -- New method `isbn_from_words`.
 v2.0.7, 2014-03-15 -- Added Metadata class (to structure, clean and validate data).
-v2.0.8, 2014-03-15 -- TENTATIVE: py3? 
+v2.0.8, 2014-03-15 -- Merge provider and fixed 'not valid metadata error'. 
+v2.0.9, 2014-03-16 -- TENTATIVE: py3? 
