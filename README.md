@@ -173,8 +173,13 @@ but first you have to [download](https://pypi.python.org/packages/source/i/isbnt
 For Devs
 --------
 
-If you need high quality metadata in your app, the only solution is to use
-*polling* of several providers.
+In the namespace `isbntools` you have access to the core methods:
+`is_isbn10`, `is_isbn13`, `to_isbn10`, `to_isbn13`, `canonical`,
+`clean`, `notisbn`, `get_isbnlike`, `get_canonical_isbn`, `mask`,
+`meta`, `info`, `editions`, and `isbn_from_words`.
+
+You can extend the lib by using the classes and functions exposed in
+namespace `isbntools.dev`, namely:
 
 You can extend the lib by using the classes and functions exposed in
 `isbntools.dev`, namely:
@@ -216,6 +221,9 @@ You can extend the lib by using the classes and functions exposed in
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
 
+If you need high quality metadata in your app, the only solution is to use
+*polling* of several providers. For that you have to write your own code (*for
+now*!).
 
 Known Issues
 ------------
