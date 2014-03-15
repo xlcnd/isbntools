@@ -224,15 +224,18 @@ namespace ``isbntools.dev``, namely:
   The main features can be implemented by a call to ``isbndb.query`` function!
 
 * ``Metadata`` a class that structures, cleans and 'validates' records of
-  metadata. The main features can be implemented by a call to ``stdmeta``
-  function!
+  metadata. His method ``merge`` allows to implement a simple merging
+  procedure for records from different sources. The main features can be
+  implemented by a call to ``stdmeta`` function!
 
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
 
 If you need high quality metadata in your app, the only solution is to use
-*polling* of several providers. For that you have to write your own code (*for
-now*!).
+*polling* of several providers. A *simple merge* provider is now the default in
+``isbn_meta`` that gives priority to *wcat* but overwrites the *Authors* field
+with the value from *goob*. You can write your own *merging scheme* as a new
+provider (see *dev.merge* for an example).
 
 
 Known Issues
