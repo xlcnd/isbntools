@@ -21,7 +21,7 @@ def query(isbn):
         rg = qgoob(isbn)
     except:
         pass
-    if rg and md:
+    if md and rg:
         md.merge(rg, ('Authors'))
         return md.canonical
     if not md and rg:
