@@ -56,3 +56,9 @@ class WPNotValidMetadataError(ISBNToolsDevException):
     """ Exception raised when the metadata hasn't the expected format
     """
     message = "the metadata hasn't the expected format"
+
+
+class WPNotImplementedError(ISBNToolsDevException):
+    """ Exception raised when the methods wasn't implemented yet!
+    """
+    message = "this method wasn't implemented yet"
