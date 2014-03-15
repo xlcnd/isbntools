@@ -7,7 +7,8 @@ __all__ = ['webservice', 'webquery', 'exceptions',
            'WCATEdQuery', 'GOOBQuery', 'ISBNDBQuery',
            'WSHTTPError', 'WSURLError',
            'WQDataNotFoundError', 'WQServiceIsDownError',
-           'WPDataWrongShapeError', 'WPNotValidMetadataError'
+           'WPDataWrongShapeError', 'WPNotValidMetadataError',
+           'WPNotImplementedError'
            ]
 
 
@@ -19,6 +20,7 @@ from .googlebooks import GOOBQuery
 from .isbndb import ISBNDBQuery
 from .exceptions import (WSHTTPError, WSURLError,
                          WQDataNotFoundError, WQServiceIsDownError,
-                         WPDataWrongShapeError, WPNotValidMetadataError)
+                         WPDataWrongShapeError, WPNotValidMetadataError,
+                         WPNotImplementedError)
 from .data import Metadata, stdmeta
 from .helpers import normalize_space

@@ -3,12 +3,14 @@
 
 from .dev import wcat
 from .dev import googlebooks
-# from .dev import isbndb               # <-- HERE
+from .dev import merge
+# from .dev import isbndb              # <-- HERE
 
 """
 Registry for metadata services
 """
 services = {'default': wcat.query,   # <-- mandatory
+            'merge': merge.query,    # <-- mandatory
             'wcat': wcat.query,
             'goob': googlebooks.query,
             #'isbndb': isbndb.query  # <-- HERE
