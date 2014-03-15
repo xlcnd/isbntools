@@ -10,8 +10,8 @@ from .dev import merge
 Registry for metadata services
 """
 services = {'default': wcat.query,   # <-- mandatory
-            'merge': merge.query,    # <-- mandatory
             'wcat': wcat.query,
             'goob': googlebooks.query,
+            'merge': merge.query,
             #'isbndb': isbndb.query  # <-- HERE
             }

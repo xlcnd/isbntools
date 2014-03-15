@@ -31,14 +31,14 @@ class Metadata(object):
         """
         return list(FIELDS)
 
-    def clean(self, broom=normalize_space, filter=()):
+    def clean(self, broom=normalize_space, filtre=()):
         """
         Clean fields of canonical
         """
         self._content.update((k, broom(v)) for k, v
                              in self._content.items()
-                             if k != 'Authors' and k not in filter)
-        if 'Authors' not in filter:
+                             if k != 'Authors' and k not in filtre)
+        if 'Authors' not in filtre:
             self._content['Authors'] = [broom(i) for i in
                                         self._content['Authors']]
 
@@ -74,6 +74,18 @@ class Metadata(object):
         if not type(author) is unicode:
             author = unicode(author)
         self._content['Authors'].append(author.strip())
+
+    def merge(self, record, overwrite=(), overrule=lambda x: x == ''):
+        """
+        Merge the record with canonical
+        """
+        # by default do nothing
+        self._content.update((k, v) for k, v in record.items()
+                             if k in overwrite and not overrule(v))
+        if not self._validate():
+            self._set_empty()
+            raise WPNotValidMetadataError()
+        self.clean()
 
     def _validate(self):
         """
