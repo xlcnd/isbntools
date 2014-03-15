@@ -52,11 +52,11 @@ class GOOBQuery(WEBQuery):
         canonical['ISBN-13'] = unicode(self.isbn)
         canonical['Title'] = records['title'].replace(' :', ':')
         canonical['Authors'] = records.get('authors', [])
-        canonical['Publisher'] = records.get('publisher', '')
+        canonical['Publisher'] = records.get('publisher', u'')
         if 'publishedDate' in records and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
         else:         # pragma: no cover
-            canonical['Year'] = ''
+            canonical['Year'] = u''
         canonical['Language'] = records['language']
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
