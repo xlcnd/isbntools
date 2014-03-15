@@ -10,11 +10,21 @@ def query(isbn):
     """
     Query function for the `merge provider`
     """
-    # TODO do this in parallel
-    rw = qwcat(isbn)
-    rg = qgoob(isbn)
-
-    md = Metadata(rw)
-    md.merge(rg, ('Authors'))
-
-    return md.canonical
+    rg, md = None, None
+    # TODO do the calls in parallel
+    try:
+        rw = qwcat(isbn)
+        md = Metadata(rw)
+    except:
+        pass
+    try:
+        rg = qgoob(isbn)
+    except:
+        pass
+    if rg and md:
+        md.merge(rg, ('Authors'))
+        return md.canonical
+    if not md and rg:
+        md = Metadata(rg)
+        return md.canonical
+    return md.canonical if not rg else None

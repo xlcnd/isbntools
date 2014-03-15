@@ -9,7 +9,7 @@ from .dev import merge
 """
 Registry for metadata services
 """
-services = {'default': wcat.query,   # <-- mandatory
+services = {'default': merge.query,   # <-- mandatory
             'wcat': wcat.query,
             'goob': googlebooks.query,
             'merge': merge.query,
