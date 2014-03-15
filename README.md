@@ -181,9 +181,6 @@ In the namespace `isbntools` you have access to the core methods:
 You can extend the lib by using the classes and functions exposed in
 namespace `isbntools.dev`, namely:
 
-You can extend the lib by using the classes and functions exposed in
-`isbntools.dev`, namely:
-
 * `WEBService` a class that handles the access to web
   services (just by passing an url) and supports `gzip`.
   You can subclass it to extend the functionality... but
