@@ -17,10 +17,13 @@ def test_query():
     assert_raises(Exception, query, '9781849692342', 'wcat')
     assert_equals(len(repr(query('9780321534965', 'wcat'))), 258)
     assert_equals(len(repr(query('9780321534965'))), 258)
+    assert_equals(len(repr(query('9780321534965', 'merge'))), 179)
+    assert_equals(len(repr(query('9780321534965', 'goob'))), 203)
 
 def test_ext_meta():
     # test meta from core
     assert_equals(len(repr(meta('9781849692342', 'goob'))), 208)
     assert_equals(len(repr(meta('9780321534965', 'wcat'))), 258)
+    assert_equals(len(repr(meta('9780321534965', 'merge'))), 179)
     assert_equals(len(repr(meta('9780321534965'))), 258)
 # flake8: noqa

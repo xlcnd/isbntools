@@ -20,7 +20,6 @@ def usage(available="wcat|goob|..."):
 if __name__ == "__main__":
     providers = registry.services.keys()
     providers.remove('default')
-    providers.remove('merge')
     available = '|'.join(providers)
 
     try:

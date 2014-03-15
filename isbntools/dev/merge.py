@@ -1,22 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from .exceptions import WPNotImplementedError
+from .data import Metadata
+from .wcat import query as qwcat
+from .googlebooks import query as qgoob
 
-
-class Merge(object):
-    """
-    Class for merge metadata records
-    """
-    def __init__(self, isbn):
-        raise WPNotImplementedError()
-    
 
 def query(isbn):
     """
-    Function API to the class
+    Query function for the `merge provider`
     """
-    # mmd = Merge(isbn)
-    pass
-    
-# flake8: noqa
+    # TODO do this in parallel
+    rw = qwcat(isbn)
+    rg = qgoob(isbn)
+
+    md = Metadata(rw)
+    md.merge(rg, ('Authors'))
+
+    return md.canonical
