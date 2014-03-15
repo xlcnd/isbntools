@@ -68,7 +68,7 @@ class ISBNDBQuery(WEBQuery):
         authors = [a['name'] for a in records['author_data']]
         canonical['Authors'] = authors
         canonical['Publisher'] = records['publisher_name']
-        canonical['Year'] = ''
+        canonical['Year'] = u''
         if 'edition_info' in records:
             match = re.search(PATT_YEAR, records['edition_info'])
             if match:
