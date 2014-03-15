@@ -8,9 +8,9 @@ from .googlebooks import query as qgoob
 
 def query(isbn):
     """
-    Query function for the `merge provider`
+    Query function for the `merge provider` (waterfall model)
     """
-    rg, md = None, None
+    rg, rw, md = None, None, None
     # TODO do the calls in parallel
     try:
         rw = qwcat(isbn)
@@ -27,4 +27,4 @@ def query(isbn):
     if not md and rg:
         md = Metadata(rg)
         return md.canonical
-    return md.canonical if not rg else None
+    return md.canonical if not rg and rw else None
