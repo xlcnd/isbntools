@@ -58,6 +58,7 @@ gives you the main metadata associated with the ISBN, `wcat` uses *worldcat.org*
 `isbndb` uses the *isbndb.com* service (**an api key is needed**), `merge` uses
 a mergeded record of `wcat` and `goob` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`).
+You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
 
 ```bash
 
@@ -215,6 +216,7 @@ namespace `isbntools.dev`, namely:
   programatically, use `isbntools.config.add_apikey` before a call to
   `ISBNDBQuery` or to `isbndb.query`).
   The main features can be implemented by a call to `isbndb.query` function!
+  You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
 
 * `Metadata` a class that structures, cleans and 'validates' records of
   metadata. His method `merge` allows to implement a simple merging
