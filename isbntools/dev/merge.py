@@ -1,26 +1,39 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import threading
 from .data import Metadata
 from .wcat import query as qwcat
 from .googlebooks import query as qgoob
+
+results = {}
+
+
+def worker(name, task, isbn):
+    """
+    Worker function for thread
+    """
+    try:
+        results[name] = task(isbn)
+    except:
+        pass
 
 
 def query(isbn):
     """
     Query function for the `merge provider` (waterfall model)
     """
-    rg, rw, md = None, None, None
-    # TODO do the calls in parallel
-    try:
-        rw = qwcat(isbn)
-        md = Metadata(rw)
-    except:
-        pass
-    try:
-        rg = qgoob(isbn)
-    except:
-        pass
+    # threaded call to services
+    for name, task in (('wcat', qwcat), ('goob', qgoob)):
+        t = threading.Thread(target=worker, args=(name, task, isbn))
+        t.start()
+        t.join()
+
+    rw = results.get('wcat')
+    rg = results.get('goob')
+
+    md = Metadata(rw) if rw else None
+
     if md and rg:
         md.merge(rg, ('Authors'))
         return md.canonical
