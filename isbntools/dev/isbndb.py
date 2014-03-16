@@ -29,7 +29,7 @@ class ISBNDBQuery(WEBQuery):
         """
         self.isbn = isbn
         WEBQuery.__init__(self, SERVICE_URL %
-                          (config.apikeys['isbndb'], isbn), UA)
+                          (apikeys['isbndb'], isbn), UA)
         # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
