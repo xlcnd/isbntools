@@ -249,7 +249,8 @@ Known Issues
 2. The ``isbntools`` works internally with unicode, however this doesn't
    solve errors of lost information due to bad encode/decode at the origin!
 
-3. Periodically new blocks of ISBNs are issued to agencies. The ``range`` of
+3. Periodically, agencies, issue new blocks of ISBNs. The
+   (*range*)[https://www.isbn-international.org/range_file_generation] of
    these blocks is on a database that ``mask`` uses. So it could happen, if you
    have a version of ``isbntools`` that is too old, ``mask`` doesn't work for
    valid (recent) issued ISBNs. The solution? **Update isbntools often**!
