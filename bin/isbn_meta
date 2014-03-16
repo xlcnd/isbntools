@@ -4,7 +4,7 @@
 import sys
 import logging
 from isbntools import meta
-from isbntools import registry
+from isbntools import config
 
 
 FORMATR = 'ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n'
@@ -12,19 +12,23 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 def usage(available="wcat|goob|..."):
-    sys.stderr.write('Usage: isbn_meta ISBN [%s]\n  ...  or try with '
+    sys.stderr.write('Usage: isbn_meta ISBN [%s] [apikey]\n  ...  or try with '
                      'another service in list!\n' % available)
     sys.exit(1)
 
 
 if __name__ == "__main__":
-    providers = registry.services.keys()
+    providers = config.services.keys()
     providers.remove('default')
     available = '|'.join(providers)
 
     try:
-        if len(sys.argv) == 3:
+        if len(sys.argv) in (3, 4):
             service = sys.argv[2]
+            try:
+                config.add_apikey(sys.argv[2], sys.argv[3])
+            except:
+                pass
         else:
             service = 'default'
         r = meta(sys.argv[1], service)

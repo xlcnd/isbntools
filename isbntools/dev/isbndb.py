@@ -2,21 +2,12 @@
 # -*- coding: utf-8 -*-
 
 
-# To use the `isbndb.com` web service you should get an **API KEY** that you
-# should write in the file `keys.py`.
-
-# It is very easy to add *new* providers of metadata. Just write a file
-# following the pattern of `wcat.py`, `googlebooks.py`, ...
-# in the `isbntools/dev` folder. Then you have to register it in the
-# `registry.py`, and *thats all*!
-
-
 import logging
 import re
 from .webquery import WEBQuery
 from .data import stdmeta
-from .keys import keys
 from .exceptions import WPDataWrongShapeError
+from ..config import apikeys
 
 
 UA = 'isbntools (gzip)'
@@ -37,7 +28,8 @@ class ISBNDBQuery(WEBQuery):
         Initializer & call webservice & handle errors
         """
         self.isbn = isbn
-        WEBQuery.__init__(self, SERVICE_URL % (keys['isbndb'], isbn), UA)
+        WEBQuery.__init__(self, SERVICE_URL %
+                          (config.apikeys['isbndb'], isbn), UA)
         # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
@@ -62,8 +54,8 @@ class ISBNDBQuery(WEBQuery):
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         canonical = {}
-        canonical['ISBN-13'] = self.isbn
-        assert self.isbn == records['isbn13'], "isbn was mungled!"
+        canonical['ISBN-13'] = unicode(self.isbn)
+        # assert self.isbn == records['isbn13'], "isbn was mungled!"
         canonical['Title'] = records['title']
         authors = [a['name'] for a in records['author_data']]
         canonical['Authors'] = authors
@@ -72,8 +64,8 @@ class ISBNDBQuery(WEBQuery):
         if 'edition_info' in records:
             match = re.search(PATT_YEAR, records['edition_info'])
             if match:
-                canonical['Year'] = match.group(0)
-        canonical['Language'] = records.get('language', 'English')
+                canonical['Year'] = unicode(match.group(0))
+        canonical['Language'] = records.get('language', u'English')
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
