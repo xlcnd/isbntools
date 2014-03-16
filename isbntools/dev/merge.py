@@ -5,6 +5,7 @@ import threading
 from .data import Metadata
 from .wcat import query as qwcat
 from .googlebooks import query as qgoob
+from .. import config
 
 results = {}
 
@@ -27,7 +28,7 @@ def query(isbn):
     for name, task in (('wcat', qwcat), ('goob', qgoob)):
         t = threading.Thread(target=worker, args=(name, task, isbn))
         t.start()
-        t.join(9)   # <-- only wait for 9 seconds
+        t.join(config.THREADS_TIMEOUT)   # <-- only wait for 10 seconds
 
     rw = results.get('wcat')
     rg = results.get('goob')
