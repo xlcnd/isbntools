@@ -53,8 +53,11 @@ gives you the *group identifier* of the ISBN.
 
     $ isbn_meta ISBN
 ```
-gives you the main metadata associated with the ISBN (uses worldcat.org), to
-use the Google Books service enter `isbn_meta ISBN goob`.
+gives you the main metadata associated with the ISBN, `wcat` uses *worldcat.org*
+(**no key is needed**), `goob` uses the *Google Books service* (**no key is needed**),
+`isbndb` uses the *isbndb.com* service (**an api key is needed**), `merge` uses
+a mergeded record of `wcat` and `goob` records (**no key is needed**) and
+**is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`).
 
 ```bash
 
