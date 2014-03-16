@@ -4,7 +4,7 @@
 import logging
 from .webquery import WEBQuery
 from .data import stdmeta
-from .exceptions import WPDataWrongShapeError
+from .exceptions import WPDataWrongShapeError, WPDataNotFoundError
 
 
 UA = 'isbntools (gzip)'
@@ -43,8 +43,8 @@ class WCATQuery(WEBQuery):
                 logger.debug('WPDataWrongShapeError for % with data %s' %
                              (self.isbn, extra))
             except:
-                pass
-            raise WPDataWrongShapeError(self.isbn)
+                raise WPDataWrongShapeError(self.isbn)
+            raise WPDataNotFoundError(self.isbn)
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
