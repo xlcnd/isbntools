@@ -26,7 +26,7 @@ class ISBNToolsException(Exception):
 
 
 class NotRecognizedServiceError(ISBNToolsException):
-    """ Exception raised when the service is not in registry.py
+    """ Exception raised when the service is not in config.py
     """
 
     def __init__(self, service):
