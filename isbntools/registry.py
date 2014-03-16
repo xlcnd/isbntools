@@ -5,6 +5,7 @@ from .dev import wcat
 from .dev import googlebooks
 from .dev import merge
 from .dev import isbndb
+from .dev import openl
 
 
 """
@@ -15,4 +16,5 @@ services = {'default': merge.query,   # <-- mandatory
             'goob': googlebooks.query,
             'merge': merge.query,
             'isbndb': isbndb.query,
+            'openl': openl.query,
             }
