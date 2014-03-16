@@ -219,8 +219,10 @@ namespace ``isbntools.dev``, namely:
   The main features can be implemented by a call to ``wcated.query`` function!
 
 * ``ISBNDBQuery`` a class that retrives and parses book metadata,
-  using the ``isbndb.org service`` (you only have to provide an ISBN and an
-  **API key**).
+  using the **isbndb.org service**. However you have to provide an **API key** (in the
+  command line you can enter ``isbn_meta 9780321534965 isbndb YOURAPIKEY`` or,
+  programatically, use ``isbntools.config.add_apikey`` before a call to
+  ``ISBNDBQuery`` or to ``isbndb.query``).
   The main features can be implemented by a call to ``isbndb.query`` function!
 
 * ``Metadata`` a class that structures, cleans and 'validates' records of
