@@ -27,7 +27,7 @@ def query(isbn):
     for name, task in (('wcat', qwcat), ('goob', qgoob)):
         t = threading.Thread(target=worker, args=(name, task, isbn))
         t.start()
-        t.join()
+        t.join(9)   # <-- only wait for 9 seconds
 
     rw = results.get('wcat')
     rg = results.get('goob')
