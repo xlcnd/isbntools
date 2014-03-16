@@ -38,7 +38,7 @@ class WEBService(object):
                             (url, e.code))
             raise WSHTTPError(e.code)
         except urllib2.URLError as e:
-            logger.critical('WSURLError for %s with  reason %s' %
+            logger.critical('WSURLError for %s with reason %s' %
                             (url, e.reason))
             raise WSURLError(e.reason)
 
