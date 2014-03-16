@@ -19,10 +19,6 @@ def usage(available="wcat|goob|..."):
 
 
 if __name__ == "__main__":
-    providers = registry.services.keys()
-    providers.remove('default')
-    available = '|'.join(providers)
-
     try:
         if len(sys.argv) in (3, 4):
             service = sys.argv[2]
@@ -37,4 +33,7 @@ if __name__ == "__main__":
                                     repr(r['Authors']).replace('.', ''),
                                     r['Publisher'], r['Year']))
     except:
+        providers = registry.services.keys()
+        providers.remove('default')
+        available = '|'.join(providers)
         usage(available)
