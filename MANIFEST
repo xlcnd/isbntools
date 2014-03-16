@@ -17,6 +17,7 @@ bin/isbntools
 bin/to_isbn10
 bin/to_isbn13
 isbntools/__init__.py
+isbntools/config.py
 isbntools/core.py
 isbntools/exceptions.py
 isbntools/ext.py
@@ -35,7 +36,6 @@ isbntools/dev/exceptions.py
 isbntools/dev/googlebooks.py
 isbntools/dev/helpers.py
 isbntools/dev/isbndb.py
-isbntools/dev/keys.py
 isbntools/dev/merge.py
 isbntools/dev/wcat.py
 isbntools/dev/wcated.py
