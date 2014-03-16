@@ -19,6 +19,8 @@ def test_query():
     assert_equals(len(repr(query('9780321534965'))), 179)
     assert_equals(len(repr(query('9780321534965', 'merge'))), 179)
     assert_equals(len(repr(query('9780321534965', 'goob'))), 203)
+    assert_equals(len(repr(query('9789934015960'))), 187)
+    
 
 def test_ext_meta():
     # test meta from core
