@@ -6,7 +6,7 @@ import logging
 import re
 from .webquery import WEBQuery
 from .data import stdmeta
-from .exceptions import WPDataWrongShapeError
+from .exceptions import WPDataWrongShapeError, WPDataNotFoundError
 from ..config import apikeys
 
 
@@ -48,8 +48,8 @@ class ISBNDBQuery(WEBQuery):
                 logger.debug('WPDataWrongShapeError for % with data %s' %
                              (self.isbn, extra))
             except:
-                pass
-            raise WPDataWrongShapeError(self.isbn)
+                raise WPDataWrongShapeError(self.isbn)
+            raise WPDataNotFoundError(self.isbn)
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
