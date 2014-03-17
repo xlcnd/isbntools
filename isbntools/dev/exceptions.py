@@ -67,7 +67,7 @@ class WPNotValidMetadataError(ISBNToolsDevException):
 class WPRecordMappingError(ISBNToolsDevException):
     """ Exception raised when the mapping records -> canonical doesn't work
     """
-    message = "the mapping records -> canonical doesn't work"
+    message = "the mapping `canonical <- records` doesn't work"
 
 
 class WPNotImplementedError(ISBNToolsDevException):
