@@ -72,7 +72,7 @@ gives you the main metadata associated with the ISBN, ``wcat`` uses *worldcat.or
 ``isbndb`` uses the *isbndb.com* service (**an api key is needed**), ``merge`` uses
 a mergeded record of ``wcat`` and ``goob`` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``).
-You can get an API key for the *isbndb.com service* (here)[http://isbndb.com/api/v2/docs].
+You can get an API key for the *isbndb.com service* here_.
 
 .. code-block:: bash
 
@@ -210,15 +210,15 @@ namespace ``isbntools.dev``, namely:
   ``parser``).
 
 * ``GOOBQuery`` a class that retrives and parses book metadata,
-  using Google Books API (you only have to provide an ISBN).
+  using **Google Books API** (you only have to provide an ISBN).
   The main features can be implemented by a call to ``googlebooks.query`` function!
 
 * ``WCATQuery`` a class that retrives and parses book metadata,
-  using the ``worldcat.org xisbn service`` (you only have to provide an ISBN).
+  using the **worldcat.org xisbn service** (you only have to provide an ISBN).
   The main features can be implemented by a call to ``wcat.query`` function!
 
 * ``WCATEdQuery`` a class that retrives and parses collections of ISBNs related
-  with a given book, using the ``worldcat.org xisbn service``
+  with a given book, using the **worldcat.org xisbn service**
   (you only have to provide an ISBN).
   The main features can be implemented by a call to ``wcated.query`` function!
 
@@ -228,7 +228,7 @@ namespace ``isbntools.dev``, namely:
   programatically, use ``isbntools.config.add_apikey`` before a call to
   ``ISBNDBQuery`` or to ``isbndb.query``).
   The main features can be implemented by a call to ``isbndb.query`` function!
-  You can get an API key for the *isbndb.com service* (here)[http://isbndb.com/api/v2/docs].
+  You can get an API key for the *isbndb.com service* here_.
 
 * ``OPENLQuery`` a class that retrives and parses book metadata,
   using ``openlibrary.org`` (you only have to provide an ISBN).
@@ -244,30 +244,29 @@ very easy to integrate your classes with the rest of the lib.
 
 If you need high quality metadata in your app, the only solution is to use
 *polling & merge* of several providers. A *simple merge* provider is now the default in
-``isbn_meta`` (and ``isbntools.meta``) that gives priority to *wcat* but overwrites
-the *Authors* field with the value from *goob*. It uses *threaded* calls to services
+``isbn_meta`` (and ``isbntools.meta``) that gives priority to ``wcat`` but overwrites
+the ``Authors`` field with the value from ``goob``. It uses *threaded* calls to services
 and the ``merge`` method of ``Metadata``. You can write your own *merging scheme*
-as a new provider (see *dev.merge* for an example).
+as a new provider (see ``dev.merge`` for an example).
 
 
 Known Issues
 ============
 
 1. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
-   (this is due to errors on the worldcat.org service), in alternative you could
-   use the Google Books service (e.g. ``isbn_meta 9780143105985 goob``).
+   (this is due to errors on the chosen service), in alternative you could
+   try one of the others services.
 
 2. The ``isbntools`` works internally with unicode, however this doesn't
    solve errors of lost information due to bad encode/decode at the origin!
 
 3. Periodically, agencies, issue new blocks of ISBNs. The
-   (*range*)[https://www.isbn-international.org/range_file_generation] of
-   these blocks is on a database that ``mask`` uses. So it could happen, if you
-   have a version of ``isbntools`` that is too old, ``mask`` doesn't work for
+   range_ of these blocks is on a database that ``mask`` uses. So it could happen,
+   if you have a version of ``isbntools`` that is too old, ``mask`` doesn't work for
    valid (recent) issued ISBNs. The solution? **Update isbntools often**!
 
 Any issue that you would like to report, please do it at
-(github)[https://github.com/xlcnd/isbntools/issues].
+github_.
 
 
 ISBN
@@ -279,4 +278,11 @@ To know about ISBN:
 
 *  http://www.isbn-international.org/
 
+
+
+.. _github: https://github.com/xlcnd/isbntools/issues
+
+.. _range: https://www.isbn-international.org/range_file_generation
+
+.. _here: http://isbndb.com/api/v2/docs
 
