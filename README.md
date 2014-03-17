@@ -218,6 +218,10 @@ namespace `isbntools.dev`, namely:
   The main features can be implemented by a call to `isbndb.query` function!
   You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
 
+* `OPENLQuery` a class that retrives and parses book metadata,
+  using `openlibrary.org` (you only have to provide an ISBN).
+  The main features can be implemented by a call to `openl.query` function!
+
 * `Metadata` a class that structures, cleans and 'validates' records of
   metadata. His method `merge` allows to implement a simple merging
   procedure for records from different sources. The main features can be
