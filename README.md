@@ -61,6 +61,10 @@ a mergeded record of `wcat` and `goob` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`).
 You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
 
+**If you are in a UNIX system** you can enter API keys and set preferences in
+the file `.isbntools.conf` in your `$HOME` directory (see note below!).
+
+
 ```bash
 
     $ isbn_editions ISBN
@@ -216,6 +220,7 @@ namespace `isbntools.dev`, namely:
   command line you can enter `isbn_meta 9780321534965 isbndb YOURAPIKEY` or,
   programatically, use `isbntools.config.add_apikey` before a call to
   `ISBNDBQuery` or to `isbndb.query`).
+  (**If you are in a UNIX system** see the note below).
   The main features can be implemented by a call to `isbndb.query` function!
   You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
 
@@ -237,6 +242,27 @@ If you need high quality metadata in your app, the only solution is to use
 the `Authors` field with the value from `goob`. It uses *threaded* calls to services
 and the `merge` method of `Metadata`. You can write your own *merging scheme*
 as a new provider (see `dev.merge` for an example).
+
+
+Configuration File
+------------------
+
+**If you are in a UNIX system** you can enter your API keys and preferences in a
+file named `.isbntools.conf` in your `$HOME` directory
+(**create this file if don't exist**). The file should look like:
+
+```bash
+
+    [SYS]
+    SOCKETS_TIMEOUT=15
+    THREADS_TIMEOUT=12
+
+    [SERVICES]
+    DEFAULT_SERVICE=merge
+    ISBNDB_API_KEY=your_api_key_here_or_DELETEME
+```
+
+The values are self-explanatory!
 
 
 Known Issues
