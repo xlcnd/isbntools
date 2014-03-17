@@ -26,6 +26,7 @@ isbntools/infogroup.py
 isbntools/mask.py
 isbntools/metadata.py
 isbntools/registry.py
+isbntools/setconf.py
 isbntools/words.py
 isbntools/data/__init__.py
 isbntools/data/data4info.py
