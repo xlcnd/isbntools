@@ -266,6 +266,9 @@ Known Issues
    have a version of ``isbntools`` that is too old, ``mask`` doesn't work for
    valid (recent) issued ISBNs. The solution? **Update isbntools often**!
 
+Any issue that you would like to report, please do it at
+(github)[https://github.com/xlcnd/isbntools/issues].
+
 
 ISBN
 ====
