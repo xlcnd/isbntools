@@ -6,8 +6,9 @@ import logging
 import re
 from .webquery import WEBQuery
 from .data import stdmeta
-from .exceptions import WPDataWrongShapeError, WPDataNotFoundError
 from ..config import apikeys
+from .exceptions import (WPDataWrongShapeError, WPDataNotFoundError,
+                         WPRecordMappingError)
 
 
 UA = 'isbntools (gzip)'
@@ -53,19 +54,22 @@ class ISBNDBQuery(WEBQuery):
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
-        canonical = {}
-        canonical['ISBN-13'] = unicode(self.isbn)
-        # assert self.isbn == records['isbn13'], "isbn was mungled!"
-        canonical['Title'] = records['title']
-        authors = [a['name'] for a in records['author_data']]
-        canonical['Authors'] = authors
-        canonical['Publisher'] = records['publisher_name']
-        canonical['Year'] = u''
-        if 'edition_info' in records:
-            match = re.search(PATT_YEAR, records['edition_info'])
-            if match:
-                canonical['Year'] = unicode(match.group(0))
-        canonical['Language'] = records.get('language', u'English')
+        try:
+            canonical = {}
+            canonical['ISBN-13'] = unicode(self.isbn)
+            # assert self.isbn == records['isbn13'], "isbn was mungled!"
+            canonical['Title'] = records.get('title', u'')
+            authors = [a['name'] for a in records['author_data']]
+            canonical['Authors'] = authors
+            canonical['Publisher'] = records.get('publisher_name', u'')
+            canonical['Year'] = u''
+            if 'edition_info' in records:
+                match = re.search(PATT_YEAR, records['edition_info'])
+                if match:
+                    canonical['Year'] = unicode(match.group(0))
+            canonical['Language'] = records.get('language', u'')
+        except:
+            raise WPRecordMappingError(self.isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
