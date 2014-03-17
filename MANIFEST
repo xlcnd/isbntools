@@ -16,6 +16,7 @@ bin/isbn_validate
 bin/isbntools
 bin/to_isbn10
 bin/to_isbn13
+isbntools/.isbntools.conf
 isbntools/__init__.py
 isbntools/config.py
 isbntools/core.py
