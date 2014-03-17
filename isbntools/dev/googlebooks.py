@@ -50,6 +50,7 @@ class GOOBQuery(WEBQuery):
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         try:
+            # mapping: canonical <- records
             canonical = {}
             canonical['ISBN-13'] = unicode(self.isbn)
             canonical['Title'] = records.get('title', u'').replace(' :', ':')
