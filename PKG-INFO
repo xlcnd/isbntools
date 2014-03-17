@@ -296,7 +296,7 @@ Description:
         .. _here: http://isbndb.com/api/v2/docs
         
         
-Keywords: ISBN,validate,transform,hyphenate,metadata
+Keywords: ISBN,validate,transform,hyphenate,metadata,World Catalogue,Google Books,Open Library,isbndb.com
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 2.7
 Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
