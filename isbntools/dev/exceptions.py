@@ -64,6 +64,12 @@ class WPNotValidMetadataError(ISBNToolsDevException):
     message = "the metadata hasn't the expected format"
 
 
+class WPRecordMappingError(ISBNToolsDevException):
+    """ Exception raised when the mapping records -> canonical doesn't work
+    """
+    message = "the mapping records -> canonical doesn't work"
+
+
 class WPNotImplementedError(ISBNToolsDevException):
     """ Exception raised when the methods wasn't implemented yet!
     """

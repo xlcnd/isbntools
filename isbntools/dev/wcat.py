@@ -4,7 +4,8 @@
 import logging
 from .webquery import WEBQuery
 from .data import stdmeta
-from .exceptions import WPDataWrongShapeError, WPDataNotFoundError
+from .exceptions import (WPDataWrongShapeError, WPDataNotFoundError,
+                         WPRecordMappingError)
 
 
 UA = 'isbntools (gzip)'
@@ -48,13 +49,16 @@ class WCATQuery(WEBQuery):
 
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
-        canonical = {}
-        canonical['ISBN-13'] = unicode(self.isbn)
-        canonical['Title'] = records['title'].replace(' :', ':')
-        canonical['Authors'] = [records.get('author', u'')]
-        canonical['Publisher'] = records['publisher']
-        canonical['Year'] = records['year']
-        canonical['Language'] = records['lang']
+        try:
+            canonical = {}
+            canonical['ISBN-13'] = unicode(self.isbn)
+            canonical['Title'] = records.get('title', u'').replace(' :', ':')
+            canonical['Authors'] = [records.get('author', u'')]
+            canonical['Publisher'] = records.get('publisher', u'')
+            canonical['Year'] = records.get('year', u'')
+            canonical['Language'] = records.get('lang', u'')
+        except:
+            raise WPRecordMappingError(self.isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
