@@ -13,7 +13,7 @@ THREADS_TIMEOUT = 11    # seconds
 
 
 """
-Your API keys
+API keys
 """
 apikeys = {}
 
@@ -25,7 +25,8 @@ def add_apikey(service, apikey):
     add_apikey('isbndb', 'JuHytr6') [is fake!]
     """
     apikeys[service] = apikey
-    
+
+
 def setthreadstimeout(seconds):
     """
     Sets the value of THREADS_TIMEOUT (in seconds)

@@ -18,7 +18,8 @@ services = {'default': merge.query,      # <-- mandatory
             'isbndb': isbndb.query,
             'openl': openl.query,
             }
-            
+
+
 def setdefaultservice(service_name):
     """
     Sets the default service
