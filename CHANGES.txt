@@ -19,6 +19,6 @@ v2.0.5, 2014-03-13 -- Webquery customization by `function passing`.
 v2.0.6, 2014-03-14 -- New method `isbn_from_words`.
 v2.0.7, 2014-03-15 -- Added Metadata class (to structure, clean and validate data).
 v2.0.8, 2014-03-15 -- Merge provider and fixed 'not valid metadata error'.
-v2.0.9, 2014-03-15 -- (NOT RELEASED) much improved `merge`provider with waterfall backup (new middle version)
+v2.0.9, 2014-03-15 -- (NOT RELEASED) much improved `merge` provider with waterfall backup (new middle version)
 v2.1.1, 2014-03-17 -- Threaded calls in `merge` and `openl` provider.
-v2.1.2, 2014-03-18 -- TENTATIVE: conf? 
+v2.1.2, 2014-03-18 -- User options in conf file (UNIX) & robust mapping canonical <- records. 
