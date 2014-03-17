@@ -55,6 +55,7 @@ class ISBNDBQuery(WEBQuery):
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         try:
+            # mapping: canonical <- records
             canonical = {}
             canonical['ISBN-13'] = unicode(self.isbn)
             # assert self.isbn == records['isbn13'], "isbn was mungled!"
