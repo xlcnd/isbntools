@@ -87,6 +87,18 @@ class Metadata(object):
             raise WPNotValidMetadataError()
         self.clean()
 
+    def empties(self):
+        """
+        Returns the names of empty fields
+        """
+        return [k for k, v in self._content.items() if v == u'' or v == []]
+
+    def metric(self):
+        """
+        Returns the length of the characters that repr the object
+        """
+        return len(repr(self._content))
+
     def _validate(self):
         """
         Validates canonical
@@ -113,6 +125,41 @@ class Metadata(object):
         """
         return '\n'.join((': '.join((f, repr(self._content[f]))) for f
                           in FIELDS)).replace("u''", "").replace("[]", "")
+
+    def __iter__(self):
+        """
+        Define an iterator for canonical
+        """
+        for k, v in self._content.items():
+            if k == 'Authors':
+                continue
+            yield k, v
+        for a in self._content['Authors']:
+            yield 'Author', a
+
+    def __len__(self):
+        """
+        Meaningful property for len(metadata object): Sum elements != u''
+        """
+        lenk = len([v for v in self._content.values() if v != u''])
+        lena = len([l for l in self._content.get('Authors') if l != u''])
+        return lenk + lena - 1
+
+    def __eq__(self, other):
+        """
+        When are two of these objects equal?
+        """
+        if self.metric() != other.metric():
+            return False
+        # if self.__len__(self) != self.__len__(other):
+        #     return False
+        qk = all(v == other._content[k] for k, v in self._content.items()
+                 if k != 'Authors')
+        if not qk:
+            return False
+        qa = all(self._content['Authors'][i] == other._content['Authors'][i]
+                 for i in range(len(self._content['Authors'])))
+        return qa
 
 
 def stdmeta(records):
