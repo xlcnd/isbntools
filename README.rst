@@ -245,6 +245,9 @@ namespace ``isbntools.dev``, namely:
   procedure for records from different sources. The main features can be
   implemented by a call to ``stdmeta`` function!
 
+* ``vias`` allows to put theaded calls to services just by passing the name and
+  a pointer to the service ``query`` function.
+
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
 
