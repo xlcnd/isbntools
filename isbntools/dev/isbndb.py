@@ -8,7 +8,7 @@ from .webquery import WEBQuery
 from .data import stdmeta
 from ..config import apikeys
 from .exceptions import (WPDataWrongShapeError, WPDataNotFoundError,
-                         WPRecordMappingError)
+                         WPRecordMappingError, WPNoAPIKeyError)
 
 
 UA = 'isbntools (gzip)'
@@ -29,6 +29,8 @@ class ISBNDBQuery(WEBQuery):
         Initializer & call webservice & handle errors
         """
         self.isbn = isbn
+        if not apikeys.get('isbndb'):
+            raise WPNoAPIKeyError
         WEBQuery.__init__(self, SERVICE_URL %
                           (apikeys['isbndb'], isbn), UA)
         # lets us go with the default raw data_checker
