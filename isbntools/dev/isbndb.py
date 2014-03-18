@@ -36,24 +36,10 @@ class ISBNDBQuery(WEBQuery):
         # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
-    def records(self):
+    def _mapper(self, records):
         """
-        Classifies (canonically) the parsed data
+        Mapping canonical <- records
         """
-        # this service uses JSON, so stay with the default parser
-        data = WEBQuery.parse_data(self)
-        try:
-            # put the selected data in records
-            records = data['data'][0]
-        except:
-            try:
-                extra = data['error']
-                logger.debug('WPDataWrongShapeError for % with data %s' %
-                             (self.isbn, extra))
-            except:
-                raise WPDataWrongShapeError(self.isbn)
-            raise WPDataNotFoundError(self.isbn)
-
         # canonical:
         # -> ISBN-13, Title, Authors, Publisher, Year, Language
         try:
@@ -75,6 +61,27 @@ class ISBNDBQuery(WEBQuery):
             raise WPRecordMappingError(self.isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
+
+    def records(self):
+        """
+        Classifies (canonically) the parsed data
+        """
+        # this service uses JSON, so stay with the default parser
+        data = WEBQuery.parse_data(self)
+        try:
+            # put the selected data in records
+            records = data['data'][0]
+        except:
+            try:
+                extra = data['error']
+                logger.debug('WPDataWrongShapeError for % with data %s' %
+                             (self.isbn, extra))
+            except:
+                raise WPDataWrongShapeError(self.isbn)
+            raise WPDataNotFoundError(self.isbn)
+
+        # map canonical <- records
+        return self._mapper(records)
 
 
 def query(isbn):

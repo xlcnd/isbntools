@@ -29,6 +29,26 @@ class WCATQuery(WEBQuery):
         # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
+    def _mapper(self, records):
+        """
+        Mapping canonical <- records
+        """
+        # canonical:
+        # -> ISBN-13, Title, Authors, Publisher, Year, Language
+        try:
+            # mapping: canonical <- records
+            canonical = {}
+            canonical['ISBN-13'] = unicode(self.isbn)
+            canonical['Title'] = records.get('title', u'').replace(' :', ':')
+            canonical['Authors'] = [records.get('author', u'')]
+            canonical['Publisher'] = records.get('publisher', u'')
+            canonical['Year'] = records.get('year', u'')
+            canonical['Language'] = records.get('lang', u'')
+        except:
+            raise WPRecordMappingError(self.isbn)
+        # call stdmeta for extra cleanning and validation
+        return stdmeta(canonical)
+
     def records(self):
         """
         Classifies (canonically) the parsed data
@@ -47,21 +67,8 @@ class WCATQuery(WEBQuery):
                 raise WPDataWrongShapeError(self.isbn)
             raise WPDataNotFoundError(self.isbn)
 
-        # canonical:
-        # -> ISBN-13, Title, Authors, Publisher, Year, Language
-        try:
-            # mapping: canonical <- records
-            canonical = {}
-            canonical['ISBN-13'] = unicode(self.isbn)
-            canonical['Title'] = records.get('title', u'').replace(' :', ':')
-            canonical['Authors'] = [records.get('author', u'')]
-            canonical['Publisher'] = records.get('publisher', u'')
-            canonical['Year'] = records.get('year', u'')
-            canonical['Language'] = records.get('lang', u'')
-        except:
-            raise WPRecordMappingError(self.isbn)
-        # call stdmeta for extra cleanning and validation
-        return stdmeta(canonical)
+        # map canonical <- records
+        return self._mapper(records)
 
 
 def query(isbn):
