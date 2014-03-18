@@ -40,6 +40,7 @@ isbntools/dev/helpers.py
 isbntools/dev/isbndb.py
 isbntools/dev/merge.py
 isbntools/dev/openl.py
+isbntools/dev/parallel.py
 isbntools/dev/wcat.py
 isbntools/dev/wcated.py
 isbntools/dev/webquery.py
