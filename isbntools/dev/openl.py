@@ -28,7 +28,7 @@ class OPENLQuery(WEBQuery):
         # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
-    def _mapper(self, records):
+    def mapper(self, records):
         """
         Mapping canonical <- records
         """
@@ -62,7 +62,7 @@ class OPENLQuery(WEBQuery):
             raise WPDataNotFoundError(self.isbn)
 
         # map canonical <- records
-        return self._mapper(records)
+        return self.mapper(records)
 
 
 def query(isbn):
