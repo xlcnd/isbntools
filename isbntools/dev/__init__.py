@@ -8,7 +8,7 @@ __all__ = ['webservice', 'webquery', 'exceptions',
            'WSHTTPError', 'WSURLError',
            'WQDataNotFoundError', 'WQServiceIsDownError',
            'WPDataWrongShapeError', 'WPNotValidMetadataError',
-           'WPRecordMappingError', 'WPNotImplementedError'
+           'WPRecordMappingError', 'WPNotImplementedError', 'WPNoAPIKeyError'
            ]
 
 
@@ -22,6 +22,7 @@ from .openl import OPENLQuery
 from .exceptions import (WSHTTPError, WSURLError,
                          WQDataNotFoundError, WQServiceIsDownError,
                          WPDataWrongShapeError, WPNotValidMetadataError,
-                         WPRecordMappingError, WPNotImplementedError)
+                         WPRecordMappingError, WPNotImplementedError,
+                         WPNoAPIKeyError)
 from .data import Metadata, stdmeta
 from .helpers import normalize_space

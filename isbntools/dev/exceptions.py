@@ -70,6 +70,12 @@ class WPRecordMappingError(ISBNToolsDevException):
     message = "the mapping `canonical <- records` doesn't work"
 
 
+class WPNoAPIKeyError(ISBNToolsDevException):
+    """ Exception raised when the API Key for a service is not found
+    """
+    message = "this service needs an API key"
+
+
 class WPNotImplementedError(ISBNToolsDevException):
     """ Exception raised when the methods wasn't implemented yet!
     """
