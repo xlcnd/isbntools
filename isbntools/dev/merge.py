@@ -1,34 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import threading
 from .data import Metadata
 from .wcat import query as qwcat
 from .googlebooks import query as qgoob
-from .. import config
-
-results = {}
-
-
-def worker(name, task, isbn):
-    """
-    Worker function for thread
-    """
-    try:
-        results[name] = task(isbn)
-    except:
-        pass
+from .parallel import vias
 
 
 def query(isbn):
     """
     Query function for the `merge provider` (waterfall model)
     """
-    # threaded call to services
-    for name, task in (('wcat', qwcat), ('goob', qgoob)):
-        t = threading.Thread(target=worker, args=(name, task, isbn))
-        t.start()
-        t.join(config.THREADS_TIMEOUT)
+    named_tasks = (('wcat', qwcat), ('goob', qgoob))
+    results = vias(named_tasks, isbn)
 
     rw = results.get('wcat')
     rg = results.get('goob')
