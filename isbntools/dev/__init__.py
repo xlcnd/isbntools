@@ -5,7 +5,7 @@ __all__ = ['webservice', 'webquery', 'exceptions',
            'WPNotValidMetadataError', 'Metadata', 'stdmeta',
            'normalize_space', 'WEBService', 'WEBQuery', 'WCATQuery',
            'WCATEdQuery', 'GOOBQuery', 'ISBNDBQuery', 'OPENLQuery',
-           'WSHTTPError', 'WSURLError',
+           'WSHTTPError', 'WSURLError', 'vias',
            'WQDataNotFoundError', 'WQServiceIsDownError',
            'WPDataWrongShapeError', 'WPNotValidMetadataError',
            'WPRecordMappingError', 'WPNotImplementedError', 'WPNoAPIKeyError'
@@ -26,3 +26,4 @@ from .exceptions import (WSHTTPError, WSURLError,
                          WPNoAPIKeyError)
 from .data import Metadata, stdmeta
 from .helpers import normalize_space
+from .parallel import vias
