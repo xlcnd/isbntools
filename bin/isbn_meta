@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import re
 import sys
 import logging
 from isbntools import meta
@@ -8,7 +9,7 @@ from isbntools import config
 from isbntools import registry
 
 
-FORMATR = 'ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n'
+FMT = 'ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n'
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -29,9 +30,9 @@ if __name__ == "__main__":
         else:
             service = 'default'
         r = meta(sys.argv[1], service)
-        sys.stdout.write(FORMATR % (r['ISBN-13'], r['Title'],
-                                    repr(r['Authors']).replace('.', ''),
-                                    r['Publisher'], r['Year']))
+        sys.stdout.write(FMT % (r['ISBN-13'], r['Title'],
+                                re.sub("u'|[|]'|'", "", repr(r['Authors'])),
+                                r['Publisher'], r['Year']))
     except:
         providers = registry.services.keys()
         providers.remove('default')
