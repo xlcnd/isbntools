@@ -23,4 +23,4 @@ v2.0.9, 2014-03-15 -- (NOT RELEASED) much improved `merge` provider with waterfa
 v2.1.1, 2014-03-17 -- Threaded calls in `merge` and `openl` provider.
 v2.1.2, 2014-03-18 -- User options in conf file (UNIX) & robust mapping canonical <- records. 
 v2.2.1, 2014-03-19 -- Added `mapper`, `vias` and advanced `Metadata` (bump middle version).
-v2.2.2, 2014-03-20 -- Better output formatting. 
+v2.2.2, 2014-03-20 -- Better output formatting & simplified exception names. 
