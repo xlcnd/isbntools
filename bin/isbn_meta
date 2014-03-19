@@ -9,7 +9,9 @@ from isbntools import config
 from isbntools import registry
 
 
-FMT = 'ISBN-13: %s\nTitle: %s\nAuthors: %s\nPublisher: %s\nYear: %s\n'
+FMT1 = 'ISBN-13: %s\nTitle: %s\n'
+FMT2 = 'Author%s: %s\n'
+FMT3 = 'Publisher: %s\nYear: %s\n'
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -30,9 +32,10 @@ if __name__ == "__main__":
         else:
             service = 'default'
         r = meta(sys.argv[1], service)
-        sys.stdout.write(FMT % (r['ISBN-13'], r['Title'],
-                                re.sub("u'|\[|\]|'", "", repr(r['Authors'])),
-                                r['Publisher'], r['Year']))
+        sys.stdout.write(FMT1 % (r['ISBN-13'], r['Title']))
+        for i, a in enumerate(r['Authors']):
+            sys.stdout.write(FMT2 % (i, a))
+        sys.stdout.write(FMT3 % (r['Publisher'], r['Year']))
     except:
         providers = registry.services.keys()
         providers.remove('default')
