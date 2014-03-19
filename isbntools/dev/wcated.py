@@ -4,7 +4,7 @@
 import logging
 from ast import literal_eval
 from .webquery import WEBQuery
-from .exceptions import DataWrongShapeError, DataNotFoundError
+from .exceptions import DataWrongShapeError, NoDataForSelectorError
 
 logger = logging.getLogger(__name__)
 
@@ -44,7 +44,7 @@ class WCATEdQuery(WEBQuery):
                              (self.isbn, extra))
             except:
                 raise DataWrongShapeError(self.isbn)
-            raise DataNotFoundError(self.isbn)
+            raise NoDataForSelectorError(self.isbn)
         return records
 
 

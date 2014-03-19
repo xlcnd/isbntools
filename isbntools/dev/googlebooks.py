@@ -4,7 +4,7 @@
 import logging
 from .webquery import WEBQuery
 from .data import stdmeta
-from .exceptions import (DataWrongShapeError, DataNotFoundError,
+from .exceptions import (DataWrongShapeError, NoDataForSelectorError,
                          RecordMappingError)
 
 UA = 'isbntools (gzip)'
@@ -69,7 +69,7 @@ class GOOBQuery(WEBQuery):
                              (self.isbn, extra))
             except:
                 raise DataWrongShapeError(self.isbn)
-            raise DataNotFoundError(self.isbn)
+            raise NoDataForSelectorError(self.isbn)
 
         # map canonical <- records
         return self.mapper(records)

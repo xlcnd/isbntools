@@ -4,7 +4,7 @@
 import logging
 from .webquery import WEBQuery
 from .data import stdmeta
-from .exceptions import DataNotFoundError, RecordMappingError
+from .exceptions import NoDataForSelectorError, RecordMappingError
 
 
 UA = 'isbntools (gzip)'
@@ -59,7 +59,7 @@ class OPENLQuery(WEBQuery):
             # put the selected data in records
             records = data['ISBN:%s' % self.isbn]
         except:
-            raise DataNotFoundError(self.isbn)
+            raise NoDataForSelectorError(self.isbn)
 
         # map canonical <- records
         return self.mapper(records)

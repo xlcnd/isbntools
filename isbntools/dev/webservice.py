@@ -7,7 +7,7 @@ import urllib
 import urllib2
 import gzip
 from StringIO import StringIO
-from .exceptions import ITHTTPError, ITURLError
+from .exceptions import ISBNToolsHTTPError, ISBNToolsURLError
 
 UA = 'webservice (gzip)'
 
@@ -34,13 +34,13 @@ class WEBService(object):
         try:
             self.response = urllib2.urlopen(request)
         except urllib2.HTTPError as e:
-            logger.critical('ITHTTPError for %s with code %s' %
+            logger.critical('ISBNToolsHTTPError for %s with code %s' %
                             (url, e.code))
-            raise ITHTTPError(e.code)
+            raise ISBNToolsHTTPError(e.code)
         except urllib2.URLError as e:
-            logger.critical('ITURLError for %s with reason %s' %
+            logger.critical('ISBNToolsURLError for %s with reason %s' %
                             (url, e.reason))
-            raise ITURLError(e.reason)
+            raise ISBNToolsURLError(e.reason)
 
     def data(self):
         """
