@@ -247,8 +247,8 @@ and the `merge` method of `Metadata`. You can write your own *merging scheme*
 as a new provider (see `dev.merge` for an example).
 
 
-Configuration File
-------------------
+Conf File
+---------
 
 **If you are in a UNIX system** you can enter your API keys and preferences in a
 file named `.isbntools.conf` in your `$HOME` directory
