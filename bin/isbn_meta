@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import re
 import sys
 import logging
 from isbntools import meta
@@ -34,10 +33,10 @@ if __name__ == "__main__":
             service = 'default'
         r = meta(sys.argv[1], service)
         sys.stdout.write(FMT1 % (r['ISBN-13'], r['Title']))
-        for i, a in enumerate(r['Authors']):
-            if i == 0:
-                sys.stdout.write(FMT2 % (a,))
-            else:
+        if len(r['Authors']) == 1:
+            sys.stdout.write(FMT2 % r['Authors'])
+        else:
+            for i, a in enumerate(r['Authors']):
                 sys.stdout.write(FMT3 % (i + 1, a))
         sys.stdout.write(FMT4 % (r['Publisher'], r['Year']))
     except:
