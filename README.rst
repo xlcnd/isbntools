@@ -252,8 +252,11 @@ namespace ``isbntools.dev``, namely:
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
 
+The original quality of metadata at the several services is not very good! 
 If you need high quality metadata in your app, the only solution is to use
-*polling & merge* of several providers. A *simple merge* provider is now the default in
+*polling & merge* of several providers **and** a **lot** of cleanning and standardization
+for fields like ``Authors`` and ``Publisher``. 
+A *simple merge* provider is now the default in
 ``isbn_meta`` (and ``isbntools.meta``) that gives priority to ``wcat`` but overwrites
 the ``Authors`` field with the value from ``goob``. It uses *threaded* calls to services
 and the ``merge`` method of ``Metadata``. You can write your own *merging scheme*
