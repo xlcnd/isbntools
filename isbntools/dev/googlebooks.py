@@ -4,8 +4,8 @@
 import logging
 from .webquery import WEBQuery
 from .data import stdmeta
-from .exceptions import (WPDataWrongShapeError, WPDataNotFoundError,
-                         WPRecordMappingError)
+from .exceptions import (DataWrongShapeError, DataNotFoundError,
+                         RecordMappingError)
 
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+%s&fields='\
@@ -49,7 +49,7 @@ class GOOBQuery(WEBQuery):
                 canonical['Year'] = u''
             canonical['Language'] = records.get('language', u'')
         except:
-            raise WPRecordMappingError(self.isbn)
+            raise RecordMappingError(self.isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
@@ -65,11 +65,11 @@ class GOOBQuery(WEBQuery):
         except:             # pragma: no cover
             try:
                 extra = data['stat']
-                logger.debug('WPDataWrongShapeError for % with data %s' %
+                logger.debug('DataWrongShapeError for % with data %s' %
                              (self.isbn, extra))
             except:
-                raise WPDataWrongShapeError(self.isbn)
-            raise WPDataNotFoundError(self.isbn)
+                raise DataWrongShapeError(self.isbn)
+            raise DataNotFoundError(self.isbn)
 
         # map canonical <- records
         return self.mapper(records)

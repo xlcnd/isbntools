@@ -7,8 +7,8 @@ import re
 from .webquery import WEBQuery
 from .data import stdmeta
 from ..config import apikeys
-from .exceptions import (WPDataWrongShapeError, WPDataNotFoundError,
-                         WPRecordMappingError, WPNoAPIKeyError)
+from .exceptions import (DataWrongShapeError, DataNotFoundError,
+                         RecordMappingError, NoAPIKeyError)
 
 
 UA = 'isbntools (gzip)'
@@ -30,7 +30,7 @@ class ISBNDBQuery(WEBQuery):
         """
         self.isbn = isbn
         if not apikeys.get('isbndb'):
-            raise WPNoAPIKeyError
+            raise NoAPIKeyError
         WEBQuery.__init__(self, SERVICE_URL %
                           (apikeys['isbndb'], isbn), UA)
         # lets us go with the default raw data_checker
@@ -58,7 +58,7 @@ class ISBNDBQuery(WEBQuery):
                     canonical['Year'] = unicode(match.group(0))
             canonical['Language'] = records.get('language', u'')
         except:
-            raise WPRecordMappingError(self.isbn)
+            raise RecordMappingError(self.isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
@@ -74,11 +74,11 @@ class ISBNDBQuery(WEBQuery):
         except:
             try:
                 extra = data['error']
-                logger.debug('WPDataWrongShapeError for % with data %s' %
+                logger.debug('DataWrongShapeError for % with data %s' %
                              (self.isbn, extra))
             except:
-                raise WPDataWrongShapeError(self.isbn)
-            raise WPDataNotFoundError(self.isbn)
+                raise DataWrongShapeError(self.isbn)
+            raise DataNotFoundError(self.isbn)
 
         # map canonical <- records
         return self.mapper(records)

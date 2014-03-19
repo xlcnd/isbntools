@@ -1,14 +1,14 @@
 __all__ = ['webservice', 'webquery', 'exceptions',
            'wcat', 'wcated', 'googlebooks', 'isbndb', 'openl',
-           'WSHTTPError', 'WSURLError', 'WQDataNotFoundError',
-           'WQServiceIsDownError', 'WPDataWrongShapeError',
-           'WPNotValidMetadataError', 'Metadata', 'stdmeta',
+           'ITHTTPError', 'ITURLError', 'DataNotFoundError',
+           'ServiceIsDownError', 'DataWrongShapeError',
+           'NotValidMetadataError', 'Metadata', 'stdmeta',
            'normalize_space', 'WEBService', 'WEBQuery', 'WCATQuery',
            'WCATEdQuery', 'GOOBQuery', 'ISBNDBQuery', 'OPENLQuery',
-           'WSHTTPError', 'WSURLError', 'vias',
-           'WQDataNotFoundError', 'WQServiceIsDownError',
-           'WPDataWrongShapeError', 'WPNotValidMetadataError',
-           'WPRecordMappingError', 'WPNotImplementedError', 'WPNoAPIKeyError'
+           'ITHTTPError', 'ITURLError', 'vias',
+           'DataNotFoundError', 'ServiceIsDownError',
+           'DataWrongShapeError', 'NotValidMetadataError',
+           'RecordMappingError', 'NotImplementedError', 'NoAPIKeyError'
            ]
 
 
@@ -19,11 +19,11 @@ from .wcated import WCATEdQuery
 from .googlebooks import GOOBQuery
 from .isbndb import ISBNDBQuery
 from .openl import OPENLQuery
-from .exceptions import (WSHTTPError, WSURLError,
-                         WQDataNotFoundError, WQServiceIsDownError,
-                         WPDataWrongShapeError, WPNotValidMetadataError,
-                         WPRecordMappingError, WPNotImplementedError,
-                         WPNoAPIKeyError)
+from .exceptions import (ITHTTPError, ITURLError,
+                         DataNotFoundError, ServiceIsDownError,
+                         DataWrongShapeError, NotValidMetadataError,
+                         RecordMappingError, NotImplementedError,
+                         NoAPIKeyError)
 from .data import Metadata, stdmeta
 from .helpers import normalize_space
 from .parallel import vias
