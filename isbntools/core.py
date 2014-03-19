@@ -32,12 +32,17 @@ logger = logging.getLogger(__name__)
 RE_ISBN10 = re.compile(r'ISBN\x20(?=.{13}$)\d{1,5}([- ])\d{1,7}'
                        r'\1\d{1,6}\1(\d|X)$|[- 0-9X]{10,16}')
 RE_ISBN13 = re.compile(r'97[89]{1}(?:-?\d){10,16}|97[89]{1}[- 0-9]{10,16}')
-RE_STRICT = r'^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})'\
-            r'[- 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})'\
-            r'[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}'\
-            r'[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$'
-RE_NORMAL = r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|[-0-9X]{10,16}'
-RE_LOOSE = r'[- 0-9X]{10,16}'
+RE_STRICT = re.compile(r'^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|'
+                       r'(?=(?:[0-9]+[- ]){3})'
+                       r'[- 0-9X]{13}$|97[89][0-9]{10}$|'
+                       r'(?=(?:[0-9]+[- ]){4})'
+                       r'[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}'
+                       r'[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$',
+                       re.I | re.M | re.S)
+RE_NORMAL = re.compile(r'97[89]{1}(?:-?\d){10}|\d{9}[0-9X]{1}|'
+                       r'[-0-9X]{10,16}',
+                       re.I | re.M | re.S)
+RE_LOOSE = re.compile(r'[- 0-9X]{10,16}', re.I | re.M | re.S)
 ISBN13_PREFIX = '978'
 LEGAL = '0123456789xXisbnISBN- '
 
@@ -191,11 +196,11 @@ def get_isbnlike(text, level='normal'):
 
     """
     if level == 'normal':
-        isbnlike = re.compile(RE_NORMAL, re.I | re.M | re.S)
+        isbnlike = RE_NORMAL
     elif level == 'strict':
-        isbnlike = re.compile(RE_STRICT, re.I | re.M | re.S)
+        isbnlike = RE_STRICT
     elif level == 'loose':
-        isbnlike = re.compile(RE_LOOSE, re.I | re.M | re.S)
+        isbnlike = RE_LOOSE
     else:
         logger.error('level as no option %s' % level)
         return
@@ -216,7 +221,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
         logger.error('output as no option %s' % output)
         return
 
-    regex = re.compile(RE_STRICT)
+    regex = RE_STRICT
 
     if regex.search(isbnlike):
         # Get only canonical characters and split them into a list
