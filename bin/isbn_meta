@@ -31,7 +31,7 @@ if __name__ == "__main__":
             service = 'default'
         r = meta(sys.argv[1], service)
         sys.stdout.write(FMT % (r['ISBN-13'], r['Title'],
-                                re.sub("u'|[|]'|'", "", repr(r['Authors'])),
+                                re.sub("u'|\[|\]|'", "", repr(r['Authors'])),
                                 r['Publisher'], r['Year']))
     except:
         providers = registry.services.keys()
