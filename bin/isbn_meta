@@ -34,7 +34,7 @@ if __name__ == "__main__":
         r = meta(sys.argv[1], service)
         sys.stdout.write(FMT1 % (r['ISBN-13'], r['Title']))
         if len(r['Authors']) == 1:
-            sys.stdout.write(FMT2 % r['Authors'])
+            sys.stdout.write(FMT2 % r['Authors'][0])
         else:
             for i, a in enumerate(r['Authors']):
                 sys.stdout.write(FMT3 % (i + 1, a))
