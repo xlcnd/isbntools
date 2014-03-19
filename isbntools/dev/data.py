@@ -4,6 +4,7 @@
 from .helpers import normalize_space
 from .exceptions import WPNotValidMetadataError
 
+# For now you cannot add custom fields!
 FIELDS = ('ISBN-13', 'Title', 'Authors', 'Publisher', 'Year', 'Language')
 
 
