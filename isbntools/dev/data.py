@@ -129,14 +129,14 @@ class Metadata(object):
 
     def __iter__(self):
         """
-        Define an iterator for canonical
+        Define an iterator for the class
         """
         for k, v in self._content.items():
             if k == 'Authors':
                 continue
             yield k, v
-        for a in self._content['Authors']:
-            yield 'Author', a
+        for i, a in enumerate(self._content['Authors']):
+            yield 'Author%s' % i, a
 
     def __len__(self):
         """
