@@ -4,7 +4,7 @@
 import logging
 from .webquery import WEBQuery
 from .data import stdmeta
-from .exceptions import WPDataNotFoundError, WPRecordMappingError
+from .exceptions import DataNotFoundError, RecordMappingError
 
 
 UA = 'isbntools (gzip)'
@@ -45,7 +45,7 @@ class OPENLQuery(WEBQuery):
                                                  [{'name': u''}, ])[0]['name']
             canonical['Year'] = records.get('publish_date', u',').split(',')[1]
         except:
-            raise WPRecordMappingError(self.isbn)
+            raise RecordMappingError(self.isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
@@ -59,7 +59,7 @@ class OPENLQuery(WEBQuery):
             # put the selected data in records
             records = data['ISBN:%s' % self.isbn]
         except:
-            raise WPDataNotFoundError(self.isbn)
+            raise DataNotFoundError(self.isbn)
 
         # map canonical <- records
         return self.mapper(records)

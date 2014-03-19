@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from .helpers import normalize_space
-from .exceptions import WPNotValidMetadataError
+from .exceptions import NotValidMetadataError
 
 # For now you cannot add custom fields!
 FIELDS = ('ISBN-13', 'Title', 'Authors', 'Publisher', 'Year', 'Language')
@@ -22,7 +22,7 @@ class Metadata(object):
             self._content.update((k, v) for k, v in record.items())
             if not self._validate():
                 self._set_empty()
-                raise WPNotValidMetadataError()
+                raise NotValidMetadataError()
             self.clean()
 
     @staticmethod
@@ -58,7 +58,7 @@ class Metadata(object):
         self._content.update((k, v) for k, v in record.items())
         if not self._validate():
             self._set_empty()
-            raise WPNotValidMetadataError()
+            raise NotValidMetadataError()
         self.clean()
 
     @canonical.deleter
@@ -85,7 +85,7 @@ class Metadata(object):
                              if k in overwrite and not overrule(v))
         if not self._validate():
             self._set_empty()
-            raise WPNotValidMetadataError()
+            raise NotValidMetadataError()
         self.clean()
 
     def empties(self):

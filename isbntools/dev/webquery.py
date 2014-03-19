@@ -4,7 +4,7 @@
 import logging
 import json
 from . import webservice
-from .exceptions import WQDataNotFoundError, WQServiceIsDownError
+from .exceptions import DataNotFoundError, ServiceIsDownError
 
 UA = 'isbntools (gzip)'
 
@@ -33,14 +33,14 @@ class WEBQuery(object):
         if data_checker:
             return data_checker(self.data)
         if self.data == '{}':
-            logger.warning('WQDataNotFoundError for %s' % self.url)
-            raise WQDataNotFoundError(self.url)
+            logger.warning('DataNotFoundError for %s' % self.url)
+            raise DataNotFoundError(self.url)
         if BOOK_NOT_FOUND in self.data:
-            logger.warning('WQDataNotFoundError for %s' % self.url)
-            raise WQDataNotFoundError(self.url)
+            logger.warning('DataNotFoundError for %s' % self.url)
+            raise DataNotFoundError(self.url)
         if OUT_OF_SERVICE in self.data:
-            logger.critical('WQServiceIsDownError for %s' % self.url)
-            raise WQServiceIsDownError(self.url)
+            logger.critical('ServiceIsDownError for %s' % self.url)
+            raise ServiceIsDownError(self.url)
 
     def parse_data(self, parser=json.loads):
         """

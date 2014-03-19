@@ -4,7 +4,7 @@
 import logging
 from ast import literal_eval
 from .webquery import WEBQuery
-from .exceptions import WPDataWrongShapeError, WPDataNotFoundError
+from .exceptions import DataWrongShapeError, DataNotFoundError
 
 logger = logging.getLogger(__name__)
 
@@ -40,11 +40,11 @@ class WCATEdQuery(WEBQuery):
         except:    # pragma: no cover
             try:
                 extra = data['stat']
-                logger.debug('WPDataWrongShapeError for % with data %s' %
+                logger.debug('DataWrongShapeError for % with data %s' %
                              (self.isbn, extra))
             except:
-                raise WPDataWrongShapeError(self.isbn)
-            raise WPDataNotFoundError(self.isbn)
+                raise DataWrongShapeError(self.isbn)
+            raise DataNotFoundError(self.isbn)
         return records
 
 
