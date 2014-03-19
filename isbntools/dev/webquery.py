@@ -4,7 +4,7 @@
 import logging
 import json
 from . import webservice
-from .exceptions import DataNotFoundError, ServiceIsDownError
+from .exceptions import DataNotFoundAtServiceError, ServiceIsDownError
 
 UA = 'isbntools (gzip)'
 
@@ -33,11 +33,11 @@ class WEBQuery(object):
         if data_checker:
             return data_checker(self.data)
         if self.data == '{}':
-            logger.warning('DataNotFoundError for %s' % self.url)
-            raise DataNotFoundError(self.url)
+            logger.warning('DataNotFoundAtServiceError for %s' % self.url)
+            raise DataNotFoundAtServiceError(self.url)
         if BOOK_NOT_FOUND in self.data:
-            logger.warning('DataNotFoundError for %s' % self.url)
-            raise DataNotFoundError(self.url)
+            logger.warning('DataNotFoundAtServiceError for %s' % self.url)
+            raise DataNotFoundAtServiceError(self.url)
         if OUT_OF_SERVICE in self.data:
             logger.critical('ServiceIsDownError for %s' % self.url)
             raise ServiceIsDownError(self.url)

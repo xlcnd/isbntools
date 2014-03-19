@@ -22,22 +22,22 @@ class ISBNToolsDevException(Exception):
         return getattr(self, 'message', '')       # pragma: no cover
 
 
-class ITHTTPError(ISBNToolsDevException):
+class ISBNToolsHTTPError(ISBNToolsDevException):
     """ Exception raised for HTTP related errors
     """
     message = "an HTTP error has ocurred"
 
 
-class ITURLError(ISBNToolsDevException):
+class ISBNToolsURLError(ISBNToolsDevException):
     """ Exception raised for URL related errors
     """
     message = "an URL error has ocurred"
 
 
-class DataNotFoundError(ISBNToolsDevException):
+class DataNotFoundAtServiceError(ISBNToolsDevException):
     """ Exception raised when there is no target data from the service
     """
-    message = "the target data was not found"
+    message = "the target data was not found at this service"
 
 
 class ServiceIsDownError(ISBNToolsDevException):
@@ -52,10 +52,10 @@ class DataWrongShapeError(ISBNToolsDevException):
     message = "the data hasn't the expected format"
 
 
-class DataNotFoundError(ISBNToolsDevException):
-    """ Exception raised when the data isn't availabe at the service
+class NoDataForSelectorError(ISBNToolsDevException):
+    """ Exception raised when there is no data for the selector
     """
-    message = "the data isn't available at this service"
+    message = "no data for this selector"
 
 
 class NotValidMetadataError(ISBNToolsDevException):
