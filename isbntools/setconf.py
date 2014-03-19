@@ -25,6 +25,8 @@ else:
         # read conf file
         conf = ConfigParser.ConfigParser()
         conf.read(['/etc/isbntools/.isbntools.conf',
+                   '/usr/local/.isbntools.conf',
+                   '/usr/local/bin/.isbntools.conf',
                   os.path.expanduser('~/.isbntools.conf')])
 
         if conf.has_section('SYS'):
