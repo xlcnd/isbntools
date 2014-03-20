@@ -136,7 +136,7 @@ class Metadata(object):
                 continue
             yield k, v
         for i, a in enumerate(self._content['Authors']):
-            yield 'Author%s' % i, a
+            yield 'Author%s' % i + 1, a
 
     def __len__(self):
         """
