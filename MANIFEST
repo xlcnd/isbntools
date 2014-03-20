@@ -35,7 +35,7 @@ isbntools/data/data4tests.py
 isbntools/dev/__init__.py
 isbntools/dev/data.py
 isbntools/dev/exceptions.py
-isbntools/dev/googlebooks.py
+isbntools/dev/goob.py
 isbntools/dev/helpers.py
 isbntools/dev/isbndb.py
 isbntools/dev/merge.py
