@@ -259,6 +259,7 @@ for fields like ``Authors`` and ``Publisher``.
 A *simple merge* provider is now the default in
 ``isbn_meta`` (and ``isbntools.meta``) that gives priority to ``wcat`` but overwrites
 the ``Authors`` field with the value from ``goob``. It uses *threaded* calls to services
+by default (you can change that by setting ``VIAS_MERGE=serial`` see not below)
 and the ``merge`` method of ``Metadata``. You can write your own *merging scheme*
 as a new provider (see ``dev.merge`` for an example).
 
@@ -279,6 +280,7 @@ file named ``.isbntools.conf`` in your ``$HOME`` directory
 
     [SERVICES]
     DEFAULT_SERVICE=merge
+    VIAS_MERGE=parallel
     ISBNDB_API_KEY=your_api_key_here_or_DELETEME
 
 The values are self-explanatory!
