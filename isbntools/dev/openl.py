@@ -28,7 +28,8 @@ class OPENLQuery(WEBQuery):
         # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
-    def mapper(self, records):
+    @staticmethod
+    def mapper(isbn, records):
         """
         Mapping canonical <- records
         """
@@ -37,7 +38,7 @@ class OPENLQuery(WEBQuery):
         try:
             # mapping: canonical <- records
             canonical = {}
-            canonical['ISBN-13'] = unicode(self.isbn)
+            canonical['ISBN-13'] = unicode(isbn)
             canonical['Title'] = records.get('title', u'').replace(' :', ':')
             canonical['Authors'] = [a['name'] for a in
                                     records.get('authors', ({'name': u''},))]
@@ -45,7 +46,7 @@ class OPENLQuery(WEBQuery):
                                                  [{'name': u''}, ])[0]['name']
             canonical['Year'] = records.get('publish_date', u',').split(',')[1]
         except:
-            raise RecordMappingError(self.isbn)
+            raise RecordMappingError(isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
@@ -62,7 +63,7 @@ class OPENLQuery(WEBQuery):
             raise NoDataForSelectorError(self.isbn)
 
         # map canonical <- records
-        return self.mapper(records)
+        return self.mapper(self.isbn, records)
 
 
 def query(isbn):

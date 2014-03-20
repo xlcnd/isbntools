@@ -36,7 +36,8 @@ class ISBNDBQuery(WEBQuery):
         # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
-    def mapper(self, records):
+    @staticmethod
+    def mapper(isbn, records):
         """
         Mapping canonical <- records
         """
@@ -45,8 +46,8 @@ class ISBNDBQuery(WEBQuery):
         try:
             # mapping: canonical <- records
             canonical = {}
-            canonical['ISBN-13'] = unicode(self.isbn)
-            # assert self.isbn == records['isbn13'], "isbn was mungled!"
+            canonical['ISBN-13'] = unicode(isbn)
+            # assert isbn == records['isbn13'], "isbn was mungled!"
             canonical['Title'] = records.get('title', u'')
             authors = [a['name'] for a in records['author_data']]
             canonical['Authors'] = authors
@@ -58,7 +59,7 @@ class ISBNDBQuery(WEBQuery):
                     canonical['Year'] = unicode(match.group(0))
             canonical['Language'] = records.get('language', u'')
         except:
-            raise RecordMappingError(self.isbn)
+            raise RecordMappingError(isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
@@ -81,7 +82,7 @@ class ISBNDBQuery(WEBQuery):
             raise NoDataForSelectorError(self.isbn)
 
         # map canonical <- records
-        return self.mapper(records)
+        return self.mapper(self.isbn, records)
 
 
 def query(isbn):

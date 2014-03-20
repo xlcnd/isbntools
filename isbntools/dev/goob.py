@@ -29,7 +29,8 @@ class GOOBQuery(WEBQuery):
         # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
-    def mapper(self, records):
+    @staticmethod
+    def mapper(isbn, records):
         """
         Mapping canonical <- records
         """
@@ -38,7 +39,7 @@ class GOOBQuery(WEBQuery):
         try:
             # mapping: canonical <- records
             canonical = {}
-            canonical['ISBN-13'] = unicode(self.isbn)
+            canonical['ISBN-13'] = unicode(isbn)
             canonical['Title'] = records.get('title', u'').replace(' :', ':')
             canonical['Authors'] = records.get('authors', [])
             canonical['Publisher'] = records.get('publisher', u'')
@@ -49,7 +50,7 @@ class GOOBQuery(WEBQuery):
                 canonical['Year'] = u''
             canonical['Language'] = records.get('language', u'')
         except:
-            raise RecordMappingError(self.isbn)
+            raise RecordMappingError(isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
@@ -72,7 +73,7 @@ class GOOBQuery(WEBQuery):
             raise NoDataForSelectorError(self.isbn)
 
         # map canonical <- records
-        return self.mapper(records)
+        return self.mapper(self.isbn, records)
 
 
 def query(isbn):
