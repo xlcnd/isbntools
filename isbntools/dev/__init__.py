@@ -1,5 +1,5 @@
 __all__ = ['webservice', 'webquery', 'exceptions',
-           'wcat', 'wcated', 'googlebooks', 'isbndb', 'openl',
+           'wcat', 'wcated', 'goob', 'isbndb', 'openl',
            'ISBNToolsHTTPError', 'ISBNToolsURLError',
            'DataNotFoundAtServiceError',
            'ServiceIsDownError', 'DataWrongShapeError',
@@ -17,7 +17,7 @@ from .webservice import WEBService
 from .webquery import WEBQuery
 from .wcat import WCATQuery
 from .wcated import WCATEdQuery
-from .googlebooks import GOOBQuery
+from .goob import GOOBQuery
 from .isbndb import ISBNDBQuery
 from .openl import OPENLQuery
 from .exceptions import (ISBNToolsHTTPError, ISBNToolsURLError,

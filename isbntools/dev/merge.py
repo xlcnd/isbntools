@@ -3,7 +3,7 @@
 
 from .data import Metadata
 from .wcat import query as qwcat
-from .googlebooks import query as qgoob
+from .goob import query as qgoob
 from . import vias
 from .. import config
 
