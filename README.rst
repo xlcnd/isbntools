@@ -263,6 +263,9 @@ by default (faster for slow internet connections).
 You can change that, by setting ``VIAS_MERGE=serial`` (see note below).
 You can write your own *merging scheme* by creating a new provider (see ``dev.merge`` for an example).
 
+    **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
+
+
 Conf File
 =========
 
