@@ -204,7 +204,7 @@ namespace `isbntools.dev`, namely:
 
 * `GOOBQuery` a class that retrives and parses book metadata,
   using **Google Books API** (you only have to provide an ISBN).
-  The main features can be implemented by a call to `googlebooks.query` function!
+  The main features can be implemented by a call to `goob.query` function!
 
 * `WCATQuery` a class that retrives and parses book metadata,
   using the **worldcat.org xisbn service** (you only have to provide an ISBN).
