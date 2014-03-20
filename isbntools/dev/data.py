@@ -120,23 +120,22 @@ class Metadata(object):
         self._content = dict.fromkeys(list(FIELDS), u'')
         self._content['Authors'] = [u'']
 
-    def __str__(self):   # praga: no cover
+    def __unicode__(self):  # pragma: no cover
         """
-        How should metadata be printed
+        How should metadata be printed (print unicode(...))
         """
-        return '\n'.join((': '.join((f, repr(self._content[f]))) for f
-                          in FIELDS)).replace("u''", "").replace("[]", "")
+        return '\n'.join((': '.join((k, v)) for k, v in self.__iter__()))
 
     def __iter__(self):
         """
-        Define an iterator for the class
+        Define an iterator for the class (using a generator)
         """
         for k, v in self._content.items():
             if k == 'Authors':
                 continue
             yield k, v
         for i, a in enumerate(self._content['Authors']):
-            yield 'Author%s' % i + 1, a
+            yield 'Author%s' % (i + 1), a
 
     def __len__(self):
         """
