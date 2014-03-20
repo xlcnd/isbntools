@@ -29,7 +29,8 @@ class WCATQuery(WEBQuery):
         # lets us go with the default raw data_checker
         WEBQuery.check_data(self)
 
-    def mapper(self, records):
+    @staticmethod
+    def mapper(isbn, records):
         """
         Mapping canonical <- records
         """
@@ -38,14 +39,14 @@ class WCATQuery(WEBQuery):
         try:
             # mapping: canonical <- records
             canonical = {}
-            canonical['ISBN-13'] = unicode(self.isbn)
+            canonical['ISBN-13'] = unicode(isbn)
             canonical['Title'] = records.get('title', u'').replace(' :', ':')
             canonical['Authors'] = [records.get('author', u'')]
             canonical['Publisher'] = records.get('publisher', u'')
             canonical['Year'] = records.get('year', u'')
             canonical['Language'] = records.get('lang', u'')
         except:
-            raise RecordMappingError(self.isbn)
+            raise RecordMappingError(isbn)
         # call stdmeta for extra cleanning and validation
         return stdmeta(canonical)
 
@@ -68,7 +69,7 @@ class WCATQuery(WEBQuery):
             raise NoDataForSelectorError(self.isbn)
 
         # map canonical <- records
-        return self.mapper(records)
+        return self.mapper(self.isbn, records)
 
 
 def query(isbn):
