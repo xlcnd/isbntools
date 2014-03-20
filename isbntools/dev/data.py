@@ -130,12 +130,12 @@ class Metadata(object):
         """
         Define an iterator for the class (using a generator)
         """
-        for k, v in self._content.items():
+        for k in FIELDS:
             if k == 'Authors':
+                for i, a in enumerate(self._content['Authors']):
+                    yield 'Author%s' % (i + 1), a
                 continue
-            yield k, v
-        for i, a in enumerate(self._content['Authors']):
-            yield 'Author%s' % (i + 1), a
+            yield k, self._content[k]
 
     def __len__(self):
         """
