@@ -12,6 +12,13 @@ SOCKETS_TIMEOUT = 12    # seconds
 THREADS_TIMEOUT = 11    # seconds
 
 
+def setthreadstimeout(seconds):
+    """
+    Sets the value of THREADS_TIMEOUT (in seconds)
+    """
+    global THREADS_TIMEOUT
+    THREADS_TIMEOUT = seconds
+
 """
 API keys
 """
@@ -26,10 +33,14 @@ def add_apikey(service, apikey):
     """
     apikeys[service] = apikey
 
+"""
+Services preferences
+"""
+VIAS_MERGE = None
 
-def setthreadstimeout(seconds):
+def setvias(var):
     """
-    Sets the value of THREADS_TIMEOUT (in seconds)
+    Set the value of variables of the type VIAS_???
     """
-    global THREADS_TIMEOUT
-    THREADS_TIMEOUT = seconds
+    global VIAS_MERGE
+    VIAS_MERGE = var

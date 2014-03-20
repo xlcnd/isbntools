@@ -4,15 +4,19 @@
 from .data import Metadata
 from .wcat import query as qwcat
 from .googlebooks import query as qgoob
-from .parallel import vias
+from . import vias
+from .. import config
 
-
-def query(isbn):
+def query(isbn, processor='parallel'):
     """
     Query function for the `merge provider` (waterfall model)
     """
+    processor = config.VIAS_MERGE if config.VIAS_MERGE else processor
     named_tasks = (('wcat', qwcat), ('goob', qgoob))
-    results = vias(named_tasks, isbn)
+    if processor == 'parallel':
+        results = vias.parallel(named_tasks, isbn)
+    else:
+        results = vias.serial(named_tasks, isbn)
 
     rw = results.get('wcat')
     rg = results.get('goob')

@@ -42,6 +42,10 @@ else:
             DEFAULT_SERVICE = conf.get('SERVICES', 'DEFAULT_SERVICE')
             if DEFAULT_SERVICE:
                 setdefaultservice(DEFAULT_SERVICE)
+            # set services options
+            VIAS_MERGE = conf.get('SERVICES', 'VIAS_MERGE')
+            if VIAS_MERGE:
+                config.setvias(VIAS_MERGE)
     except:
         pass
 
