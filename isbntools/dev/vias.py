@@ -7,7 +7,7 @@ from .. import config
 results = {}
 
 
-def worker(name, task, arg):
+def _worker(name, task, arg):
     """
     Worker function for thread
     """
@@ -17,13 +17,23 @@ def worker(name, task, arg):
         pass
 
 
-def vias(named_tasks, arg):
+def parallel(named_tasks, arg):
     """
     Threaded calls
     """
     for name, task in named_tasks:
-        t = threading.Thread(target=worker, args=(name, task, arg))
+        t = threading.Thread(target=_worker, args=(name, task, arg))
         t.start()
         t.join(config.THREADS_TIMEOUT)
+
+    return results
+
+
+def serial(named_tasks, arg):
+    """
+    Serial calls
+    """
+    for name, task in named_tasks:
+        results[name] = task(arg)
 
     return results

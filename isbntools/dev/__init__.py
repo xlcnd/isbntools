@@ -28,4 +28,4 @@ from .exceptions import (ISBNToolsHTTPError, ISBNToolsURLError,
                          NoAPIKeyError)
 from .data import Metadata, stdmeta
 from .helpers import normalize_space
-from .parallel import vias
+from . import vias
