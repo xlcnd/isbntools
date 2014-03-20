@@ -21,8 +21,8 @@ v2.0.7, 2014-03-15 -- Added Metadata class (to structure, clean and validate dat
 v2.0.8, 2014-03-15 -- Merge provider and fixed 'not valid metadata error'.
 v2.0.9, 2014-03-15 -- (NOT RELEASED) much improved `merge` provider with waterfall backup (new middle version)
 v2.1.1, 2014-03-17 -- Threaded calls in `merge` and `openl` provider.
-v2.1.2, 2014-03-18 -- User options in conf file (UNIX) & robust mapping canonical <- records. 
+v2.1.2, 2014-03-18 -- User options in conf file (UNIX) & robust mapping canonical <- records.
 v2.2.1, 2014-03-19 -- Added `mapper`, `vias` and advanced `Metadata` (bump middle version).
-v2.2.2, 2014-03-20 -- Better output formatting & simplified exception names. 
-v2.2.3, 2014-03-20 -- (NOT RELEASED) more consistent modulo's names (bump middle version) 
-v2.3.1, 2014-03-21 -- TENTATIVE: ??? 
+v2.2.2, 2014-03-20 -- Better output formatting & simplified exception names.
+v2.2.3, 2014-03-20 -- (NOT RELEASED) more consistent modulo's names (bump middle version)
+v2.3.1, 2014-03-21 -- More consistent modulo's names (changes dev interface, so bump middle version)
