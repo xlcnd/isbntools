@@ -45,7 +45,7 @@ else:
             # set services options
             VIAS_MERGE = conf.get('SERVICES', 'VIAS_MERGE')
             if VIAS_MERGE:
-                config.setvias(VIAS_MERGE)
+                config.setvias_merge(VIAS_MERGE)
     except:
         pass
 

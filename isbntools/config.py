@@ -38,9 +38,10 @@ Services preferences
 """
 VIAS_MERGE = None
 
-def setvias(var):
+
+def setvias_merge(option):
     """
-    Set the value of variables of the type VIAS_???
+    Set the value of VIAS_MERGE
     """
     global VIAS_MERGE
-    VIAS_MERGE = var
+    VIAS_MERGE = option

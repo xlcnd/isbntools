@@ -7,6 +7,7 @@ from .googlebooks import query as qgoob
 from . import vias
 from .. import config
 
+
 def query(isbn, processor='parallel'):
     """
     Query function for the `merge provider` (waterfall model)
