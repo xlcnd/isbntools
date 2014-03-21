@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+import imp
+import sys
 from .dev import wcat
 from .dev import goob
 from .dev import merge
@@ -9,7 +12,7 @@ from .dev import openl
 
 
 """
-Config file for metadata services
+Registry for metadata services
 """
 services = {'default': merge.query,
             'wcat': wcat.query,
@@ -34,3 +37,25 @@ def add_service(name, query):
     """
     global services
     services[name] = query
+
+
+def load_plugin(name, plugin_dir):
+    """
+    Loads pluggins
+    """
+    try:
+        return sys.modules[name]
+    except KeyError:
+        # not yet loaded so continue...
+        pass
+
+    try:
+        fp, pathname, description = imp.find_module(name, [plugin_dir])
+    except:
+        # TODO: log error
+        return
+    try:
+        return imp.load_module(name, fp, pathname, description)
+    finally:
+        if fp:
+            fp.close()
