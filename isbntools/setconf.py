@@ -40,7 +40,8 @@ else:
                     setdefaultservice(v)
                     continue
                 if 'api_key' in o:
-                    config.add_apikey(o.upper(), v)
+                    name = o[:-8]
+                    config.add_apikey(name, v)
                 else:
                     config.set_options(o.upper(), v)
     except:
