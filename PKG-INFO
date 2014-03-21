@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: isbntools
-Version: 2.2.2
+Version: 2.3.1
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
 Author: Alexandre Conde
@@ -25,7 +25,7 @@ Description:
             :target: https://pypi.python.org/pypi/isbntools/
             :alt: License
         
-        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.2.2
+        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.1
             :target: https://travis-ci.org/xlcnd/isbntools
             :alt: Built Status
         
@@ -46,7 +46,7 @@ Description:
             import isbntools
             ...
         
-        Several scripts are provided to use **from the command line**:
+        **For the end user** several scripts are provided to use **from the command line**:
         
         .. code-block:: bash
         
@@ -130,28 +130,16 @@ Description:
         
             #!/usr/bin/env python
             import sys
-            import urllib2
             from isbntools import *
         
             query = sys.argv[1].replace(' ', '+')
-            SEARCH_URL = "http://www.google.com/search?q=%s+ISBN" % query
+            isbn = isbn_from_words(query) 
         
-            headers = {'User-Agent': 'w3m/0.5.2'}
-            request = urllib2.Request(SEARCH_URL, headers=headers)
-            response = urllib2.urlopen(request)
-            content = response.read()
-        
-            isbns = get_isbnlike(content)
-        
-            for item in isbns:
-                ib = get_canonical_isbn(item, output='isbn13')
-                if ib: break
-        
-            print("The ISBN of the most `spoken-about` book with this title is %s" % ib)
+            print("The ISBN of the most `spoken-about` book with this title is %s" % isbn)
             print("")
             print("... and the book is:")
             print("")
-            print((meta(ib)))
+            print((meta(isbn)))
         
         Then in a command line (in the same directory):
         
@@ -195,7 +183,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-2.2.2.tar.gz
+            $ pip install isbntools-2.3.1.tar.gz
         
         (first you have to download the file!)
         
@@ -254,22 +242,25 @@ Description:
           procedure for records from different sources. The main features can be
           implemented by a call to ``stdmeta`` function!
         
-        * ``vias`` allows to put theaded calls to services, just by passing the name and
+        * ``vias.parallel`` allows to put theaded calls to services, just by passing the name and
           a pointer to the service ``query`` function. However doesn't implement
-          throttling!
+          throttling! You can use ``vias.serial`` to make serial calls.
         
         All these classes follow a simple design pattern and, if you follow it, will be
         very easy to integrate your classes with the rest of the lib.
         
-        The original quality of metadata at the several services is not very good! 
+        The original quality of metadata, at the several services, is not very good!
         If you need high quality metadata in your app, the only solution is to use
         *polling & merge* of several providers **and** a **lot** of cleanning and standardization
-        for fields like ``Authors`` and ``Publisher``. 
-        A *simple merge* provider is now the default in
-        ``isbn_meta`` (and ``isbntools.meta``) that gives priority to ``wcat`` but overwrites
-        the ``Authors`` field with the value from ``goob``. It uses *threaded* calls to services
-        and the ``merge`` method of ``Metadata``. You can write your own *merging scheme*
-        as a new provider (see ``dev.merge`` for an example).
+        for fields like ``Authors`` and ``Publisher``.
+        A *simple merge* provider is now the default in ``isbn_meta`` (and ``isbntools.meta``).
+        It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
+        Uses the ``merge`` method of ``Metadata`` and *threaded* calls to services
+        by default (faster for slow internet connections).
+        You can change that, by setting ``VIAS_MERGE=serial`` (see note below).
+        You can write your own *merging scheme* by creating a new provider (see ``dev.merge`` for an example).
+        
+            **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
         
         
         Conf File
@@ -288,6 +279,7 @@ Description:
         
             [SERVICES]
             DEFAULT_SERVICE=merge
+            VIAS_MERGE=parallel
             ISBNDB_API_KEY=your_api_key_here_or_DELETEME
         
         The values are self-explanatory!
