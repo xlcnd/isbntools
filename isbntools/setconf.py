@@ -5,7 +5,7 @@ import os
 import ConfigParser
 import socket
 from . import config
-from .registry import setdefaultservice
+from . import registry
 
 # NOTE: THIS CODE RUNS ON IMPORT!
 
@@ -37,13 +37,20 @@ else:
         if conf.has_section('SERVICES'):
             for o, v in conf.items('SERVICES'):
                 if o.upper() == 'DEFAULT_SERVICE':
-                    setdefaultservice(v)
+                    registry.setdefaultservice(v)
                     continue
                 if 'api_key' in o:
                     name = o[:-8]
                     config.add_apikey(name, v)
                 else:
                     config.set_options(o.upper(), v)
+
+        if conf.has_section('PLUGINS'):
+            for o, v in conf.items('PLUGINS'):
+                plugin = registry.load_plugin(o, v)
+                if plugin:
+                    registry.add_service(o, plugin.query)
+
     except:
         pass
 
