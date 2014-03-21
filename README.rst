@@ -124,7 +124,7 @@ and save it as ``isbn_tmsa_book.py``.
     from isbntools import *
 
     query = sys.argv[1].replace(' ', '+')
-    isbn = isbn_from_words(query) 
+    isbn = isbn_from_words(query)
 
     print("The ISBN of the most `spoken-about` book with this title is %s" % isbn)
     print("")
