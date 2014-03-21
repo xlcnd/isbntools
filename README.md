@@ -3,7 +3,7 @@
 [![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.1)](https://travis-ci.org/xlcnd/isbntools)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.2)](https://travis-ci.org/xlcnd/isbntools)
 
 
 
@@ -161,9 +161,9 @@ this installs from [pypi](https://pypi.python.org/pypi/isbntools) too, or (to in
 
 ```bash
 
-    $ pip install isbntools-2.3.1.tar.gz
+    $ pip install isbntools-2.3.2.tar.gz
 ```
-but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-2.3.1.tar.gz) the file!
+but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-2.3.2.tar.gz) the file!
 
 
 
