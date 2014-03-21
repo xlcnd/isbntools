@@ -37,7 +37,7 @@ Typical usage (as library):
     import isbntools
     ...
 
-Several scripts are provided to use **from the command line**:
+**For the end user** several scripts are provided to use **from the command line**:
 
 .. code-block:: bash
 
@@ -121,28 +121,16 @@ and save it as ``isbn_tmsa_book.py``.
 
     #!/usr/bin/env python
     import sys
-    import urllib2
     from isbntools import *
 
     query = sys.argv[1].replace(' ', '+')
-    SEARCH_URL = "http://www.google.com/search?q=%s+ISBN" % query
+    isbn = isbn_from_words(query) 
 
-    headers = {'User-Agent': 'w3m/0.5.2'}
-    request = urllib2.Request(SEARCH_URL, headers=headers)
-    response = urllib2.urlopen(request)
-    content = response.read()
-
-    isbns = get_isbnlike(content)
-
-    for item in isbns:
-        ib = get_canonical_isbn(item, output='isbn13')
-        if ib: break
-
-    print("The ISBN of the most `spoken-about` book with this title is %s" % ib)
+    print("The ISBN of the most `spoken-about` book with this title is %s" % isbn)
     print("")
     print("... and the book is:")
     print("")
-    print((meta(ib)))
+    print((meta(isbn)))
 
 Then in a command line (in the same directory):
 
