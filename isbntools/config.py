@@ -34,13 +34,13 @@ def add_apikey(service, apikey):
     apikeys[service] = apikey
 
 """
-Services preferences
+Generic Options
 """
 options = {}
 
 
 def set_option(option, value):
     """
-    Set the value
+    Set the value for option
     """
     options[option] = value
