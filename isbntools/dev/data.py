@@ -28,13 +28,13 @@ class Metadata(object):
     @staticmethod
     def fields():
         """
-        Return a list of fields (names/headers/keys) of canonical
+        Return a list of fields (names/headers/keys) of value
         """
         return list(FIELDS)
 
     def clean(self, broom=normalize_space, filtre=()):
         """
-        Clean fields of canonical
+        Clean fields of value
         """
         self._content.update((k, broom(v)) for k, v
                              in self._content.items()
@@ -44,16 +44,16 @@ class Metadata(object):
                                         self._content['Authors']]
 
     @property
-    def canonical(self):
+    def value(self):
         """
-        Get canonical
+        Get value
         """
         return self._content
 
-    @canonical.setter
-    def canonical(self, record):
+    @value.setter
+    def value(self, record):
         """
-        Sets canonical
+        Sets value
         """
         self._content.update((k, v) for k, v in record.items())
         if not self._validate():
@@ -61,10 +61,10 @@ class Metadata(object):
             raise NotValidMetadataError()
         self.clean()
 
-    @canonical.deleter
-    def canonical(self):
+    @value.deleter
+    def value(self):
         """
-        Deletes canonical
+        Deletes value
         """
         self._set_empty()
 
@@ -78,7 +78,7 @@ class Metadata(object):
 
     def merge(self, record, overwrite=(), overrule=lambda x: x == ''):
         """
-        Merge the record with canonical
+        Merge the record with value
         """
         # by default do nothing
         self._content.update((k, v) for k, v in record.items()
@@ -102,7 +102,7 @@ class Metadata(object):
 
     def _validate(self):
         """
-        Validates canonical
+        Validates value
         """
         # 'minimal' check
         for k in self._content:
@@ -115,7 +115,7 @@ class Metadata(object):
 
     def _set_empty(self):
         """
-        Sets an empty canonical record
+        Sets an empty value record
         """
         self._content = dict.fromkeys(list(FIELDS), u'')
         self._content['Authors'] = [u'']
@@ -167,4 +167,4 @@ def stdmeta(records):
     Function API to the class
     """
     dt = Metadata(records)
-    return dt.canonical
+    return dt.value

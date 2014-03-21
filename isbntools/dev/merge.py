@@ -26,8 +26,8 @@ def query(isbn, processor='parallel'):
 
     if md and rg:
         md.merge(rg, ('Authors'))
-        return md.canonical
+        return md.value
     if not md and rg:
         md = Metadata(rg)
-        return md.canonical
-    return md.canonical if not rg and rw else None
+        return md.value
+    return md.value if not rg and rw else None
