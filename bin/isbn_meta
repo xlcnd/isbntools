@@ -12,7 +12,8 @@ FMT1 = 'ISBN-13: %s\nTitle: %s\n'
 FMT2 = 'Author: %s\n'
 FMT3 = 'Author%s: %s\n'
 FMT4 = 'Publisher: %s\nYear: %s\n'
-logging.basicConfig(level=logging.DEBUG)
+
+logging.basicConfig(level=logging.CRITICAL)
 
 
 def usage(available="wcat|goob|..."):
