@@ -20,12 +20,12 @@ services = {'default': merge.query,
             }
 
 
-def setdefaultservice(service_name):
+def setdefaultservice(name):
     """
     Sets the default service
     """
     global services
-    services['default'] = services[service_name]
+    services['default'] = services[name]
 
 
 def add_service(name, query):

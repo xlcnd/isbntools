@@ -35,20 +35,14 @@ else:
             THREADS_TIMEOUT = float(conf.get('SYS', 'THREADS_TIMEOUT'))
 
         if conf.has_section('SERVICES'):
-            # register API KEY
-            # TODO load all options then parse keys, ...
-
-            # TODO load all API-KEYS
-            ISBNDB_API_KEY = conf.get('SERVICES', 'ISBNDB_API_KEY')
-            config.add_apikey('isbndb', ISBNDB_API_KEY)
-            # set default service
-            DEFAULT_SERVICE = conf.get('SERVICES', 'DEFAULT_SERVICE')
-            if DEFAULT_SERVICE:
-                setdefaultservice(DEFAULT_SERVICE)
-            # set services options
-            VIAS_MERGE = conf.get('SERVICES', 'VIAS_MERGE')
-            if VIAS_MERGE:
-                config.set_options('VIAS_MERGE', VIAS_MERGE)
+            for o, v in conf.items('SERVICES'):
+                if o.upper() == 'DEFAULT_SERVICE':
+                    setdefaultservice(v)
+                    continue
+                if 'api_key' in o:
+                    config.add_apikey(o.upper(), v)
+                else:
+                    config.set_options(o.upper(), v)
     except:
         pass
 
