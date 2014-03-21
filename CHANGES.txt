@@ -26,4 +26,4 @@ v2.2.1, 2014-03-19 -- Added `mapper`, `vias` and advanced `Metadata` (bump middl
 v2.2.2, 2014-03-20 -- Better output formatting & simplified exception names.
 v2.2.3, 2014-03-20 -- (NOT RELEASED) more consistent module's names (bump middle version)
 v2.3.1, 2014-03-21 -- More consistent module's names (changes dev interface, so bump middle version)
-v2.3.2, 2014-03-22 -- Small polishments. 
+v2.3.2, 2014-03-22 -- Plugin framework.

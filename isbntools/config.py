@@ -36,12 +36,11 @@ def add_apikey(service, apikey):
 """
 Services preferences
 """
-VIAS_MERGE = None
+options = {}
 
 
-def setvias_merge(option):
+def set_option(option, value):
     """
-    Set the value of VIAS_MERGE
+    Set the value
     """
-    global VIAS_MERGE
-    VIAS_MERGE = option
+    options[option] = value

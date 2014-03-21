@@ -36,6 +36,9 @@ else:
 
         if conf.has_section('SERVICES'):
             # register API KEY
+            # TODO load all options then parse keys, ...
+
+            # TODO load all API-KEYS
             ISBNDB_API_KEY = conf.get('SERVICES', 'ISBNDB_API_KEY')
             config.add_apikey('isbndb', ISBNDB_API_KEY)
             # set default service
@@ -45,7 +48,7 @@ else:
             # set services options
             VIAS_MERGE = conf.get('SERVICES', 'VIAS_MERGE')
             if VIAS_MERGE:
-                config.setvias_merge(VIAS_MERGE)
+                config.set_options('VIAS_MERGE', VIAS_MERGE)
     except:
         pass
 
