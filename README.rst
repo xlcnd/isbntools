@@ -199,8 +199,8 @@ namespace ``isbntools.dev``, namely:
   data from a web service. You can build a new provider of metadata
   by subclassing this class. The following classes do that
   (by using the *call pattern*). His main methods allow passing custom
-  functions (*handlers*) that specialize them to specific needs (``data_checker`` and
-  ``parser``).
+  functions (*handlers*) that specialize them to specific needs 
+  (``data_checker`` and ``parser``).
 
 * ``GOOBQuery`` a class that retrives and parses book metadata,
   using **Google Books API** (you only have to provide an ISBN).
