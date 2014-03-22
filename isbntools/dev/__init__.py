@@ -9,7 +9,7 @@ __all__ = ['webservice', 'webquery', 'exceptions',
            'ISBNToolsHTTPError', 'ISBNToolsURLError', 'vias',
            'NoDataForSelectorError', 'ServiceIsDownError',
            'DataWrongShapeError', 'NotValidMetadataError',
-           'RecordMappingError', 'NotImplementedError', 'NoAPIKeyError'
+           'RecordMappingError', 'NoAPIKeyError'
            ]
 
 
@@ -24,8 +24,7 @@ from .exceptions import (ISBNToolsHTTPError, ISBNToolsURLError,
                          DataNotFoundAtServiceError,
                          NoDataForSelectorError, ServiceIsDownError,
                          DataWrongShapeError, NotValidMetadataError,
-                         RecordMappingError, NotImplementedError,
-                         NoAPIKeyError)
+                         RecordMappingError, NoAPIKeyError)
 from .data import Metadata, stdmeta
 from .helpers import normalize_space
 from . import vias
