@@ -228,6 +228,24 @@ namespace `isbntools.dev`, namely:
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
 
+One easy way to do that, is to write a new metadata provider that will work as a **plugin**.
+(You can use as source a web service, a database, ... ). We just had to follow these steps:
+
+1. Write a python file with a short name, let us say `goodr.py`. You can
+   follow as models wcat_ or isbndb_, but the only **mandatory** requirement is
+   that it **must** have a function called `query`, with signature
+   `query(isbn)`, and that **must** return records in a standard form (like `wcat` for
+   example). One way to garantee that is by ending with `return
+   stdmeta(records)`.
+
+2. Create a new section called `[PLUGINS]` in `.isbntools.conf` and, for the
+   example above, enter a new line like this `goodr=/full/path/to/directory/of/py/file`.
+
+3. If your plugin uses a service with an API key (e.g. qWeRTY), you must enter a new line in
+   the `[SERVICES]` section like that `GOODR_API_KEY=qWeRTY`.
+
+Now you could use `isbn_meta 9780321534965 goodr` to get the metadata of 9780321534965.
+
 The original quality of metadata, at the several services, is not very good!
 If you need high quality metadata in your app, the only solution is to use
 *polling & merge* of several providers **and** a **lot** of cleanning and standardization
@@ -239,7 +257,7 @@ by default (faster for slow internet connections).
 You can change that, by setting `VIAS_MERGE=serial` (see note below).
 You can write your own *merging scheme* by creating a new provider (see `dev.merge` for an example).
 
-**Take Note**: These classes are optimized for one-calls to services and not for batch calls.
+    **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
 
 Conf File
