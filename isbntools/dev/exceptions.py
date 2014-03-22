@@ -76,7 +76,6 @@ class NoAPIKeyError(ISBNToolsDevException):
     message = "this service needs an API key"
 
 
-class NotImplementedError(ISBNToolsDevException):
     """ Exception raised when the methods wasn't implemented yet!
     """
     message = "this method wasn't implemented yet"

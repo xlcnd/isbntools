@@ -240,6 +240,8 @@ namespace ``isbntools.dev``, namely:
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
 
+.... PLUGINS .... (use wcat_ and isbndb_ as examples...)
+
 The original quality of metadata, at the several services, is not very good!
 If you need high quality metadata in your app, the only solution is to use
 *polling & merge* of several providers **and** a **lot** of cleanning and standardization
@@ -249,7 +251,7 @@ It gives priority to ``wcat`` but overwrites the ``Authors`` field with the valu
 Uses the ``merge`` method of ``Metadata`` and *threaded* calls to services
 by default (faster for slow internet connections).
 You can change that, by setting ``VIAS_MERGE=serial`` (see note below).
-You can write your own *merging scheme* by creating a new provider (see ``dev.merge`` for an example).
+You can write your own *merging scheme* by creating a new provider (see ``dev.merge_`` for an example).
 
     **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
@@ -272,6 +274,9 @@ file named ``.isbntools.conf`` in your ``$HOME`` directory
     DEFAULT_SERVICE=merge
     VIAS_MERGE=parallel
     ISBNDB_API_KEY=your_api_key_here_or_DELETEME
+
+    [PLUGINS]
+
 
 The values are self-explanatory!
 
@@ -311,3 +316,8 @@ To know about ISBN:
 
 .. _here: http://isbndb.com/api/v2/docs
 
+.. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/wcat.py
+
+.. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/isbndb.py
+
+.. _dev.merge: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
