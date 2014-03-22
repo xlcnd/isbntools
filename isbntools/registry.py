@@ -9,7 +9,7 @@ from .dev import goob
 from .dev import merge
 from .dev import isbndb
 from .dev import openl
-
+from .exceptions import PluginNotLoadedError
 
 """
 Registry for metadata services
@@ -52,8 +52,7 @@ def load_plugin(name, plugin_dir):
     try:
         fp, pathname, description = imp.find_module(name, [plugin_dir])
     except:
-        # TODO: log error
-        return
+        raise PluginNotLoadedError(pathname)
     try:
         return imp.load_module(name, fp, pathname, description)
     finally:

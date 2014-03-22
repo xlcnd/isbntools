@@ -39,3 +39,11 @@ class NotValidISBNError(ISBNToolsException):
 
     def __init__(self, isbnlike):
         self.message = "(%s) is not a valid ISBN" % isbnlike
+
+
+class PluginNotLoadedError(ISBNToolsException):
+    """ Exception raised when the plugin's loader doesn't load the plugin
+    """
+
+    def __init__(self, path):
+        self.message = "plugin (%s) wasn't loaded" % path
