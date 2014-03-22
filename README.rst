@@ -247,14 +247,14 @@ One easy way to do that, is to write a new metadata provider that will work as a
    follow as models wcat_ or isbndb_, but the only **mandatory** requirement is
    that it **must** have a function called ``query``, with signature
    ``query(isbn)``, and that **must** return records in a standard form (like ``wcat`` for
-   example). One way to garantee that is by ending with ``return
+   example). One way to garantee that, is by *returning* with ``return
    stdmeta(records)``.
 
 2. Create a new section called ``[PLUGINS]`` in ``.isbntools.conf`` and, for the
    example above, enter a new line like this ``goodr=/full/path/to/directory/of/py/file``.
 
 3. If your plugin uses a service with an API key (e.g. qWeRTY), you must enter a new line in
-   the ``[SERVICES]`` section like that ``GOODR_API_KEY=qWeRTY``.
+   the ``[SERVICES]`` section like this ``GOODR_API_KEY=qWeRTY``.
 
 Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of 9780321534965.
 
@@ -290,8 +290,6 @@ file named ``.isbntools.conf`` in your ``$HOME`` directory
     DEFAULT_SERVICE=merge
     VIAS_MERGE=parallel
     ISBNDB_API_KEY=your_api_key_here_or_DELETEME
-
-    [PLUGINS]
 
 
 The values are self-explanatory!
