@@ -28,7 +28,9 @@ print((NOTICE))
 print("")
 
 try:
+    import threading
     from isbntools import check_version
-    check_version()
+
+    threading.Thread(target=check_version).start()
 except:
     pass
