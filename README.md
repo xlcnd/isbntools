@@ -94,7 +94,7 @@ a *fuzzy* script that returns the *most probable* ISBN from a set of words.
 
     $ isbntools
 ```
-writes version and copyright notice.
+writes version and copyright notice and **checks if there are updates**.
 
 Many more scripts could be written with the `isbntools` library,
 using the methods for extraction, cleaning, validation and standardization of ISBNs.
