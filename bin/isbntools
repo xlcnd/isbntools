@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
+import time
 from isbntools import __version__
 
 NOTICE = """
@@ -32,5 +33,5 @@ try:
     from isbntools import check_version
 
     threading.Thread(target=check_version).start()
-except:
-    pass
+finally:
+    time.sleep(5)

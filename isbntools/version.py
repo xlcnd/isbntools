@@ -27,4 +27,4 @@ def check_version():
             print(r"    or")
             print(r" Download it from https://pypi.python.org/pypi/isbntools")
     finally:
-        pass
+        print("")
