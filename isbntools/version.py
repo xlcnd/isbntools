@@ -4,14 +4,12 @@ import urllib2
 
 def check_version():
     """
-    Checks if there are available a new version of isbntools
+    Checks online if there is a new version of isbntools
     """
     try:
         from isbntools import __version__
-        from random import random
 
-        rid = str(random()).split('.')[1][0:5]
-        UA = "isbntools (%s) %s" % (__version__, rid)
+        UA = "isbntools (%s)" % __version__
         headers = {'User-Agent': UA}
 
         url = "https://raw.githubusercontent.com/xlcnd/"\
