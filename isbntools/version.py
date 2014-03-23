@@ -3,6 +3,9 @@ import urllib2
 
 
 def check_version():
+    """
+    Checks if there are available a new version of isbntools
+    """
     try:
         from isbntools import __version__
 
