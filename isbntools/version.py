@@ -8,8 +8,10 @@ def check_version():
     """
     try:
         from isbntools import __version__
+        from random import random
 
-        UA = "isbntools %s" % __version__
+        rid = str(random()).split('.')[1][0:5]
+        UA = "isbntools (%s) %s" % (__version__, rid)
         headers = {'User-Agent': UA}
 
         url = "https://raw.githubusercontent.com/xlcnd/"\
