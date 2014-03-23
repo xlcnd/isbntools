@@ -4,7 +4,7 @@
 
 from isbntools import __version__
 
-NOTICE="""
+NOTICE = """
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Lesser General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
@@ -25,3 +25,10 @@ print((" Copyright (C) 2014  Alexandre Lima Conde, Version %s" % __version__))
 print("")
 print(" License LGPL v3")
 print((NOTICE))
+print("")
+
+try:
+    from isbntools import check_version
+    check_version()
+except:
+    pass
