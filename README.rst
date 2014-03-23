@@ -75,8 +75,8 @@ a mergeded record of ``wcat`` and ``goob`` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``).
 You can get an API key for the *isbndb.com service* here_.
 
-**If you are in a UNIX system** you can enter API keys and set preferences in
-the file ``.isbntools.conf`` in your ``$HOME`` directory (see note below!).
+    **If you are in a UNIX system** you can enter API keys and set preferences in
+    the file ``.isbntools.conf`` in your ``$HOME`` directory (see note below!).
 
 
 .. code-block:: bash
