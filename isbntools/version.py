@@ -19,9 +19,9 @@ def check_version():
         newversion = re.search(RE_VERSION, content).group(1)
 
         if __version__ != newversion:
-            print(("**A new version (%s) is available!**" % newversion))
-            print(r"Enter at command line: [sudo] pip install -U isbntools")
-            print(r"or")
-            print(r"Download it from https://pypi.python.org/pypi/isbntools")
+            print((" **A new version (%s) is available!**" % newversion))
+            print(r" Enter at command line: [sudo] pip install -U isbntools")
+            print(r"    or")
+            print(r" Download it from https://pypi.python.org/pypi/isbntools")
     finally:
         pass
