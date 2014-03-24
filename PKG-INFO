@@ -52,13 +52,13 @@ Description:
         
             $ to_isbn10 ISBN13
         
-        transforms an ISBN10 number to ISBN13.
+        transforms an ISBN13 number to ISBN10.
         
         .. code-block:: bash
         
             $ to_isbn13 ISBN10
         
-        transforms an ISBN13 number to ISBN10.
+        transforms an ISBN10 number to ISBN13.
         
         .. code-block:: bash
         
@@ -84,8 +84,8 @@ Description:
         **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``).
         You can get an API key for the *isbndb.com service* here_.
         
-        **If you are in a UNIX system** you can enter API keys and set preferences in
-        the file ``.isbntools.conf`` in your ``$HOME`` directory (see note below!).
+            **If you are in a UNIX system** you can enter API keys and set preferences in
+            the file ``.isbntools.conf`` in your ``$HOME`` directory (see note below!).
         
         
         .. code-block:: bash
@@ -117,7 +117,7 @@ Description:
         
             $ isbntools
         
-        writes version and copyright notice.
+        writes version and copyright notice and **checks if there are updates**.
         
         Many more scripts could be written with the ``isbntools`` library,
         using the methods for extraction, cleaning, validation and standardization of ISBNs.
@@ -208,8 +208,8 @@ Description:
           data from a web service. You can build a new provider of metadata
           by subclassing this class. The following classes do that
           (by using the *call pattern*). His main methods allow passing custom
-          functions (*handlers*) that specialize them to specific needs (``data_checker`` and
-          ``parser``).
+          functions (*handlers*) that specialize them to specific needs
+          (``data_checker`` and ``parser``).
         
         * ``GOOBQuery`` a class that retrives and parses book metadata,
           using **Google Books API** (you only have to provide an ISBN).
@@ -249,6 +249,24 @@ Description:
         All these classes follow a simple design pattern and, if you follow it, will be
         very easy to integrate your classes with the rest of the lib.
         
+        One easy way to do that, is to write a new metadata provider that will work as a **plugin**.
+        (You can use as source a web service, a database, ... ). We just had to follow these steps:
+        
+        1. Write a python file with a short name, let us say ``goodr.py``. You can
+           follow as models wcat_ or isbndb_, but the only **mandatory** requirement is
+           that it **must** have a function called ``query``, with signature
+           ``query(isbn)``, and that **must** return records in a standard form (like ``wcat`` for
+           example). One way to garantee that, is by *returning* with ``return
+           stdmeta(records)``.
+        
+        2. Create a new section called ``[PLUGINS]`` in ``.isbntools.conf`` and, for the
+           example above, enter a new line like this ``goodr=/full/path/to/directory/of/py/file``.
+        
+        3. If your plugin uses a service with an API key (e.g. qWeRTY), you must enter a new line in
+           the ``[SERVICES]`` section like this ``GOODR_API_KEY=qWeRTY``.
+        
+        Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of 9780321534965.
+        
         The original quality of metadata, at the several services, is not very good!
         If you need high quality metadata in your app, the only solution is to use
         *polling & merge* of several providers **and** a **lot** of cleanning and standardization
@@ -258,7 +276,7 @@ Description:
         Uses the ``merge`` method of ``Metadata`` and *threaded* calls to services
         by default (faster for slow internet connections).
         You can change that, by setting ``VIAS_MERGE=serial`` (see note below).
-        You can write your own *merging scheme* by creating a new provider (see ``dev.merge`` for an example).
+        You can write your own *merging scheme* by creating a new provider (see ``dev.merge_`` for an example).
         
             **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
         
@@ -281,6 +299,7 @@ Description:
             DEFAULT_SERVICE=merge
             VIAS_MERGE=parallel
             ISBNDB_API_KEY=your_api_key_here_or_DELETEME
+        
         
         The values are self-explanatory!
         
@@ -320,6 +339,11 @@ Description:
         
         .. _here: http://isbndb.com/api/v2/docs
         
+        .. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/wcat.py
+        
+        .. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/isbndb.py
+        
+        .. _dev.merge: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
         
 Keywords: ISBN,validate,transform,hyphenate,metadata,World Catalogue,Google Books,Open Library,isbndb.com
 Platform: UNKNOWN
@@ -329,5 +353,6 @@ Classifier: Operating System :: OS Independent
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Intended Audience :: Developers
 Classifier: Intended Audience :: End Users/Desktop
+Classifier: Environment :: Console
 Classifier: Topic :: Text Processing :: General
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
