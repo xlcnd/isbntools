@@ -45,7 +45,7 @@ setup(
              'bin/isbntools', 'bin/isbn_stdin_validate',
              'bin/isbn_from_words', 'bin/isbn_editions',
              ],
-    data_files= data_files,
+    data_files=data_files,
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
