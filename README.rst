@@ -43,13 +43,13 @@ Typical usage (as library):
 
     $ to_isbn10 ISBN13
 
-transforms an ISBN10 number to ISBN13.
+transforms an ISBN13 number to ISBN10.
 
 .. code-block:: bash
 
     $ to_isbn13 ISBN10
 
-transforms an ISBN13 number to ISBN10.
+transforms an ISBN10 number to ISBN13.
 
 .. code-block:: bash
 

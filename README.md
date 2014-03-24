@@ -29,13 +29,13 @@ Typical usage (as library):
 
     $ to_isbn10 ISBN13
 ```
-transforms an ISBN10 number to ISBN13.
+transforms an ISBN13 number to ISBN10.
 
 ```bash
 
     $ to_isbn13 ISBN10
 ```
-transforms an ISBN13 number to ISBN10.
+transforms an ISBN10 number to ISBN13.
 
 ```bash
 
@@ -81,7 +81,7 @@ validates ISBN10 and ISBN13.
 
     $ ... | isbn_stdin_validate
 ```
-to use with *posix pipes* (e.g. `cat FILE_WITH_ISBNs | isbn_stdin_validate`).
+to use with *pipes* (e.g. `cat FILE_WITH_ISBNs | isbn_stdin_validate`).
 
 ```bash
 
