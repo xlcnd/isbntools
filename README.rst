@@ -317,6 +317,10 @@ Known Issues
    if you have a version of ``isbntools`` that is too old, ``mask`` doesn't work for
    valid (recent) issued ISBNs. The solution? **Update isbntools often**!
 
+4. With some python installations on Windows (e.g. anaconda) the scripts
+   only work if you are in the ``.../Scripts`` directory! Can you help_?
+    
+
 Any issue that you would like to report, please do it at github_.
 
 
@@ -342,3 +346,5 @@ To know about ISBN:
 .. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/isbndb.py
 
 .. _dev.merge: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
+
+.. _help: https://github.com/xlcnd/isbntools/issues/8
