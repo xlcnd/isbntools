@@ -34,4 +34,4 @@ try:
 
     threading.Thread(target=check_version).start()
 finally:
-    time.sleep(5)
+    time.sleep(3)
