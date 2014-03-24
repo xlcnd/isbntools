@@ -45,6 +45,7 @@ setup(
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Intended Audience :: End Users/Desktop',
+        'Environment :: Console',
         'Topic :: Text Processing :: General',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
