@@ -23,7 +23,7 @@ def check_version():
         from isbntools import __version__
 
         UA = "isbntools (%s)" % __version__
-        headers = {'User-Agent': UA}
+        headers = {'User-Agent': UA, 'Pragma': 'no-cache'}
 
         url = "https://raw.githubusercontent.com/xlcnd/"\
               "isbntools/master/isbntools/__init__.py"
