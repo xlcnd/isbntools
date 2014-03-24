@@ -27,3 +27,4 @@ v2.2.2, 2014-03-20 -- Better output formatting & simplified exception names.
 v2.2.3, 2014-03-20 -- (NOT RELEASED) more consistent module's names (bump middle version)
 v2.3.1, 2014-03-21 -- More consistent module's names (changes dev interface, so bump middle version)
 v2.3.2, 2014-03-24 -- Plugin framework.
+v2.3.3, 2014-03-25 -- TENTATIVE: ??? 
