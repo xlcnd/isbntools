@@ -3,7 +3,7 @@
 [![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.2)](https://travis-ci.org/xlcnd/isbntools)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.3)](https://travis-ci.org/xlcnd/isbntools)
 
 
 
@@ -61,8 +61,8 @@ a mergeded record of `wcat` and `goob` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`).
 You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
 
-    **If you are in a UNIX system** you can enter API keys and set preferences in
-    the file `.isbntools.conf` in your `$HOME` directory (see note below!).
+**If you are in a UNIX system** you can enter API keys and set preferences in
+the file `.isbntools.conf` in your `$HOME` directory (see note below!).
 
 
 ```bash
@@ -161,9 +161,9 @@ this installs from [pypi](https://pypi.python.org/pypi/isbntools) too, or (to in
 
 ```bash
 
-    $ pip install isbntools-2.3.2.tar.gz
+    $ pip install isbntools-2.3.3.tar.gz
 ```
-but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-2.3.2.tar.gz) the file!
+but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-2.3.3.tar.gz) the file!
 
 
 
