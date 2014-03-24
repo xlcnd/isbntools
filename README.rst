@@ -256,7 +256,7 @@ One easy way to do that, is to write a new metadata provider that will work as a
 3. If your plugin uses a service with an API key (e.g. qWeRTY), you must enter a new line in
    the ``[SERVICES]`` section like this ``GOODR_API_KEY=qWeRTY``.
 
-Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of 9780321534965.
+Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of ``9780321534965``.
 
 The original quality of metadata, at the several services, is not very good!
 If you need high quality metadata in your app, the only solution is to use
