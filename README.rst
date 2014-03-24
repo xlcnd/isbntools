@@ -319,7 +319,7 @@ Known Issues
 
 4. With some python installations on Windows (e.g. anaconda) the scripts
    only work if you are in the ``.../Scripts`` directory! Can you help_?
-    
+
 
 Any issue that you would like to report, please do it at github_.
 
