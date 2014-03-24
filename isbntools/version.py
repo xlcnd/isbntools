@@ -1,5 +1,18 @@
+import os
 import re
 import urllib2
+
+
+def set_red():
+    return '\x1b[38;5;9m' if os.name != 'nt' else ''
+
+
+def set_blue():
+    return '\x1b[38;5;12m' if os.name != 'nt' else ''
+
+
+def reset():
+    return '\x1b[0m' if os.name != 'nt' else ''
 
 
 def check_version():
@@ -22,9 +35,13 @@ def check_version():
         newversion = re.search(RE_VERSION, content).group(1)
 
         if __version__ != newversion:
-            print((" **A new version (%s) is available!**" % newversion))
-            print(r" At command line enter: [sudo] pip install -U isbntools")
-            print(r"    or")
-            print(r" Download it from https://pypi.python.org/pypi/isbntools")
+            print(set_red())
+            print((" ** A new version (%s) is available! **" % newversion))
+            print(set_blue())
+            print((" At command line enter: [sudo] pip install -U isbntools"))
+            print("    or")
+            print((" Download it from %s"
+                  % "https://pypi.python.org/pypi/isbntools"))
+            print(reset())
     finally:
         print("")
