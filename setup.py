@@ -15,9 +15,22 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
+import os
 from setuptools import setup
 from isbntools import __version__
+
+
+def conf_file():
+    homepath = os.path.expanduser('~')
+    confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
+    installpath = os.path.join(homepath, confdir)
+    conf = 'isbntools/isbntools.conf'
+    return (installpath, [conf])
+
+
+data_files = []
+data_files.append(conf_file())
+
 
 setup(
     name='isbntools',
@@ -32,8 +45,7 @@ setup(
              'bin/isbntools', 'bin/isbn_stdin_validate',
              'bin/isbn_from_words', 'bin/isbn_editions',
              ],
-    data_files=[('', ['isbntools/.isbntools.conf']),
-                ],
+    data_files= data_files,
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
