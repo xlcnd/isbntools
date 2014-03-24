@@ -178,6 +178,13 @@ or:
 
 (first you have to download the file!)
 
+You should check if the install was successful, by enter:
+
+.. code-block:: bash
+
+    $ isbntools
+
+
 
 For Devs
 ========

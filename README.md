@@ -166,6 +166,13 @@ this installs from [pypi](https://pypi.python.org/pypi/isbntools) too, or (to in
 but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-2.3.4.tar.gz) the file!
 
 
+You should check if the install was successful, by enter:
+
+```bash
+
+    $ isbntools
+```
+
 
 For Devs
 --------
