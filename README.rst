@@ -75,8 +75,9 @@ a mergeded record of ``wcat`` and ``goob`` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``).
 You can get an API key for the *isbndb.com service* here_.
 
-**If you are in a UNIX system** you can enter API keys and set preferences in
-the file ``.isbntools.conf`` in your ``$HOME`` directory (see note below!).
+You can enter API keys and set preferences in the file ``isbntools.conf`` in your
+``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
+``%APPDATA%/isbntools/isbntools.conf``.
 
 
 .. code-block:: bash
@@ -185,6 +186,9 @@ You should check if the install was successful, by enter:
     $ isbntools
 
 
+**If you are in a Windows system and the scripts don't work**, here are some help_.
+
+
 
 For Devs
 ========
@@ -282,9 +286,10 @@ You can write your own *merging scheme* by creating a new provider (see ``dev.me
 Conf File
 =========
 
-**If you are in a UNIX system** you can enter your API keys and preferences in a
-file named ``.isbntools.conf`` in your ``$HOME`` directory
-(**create this file if don't exist**). The file should look like:
+You can enter API keys and set preferences in the file ``isbntools.conf`` in your
+``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
+``%APPDATA%/isbntools/isbntools.conf``.
+(**create this directory and file if don't exist**). The file should look like:
 
 
 .. code-block:: bash
@@ -318,7 +323,7 @@ Known Issues
    valid (recent) issued ISBNs. The solution? **Update isbntools often**!
 
 4. With some python installations on Windows (e.g. anaconda) the scripts
-   only work if you are in the ``.../Scripts`` directory! Can you help_?
+   only work if you are in the ``.../Anaconda/Scripts`` directory! Can you help_?
 
 
 Any issue that you would like to report, please do it at github_.
