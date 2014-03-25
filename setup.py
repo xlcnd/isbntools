@@ -24,13 +24,12 @@ def conf_file():
     homepath = os.path.expanduser('~')
     confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
     installpath = os.path.join(homepath, confdir)
+    # no special needs for internal files!
     conf = 'isbntools/isbntools.conf'
     return (installpath, [conf])
 
-
 data_files = []
 data_files.append(conf_file())
-
 
 setup(
     name='isbntools',
@@ -40,11 +39,11 @@ setup(
     url='https://github.com/xlcnd/isbntools',
     download_url='https://github.com/xlcnd/isbntools/archive/master.zip',
     packages=['isbntools', 'isbntools/dev', 'isbntools/data'],
-    scripts=['bin/isbn_validate', 'bin/to_isbn10', 'bin/to_isbn13',
+    scripts=('bin/isbn_validate', 'bin/to_isbn10', 'bin/to_isbn13',
              'bin/isbn_mask', 'bin/isbn_info', 'bin/isbn_meta',
              'bin/isbntools', 'bin/isbn_stdin_validate',
              'bin/isbn_from_words', 'bin/isbn_editions',
-             ],
+             ),
     data_files=data_files,
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
