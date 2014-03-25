@@ -21,10 +21,11 @@ from setuptools import setup
 from isbntools import __version__
 
 
-# jusr for sure...
+# just for sure...
 if os.name != 'nt':
-    print "Error: this is an installer for Windows!"
+    print "Error: this is a `setup file` for Windows!"
     sys.exit(1)
+
 
 def conf_file():
     homepath = os.getenv('APPDATA')
@@ -38,11 +39,11 @@ data_files = []
 data_files.append(conf_file())
 
 
-scripts=('bin/isbn_validate.py', 'bin/to_isbn10.py', 'bin/to_isbn13.py',
-         'bin/isbn_mask.py', 'bin/isbn_info.py', 'bin/isbn_meta.py',
-         'bin/isbntools.py', 'bin/isbn_stdin_validate.py',
-         'bin/isbn_from_words.py', 'bin/isbn_editions.py'
-         )
+scripts = ('bin/isbn_validate.py', 'bin/to_isbn10.py', 'bin/to_isbn13.py',
+           'bin/isbn_mask.py', 'bin/isbn_info.py', 'bin/isbn_meta.py',
+           'bin/isbntools.py', 'bin/isbn_stdin_validate.py',
+           'bin/isbn_from_words.py', 'bin/isbn_editions.py'
+           )
 
 # rename files to '....py'
 for s in scripts:
