@@ -16,7 +16,7 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.4
+.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.5
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
@@ -175,7 +175,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-2.3.4.tar.gz
+    $ pip install isbntools-2.3.5.tar.gz
 
 (first you have to download the file!)
 
