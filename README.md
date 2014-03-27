@@ -250,7 +250,7 @@ One easy way to do that, is to write a new metadata provider that will work as a
    example). One way to garantee that, is by *returning* with `return
    stdmeta(records)`.
 
-2. Create a new section called `[PLUGINS]` in `.isbntools.conf` and, for the
+2. Create a new section called `[PLUGINS]` in `isbntools.conf` and, for the
    example above, enter a new line like this `goodr=/full/path/to/directory/of/py/file`.
 
 3. If your plugin uses a service with an API key (e.g. qWeRTY), you must enter a new line in
