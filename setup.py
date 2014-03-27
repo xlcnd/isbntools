@@ -21,7 +21,7 @@ from isbntools import __version__
 
 
 def conf_file():
-    homepath = os.path.expanduser('~')
+    homepath = os.path.expanduser('~') if os.name != 'nt' else os.getenv('APPDATA')
     confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
     installpath = os.path.join(homepath, confdir)
     # no special needs for internal files!
