@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" nose tests 
-D25 |-> RELEASE MINIMAL TESTING. (I DON'T WANTED TO BE BLACKLISTED BY THE SERVICES) <-| 
+""" nose tests
+D25 |-> RELEASE MINIMAL TESTING. (I DON'T WANTED TO BE BLACKLISTED BY THE SERVICES) <-|
 """
 
 from ..metadata import query
@@ -18,9 +18,9 @@ def test_query():
     assert_equals(len(repr(query('9780321534965', 'wcat'))), 258)
     assert_equals(len(repr(query('9780321534965'))), 179)
     assert_equals(len(repr(query('9780321534965', 'merge'))), 179)
-    assert_equals(len(repr(query('9780321534965', 'goob'))), 195)
+    assert_equals(len(repr(query('9780321534965', 'goob'))), 160)
     assert_equals(len(repr(query('9789934015960'))), 187)
-    
+
 
 def test_ext_meta():
     # test meta from core
