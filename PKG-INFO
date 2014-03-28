@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: isbntools
-Version: 2.3.5
+Version: 2.3.6
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
 Author: Alexandre Conde
@@ -25,7 +25,7 @@ Description:
             :target: https://pypi.python.org/pypi/isbntools/
             :alt: License
         
-        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.5
+        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.6
             :target: https://travis-ci.org/xlcnd/isbntools
             :alt: Built Status
         
@@ -183,7 +183,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-2.3.5.tar.gz
+            $ pip install isbntools-2.3.6.tar.gz
         
         (first you have to download the file!)
         
