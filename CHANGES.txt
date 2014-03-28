@@ -29,4 +29,4 @@ v2.3.1, 2014-03-21 -- More consistent module's names (changes dev interface, so 
 v2.3.2, 2014-03-24 -- Plugin framework.
 v2.3.3, 2014-03-24 -- Fix false report because cache. 
 v2.3.4, 2014-03-27 -- Improved support for Windows. 
-v2.3.5, 2014-03-28 -- TENTATIVE 
+v2.3.5, 2014-03-28 -- Windows with the same features as UNIX. 
