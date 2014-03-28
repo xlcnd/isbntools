@@ -16,8 +16,22 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
+import sys
 from setuptools import setup
 from isbntools import __version__
+
+scripts = ['bin/isbn_validate', 'bin/to_isbn10', 'bin/to_isbn13',
+           'bin/isbn_mask', 'bin/isbn_info', 'bin/isbn_meta',
+           'bin/isbntools', 'bin/isbn_stdin_validate',
+           'bin/isbn_from_words', 'bin/isbn_editions',
+           ]
+
+
+if "install" in sys.argv and os.name == 'nt':
+    scripts = [s + '.py' for s in scripts]
+    # rename files to '....py'
+    for s in scripts:
+        os.rename(s.split('.')[0], s)
 
 
 def conf_file():
@@ -39,11 +53,7 @@ setup(
     url='https://github.com/xlcnd/isbntools',
     download_url='https://github.com/xlcnd/isbntools/archive/master.zip',
     packages=['isbntools', 'isbntools/dev', 'isbntools/data'],
-    scripts=['bin/isbn_validate', 'bin/to_isbn10', 'bin/to_isbn13',
-             'bin/isbn_mask', 'bin/isbn_info', 'bin/isbn_meta',
-             'bin/isbntools', 'bin/isbn_stdin_validate',
-             'bin/isbn_from_words', 'bin/isbn_editions',
-             ],
+    scripts=scripts,
     data_files=data_files,
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
