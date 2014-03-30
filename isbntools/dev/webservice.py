@@ -23,29 +23,30 @@ class WEBService(object):
         """
         Initializer (KISS without subclassing urllib2.BaseHandler!)
         """
+        self._url = url
         # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}
         # if 'data' it does a PUT request (data must be urlencoded)
-        if values:
-            data = urllib.urlencode(values)
-        else:
-            data = None
-        request = urllib2.Request(url, data, headers=headers)
+        data = urllib.urlencode(values) if values else None
+        self._request = urllib2.Request(url, data, headers=headers)
+
+    def _response(self):
         try:
-            self.response = urllib2.urlopen(request)
+            self.response = urllib2.urlopen(self._request)
         except urllib2.HTTPError as e:
             logger.critical('ISBNToolsHTTPError for %s with code %s' %
-                            (url, e.code))
+                            (self._url, e.code))
             raise ISBNToolsHTTPError(e.code)
         except urllib2.URLError as e:
             logger.critical('ISBNToolsURLError for %s with reason %s' %
-                            (url, e.reason))
+                            (self._url, e.reason))
             raise ISBNToolsURLError(e.reason)
 
     def data(self):
         """
         Returns the uncompressed data
         """
+        self._response()
         if self.response.info().get('Content-Encoding') == 'gzip':
             buf = StringIO(self.response.read())
             f = gzip.GzipFile(fileobj=buf)
