@@ -361,4 +361,4 @@ To know about ISBN:
 
 .. _help: https://github.com/xlcnd/isbntools/issues/8
 
-.. _standalone: https://pypi.python.org/packages/source/i/isbntools/isbntools-2.3.6.zip
+.. _standalone: https://sourceforge.net/projects/isbntools/files/isbntools-2.3.6-win.zip/download 
