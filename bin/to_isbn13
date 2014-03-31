@@ -15,4 +15,4 @@ if __name__ == "__main__":
     try:
         print((to_isbn13(sys.argv[1])))
     except:
-        usage
+        usage()
