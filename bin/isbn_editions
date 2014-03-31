@@ -15,4 +15,4 @@ if __name__ == "__main__":
         for ib in editions(sys.argv[1]):
             print(ib)
     except:
-        usage
+        usage()
