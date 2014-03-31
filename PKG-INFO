@@ -1,4 +1,4 @@
-Metadata-Version: 1.0
+Metadata-Version: 1.1
 Name: isbntools
 Version: 2.3.6
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
@@ -84,8 +84,9 @@ Description:
         **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``).
         You can get an API key for the *isbndb.com service* here_.
         
-            **If you are in a UNIX system** you can enter API keys and set preferences in
-            the file ``.isbntools.conf`` in your ``$HOME`` directory (see note below!).
+        You can enter API keys and set preferences in the file ``isbntools.conf`` in your
+        ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
+        ``%APPDATA%/isbntools/isbntools.conf``.
         
         
         .. code-block:: bash
@@ -187,6 +188,16 @@ Description:
         
         (first you have to download the file!)
         
+        You should check if the install was successful, by enter:
+        
+        .. code-block:: bash
+        
+            $ isbntools
+        
+        
+        **If you are in a Windows system and the scripts don't work**, here are some help_.
+        
+        
         
         For Devs
         ========
@@ -259,13 +270,13 @@ Description:
            example). One way to garantee that, is by *returning* with ``return
            stdmeta(records)``.
         
-        2. Create a new section called ``[PLUGINS]`` in ``.isbntools.conf`` and, for the
+        2. Create a new section called ``[PLUGINS]`` in ``isbntools.conf`` and, for the
            example above, enter a new line like this ``goodr=/full/path/to/directory/of/py/file``.
         
         3. If your plugin uses a service with an API key (e.g. qWeRTY), you must enter a new line in
            the ``[SERVICES]`` section like this ``GOODR_API_KEY=qWeRTY``.
         
-        Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of 9780321534965.
+        Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of ``9780321534965``.
         
         The original quality of metadata, at the several services, is not very good!
         If you need high quality metadata in your app, the only solution is to use
@@ -284,9 +295,10 @@ Description:
         Conf File
         =========
         
-        **If you are in a UNIX system** you can enter your API keys and preferences in a
-        file named ``.isbntools.conf`` in your ``$HOME`` directory
-        (**create this file if don't exist**). The file should look like:
+        You can enter API keys and set preferences in the file ``isbntools.conf`` in your
+        ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
+        ``%APPDATA%/isbntools/isbntools.conf``.
+        (**create this directory and file if don't exist**). The file should look like:
         
         
         .. code-block:: bash
@@ -319,6 +331,10 @@ Description:
            if you have a version of ``isbntools`` that is too old, ``mask`` doesn't work for
            valid (recent) issued ISBNs. The solution? **Update isbntools often**!
         
+        4. With some python installations on Windows (e.g. anaconda) the scripts
+           only work if you are in the ``.../Anaconda/Scripts`` directory! Can you help_?
+        
+        
         Any issue that you would like to report, please do it at github_.
         
         
@@ -344,6 +360,8 @@ Description:
         .. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/isbndb.py
         
         .. _dev.merge: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
+        
+        .. _help: https://github.com/xlcnd/isbntools/issues/8
         
 Keywords: ISBN,validate,transform,hyphenate,metadata,World Catalogue,Google Books,Open Library,isbndb.com
 Platform: UNKNOWN
