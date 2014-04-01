@@ -149,6 +149,8 @@ class Metadata(object):
         """
         When are two of these objects equal?
         """
+        if not isinstance(other, self.__class__):
+            return NotImplemented
         if self.metric() != other.metric():
             return False
         # if self.__len__(self) != self.__len__(other):
