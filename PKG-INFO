@@ -370,7 +370,7 @@ Description:
         
         .. _help: https://github.com/xlcnd/isbntools/issues/8
         
-        .. _standalone: https://pypi.python.org/packages/source/i/isbntools/isbntools-2.3.7.zip
+        .. _standalone: https://sourceforge.net/projects/isbntools/files/isbntools-2.3.7-win.zip/download 
         
 Keywords: ISBN,validate,transform,hyphenate,metadata,World Catalogue,Google Books,Open Library,isbndb.com
 Platform: UNKNOWN
