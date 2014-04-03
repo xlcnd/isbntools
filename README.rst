@@ -186,6 +186,9 @@ You should check if the install was successful, by enter:
     $ isbntools
 
 
+Windows (NEW)
+-------------
+
     **If you are in a Windows system and the scripts don't work**, here are some help_.
     Instead, you can download a standalone_ version that **doesn't need python** and gives you
     access to the scripts. However, doesn't support add-ins or customization!

@@ -174,7 +174,10 @@ You should check if the install was successful, by enter:
     $ isbntools
 ```
 
->**If you are in a Windows system and the scripts don't work**, here are some
+
+### Windows (NEW)
+
+>**If you are on a Windows system and the scripts don't work**, here are some
 [help](https://github.com/xlcnd/isbntools/issues/8).
 Instead, you can download a
 [standalone version](https://sourceforge.net/projects/isbntools/files/isbntools-2.3.8-win.zip/download)
