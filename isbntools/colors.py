@@ -1,5 +1,5 @@
 """
-Some ASCI codes for colors on UNIX terminals
+Some ASCII codes for colors on UNIX terminals
 """
 import os
 
