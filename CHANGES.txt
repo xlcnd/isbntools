@@ -32,3 +32,4 @@ v2.3.4, 2014-03-27 -- Improved support for Windows.
 v2.3.5, 2014-03-28 -- Windows with the same features as UNIX. 
 v2.3.6, 2014-03-31 -- Small fixes and standalone version for Windows.  
 v2.3.7, 2014-04-03 -- Small fixes and improvments. 
+v2.3.8, 2014-04-07 -- TENTATIVE 
