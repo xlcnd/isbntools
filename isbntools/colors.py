@@ -1,8 +1,7 @@
 """
-Some colors ASCI codes for UNIX terminals
+Some ASCI codes for colors on UNIX terminals
 """
 import os
-
 
 RED = '\x1b[38;5;9m' if os.name != 'nt' else ''
 BLUE = '\x1b[38;5;12m' if os.name != 'nt' else ''
