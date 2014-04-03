@@ -153,8 +153,6 @@ class Metadata(object):
             return NotImplemented
         if self.metric() != other.metric():
             return False
-        # if self.__len__(self) != self.__len__(other):
-        #     return False
         qk = all(v == other._content[k] for k, v in self._content.items()
                  if k != 'Authors')
         if not qk:
