@@ -82,7 +82,8 @@ class Metadata(object):
         """
         # by default do nothing
         self._content.update((k, v) for k, v in record.items()
-                             if k in overwrite and not overrule(v))
+                             if k in overwrite and not overrule(v) or
+                             self._content[k] == '')
         if not self._validate():
             self._set_empty()
             raise NotValidMetadataError()
