@@ -178,16 +178,16 @@ You should check if the install was successful, by enter:
 ### Windows (NEW)
 
 >**If you are on a Windows system and the scripts don't work**, here are some
-[help](https://github.com/xlcnd/isbntools/issues/8).
-Instead, you can download a
+[help](https://github.com/xlcnd/isbntools/issues/8) **or**
+you can download a
 [standalone version](https://sourceforge.net/projects/isbntools/files/isbntools-2.3.8-win.zip/download)
 that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 
 >**Intructions**:
-a. unzip the file and put the file `isbn.exe` in a folder.
-b. go to that folder and open a command line.
-c. run `isbn help` to get further instructions.
+1. unzip the file and put the file `isbn.exe` in a folder
+2. go to that folder and open a command line
+3. run `isbn help` to get further instructions
 
 
 For Devs
