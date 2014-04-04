@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # isbntools - tools for extracting, cleaning and transforming ISBNs
