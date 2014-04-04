@@ -1,12 +1,22 @@
 language: python
 env:
-    - TOXENV=py27
-    - TOXENV=flake8
+- TOXENV=py27
+- TOXENV=flake8
 matrix:
-    allow_failures:
-        - env: TOXENV=flake8
+  allow_failures:
+  - env: TOXENV=flake8
 install:
-    - pip install tox
-    - pip install flake8 
+- pip install tox
+- pip install flake8
 script:
-    - tox -e $TOXENV
+- tox -e $TOXENV
+deploy:
+  provider: pypi
+  user: xlcnd
+  password:
+    secure: Hm70k39Qvw5EJjeA2kr5X8kHzrQah1H2n5Pobghj6igIv1t9y4g4BcHGVIABDrM9dgJVugnEJKzb4XplGtz7g+Lu2ntgIHetvkvdH6QXeeZpDMBpmaWR5GAeCFD6hFFZiAVQ/qGOuiRUNSDHvJr4qfqtY1KEwMthv29+wx0KAHs=
+  distributions: "sdist"  # <-- more bdist_wheel in the future...
+  on:
+    tags: true
+    branch: master
+    repo: xlcnd/isbntools
