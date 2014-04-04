@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 ISBNs = r'''
 ISBN 9781849284677
