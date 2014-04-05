@@ -19,8 +19,8 @@ try:
     # read conf file
     conf = ConfigParser.ConfigParser()
     if os.name == 'nt':
-        conf.read([os.abortpath.join(os.getenv('APPDATA'),
-                                     'isbntools/isbntools.conf')])
+        conf.read([os.path.join(os.getenv('APPDATA'),
+                  'isbntools/isbntools.conf')])
     else:
         conf.read(['/etc/isbntools/.isbntools.conf',
                    '/usr/local/.isbntools.conf',
