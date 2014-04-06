@@ -9,7 +9,7 @@ def normalize_space(item):
     Normalizes space
 
     Strips leading and trailing white space and replaces sequences of
-    white space characters with a single space
+    white space characters with a single space.
     """
     item = re.sub('\s\s+', ' ', item)
     return item.strip()
@@ -17,7 +17,7 @@ def normalize_space(item):
 
 def titlecase(s):
     """
-    Title case function suitable to normalize book's title in metadata.
+    Title case function suitable to normalize book's title in metadata
 
     Only changes the first character of each word.
     """
