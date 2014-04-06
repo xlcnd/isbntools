@@ -13,3 +13,14 @@ def normalize_space(item):
     """
     item = re.sub('\s\s+', ' ', item)
     return item.strip()
+
+
+def titlecase(s):
+    """
+    Title case function suitable to normalize book's title in metadata
+
+    Only changes the first character of each word.
+    """
+    return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
+                  lambda mo: mo.group(0)[0].upper() +
+                             mo.group(0)[1:], s)

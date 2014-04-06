@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .helpers import normalize_space
+from .helpers import normalize_space, titlecase
 from .exceptions import NotValidMetadataError
 
 # For now you cannot add custom fields!
@@ -41,6 +41,7 @@ class Metadata(object):
         if 'Authors' not in filtre:
             self._content['Authors'] = [broom(i) for i in
                                         self._content['Authors']]
+        self._content['Title'] = titlecase(self._content['Title'])
 
     @property
     def value(self):
