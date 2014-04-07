@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-language: python
-env:
-- TOXENV=py27
-install:
-- pip install tox
-script:
-- tox
-||||||| merged common ancestors
-=======
 language: python
 env:
 - TOXENV=py27
@@ -30,4 +20,3 @@ deploy:
     tags: true
     branch: master
     repo: xlcnd/isbntools
->>>>>>> dev

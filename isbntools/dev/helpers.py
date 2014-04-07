@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-
-import re
-
-
-def normalize_space(item):
-    """
-    Normalizes space
-
-    Strips leading and trailing white space and replaces sequences of
-    white space characters with a single space
-    """
-    item = re.sub('\s\s+', ' ', item)
-    return item.strip()
-||||||| merged common ancestors
-=======
 # -*- coding: utf-8 -*-
 
 
@@ -42,4 +23,3 @@ def titlecase(s):
     """
     return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
                   lambda m: m.group(0)[0].upper() + m.group(0)[1:], s)
->>>>>>> dev

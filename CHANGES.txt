@@ -1,40 +1,3 @@
-<<<<<<< HEAD
-v0.7.2, 2014-02-26 -- Initial release.
-v0.7.3, 2014-02-27 -- Insert the missing `isbn_stdin_validate`.
-v0.7.4, 2014-02-28 -- All methods and scripts work with identifier `979`.
-v0.7.5, 2014-03-01 -- Fix small errors and a small example on how to use the library.
-v0.8.1, 2014-03-02 -- Uses urllib2 instead of httplib2.
-v0.8.2, 2014-03-03 -- Refactor `meta` and add Google Books API.
-v0.8.3, 2014-03-03 -- Performance and stability.
-v0.8.4, 2014-03-04 -- Performance and stability 2.
-v1.0.0, 2014-03-05 -- Stable version.
-v1.0.1, 2014-03-05 -- Correcting an annoying typo!
-v1.0.2, 2014-03-06 -- A new `editions` method and script and a lot of small tweeks.
-v1.0.3, 2014-03-07 -- Change in the way providers hook to main program.
-v1.0.4, 2014-03-07 -- (NOT RELEASED) Changed interfaces for devs, bump version to 2.0.1.
-v2.0.1, 2014-03-08 -- isbntools.dev!
-v2.0.2, 2014-03-09 -- Major module rearrange.
-v2.0.3, 2014-03-11 -- Better error handling (fix issue: #2 err-regression).
-v2.0.4, 2014-03-12 -- Fixing major regression error in isbndb.py.
-v2.0.5, 2014-03-13 -- Webquery customization by `function passing`.
-v2.0.6, 2014-03-14 -- New method `isbn_from_words`.
-v2.0.7, 2014-03-15 -- Added Metadata class (to structure, clean and validate data).
-v2.0.8, 2014-03-15 -- Merge provider and fixed 'not valid metadata error'.
-v2.0.9, 2014-03-15 -- (NOT RELEASED) much improved `merge` provider with waterfall backup (new middle version)
-v2.1.1, 2014-03-17 -- Threaded calls in `merge` and `openl` provider.
-v2.1.2, 2014-03-18 -- User options in conf file (UNIX) & robust mapping canonical <- records.
-v2.2.1, 2014-03-19 -- Added `mapper`, `vias` and advanced `Metadata` (bump middle version).
-v2.2.2, 2014-03-20 -- Better output formatting & simplified exception names.
-v2.2.3, 2014-03-20 -- (NOT RELEASED) more consistent module's names (bump middle version)
-v2.3.1, 2014-03-21 -- More consistent module's names (changes dev interface, so bump middle version)
-v2.3.2, 2014-03-24 -- Plugin framework.
-v2.3.3, 2014-03-24 -- Fix false report because cache. 
-v2.3.4, 2014-03-27 -- Improved support for Windows. 
-v2.3.5, 2014-03-28 -- Windows with the same features as UNIX. 
-v2.3.6, 2014-03-31 -- Small fixes and standalone version for Windows.  
-v2.3.7, 2014-04-03 -- Small fixes and improvments. 
-||||||| merged common ancestors
-=======
 v0.7.2, 2014-02-26 -- Initial release.
 v0.7.3, 2014-02-27 -- Insert the missing `isbn_stdin_validate`.
 v0.7.4, 2014-02-28 -- All methods and scripts work with identifier `979`.
@@ -70,4 +33,4 @@ v2.3.5, 2014-03-28 -- Windows with the same features as UNIX.
 v2.3.6, 2014-03-31 -- Small fixes and standalone version for Windows.  
 v2.3.7, 2014-04-03 -- Small fixes and improvments. 
 v2.3.8, 2014-04-07 -- A more sophisticated merge.
->>>>>>> dev
+v2.3.9, 2014-04-07 -- Fix merge errors.

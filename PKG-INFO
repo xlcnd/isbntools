@@ -388,7 +388,7 @@ Classifier: Topic :: Software Development :: Libraries :: Python Modules
 =======
 Metadata-Version: 1.1
 Name: isbntools
-Version: 2.3.8
+Version: 2.3.9
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
 Author: Alexandre Conde
@@ -413,7 +413,7 @@ Description:
             :target: https://pypi.python.org/pypi/isbntools/
             :alt: License
         
-        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.8
+        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v2.3.9
             :target: https://travis-ci.org/xlcnd/isbntools
             :alt: Built Status
         
@@ -572,7 +572,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-2.3.8.tar.gz
+            $ pip install isbntools-2.3.9.tar.gz
         
         (first you have to download the file!)
         
@@ -758,7 +758,7 @@ Description:
         
         .. _help: https://github.com/xlcnd/isbntools/issues/8
         
-        .. _standalone: https://sourceforge.net/projects/isbntools/files/isbntools-2.3.8-win.zip/download 
+        .. _standalone: https://sourceforge.net/projects/isbntools/files/isbntools-2.3.9-win.zip/download 
         
 Keywords: ISBN,validate,transform,hyphenate,metadata,World Catalogue,Google Books,Open Library,isbndb.com
 Platform: UNKNOWN
