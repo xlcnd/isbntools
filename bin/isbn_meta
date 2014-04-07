@@ -17,9 +17,10 @@ FMT4 = 'Publisher: %s\nYear: %s\n'
 logging.basicConfig(level=logging.CRITICAL)
 
 
-def usage(available="wcat|goob|..."):
-    sys.stderr.write('Usage: isbn_meta ISBN [%s] [apikey]\n  ...  or try with '
-                     'another service in list!\n' % available)
+def usage(wservs="wcat|goob|...", ofmts="labels"):
+    sys.stderr.write('Usage: isbn_meta ISBN [%s] [%s] [apikey]\n  '
+                     '...  or try with '
+                     'another service in list!\n' % (wservs, ofmts))
     sys.exit(1)
 
 
@@ -27,20 +28,20 @@ def parse_args(args):
     service = None
     api = None
     fmt = None
-    isbn = get_canonical_isbn(canonical(clean(args[1])))
+    isbn = get_canonical_isbn(canonical(clean(args[0])))
     if len(args) == 1:
-        return (service, fmt, isbn, api)
+        return (isbn, service, fmt, api)
     del args[0]
     providers = registry.services.keys()
     for f in fmts:
         if f in args:
             fmt = f
-            args.remove[f]
+            args.remove(f)
             break
     for s in providers:
         if s in args:
             service = s
-            args.remove[s]
+            args.remove(s)
             break
     api = args[0] if args else None
     return (isbn, service, fmt, api)
@@ -48,7 +49,9 @@ def parse_args(args):
 
 if __name__ == "__main__":
     try:
-        isbn, service, fmt, apikey = parse_args(sys.argvi[1:])
+        isbn, service, fmt, apikey = parse_args(sys.argv[1:])
+        if not isbn:
+            raise
         service = service if service else 'default'
         fmt = fmt if fmt else 'labels'
         if apikey:
@@ -62,4 +65,6 @@ if __name__ == "__main__":
         providers = registry.services.keys()
         providers.remove('default')
         available = '|'.join(providers)
-        usage(available)
+        fmts.remove('labels')
+        ofmts = '|'.join(fmts)
+        usage(available, ofmts)
