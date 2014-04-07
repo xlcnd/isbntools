@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 
@@ -62,4 +61,3 @@ def query(url, user_agent=UA, values=None):
         """
         service = WEBService(url, user_agent, values)
         return service.data()
-

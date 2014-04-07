@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 
@@ -34,4 +33,3 @@ def isbn_from_words(words):
         and author's name (uses Google Search)
     """
     return goos(words)
-

@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 import logging
@@ -82,4 +81,3 @@ def query(isbn):
     """
     q = GOOBQuery(isbn)
     return q.records()
-

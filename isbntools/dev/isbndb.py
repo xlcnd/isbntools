@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 
@@ -91,4 +90,3 @@ def query(isbn):
     """
     q = ISBNDBQuery(isbn)
     return q.records()
-

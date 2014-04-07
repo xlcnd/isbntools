@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 
@@ -54,4 +53,3 @@ def mask(isbn, separator='-'):
                               ib[cur + idx + 1:-1], check])
     logger.warning('identifier not found! Please, update the program.')
     return
-

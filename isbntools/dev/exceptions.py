@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 """ Exceptions for isbntools.dev
@@ -74,4 +73,3 @@ class NoAPIKeyError(ISBNToolsDevException):
     """ Exception raised when the API Key for a service is not found
     """
     message = "this service needs an API key"
-

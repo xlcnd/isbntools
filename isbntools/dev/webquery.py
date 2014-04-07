@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 import logging
@@ -47,4 +46,3 @@ class WEBQuery(object):
         Parse the data (default JSON -> PY)
         """
         return parser(self.data)   # <-- data is now unicode
-

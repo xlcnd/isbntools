@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 import threading
@@ -37,4 +36,3 @@ def serial(named_tasks, arg):
         results[name] = task(arg)
 
     return results
-

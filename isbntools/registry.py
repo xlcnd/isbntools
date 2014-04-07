@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 
@@ -58,4 +57,3 @@ def load_plugin(name, plugin_dir):
     finally:
         if fp:
             fp.close()
-

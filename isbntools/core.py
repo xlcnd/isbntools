@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 # isbntools - tools for extracting, cleaning and transforming ISBNs
@@ -245,4 +244,3 @@ def get_canonical_isbn(isbnlike, output='bouth'):
             if output == 'isbn10':
                 return cisbn if len(cisbn) == 10 else to_isbn10(cisbn)
             return to_isbn13(cisbn) if len(cisbn) == 10 else cisbn
-

@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 import sys
@@ -47,4 +46,3 @@ class PluginNotLoadedError(ISBNToolsException):
 
     def __init__(self, path):
         self.message = "plugin (%s) wasn't loaded" % path
-

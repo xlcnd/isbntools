@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 
@@ -29,4 +28,3 @@ def goos(words):
         logger.debug('No ISBN found for %s' % words)
         return
     return isbn
-

@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 from .data import Metadata
@@ -31,4 +30,3 @@ def query(isbn, processor='parallel'):
         md = Metadata(rg)
         return md.value
     return md.value if not rg and rw else None
-

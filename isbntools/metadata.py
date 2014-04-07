@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 from .registry import services
@@ -12,4 +11,3 @@ def query(isbn, service='default'):
     if service != 'default' and service not in services:
         raise NotRecognizedServiceError(service)
     return services[service](isbn)
-

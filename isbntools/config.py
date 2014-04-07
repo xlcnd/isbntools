@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 """
 Config file for isbntools
@@ -44,4 +43,3 @@ def set_option(option, value):
     Set the value for option
     """
     options[option] = value
-

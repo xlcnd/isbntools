@@ -1,4 +1,3 @@
-
 """
 Some ASCII codes for colors on UNIX terminals
 """
@@ -10,4 +9,3 @@ GREEN = '\x1b[38;5;10m' if os.name != 'nt' else ''
 BOLD = '\x1b[1m' if os.name != 'nt' else ''
 
 RESET = '\x1b[0m' if os.name != 'nt' else ''
-

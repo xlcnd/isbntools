@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 from .helpers import normalize_space, titlecase
@@ -170,4 +169,3 @@ def stdmeta(records):
     """
     dt = Metadata(records)
     return dt.value
-

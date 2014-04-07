@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 import logging
@@ -30,4 +29,3 @@ def infogroup(isbn):
         # stop if identifier is found else continue!
         if iid in ident:
             return dtxt[iid]
-

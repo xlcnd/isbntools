@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 import logging
@@ -78,4 +77,3 @@ def query(isbn):
     """
     q = WCATQuery(isbn)
     return q.records()
-

@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 import os
@@ -59,4 +58,3 @@ except:
 # however this should be done at top level due to strong side effects...
 socket.setdefaulttimeout(SOCKETS_TIMEOUT)
 config.setthreadstimeout(THREADS_TIMEOUT)
-

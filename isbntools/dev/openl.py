@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 import logging
@@ -72,4 +71,3 @@ def query(isbn):
     """
     q = OPENLQuery(isbn)
     return q.records()
-
