@@ -3,9 +3,10 @@
 
 import sys
 import logging
-from isbntools import meta
+from isbntools import meta, clean, canonical, get_canonical_isbn
 from isbntools import config
 from isbntools import registry
+from isbntools.dev.fmt import fmtbib, fmts
 
 
 FMT1 = 'ISBN-13: %s\nTitle: %s\n'
@@ -22,24 +23,41 @@ def usage(available="wcat|goob|..."):
     sys.exit(1)
 
 
+def parse_args(args):
+    service = None
+    api = None
+    fmt = None
+    isbn = get_canonical_isbn(canonical(clean(args[1])))
+    if len(args) == 1:
+        return (service, fmt, isbn, api)
+    del args[0]
+    providers = registry.services.keys()
+    for f in fmts:
+        if f in args:
+            fmt = f
+            args.remove[f]
+            break
+    for s in providers:
+        if s in args:
+            service = s
+            args.remove[s]
+            break
+    api = args[0] if args else None
+    return (isbn, service, fmt, api)
+
+
 if __name__ == "__main__":
     try:
-        if len(sys.argv) in (3, 4):
-            service = sys.argv[2]
+        isbn, service, fmt, apikey = parse_args(sys.argvi[1:])
+        service = service if service else 'default'
+        fmt = fmt if fmt else 'labels'
+        if apikey:
             try:
-                config.add_apikey(sys.argv[2], sys.argv[3])
+                config.add_apikey(service, apikey)
             except:
                 pass
-        else:
-            service = 'default'
-        r = meta(sys.argv[1], service)
-        sys.stdout.write(FMT1 % (r['ISBN-13'], r['Title']))
-        if len(r['Authors']) == 1:
-            sys.stdout.write(FMT2 % r['Authors'][0])
-        else:
-            for i, a in enumerate(r['Authors']):
-                sys.stdout.write(FMT3 % (i + 1, a))
-        sys.stdout.write(FMT4 % (r['Publisher'], r['Year']))
+        r = meta(isbn, service)
+        print(fmtbib(fmt, r))
     except:
         providers = registry.services.keys()
         providers.remove('default')
