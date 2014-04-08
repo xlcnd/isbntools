@@ -75,7 +75,7 @@ a mergeded record of ``wcat`` and ``goob`` records (**no key is needed**) and
 You can get an API key for the *isbndb.com service* here_.  You can enter API keys and 
 set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
-``%APPDATA%/isbntools/isbntools.conf``. The output can be formated as ``bibtex``, 
+``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``, 
 ``msword``, ``endnote`` or ``refworks`` bibliographic formats.
 
 
@@ -329,9 +329,6 @@ Known Issues
    range_ of these blocks is on a database that ``mask`` uses. So it could happen,
    if you have a version of ``isbntools`` that is too old, ``mask`` doesn't work for
    valid (recent) issued ISBNs. The solution? **Update isbntools often**!
-
-4. With some python installations on Windows (e.g. anaconda) the scripts
-   only work if you are in the ``.../Anaconda/Scripts`` directory! Can you help_?
 
 
 Any issue that you would like to report, please do it at github_.

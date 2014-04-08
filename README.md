@@ -63,7 +63,7 @@ You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api
 You can enter API keys and set preferences in the file `isbntools.conf` in your
 `$HOME\.isbntools` directory (UNIX). For Windows, you should look at
 `%APPDATA%/isbntools/isbntools.conf`.
-The output can be formated as `bibtex`, `msword`,  `endnote` or `refworks`
+The output can be formatted as `bibtex`, `msword`,  `endnote` or `refworks`
 bibliographic formats.
 
 
