@@ -15,7 +15,7 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v3.0.0
+.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v3.0.1
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
@@ -174,7 +174,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-3.0.0.tar.gz
+    $ pip install isbntools-3.0.1.tar.gz
 
 (first you have to download the file!)
 
@@ -362,5 +362,5 @@ To know about ISBN:
 
 .. _help: https://github.com/xlcnd/isbntools/issues/8
 
-.. _see: https://sourceforge.net/projects/isbntools/files/isbntools-3.0.0-win.zip/download
+.. _see: https://sourceforge.net/projects/isbntools/files/isbntools-3.0.1-win.zip/download
 

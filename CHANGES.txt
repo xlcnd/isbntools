@@ -35,3 +35,4 @@ v2.3.7, 2014-04-03 -- Small fixes and improvments.
 v2.3.8, 2014-04-07 -- A more sophisticated merge.
 v2.3.9, 2014-04-07 -- Fix merge errors.
 v3.0.0, 2014-04-08 -- Support for Bibtex, EndNote, RefWorks and Word. 
+v3.0.1, 2014-04-08 -- TENTATIVE 

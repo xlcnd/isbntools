@@ -3,7 +3,7 @@
 [![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.0.0)](https://travis-ci.org/xlcnd/isbntools)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.0.1)](https://travis-ci.org/xlcnd/isbntools)
 
 
 
@@ -163,9 +163,9 @@ this installs from [pypi](https://pypi.python.org/pypi/isbntools) too, or (to in
 
 ```bash
 
-    $ pip install isbntools-3.0.0.tar.gz
+    $ pip install isbntools-3.0.1.tar.gz
 ```
-but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-3.0.0.tar.gz) the file!
+but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-3.0.1.tar.gz) the file!
 
 
 You should check if the install was successful, by enter:
@@ -181,7 +181,7 @@ You should check if the install was successful, by enter:
 >**If you are on a Windows system and the scripts don't work**, here are some
 [help](https://github.com/xlcnd/isbntools/issues/8) **or**
 you can download a
-[standalone version](https://sourceforge.net/projects/isbntools/files/isbntools-3.0.0-win.zip/download)
+[standalone version](https://sourceforge.net/projects/isbntools/files/isbntools-3.0.1-win.zip/download)
 that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 
