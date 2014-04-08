@@ -60,10 +60,11 @@ gives you the main metadata associated with the ISBN, `wcat` uses **worldcat.org
 a mergeded record of `wcat` and `goob` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`).
 You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
-
 You can enter API keys and set preferences in the file `isbntools.conf` in your
 `$HOME\.isbntools` directory (UNIX). For Windows, you should look at
 `%APPDATA%/isbntools/isbntools.conf`.
+The output can be formated as `bibtex`, `msword`,  `endnote` or `refworks`
+bibliographic formats.
 
 
 ```bash
@@ -291,7 +292,7 @@ Conf File
 You can enter API keys and set preferences in the file `isbntools.conf` in your
 `$HOME\.isbntools` directory (UNIX). For Windows, you should look at
 `%APPDATA%/isbntools/isbntools.conf`.
-(**create this directory and file if don't exist**). The file should look like:
+(**create these, directory and file, if don't exist**). The file should look like:
 
 ```bash
 

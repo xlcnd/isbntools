@@ -64,7 +64,7 @@ gives you the *group identifier* of the ISBN.
 
 .. code-block:: bash
 
-    $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [YOUR_APIKEY_TO_SERVICE]
+    $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [bibtex|msword|endnote|refworks] [YOUR_APIKEY_TO_SERVICE]
 
 gives you the main metadata associated with the ISBN, ``wcat`` uses **worldcat.org**
 (**no key is needed**), ``goob`` uses the **Google Books service** (**no key is needed**),
@@ -72,11 +72,11 @@ gives you the main metadata associated with the ISBN, ``wcat`` uses **worldcat.o
 ``openl`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
 a mergeded record of ``wcat`` and ``goob`` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``).
-You can get an API key for the *isbndb.com service* here_.
-
-You can enter API keys and set preferences in the file ``isbntools.conf`` in your
+You can get an API key for the *isbndb.com service* here_.  You can enter API keys and 
+set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
-``%APPDATA%/isbntools/isbntools.conf``.
+``%APPDATA%/isbntools/isbntools.conf``. The output can be formated as ``bibtex``, 
+``msword``, ``endnote`` or ``refworks`` bibliographic formats.
 
 
 .. code-block:: bash
@@ -240,7 +240,6 @@ namespace ``isbntools.dev``, namely:
   command line you can enter ``isbn_meta 9780321534965 isbndb YOURAPIKEY`` or,
   programatically, use ``isbntools.config.add_apikey`` before a call to
   ``ISBNDBQuery`` or to ``isbndb.query``).
-  (**If you are in a UNIX system** see the note below).
   The main features can be implemented by a call to ``isbndb.query`` function!
   You can get an API key for the *isbndb.com service* here_.
 
@@ -287,7 +286,7 @@ It gives priority to ``wcat`` but overwrites the ``Authors`` field with the valu
 Uses the ``merge`` method of ``Metadata`` and *threaded* calls to services
 by default (faster for slow internet connections).
 You can change that, by setting ``VIAS_MERGE=serial`` (see note below).
-You can write your own *merging scheme* by creating a new provider (see ``dev.merge_`` for an example).
+You can write your own *merging scheme* by creating a new provider (see_ ``dev.merge`` for an example).
 
     **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
@@ -298,7 +297,7 @@ Conf File
 You can enter API keys and set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
 ``%APPDATA%/isbntools/isbntools.conf``.
-(**create this directory and file if don't exist**). The file should look like:
+(**create these, directory and file, if don't exist**). The file should look like:
 
 
 .. code-block:: bash
@@ -363,5 +362,5 @@ To know about ISBN:
 
 .. _help: https://github.com/xlcnd/isbntools/issues/8
 
-.. _standalone: https://sourceforge.net/projects/isbntools/files/isbntools-3.0.0-win.zip/download
+.. _see: https://sourceforge.net/projects/isbntools/files/isbntools-3.0.0-win.zip/download
 
