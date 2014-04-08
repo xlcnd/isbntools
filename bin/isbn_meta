@@ -8,12 +8,6 @@ from isbntools import config
 from isbntools import registry
 from isbntools.dev.fmt import fmtbib, fmts
 
-
-FMT1 = 'ISBN-13: %s\nTitle: %s\n'
-FMT2 = 'Author: %s\n'
-FMT3 = 'Author%s: %s\n'
-FMT4 = 'Publisher: %s\nYear: %s\n'
-
 logging.basicConfig(level=logging.CRITICAL)
 
 
