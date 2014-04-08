@@ -59,7 +59,7 @@ setup(
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
     keywords='ISBN, validate, transform, hyphenate, metadata, World Catalogue,
-    Google Books, Open Library, isbndb.com, BibTeX, EndNote, RefWorks',
+    Google Books, Open Library, isbndb.com, BibTeX, EndNote, RefWorks, MSWord',
     classifiers=[
         'Programming Language :: Python :: 2.7',
         'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
