@@ -42,6 +42,13 @@ msword = r'''<b:Source xmlns:b="http://schemas.microsoft.com/office/'''\
 <b:Publisher>$Publisher</b:Publisher>
 </b:Source>'''
 
+json = r'''{"type": "book",
+"title": "$Title",
+"author": [$AUTHORS],
+"year": "$Year",
+"identifier": [{"type": "ISBN", "id": "$ISBN"}],
+"publisher": "$Publisher"}'''
+
 labels = r"""Type:      BOOK
 Title:     $Title
 Author:    $AUTHORS
@@ -51,7 +58,7 @@ Publisher: $Publisher"""
 
 templates = {'labels': labels, 'bibtex': bibtex,
              'endnote': endnote, 'refworks': refworks,
-             'msword': msword}
+             'msword': msword, 'json': json}
 
 fmts = templates.keys()
 
@@ -79,8 +86,7 @@ def _spec_proc(name, fmtrec, authors):
     """
     Fixes the Authors records (TODO: refator this!)
     """
-    if name not in ('labels', 'bibtex',
-                    'refworks', 'endnote', 'msword'):
+    if name not in fmts:
         return
     if name == 'labels':
         AUTHORS = '\nAuthor:    '.join(authors)
@@ -98,6 +104,9 @@ def _spec_proc(name, fmtrec, authors):
         AUTHORS = ''
         for a in authors:
             AUTHORS += Template(person).safe_substitute(_last_first(a))
+    if name == 'json':
+        AUTHORS = ', '.join(map(lambda x: '{"name": "$"}'.replace("$", x),
+                                authors))
 
     return re.sub(r'\$AUTHORS', AUTHORS, fmtrec)
 
