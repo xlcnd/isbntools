@@ -63,8 +63,8 @@ You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api
 You can enter API keys and set preferences in the file `isbntools.conf` in your
 `$HOME\.isbntools` directory (UNIX). For Windows, you should look at
 `%APPDATA%/isbntools/isbntools.conf`.
-The output can be formatted as `bibtex`, `msword`,  `endnote` or `refworks`
-bibliographic formats.
+The output can be formatted as `bibtex`, `msword`,  `endnote`, `refworks`, or
+`json` (BibJSON) bibliographic formats.
 
 
 ```bash
@@ -94,7 +94,7 @@ a *fuzzy* script that returns the *most probable* ISBN from a set of words.
 
 ```bash
 
-    $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks]
+    $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks|json]
 ```
 a script that returns from **Google Books multiple references**.
 
