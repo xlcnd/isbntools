@@ -24,10 +24,9 @@ refworks = r"""TY  - BOOK
 T1  - $Title
 A1  - $AUTHORS
 SN  - $ISBN
-UR  -
 Y1  - $Year
 PB  - $Publisher
-ER """
+ER  - """
 
 msword = r'''<b:Source xmlns:b="http://schemas.microsoft.com/office/'''\
          r'''word/2004/10/bibliography">

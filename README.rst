@@ -104,6 +104,14 @@ to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_stdin_validate``).
 a *fuzzy* script that returns the *most probable* ISBN from a set of words!
 (You can verify the result with ``isbn_meta``)!
 
+
+.. code-block:: bash
+
+    $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks] 
+
+a script that returns from **Google Books multiple references**.
+
+
 .. code-block:: bash
 
     $ isbntools
@@ -355,9 +363,9 @@ To know about ISBN:
 
 .. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/isbndb.py
 
-.. _dev.merge: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
+.. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
 
 .. _help: https://github.com/xlcnd/isbntools/issues/8
 
-.. _see: https://sourceforge.net/projects/isbntools/files/isbntools-3.0.1-win.zip/download
+.. _standalone: https://sourceforge.net/projects/isbntools/files/isbntools-3.0.1-win.zip/download
 

@@ -94,6 +94,13 @@ a *fuzzy* script that returns the *most probable* ISBN from a set of words.
 
 ```bash
 
+    $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks]
+```
+a script that returns from **Google Books multiple references**.
+
+
+```bash
+
     $ isbntools
 ```
 writes version and copyright notice and **checks if there are updates**.
