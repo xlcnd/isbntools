@@ -97,13 +97,12 @@ def _spec_proc(name, fmtrec, authors):
     if name == 'endnote':
         AUTHORS = '\n%A '.join(authors)
     if name == 'msword':
-        uid = str(uuid.uuid4())
-        fmtrec = Template(fmtrec).safe_substitute(uid=uid)
-        person = r"\n<b:Person><b:Last>$last</b:Last>"\
+        fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
+        person = r"<b:Person><b:Last>$last</b:Last>"\
                  r"<b:First>$first</b:First></b:Person>"
-        AUTHORS = ''
-        for a in authors:
-            AUTHORS += Template(person).safe_substitute(_last_first(a))
+        AUTHORS = '\n'.join(
+            map(lambda x: Template(person).safe_substitute(_last_first(x)),
+                authors))
     if name == 'json':
         AUTHORS = ', '.join(map(lambda x: '{"name": "$"}'.replace("$", x),
                                 authors))
