@@ -51,7 +51,7 @@ gives you the *group identifier* of the ISBN.
 
 ```bash
 
-    $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [YOUR_APIKEY_TO_SERVICE]
+    $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [bibtex|...] [YOUR_APIKEY_TO_SERVICE]
 ```
 gives you the main metadata associated with the ISBN, `wcat` uses **worldcat.org**
 (**no key is needed**), `goob` uses the **Google Books service** (**no key is needed**),
