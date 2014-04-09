@@ -107,7 +107,6 @@ def _spec_proc(name, fmtrec, authors):
     if name == 'json':
         AUTHORS = ', '.join(map(lambda x: '{"name": "$"}'.replace("$", x),
                                 authors))
-
     return re.sub(r'\$AUTHORS', AUTHORS, fmtrec)
 
 
