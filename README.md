@@ -239,7 +239,7 @@ namespace `isbntools.dev`, namely:
   command line you can enter `isbn_meta 9780321534965 isbndb YOURAPIKEY` or,
   programatically, use `isbntools.config.add_apikey` before a call to
   `ISBNDBQuery` or to `isbndb.query`).
-  (**If you are in a UNIX system** see the note below).
+  (**You can put this information in a `conf` file too!** see the note below).
   The main features can be implemented by a call to `isbndb.query` function!
   You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
 
