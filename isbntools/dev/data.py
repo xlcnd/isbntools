@@ -41,7 +41,8 @@ class Metadata(object):
         if 'Authors' not in filtre:
             self._content['Authors'] = [broom(i) for i in
                                         self._content['Authors']]
-        self._content['Title'] = titlecase(self._content['Title'])
+        if self._content['Language'].lower() in ('en', 'eng', 'english'):
+            self._content['Title'] = titlecase(self._content['Title'])
 
     @property
     def value(self):
