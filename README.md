@@ -188,7 +188,7 @@ You should check if the install was successful, by enter:
 >**If you are on a Windows system and the scripts don't work**, here are some
 [help](https://github.com/xlcnd/isbntools/issues/8) **or**
 you can download a
-[standalone version](https://sourceforge.net/projects/isbntools/files/isbntools-3.0.2-win.zip/download)
+[standalone version](http://bit.ly/1i8qatY)
 that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 

@@ -367,5 +367,5 @@ To know about ISBN:
 
 .. _help: https://github.com/xlcnd/isbntools/issues/8
 
-.. _standalone: https://sourceforge.net/projects/isbntools/files/isbntools-3.0.2-win.zip/download
+.. _standalone: http://bit.ly/1i8qatY 
 
