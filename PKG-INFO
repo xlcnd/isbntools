@@ -1,10 +1,10 @@
 Metadata-Version: 1.1
 Name: isbntools
-Version: 3.0.1
+Version: 3.0.2
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
-Author: Alexandre Conde
-Author-email: alexandreconde@hotmail.com
+Author: xlcnd
+Author-email: xlcnd@outlook.com
 License: LGPL v3
 Download-URL: https://github.com/xlcnd/isbntools/archive/master.zip
 Description: 
@@ -24,7 +24,7 @@ Description:
             :target: https://pypi.python.org/pypi/isbntools/
             :alt: License
         
-        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v3.0.1
+        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v3.0.2
             :target: https://travis-ci.org/xlcnd/isbntools
             :alt: Built Status
         
@@ -73,7 +73,7 @@ Description:
         
         .. code-block:: bash
         
-            $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [bibtex|msword|endnote|refworks] [YOUR_APIKEY_TO_SERVICE]
+            $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [bibtex|msword|endnote|refworks|json] [YOUR_APIKEY_TO_SERVICE]
         
         gives you the main metadata associated with the ISBN, ``wcat`` uses **worldcat.org**
         (**no key is needed**), ``goob`` uses the **Google Books service** (**no key is needed**),
@@ -85,7 +85,7 @@ Description:
         set preferences in the file ``isbntools.conf`` in your
         ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
         ``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``, 
-        ``msword``, ``endnote`` or ``refworks`` bibliographic formats.
+        ``msword``, ``endnote``, ``refworks`` or ``json`` (BibJSON) bibliographic formats.
         
         
         .. code-block:: bash
@@ -116,7 +116,7 @@ Description:
         
         .. code-block:: bash
         
-            $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks] 
+            $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks|json] 
         
         a script that returns from **Google Books multiple references**.
         
@@ -191,7 +191,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-3.0.1.tar.gz
+            $ pip install isbntools-3.0.2.tar.gz
         
         (first you have to download the file!)
         
@@ -376,10 +376,10 @@ Description:
         
         .. _help: https://github.com/xlcnd/isbntools/issues/8
         
-        .. _standalone: https://sourceforge.net/projects/isbntools/files/isbntools-3.0.1-win.zip/download
+        .. _standalone: https://sourceforge.net/projects/isbntools/files/isbntools-3.0.2-win.zip/download
         
         
-Keywords: ISBN,validate,transform,hyphenate,metadata,World Catalogue,Google Books,Open Library,isbndb.com,BibTeX,EndNote,RefWorks,MSWord
+Keywords: ISBN,validate,transform,hyphenate,metadata,World Catalogue,Google Books,Open Library,isbndb.com,BibTeX,EndNote,RefWorks,MSWord,BibJSON
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 2.7
 Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
