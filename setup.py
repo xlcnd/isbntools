@@ -49,8 +49,8 @@ data_files.append(conf_file())
 setup(
     name='isbntools',
     version=__version__,
-    author='Alexandre Conde',
-    author_email='alexandreconde@hotmail.com',
+    author='xlcnd',
+    author_email='xlcnd@outlook.com',
     url='https://github.com/xlcnd/isbntools',
     download_url='https://github.com/xlcnd/isbntools/archive/master.zip',
     packages=['isbntools', 'isbntools/dev', 'isbntools/data'],
