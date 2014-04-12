@@ -101,11 +101,11 @@ def _spec_proc(name, fmtrec, authors):
         person = r"<b:Person><b:Last>$last</b:Last>"\
                  r"<b:First>$first</b:First></b:Person>"
         AUTHORS = '\n'.join(
-            map(lambda x: Template(person).safe_substitute(_last_first(x)),
-                authors))
+            Template(person).safe_substitute(_last_first(a))
+            for a in authors)
     if name == 'json':
-        AUTHORS = ', '.join(map(lambda x: '{"name": "$"}'.replace("$", x),
-                                authors))
+        AUTHORS = ', '.join('{"name": "$"}'.replace("$", a)
+                            for a in authors)
     return re.sub(r'\$AUTHORS', AUTHORS, fmtrec)
 
 
