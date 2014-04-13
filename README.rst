@@ -72,10 +72,10 @@ gives you the main metadata associated with the ISBN, ``wcat`` uses **worldcat.o
 ``openl`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
 a mergeded record of ``wcat`` and ``goob`` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``).
-You can get an API key for the *isbndb.com service* here_.  You can enter API keys and 
+You can get an API key for the *isbndb.com service* here_.  You can enter API keys and
 set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
-``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``, 
+``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``,
 ``msword``, ``endnote``, ``refworks`` or ``json`` (BibJSON) bibliographic formats.
 
 
@@ -107,7 +107,7 @@ a *fuzzy* script that returns the *most probable* ISBN from a set of words!
 
 .. code-block:: bash
 
-    $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks|json] 
+    $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks|json]
 
 a script that returns from **Google Books multiple references**.
 
@@ -193,8 +193,8 @@ You should check if the install was successful, by enter:
     $ isbntools
 
 
-Windows (NEW)
--------------
+Windows
+-------
 
     **If you are on a Windows system and the scripts don't work**, here are some help_ **or**
     you can download a standalone_ version that **doesn't need python** and gives you
@@ -367,5 +367,5 @@ To know about ISBN:
 
 .. _help: https://github.com/xlcnd/isbntools/issues/8
 
-.. _standalone: http://bit.ly/1i8qatY 
+.. _standalone: http://bit.ly/1i8qatY
 
