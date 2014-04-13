@@ -338,7 +338,8 @@ Known Issues
 
 
 Any issue that you would like to report, please do it at
-[github](https://github.com/xlcnd/isbntools/issues).
+[github](https://github.com/xlcnd/isbntools/issues) (if you are a developer)
+or at [twitter](https://twitter.com/isbntools) (if you are and end user).
 
 
 ISBN

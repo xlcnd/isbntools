@@ -339,7 +339,8 @@ Known Issues
    valid (recent) issued ISBNs. The solution? **Update isbntools often**!
 
 
-Any issue that you would like to report, please do it at github_.
+Any issue that you would like to report, please do it at github_ (if you are a
+dev) or at twitter_ (if you are an end user).
 
 
 ISBN
@@ -369,3 +370,4 @@ To know about ISBN:
 
 .. _standalone: http://bit.ly/1i8qatY
 
+.. _twitter: https://twitter.com/isbntools
