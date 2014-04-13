@@ -4,7 +4,7 @@ __all__ = ['webservice', 'webquery', 'exceptions',
            'DataNotFoundAtServiceError',
            'ServiceIsDownError', 'DataWrongShapeError',
            'NotValidMetadataError', 'Metadata', 'stdmeta',
-           'normalize_space', 'WEBService', 'WEBQuery', 'WCATQuery',
+           'WEBService', 'WEBQuery', 'WCATQuery',
            'WCATEdQuery', 'GOOBQuery', 'ISBNDBQuery', 'OPENLQuery',
            'ISBNToolsHTTPError', 'ISBNToolsURLError', 'vias',
            'NoDataForSelectorError', 'ServiceIsDownError',
@@ -26,5 +26,4 @@ from .exceptions import (ISBNToolsHTTPError, ISBNToolsURLError,
                          DataWrongShapeError, NotValidMetadataError,
                          RecordMappingError, NoAPIKeyError)
 from .data import Metadata, stdmeta
-from .helpers import normalize_space
 from . import vias
