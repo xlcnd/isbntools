@@ -216,36 +216,10 @@ namespace `isbntools.dev`, namely:
 
 * `WEBQuery` a class that uses `WEBService` to retrive and parse
   data from a web service. You can build a new provider of metadata
-  by subclassing this class. The following classes do that
-  (by using the *call pattern*). His main methods allow passing custom
+  by subclassing this class.
+  His main methods allow passing custom
   functions (*handlers*) that specialize them to specific needs (`data_checker` and
   `parser`).
-
-* `GOOBQuery` a class that retrives and parses book metadata,
-  using **Google Books API** (you only have to provide an ISBN).
-  The main features can be implemented by a call to `goob.query` function!
-
-* `WCATQuery` a class that retrives and parses book metadata,
-  using the **worldcat.org xisbn service** (you only have to provide an ISBN).
-  The main features can be implemented by a call to `wcat.query` function!
-
-* `WCATEdQuery` a class that retrives and parses collections of ISBNs related
-  with a given book, using the **worldcat.org xisbn service**
-  (you only have to provide an ISBN).
-  The main features can be implemented by a call to `wcated.query` function!
-
-* `ISBNDBQuery` a class that retrives and parses book metadata,
-  using the **isbndb.org service**. However you have to provide an **API key** (in the
-  command line you can enter `isbn_meta 9780321534965 isbndb YOURAPIKEY` or,
-  programatically, use `isbntools.config.add_apikey` before a call to
-  `ISBNDBQuery` or to `isbndb.query`).
-  (**You can put this information in a `conf` file too!** see the note below).
-  The main features can be implemented by a call to `isbndb.query` function!
-  You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
-
-* `OPENLQuery` a class that retrives and parses book metadata,
-  using **openlibrary.org** (you only have to provide an ISBN).
-  The main features can be implemented by a call to `openl.query` function!
 
 * `Metadata` a class that structures, cleans and 'validates' records of
   metadata. His method `merge` allows to implement a simple merging
