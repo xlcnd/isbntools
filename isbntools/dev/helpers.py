@@ -14,7 +14,7 @@ def normalize_space(item):
     Strips leading and trailing white space and replaces sequences of
     white space characters with a single space.
     """
-    item = re.sub('\s\s+', ' ', item)
+    item = re.sub(r'\s\s+', ' ', item)
     return item.strip()
 
 

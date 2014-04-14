@@ -1,6 +1,4 @@
-__all__ = ['webservice', 'webquery', 'exceptions',
-           'wcat', 'wcated', 'goob', 'isbndb', 'openl',
-           'ISBNToolsHTTPError', 'ISBNToolsURLError',
+__all__ = ['ISBNToolsHTTPError', 'ISBNToolsURLError',
            'DataNotFoundAtServiceError',
            'ServiceIsDownError', 'DataWrongShapeError',
            'NotValidMetadataError', 'Metadata', 'stdmeta',

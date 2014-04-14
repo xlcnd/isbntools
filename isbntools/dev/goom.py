@@ -72,7 +72,7 @@ class GOOMQuery(WEBQuery):
         except:             # pragma: no cover
             try:
                 extra = data['stat']
-                logger.debug('DataWrongShapeError for % with data %s' %
+                logger.debug('DataWrongShapeError for %s with data %s' %
                              (self.words, extra))
             except:
                 raise DataWrongShapeError(self.words)

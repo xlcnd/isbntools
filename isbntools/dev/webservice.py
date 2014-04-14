@@ -56,8 +56,8 @@ class WEBService(object):
 
 
 def query(url, user_agent=UA, values=None):
-        """
-        Query to a web service
-        """
-        service = WEBService(url, user_agent, values)
-        return service.data()
+    """
+    Query to a web service
+    """
+    service = WEBService(url, user_agent, values)
+    return service.data()
