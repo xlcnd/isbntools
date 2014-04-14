@@ -1,3 +1,7 @@
+"""
+Copyright notice and checks updates
+"""
+
 import re
 import urllib2
 from . import colors
@@ -15,7 +19,7 @@ def check_version():
 
         url = "https://raw.githubusercontent.com/xlcnd/"\
               "isbntools/master/isbntools/__init__.py"
-        RE_VERSION = re.compile("__version__\s*=\s*'(.*)'")
+        RE_VERSION = re.compile(r"__version__\s*=\s*'(.*)'")
 
         request = urllib2.Request(url, headers=headers)
         content = urllib2.urlopen(request).read()

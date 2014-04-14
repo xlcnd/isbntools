@@ -154,8 +154,8 @@ def canonical(isbnlike):
 def clean(isbnlike):
     """ Clean isbn (only legal characters) """
     cisbn = [c for c in isbnlike if c in LEGAL]
-    buf = re.sub('\s*-\s*', '-', ''.join(cisbn))
-    return re.sub('\s+', ' ', buf).strip()
+    buf = re.sub(r'\s*-\s*', '-', ''.join(cisbn))
+    return re.sub(r'\s+', ' ', buf).strip()
 
 
 def notisbn(isbnlike, level='strict'):
@@ -238,7 +238,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
             check = _check_digit13(buf)
 
         # If checksum OK return a `canonical` ISBN
-        if (str(check) == last):
+        if str(check) == last:
             if output == 'bouth':
                 return cisbn
             if output == 'isbn10':

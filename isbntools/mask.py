@@ -33,7 +33,7 @@ def mask(isbn, separator='-'):
     buf = ib[igi:cur + 1]
     group = ib[0:cur] + '-' + buf
 
-    for i in range(6):
+    for _ in range(6):
         if group in ranges:
             sevens = ib[cur + 1:cur + 8].ljust(7, '0')
             for l in ranges[group]:
