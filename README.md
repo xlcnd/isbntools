@@ -185,8 +185,7 @@ $ isbntools
 
 ### Windows
 
->**If you are on a Windows system and the scripts don't work**, here are some
-[help](https://github.com/xlcnd/isbntools/issues/8) **or**
+>**If you are on a Windows system**,
 you can download a
 [standalone version](http://bit.ly/1i8qatY)
 that **doesn't need python** and gives you

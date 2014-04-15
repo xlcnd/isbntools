@@ -196,11 +196,12 @@ You should check if the install was successful, by enter:
 Windows
 -------
 
-    **If you are on a Windows system and the scripts don't work**, here are some help_ **or**
+    **If you are on a Windows system **, 
     you can download a standalone_ version that **doesn't need python** and gives you
     access to the scripts. However, doesn't support add-ins or customization!
 
     **Intructions**:
+
     1. unzip the file and put the file ``isbn.exe`` in a folder.
     2. go to that folder and open a command line.
     3. run ``isbn help`` to get further instructions.
@@ -327,8 +328,11 @@ To know about ISBN:
 
 *  http://www.isbn-international.org/
 
----
+
+--------------------------------
+
 More documentation at http://isbntools.readthedocs.org
+
 
 .. _github: https://github.com/xlcnd/isbntools/issues
 
@@ -341,8 +345,6 @@ More documentation at http://isbntools.readthedocs.org
 .. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/isbndb.py
 
 .. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
-
-.. _help: https://github.com/xlcnd/isbntools/issues/8
 
 .. _standalone: http://bit.ly/1i8qatY
 
