@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# flake8: noqa
 #
 # isbntools documentation build configuration file, created by
 # sphinx-quickstart on Mon Apr 14 21:43:46 2014.
