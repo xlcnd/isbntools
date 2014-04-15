@@ -325,3 +325,5 @@ To know about ISBN:
 * http://www.isbn-international.org/
 
 
+---
+More documentation at http://isbntools.readthedocs.org

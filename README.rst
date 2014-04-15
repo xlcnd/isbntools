@@ -327,7 +327,8 @@ To know about ISBN:
 
 *  http://www.isbn-international.org/
 
-
+---
+More documentation at http://isbntools.readthedocs.org
 
 .. _github: https://github.com/xlcnd/isbntools/issues
 
