@@ -7,7 +7,7 @@ from . import vias
 from .. import config
 
 
-def query(isbn, processor='parallel'):
+def query(isbn, processor='serial'):
     """
     Query function for the `merge provider` (waterfall model)
     """
@@ -15,8 +15,10 @@ def query(isbn, processor='parallel'):
     named_tasks = (('wcat', qwcat), ('goob', qgoob))
     if processor == 'parallel':
         results = vias.parallel(named_tasks, isbn)
-    else:
+    elif processor == 'serial':
         results = vias.serial(named_tasks, isbn)
+    elif processor == 'multi':
+        results = vias.multi(named_tasks, isbn)
 
     rw = results.get('wcat')
     rg = results.get('goob')
