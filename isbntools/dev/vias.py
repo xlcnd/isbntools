@@ -2,7 +2,7 @@
 
 from .. import config
 
-results = {}
+RESULTS = {}
 
 
 def _worker(name, task, arg):
@@ -10,7 +10,7 @@ def _worker(name, task, arg):
     Worker function for thread
     """
     try:
-        results[name] = task(arg)
+        RESULTS[name] = task(arg)
     except:
         pass
 
@@ -24,7 +24,7 @@ def parallel(named_tasks, arg):
         t = Thread(target=_worker, args=(name, task, arg))
         t.start()
         t.join(config.THREADS_TIMEOUT)
-    return results
+    return RESULTS
 
 
 def serial(named_tasks, arg):
@@ -32,18 +32,18 @@ def serial(named_tasks, arg):
     Serial calls
     """
     for name, task in named_tasks:
-        results[name] = task(arg)
-    return results
+        RESULTS[name] = task(arg)
+    return RESULTS
 
 
 def multi(named_tasks, arg):
     """
     Multiprocessing: using several cores (if available)
-    TODO: alpha 
+    TODO alpha
     """
     from multiprocessing import Process
     for name, task in named_tasks:
         p = Process(target=_worker, args=(name, task, arg))
         p.start()
         p.join(2*config.THREADS_TIMEOUT)
-    return results
+    return RESULTS
