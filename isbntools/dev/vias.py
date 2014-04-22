@@ -45,5 +45,5 @@ def multi(named_tasks, arg):
     for name, task in named_tasks:
         p = Process(target=_worker, args=(name, task, arg))
         p.start()
-        p.join(2*config.THREADS_TIMEOUT)
+        p.join(2 * config.THREADS_TIMEOUT)
     return RESULTS
