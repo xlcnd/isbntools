@@ -84,7 +84,7 @@ def _last_first(author):
 
 def _spec_proc(name, fmtrec, authors):
     """
-    Fixes the Authors records (TODO: refator this!)
+    Fixes the Authors records (TODO: refact this!)
     """
     if name not in fmts:
         return
