@@ -5,9 +5,7 @@ from ast import literal_eval
 from .webquery import WEBQuery
 from .exceptions import DataWrongShapeError, NoDataForSelectorError
 
-logger = logging.getLogger(__name__)
-
-
+LOGGER = logging.getLogger(__name__)
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
               'method=getEditions&format=python'
@@ -39,8 +37,8 @@ class WCATEdQuery(WEBQuery):
         except:    # pragma: no cover
             try:
                 extra = data['stat']
-                logger.debug('DataWrongShapeError for %s with data %s' %
-                             (self.isbn, extra))
+                LOGGER.debug('DataWrongShapeError for %s with data %s',
+                             self.isbn, extra)
             except:
                 raise DataWrongShapeError(self.isbn)
             raise NoDataForSelectorError(self.isbn)

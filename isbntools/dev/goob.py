@@ -11,7 +11,7 @@ SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=isbn+%s&fields='\
     'items/volumeInfo(title,authors,publisher,publishedDate,language)'\
     '&maxResults=1'
 
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 class GOOBQuery(WEBQuery):
@@ -65,8 +65,8 @@ class GOOBQuery(WEBQuery):
         except:             # pragma: no cover
             try:
                 extra = data['stat']
-                logger.debug('DataWrongShapeError for % with data %s' %
-                             (self.isbn, extra))
+                LOGGER.debug('DataWrongShapeError for %s with data %s',
+                             self.isbn, extra)
             except:
                 raise DataWrongShapeError(self.isbn)
             raise NoDataForSelectorError(self.isbn)

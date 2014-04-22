@@ -10,8 +10,7 @@ from .exceptions import (DataWrongShapeError, NoDataForSelectorError,
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
     'method=getMetadata&format=json&fl=*'
-
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 class WCATQuery(WEBQuery):
@@ -61,8 +60,8 @@ class WCATQuery(WEBQuery):
         except:
             try:
                 extra = data['stat']
-                logger.debug('DataWrongShapeError for % with data %s' %
-                             (self.isbn, extra))
+                LOGGER.debug('DataWrongShapeError for %s with data %s',
+                             self.isbn, extra)
             except:
                 raise DataWrongShapeError(self.isbn)
             raise NoDataForSelectorError(self.isbn)

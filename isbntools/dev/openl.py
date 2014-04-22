@@ -10,7 +10,7 @@ UA = 'isbntools (gzip)'
 SERVICE_URL = 'http://openlibrary.org/api/books?bibkeys='\
     'ISBN:%s&format=json&jscmd=data'
 
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 class OPENLQuery(WEBQuery):

@@ -5,7 +5,7 @@ import logging
 from .data.data4mask import ranges
 from .core import canonical, to_isbn13
 
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 def mask(isbn, separator='-'):
@@ -51,5 +51,5 @@ def mask(isbn, separator='-'):
             check = check10
         return separator.join([group, ib[cur + 1:cur + idx + 1],
                               ib[cur + idx + 1:-1], check])
-    logger.warning('identifier not found! Please, update the program.')
+    LOGGER.warning('identifier not found! Please, update the program.')
     return

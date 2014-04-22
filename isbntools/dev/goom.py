@@ -11,7 +11,7 @@ SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=%s&fields='\
     'items/volumeInfo(title,authors,publisher,publishedDate,language,industryIdentifiers)'\
     '&maxResults=10'
 
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 class GOOMQuery(WEBQuery):
@@ -72,8 +72,8 @@ class GOOMQuery(WEBQuery):
         except:             # pragma: no cover
             try:
                 extra = data['stat']
-                logger.debug('DataWrongShapeError for %s with data %s' %
-                             (self.words, extra))
+                LOGGER.debug('DataWrongShapeError for %s with data %s',
+                             self.words, extra)
             except:
                 raise DataWrongShapeError(self.words)
             raise NoDataForSelectorError(self.words)

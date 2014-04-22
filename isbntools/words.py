@@ -5,7 +5,7 @@ import logging
 from .core import get_isbnlike, get_canonical_isbn
 from .dev import webservice
 
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 def goos(words):
@@ -25,6 +25,6 @@ def goos(words):
         if isbn:
             break
     if not isbn:
-        logger.debug('No ISBN found for %s' % words)
+        LOGGER.debug('No ISBN found for %s', words)
         return
     return isbn

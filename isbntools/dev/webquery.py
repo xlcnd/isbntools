@@ -6,11 +6,9 @@ from . import webservice
 from .exceptions import DataNotFoundAtServiceError, ServiceIsDownError
 
 UA = 'isbntools (gzip)'
-
 OUT_OF_SERVICE = 'Temporarily out of service'
 BOOK_NOT_FOUND = 'No results match your search'
-
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 class WEBQuery(object):
@@ -32,13 +30,13 @@ class WEBQuery(object):
         if data_checker:
             return data_checker(self.data)
         if self.data == '{}':
-            logger.warning('DataNotFoundAtServiceError for %s' % self.url)
+            LOGGER.warning('DataNotFoundAtServiceError for %s', self.url)
             raise DataNotFoundAtServiceError(self.url)
         if BOOK_NOT_FOUND in self.data:
-            logger.warning('DataNotFoundAtServiceError for %s' % self.url)
+            LOGGER.warning('DataNotFoundAtServiceError for %s', self.url)
             raise DataNotFoundAtServiceError(self.url)
         if OUT_OF_SERVICE in self.data:
-            logger.critical('ServiceIsDownError for %s' % self.url)
+            LOGGER.critical('ServiceIsDownError for %s', self.url)
             raise ServiceIsDownError(self.url)
 
     def parse_data(self, parser=json.loads):

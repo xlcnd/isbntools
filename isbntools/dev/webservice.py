@@ -10,7 +10,7 @@ from .exceptions import ISBNToolsHTTPError, ISBNToolsURLError
 
 UA = 'webservice (gzip)'
 
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 class WEBService(object):
@@ -28,17 +28,18 @@ class WEBService(object):
         # if 'data' it does a PUT request (data must be urlencoded)
         data = urllib.urlencode(values) if values else None
         self._request = urllib2.Request(url, data, headers=headers)
+        self.response = None
 
     def _response(self):
         try:
             self.response = urllib2.urlopen(self._request)
         except urllib2.HTTPError as e:
-            logger.critical('ISBNToolsHTTPError for %s with code %s' %
-                            (self._url, e.code))
+            LOGGER.critical('ISBNToolsHTTPError for %s with code %s',
+                            self._url, e.code)
             raise ISBNToolsHTTPError(e.code)
         except urllib2.URLError as e:
-            logger.critical('ISBNToolsURLError for %s with reason %s' %
-                            (self._url, e.reason))
+            LOGGER.critical('ISBNToolsURLError for %s with reason %s',
+                            self._url, e.reason)
             raise ISBNToolsURLError(e.reason)
 
     def data(self):

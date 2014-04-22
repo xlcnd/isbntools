@@ -4,7 +4,7 @@ import logging
 from .data.data4info import d, identifiers, dnew, newidentifiers
 from .exceptions import NotValidISBNError
 
-logger = logging.getLogger(__name__)
+LOGGER = logging.getLogger(__name__)
 
 
 def infogroup(isbn):
@@ -12,7 +12,7 @@ def infogroup(isbn):
     # if isbn is not a valid ISBN this def can give a wrong result!
     # -> do a minimal test
     if len(isbn) not in (10, 13):
-        logger.critical('%s is not a valid ISBN' % isbn)
+        LOGGER.critical('%s is not a valid ISBN', isbn)
         raise NotValidISBNError(isbn)
     dtxt = d
     idents = identifiers
