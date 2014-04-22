@@ -16,6 +16,7 @@ class Metadata(object):
         """
         Initializer
         """
+        self._content = None
         self._set_empty()
         if record:
             self._content.update((k, v) for k, v in record.items())
@@ -69,14 +70,6 @@ class Metadata(object):
         """
         self._set_empty()
 
-    def add_to_authors(self, author):
-        """
-        Add Author to Authors list
-        """
-        if not type(author) is unicode:
-            author = unicode(author)
-        self._content['Authors'].append(author.strip())
-
     def merge(self, record, overwrite=(), overrule=lambda x: x == ''):
         """
         Merge the record with value
@@ -89,18 +82,6 @@ class Metadata(object):
             self._set_empty()
             raise NotValidMetadataError()
         self.clean()
-
-    def empties(self):
-        """
-        Returns the names of empty fields
-        """
-        return [k for k, v in self._content.items() if v == u'' or v == []]
-
-    def metric(self):
-        """
-        Returns the length of the characters that repr the object
-        """
-        return len(repr(self._content))
 
     def _validate(self):
         """
@@ -121,47 +102,6 @@ class Metadata(object):
         """
         self._content = dict.fromkeys(list(FIELDS), u'')
         self._content['Authors'] = [u'']
-
-    def __unicode__(self):  # pragma: no cover
-        """
-        How should metadata be printed (print unicode(...))
-        """
-        return '\n'.join((': '.join((k, v)) for k, v in self.__iter__()))
-
-    def __iter__(self):
-        """
-        Define an iterator for the class (using a generator)
-        """
-        for k in FIELDS:
-            if k == 'Authors':
-                for i, a in enumerate(self._content['Authors']):
-                    yield 'Author%s' % (i + 1), a
-                continue
-            yield k, self._content[k]
-
-    def __len__(self):
-        """
-        Meaningful property for len(metadata object): Sum elements != u''
-        """
-        lenk = len([v for v in self._content.values() if v != u''])
-        lena = len([l for l in self._content.get('Authors') if l != u''])
-        return lenk + lena - 1
-
-    def __eq__(self, other):
-        """
-        When are two of these objects equal?
-        """
-        if not isinstance(other, self.__class__):
-            return NotImplemented
-        if self.metric() != other.metric():
-            return False
-        qk = all(v == other._content[k] for k, v in self._content.items()
-                 if k != 'Authors')
-        if not qk:
-            return False
-        qa = all(self._content['Authors'][i] == other._content['Authors'][i]
-                 for i in range(len(self._content['Authors'])))
-        return qa
 
 
 def stdmeta(records):

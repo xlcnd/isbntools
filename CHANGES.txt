@@ -38,4 +38,4 @@ v3.0.0, 2014-04-08 -- Support for Bibtex, EndNote, RefWorks and Word.
 v3.0.1, 2014-04-09 -- Multiple references from Google Books.
 v3.0.2, 2014-04-14 -- Added BibJSON format.
 v3.0.3, 2014-04-15 -- Small fixes and ReadTheDocs.
-v3.1.0, 2014-04-15 -- TENTATIVE: support for python 3.3. 
+v3.1.0, 2014-04-15 -- Small fixes and clear code (some unused methods are not available).

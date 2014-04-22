@@ -56,18 +56,8 @@ def test_metaclass():
        'Language': u'en',
        'Authors': [u'author1. mba', u'author2']
        }
-    B={
-       'ISBN-13': u'9780123456789',
-       'Title': u'Bla. Bla /Title .',
-       'Publisher': u'',
-       'Year': u'2000',
-       'Language': u'en',
-       'Authors': [u'author1. mba', u'author2', u'Bambini']
-       }
-    dt=Metadata(R);
+    dt=Metadata(R)
     assert_equals(dt.value, R)
-    dt.add_to_authors(u'Bambini')
-    assert_equals(dt.value, B)
 
 
 # flake8: noqa
