@@ -24,11 +24,3 @@ Contents:
    issues
    isbn
    
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
