@@ -333,6 +333,7 @@ To know about ISBN:
 
 More documentation at http://isbntools.readthedocs.org
 
+--------------------------------
 
 .. _github: https://github.com/xlcnd/isbntools/issues
 
