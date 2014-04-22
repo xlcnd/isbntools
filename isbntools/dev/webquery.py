@@ -38,7 +38,7 @@ class WEBQuery(object):
         if OUT_OF_SERVICE in self.data:
             LOGGER.critical('ServiceIsDownError for %s', self.url)
             raise ServiceIsDownError(self.url)
-        return True 
+        return True
 
     def parse_data(self, parser=json.loads):
         """
