@@ -84,26 +84,26 @@ def _last_first(author):
 
 def _spec_proc(name, fmtrec, authors):
     """
-    Fixes the Authors records (TODO: refact this!)
+    Fixes the Authors records
     """
     if name not in fmts:
         return
     if name == 'labels':
         AUTHORS = '\nAuthor:    '.join(authors)
-    if name == 'bibtex':
+    elif name == 'bibtex':
         AUTHORS = ' and '.join(authors)
-    if name == 'refworks':
+    elif name == 'refworks':
         AUTHORS = '\nA1  - '.join(authors)
-    if name == 'endnote':
+    elif name == 'endnote':
         AUTHORS = '\n%A '.join(authors)
-    if name == 'msword':
+    elif name == 'msword':
         fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
         person = r"<b:Person><b:Last>$last</b:Last>"\
                  r"<b:First>$first</b:First></b:Person>"
         AUTHORS = '\n'.join(
             Template(person).safe_substitute(_last_first(a))
             for a in authors)
-    if name == 'json':
+    elif name == 'json':
         AUTHORS = ', '.join('{"name": "$"}'.replace("$", a)
                             for a in authors)
     return re.sub(r'\$AUTHORS', AUTHORS, fmtrec)
