@@ -12,7 +12,7 @@ def check_version():
     Checks online if there is a new version of isbntools
     """
     try:
-        from isbntools import __version__
+        from .__init__ import __version__
 
         UA = "isbntools (%s)" % __version__
         headers = {'User-Agent': UA, 'Pragma': 'no-cache'}
@@ -35,5 +35,7 @@ def check_version():
             print((" Download it from %s"
                   % "https://pypi.python.org/pypi/isbntools"))
             print(colors.RESET)
+    except:
+        pass
     finally:
         print("")
