@@ -2,7 +2,7 @@ __all__ = ['ISBNToolsHTTPError', 'ISBNToolsURLError',
            'DataNotFoundAtServiceError',
            'ServiceIsDownError', 'DataWrongShapeError',
            'NotValidMetadataError', 'Metadata', 'stdmeta',
-           'WEBService', 'WEBQuery', 'WCATQuery',
+           'WEBService', 'WEBQuery', 
            'WCATEdQuery', 'GOOBQuery', 'ISBNDBQuery', 'OPENLQuery',
            'ISBNToolsHTTPError', 'ISBNToolsURLError', 'vias',
            'NoDataForSelectorError', 'ServiceIsDownError',
@@ -13,7 +13,7 @@ __all__ = ['ISBNToolsHTTPError', 'ISBNToolsURLError',
 
 from .webservice import WEBService
 from .webquery import WEBQuery
-from .wcat import WCATQuery
+#from .wcat import WCATQuery
 from .wcated import WCATEdQuery
 from .goob import GOOBQuery
 from .isbndb import ISBNDBQuery

@@ -38,9 +38,19 @@ class WEBQuery(object):
         if OUT_OF_SERVICE in self.data:
             LOGGER.critical('ServiceIsDownError for %s', self.url)
             raise ServiceIsDownError(self.url)
+        return True 
 
     def parse_data(self, parser=json.loads):
         """
         Parse the data (default JSON -> PY)
         """
         return parser(self.data)   # <-- data is now unicode
+
+
+def query(url, user_agent=UA, data_checker=None, parser=json.loads):
+    """
+    Puts the call and returns the data from a web service
+    """
+    wq = WEBQuery(url, user_agent)
+    return wq.parse_data(parser) \
+        if wq.check_data(data_checker) else None
