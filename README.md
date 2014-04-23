@@ -321,4 +321,4 @@ To know about ISBN:
 
 
 ---
-More documentation at http://isbntools.readthedocs.org
+More documentation at [http://isbntools.readthedocs.org](http://bit.ly/1l0W4In)
