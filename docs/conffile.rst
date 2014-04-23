@@ -17,7 +17,7 @@ You can enter API keys and set preferences in the file ``isbntools.conf`` in you
 
     [SERVICES]
     DEFAULT_SERVICE=merge
-    VIAS_MERGE=parallel
+    VIAS_MERGE=serial
     ISBNDB_API_KEY=your_api_key_here_or_DELETEME
 
 
