@@ -34,16 +34,3 @@ def serial(named_tasks, arg):
     for name, task in named_tasks:
         RESULTS[name] = task(arg)
     return RESULTS
-
-
-def multi(named_tasks, arg):
-    """
-    Multiprocessing: using several cores (if available)
-    FIXME!
-    """
-    from multiprocessing import Process
-    for name, task in named_tasks:
-        p = Process(target=_worker, args=(name, task, arg))
-        p.start()
-        p.join(config.THREADS_TIMEOUT)
-    return RESULTS
