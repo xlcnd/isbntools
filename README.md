@@ -225,9 +225,12 @@ namespace `isbntools.dev`, namely:
   procedure for records from different sources. The main features can be
   implemented by a call to `stdmeta` function!
 
-* `vias.parallel` allows to put theaded calls to services just by passing the name and
-  a pointer to the service `query` function. However doesn't implement throttling!
-  You can use `vias.serial` to make serial calls.
+* `vias` exposes several functions to put calls to services, just by passing the name and
+  a pointer to the service `query` function.
+  `vias.parallel` allows to put theaded calls. However doesn't implement
+  throttling! You can use `vias.serial` to make serial calls and
+  `vias.multi` to use several cores. The default is `vias.serial`, however
+  you can change that in the conf file.
 
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
@@ -258,10 +261,10 @@ If you need high quality metadata in your app, the only solution is to use
 for fields like `Authors` and `Publisher`.
 A *simple merge* provider is now the default in `isbn_meta` (and `isbntools.meta`).
 It gives priority to `wcat` but overwrites the `Authors` field with the value from `goob`.
-Uses the `merge` method of `Metadata` and *threaded* calls to services
-by default (faster for slow internet connections).
-You can change that, by setting `VIAS_MERGE=serial` (see note below).
-You can write your own *merging scheme* by creating a new provider (see `dev.merge` for an example).
+Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
+by default (faster for faster internet connections).
+You can change that, by setting `VIAS_MERGE=parallel` or `VIAS_MERGE=multi` (see note below).
+You can write your own *merging scheme* by creating a new provider (see_ `dev.merge` for an example).
 
 > **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
