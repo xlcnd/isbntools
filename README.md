@@ -285,7 +285,7 @@ THREADS_TIMEOUT=12
 
 [SERVICES]
 DEFAULT_SERVICE=merge
-VIAS_MERGE=parallel
+VIAS_MERGE=serial
 ISBNDB_API_KEY=your_api_key_here_or_DELETEME
 ```
 
