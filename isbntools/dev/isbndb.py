@@ -7,6 +7,7 @@ import logging
 import re
 from .webquery import query as wquery
 from .data import stdmeta
+from ..bouth23 import u
 from ..config import apikeys
 from .exceptions import (DataWrongShapeError, NoDataForSelectorError,
                          RecordMappingError, NoAPIKeyError)
@@ -27,18 +28,18 @@ def _mapper(isbn, records):
     try:
         # mapping: canonical <- records
         canonical = {}
-        canonical['ISBN-13'] = unicode(isbn)
+        canonical['ISBN-13'] = u(isbn)
         # assert isbn == records['isbn13'], "isbn was mungled!"
-        canonical['Title'] = records.get('title', u'')
+        canonical['Title'] = records.get('title', u(''))
         authors = [a['name'] for a in records['author_data']]
         canonical['Authors'] = authors
-        canonical['Publisher'] = records.get('publisher_name', u'')
-        canonical['Year'] = u''
+        canonical['Publisher'] = records.get('publisher_name', u(''))
+        canonical['Year'] = u('')
         if 'edition_info' in records:
             match = re.search(PATT_YEAR, records['edition_info'])
             if match:
-                canonical['Year'] = unicode(match.group(0))
-        canonical['Language'] = records.get('language', u'')
+                canonical['Year'] = str(match.group(0))
+        canonical['Language'] = records.get('language', u(''))
     except:
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation

@@ -6,6 +6,7 @@ Queries the Google Books (JSON API v1) for metadata
 import logging
 from .webquery import query as wquery
 from .data import stdmeta
+from ..bouth23 import u
 from .exceptions import (DataWrongShapeError, NoDataForSelectorError,
                          RecordMappingError)
 
@@ -25,16 +26,16 @@ def _mapper(isbn, records):
     try:
         # mapping: canonical <- records
         canonical = {}
-        canonical['ISBN-13'] = unicode(isbn)
-        canonical['Title'] = records.get('title', u'').replace(' :', ':')
+        canonical['ISBN-13'] = u(isbn)
+        canonical['Title'] = records.get('title', u('')).replace(' :', ':')
         canonical['Authors'] = records.get('authors', [])
-        canonical['Publisher'] = records.get('publisher', u'')
+        canonical['Publisher'] = records.get('publisher', u(''))
         if 'publishedDate' in records \
            and len(records['publishedDate']) >= 4:
             canonical['Year'] = records['publishedDate'][0:4]
         else:         # pragma: no cover
-            canonical['Year'] = u''
-        canonical['Language'] = records.get('language', u'')
+            canonical['Year'] = u('')
+        canonical['Language'] = records.get('language', u(''))
     except:
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation

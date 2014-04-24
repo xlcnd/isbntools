@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import os
-import ConfigParser
+try:
+    import configparser
+except ImportError:
+    import ConfigParser as configparser
 import socket
 from . import config
 from . import registry
@@ -17,7 +20,7 @@ THREADS_TIMEOUT = float(config.THREADS_TIMEOUT)
 
 try:
     # read conf file
-    conf = ConfigParser.ConfigParser()
+    conf = configparser.ConfigParser()
     if os.name == 'nt':
         conf.read([os.path.join(os.getenv('APPDATA'),
                   'isbntools/isbntools.conf')])

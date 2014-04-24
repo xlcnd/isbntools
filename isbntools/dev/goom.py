@@ -6,6 +6,7 @@ Queries the Google Books (JSON API v1) for metadata
 import logging
 from .webquery import query as wquery
 from .data import stdmeta
+from ..bouth23 import u
 from .exceptions import (DataWrongShapeError, NoDataForSelectorError,
                          RecordMappingError)
 
@@ -26,22 +27,22 @@ def _mapper(record):
         # mapping: canonical <- records
         canonical = {}
         isbn = None
-        for id in record['industryIdentifiers']:
-            if id['type'] == 'ISBN_13':
-                isbn = id['identifier']
+        for ident in record['industryIdentifiers']:
+            if ident['type'] == 'ISBN_13':
+                isbn = ident['identifier']
                 break
         if not isbn:
             return
         canonical['ISBN-13'] = isbn
-        canonical['Title'] = record.get('title', u'').replace(' :', ':')
+        canonical['Title'] = record.get('title', u('')).replace(' :', ':')
         canonical['Authors'] = record.get('authors', [])
-        canonical['Publisher'] = record.get('publisher', u'')
+        canonical['Publisher'] = record.get('publisher', u(''))
         if 'publishedDate' in record \
            and len(record['publishedDate']) >= 4:
             canonical['Year'] = record['publishedDate'][0:4]
         else:         # pragma: no cover
-            canonical['Year'] = u''
-        canonical['Language'] = record.get('language', u'')
+            canonical['Year'] = u('')
+        canonical['Language'] = record.get('language', u(''))
     except:
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation

@@ -6,6 +6,7 @@ Queries the worldcat.org service for metadata
 import logging
 from .webquery import query as wquery
 from .data import stdmeta
+from ..bouth23 import u
 from .exceptions import (DataWrongShapeError, NoDataForSelectorError,
                          RecordMappingError)
 
@@ -25,12 +26,12 @@ def _mapper(isbn, records):
     try:
         # mapping: canonical <- records
         canonical = {}
-        canonical['ISBN-13'] = unicode(isbn)
-        canonical['Title'] = records.get('title', u'').replace(' :', ':')
-        canonical['Authors'] = [records.get('author', u'')]
-        canonical['Publisher'] = records.get('publisher', u'')
-        canonical['Year'] = records.get('year', u'')
-        canonical['Language'] = records.get('lang', u'')
+        canonical['ISBN-13'] = u(isbn)
+        canonical['Title'] = records.get('title', u('')).replace(' :', ':')
+        canonical['Authors'] = [records.get('author', u(''))]
+        canonical['Publisher'] = records.get('publisher', u(''))
+        canonical['Year'] = records.get('year', u(''))
+        canonical['Language'] = records.get('lang', u(''))
     except:
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation

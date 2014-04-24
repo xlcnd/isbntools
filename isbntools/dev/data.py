@@ -2,6 +2,7 @@
 
 from .helpers import normalize_space, titlecase
 from .exceptions import NotValidMetadataError
+from ..bouth23 import type3str
 
 # For now you cannot add custom fields!
 FIELDS = ('ISBN-13', 'Title', 'Authors', 'Publisher', 'Year', 'Language')
@@ -19,7 +20,7 @@ class Metadata(object):
         self._content = None
         self._set_empty()
         if record:
-            self._content.update((k, v) for k, v in record.items())
+            self._content.update((k, v) for k, v in list(record.items()))
             if not self._validate():
                 self._set_empty()
                 raise NotValidMetadataError()
@@ -37,7 +38,7 @@ class Metadata(object):
         Clean fields of value
         """
         self._content.update((k, broom(v)) for k, v
-                             in self._content.items()
+                             in list(self._content.items())
                              if k != 'Authors' and k not in filtre)
         if 'Authors' not in filtre:
             self._content['Authors'] = [broom(i) for i in
@@ -57,7 +58,7 @@ class Metadata(object):
         """
         Sets value
         """
-        self._content.update((k, v) for k, v in record.items())
+        self._content.update((k, v) for k, v in list(record.items()))
         if not self._validate():
             self._set_empty()
             raise NotValidMetadataError()
@@ -75,7 +76,7 @@ class Metadata(object):
         Merge the record with value
         """
         # by default do nothing
-        self._content.update((k, v) for k, v in record.items()
+        self._content.update((k, v) for k, v in list(record.items())
                              if k in overwrite and not overrule(v) or
                              self._content[k] == '')
         if not self._validate():
@@ -89,7 +90,7 @@ class Metadata(object):
         """
         # 'minimal' check
         for k in self._content:
-            if not type(self._content[k]) is unicode:
+            if not type(self._content[k]) is type3str():
                 if k != 'Authors':
                     return False
         if not type(self._content['Authors']) is list:
@@ -100,8 +101,8 @@ class Metadata(object):
         """
         Sets an empty value record
         """
-        self._content = dict.fromkeys(list(FIELDS), u'')
-        self._content['Authors'] = [u'']
+        self._content = dict.fromkeys(list(FIELDS), '')
+        self._content['Authors'] = ['']
 
 
 def stdmeta(records):

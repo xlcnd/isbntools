@@ -60,7 +60,7 @@ templates = {'labels': labels, 'bibtex': bibtex,
              'endnote': endnote, 'refworks': refworks,
              'msword': msword, 'json': json}
 
-fmts = templates.keys()
+fmts = list(templates.keys())
 
 
 def _gen_proc(name, canonical):

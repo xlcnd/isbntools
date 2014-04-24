@@ -20,9 +20,9 @@ NOTICE = """
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-print(colors.BOLD)
+print((colors.BOLD))
 print(" isbntools - tools for extracting, cleaning and transforming ISBNs")
-print(colors.RESET)
+print((colors.RESET))
 print((" Copyright (C) 2014  Alexandre Lima Conde, Version %s" % __version__))
 print("")
 print(" License LGPL v3")

@@ -35,7 +35,7 @@ if __name__ == "__main__":
             raise
         fmt = fmt if fmt else 'labels'
         for r in goom.query(words):
-            print(fmtbib(fmt, r))
+            print((fmtbib(fmt, r)))
             print("---")
     except:
         fmts.remove('labels')
