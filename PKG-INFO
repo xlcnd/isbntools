@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: isbntools
-Version: 3.1.1
+Version: 3.1.2
 Summary: Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).
 Home-page: https://github.com/xlcnd/isbntools
 Author: xlcnd
@@ -24,7 +24,15 @@ Description:
             :target: https://pypi.python.org/pypi/isbntools/
             :alt: License
         
-        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v3.1.1
+        .. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=master
+            :target: https://coveralls.io/r/xlcnd/isbntools?branch=master
+            :alt: Coverage
+        
+        .. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
+            :target: https://sourcegraph.com/github.com/xlcnd/isbntools
+            :alt: Graph
+        
+        .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v3.1.2
             :target: https://travis-ci.org/xlcnd/isbntools
             :alt: Built Status
         
@@ -191,7 +199,7 @@ Description:
         
         .. code-block:: bash
         
-            $ pip install isbntools-3.1.1.tar.gz
+            $ pip install isbntools-3.1.2.tar.gz
         
         (first you have to download the file!)
         
@@ -205,7 +213,7 @@ Description:
         Windows
         -------
         
-        **If you are on a Windows system**, 
+        **If you are on a Windows system**,
         you can download a standalone_ version that **doesn't need python** and gives you
         access to the scripts. However, doesn't support add-ins or customization!
         
@@ -286,13 +294,15 @@ Description:
         
             **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
         
+        You can browse the code, in a very structured way, at sourcegraph_.
+        
         
         Conf File
         =========
         
         You can enter API keys and set preferences in the file ``isbntools.conf`` in your
         ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
-        ``%APPDATA%/isbntools/isbntools.conf``.
+        ``%APPDATA%/isbntools/isbntools.conf``
         (**create these, directory and file, if don't exist**). The file should look like:
         
         
@@ -304,7 +314,7 @@ Description:
         
             [SERVICES]
             DEFAULT_SERVICE=merge
-            VIAS_MERGE=parallel
+            VIAS_MERGE=serial
             ISBNDB_API_KEY=your_api_key_here_or_DELETEME
         
         
@@ -363,9 +373,16 @@ Description:
         
         .. _twitter: https://twitter.com/isbntools
         
+        .. _sourcegraph: http://bit.ly/1k14kHi
+        
 Keywords: ISBN,validate,transform,hyphenate,metadata,World Catalogue,Google Books,Open Library,isbndb.com,BibTeX,EndNote,RefWorks,MSWord,BibJSON
 Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
 Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
 Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
 Classifier: Operating System :: OS Independent
 Classifier: Development Status :: 5 - Production/Stable
