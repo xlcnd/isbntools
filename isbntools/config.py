@@ -4,9 +4,7 @@ Config file for isbntools
 """
 
 
-"""
-Timeouts
-"""
+""" Timeouts """
 SOCKETS_TIMEOUT = 12    # seconds
 THREADS_TIMEOUT = 11    # seconds
 
@@ -18,13 +16,12 @@ def setthreadstimeout(seconds):
     global THREADS_TIMEOUT
     THREADS_TIMEOUT = seconds
 
-"""
-API keys
-"""
+
+""" API keys """
 apikeys = {}
 
 
-def add_apikey(service, apikey):
+def add_apikey(service, apikey):  # pragma: no cover
     """
     Add API keys
 
@@ -32,9 +29,8 @@ def add_apikey(service, apikey):
     """
     apikeys[service] = apikey
 
-"""
-Generic Options
-"""
+
+""" Generic Options """
 options = {}
 
 

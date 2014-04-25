@@ -32,7 +32,7 @@ def _mapper(isbn, records):
         canonical['Publisher'] = records.get('publishers',
                                              [{'name': u('')}, ])[0]['name']
         canonical['Year'] = records.get('publish_date', u(',')).split(',')[1]
-    except:
+    except:   # pragma: no cover
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
     return stdmeta(canonical)
@@ -45,7 +45,7 @@ def _records(isbn, data):
     try:
         # put the selected data in records
         records = data['ISBN:%s' % isbn]
-    except:
+    except:   # pragma: no cover
         raise NoDataForSelectorError(isbn)
 
     # map canonical <- records

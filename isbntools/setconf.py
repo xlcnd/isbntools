@@ -41,13 +41,13 @@ try:
             if o.upper() == 'DEFAULT_SERVICE':
                 registry.setdefaultservice(v)
                 continue
-            if 'api_key' in o:
+            if 'api_key' in o:  # pragma: no cover
                 name = o[:-8]
                 config.add_apikey(name, v)
             else:
                 config.set_options(o.upper(), v)
 
-    if conf.has_section('PLUGINS'):
+    if conf.has_section('PLUGINS'):  # pragma: no cover
         for o, v in conf.items('PLUGINS'):
             plugin = registry.load_plugin(o, v)
             if plugin:

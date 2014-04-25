@@ -9,6 +9,7 @@ omit =
     */python?.?/*
     */site-packages/nose/*
     *version*
+    *isbndb*
 
 # Regexes for lines to exclude from consideration
 exclude_lines =

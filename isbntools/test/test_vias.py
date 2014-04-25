@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # flake8: noqa
-
-""" nose tests
+""" 
+nose tests
 """
 
 from ..dev import merge

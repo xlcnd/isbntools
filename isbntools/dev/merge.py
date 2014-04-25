@@ -28,7 +28,7 @@ def query(isbn, processor='serial'):
     if md and rg:
         md.merge(rg, ('Authors'))
         return md.value
-    if not md and rg:
+    if not md and rg:  # pragma: no cover
         md = Metadata(rg)
         return md.value
     return md.value if not rg and rw else None

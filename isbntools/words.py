@@ -24,7 +24,7 @@ def goos(words):
         isbn = get_canonical_isbn(item, output='isbn13')
         if isbn:
             break
-    if not isbn:
+    if not isbn:    # pragma: no cover
         LOGGER.debug('No ISBN found for %s', words)
         return
     return isbn

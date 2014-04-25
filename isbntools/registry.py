@@ -29,7 +29,7 @@ def setdefaultservice(name):
     services['default'] = services[name]
 
 
-def add_service(name, query):
+def add_service(name, query):         # pragma: no cover
     """
     Add a new service to services
     """
