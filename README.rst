@@ -15,6 +15,10 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
+.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=master
+    :target: https://coveralls.io/r/xlcnd/isbntools?branch=master
+    :alt: Coverage 
+
 .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v3.1.2
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
