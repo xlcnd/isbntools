@@ -10,6 +10,7 @@ omit =
     */site-packages/nose/*
     *version*
     *isbndb*
+    *fmt*
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
