@@ -38,7 +38,7 @@ def add_service(name, query):
     services[name] = query
 
 
-def load_plugin(name, plugin_dir):
+def load_plugin(name, plugin_dir): # pragma: no cover
     """
     Loads pluggins
     """

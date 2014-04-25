@@ -28,7 +28,7 @@ def _mapper(isbn, records):
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
         canonical['Title'] = records.get('title', u('')).replace(' :', ':')
-        canonical['Authors'] = records.get('authors', [])
+        canonical['Authors'] = records.get('authors', [u('')])
         canonical['Publisher'] = records.get('publisher', u(''))
         if 'publishedDate' in records \
            and len(records['publishedDate']) >= 4:

@@ -2,7 +2,7 @@
 
 from .helpers import normalize_space, titlecase
 from .exceptions import NotValidMetadataError
-from ..bouth23 import type3str
+from ..bouth23 import u, type3str
 
 # For now you cannot add custom fields!
 FIELDS = ('ISBN-13', 'Title', 'Authors', 'Publisher', 'Year', 'Language')
@@ -101,8 +101,8 @@ class Metadata(object):
         """
         Sets an empty value record
         """
-        self._content = dict.fromkeys(list(FIELDS), '')
-        self._content['Authors'] = ['']
+        self._content = dict.fromkeys(list(FIELDS), u(''))
+        self._content['Authors'] = [u('')]
 
 
 def stdmeta(records):

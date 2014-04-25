@@ -6,7 +6,7 @@ if sys.version < '3':
         return x
 
     def b(x):
-        return x
+        return x  # pragma: no cover
 
     def u(x):
         return unicode(x, "utf-8")
@@ -23,7 +23,7 @@ else:
         return x.decode("utf-8", 'ignore')
 
     def b(x):
-        return x.encode("utf-8")
+        return x.encode("utf-8")  # pragma: no cover
 
     def u(x):
         return x

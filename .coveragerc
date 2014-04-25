@@ -1,7 +1,15 @@
 [run]
+source = isbntools
 branch = True
 
 [report]
+# Regexes for directories to exclude from consideration
+omit = 
+    */test/*
+    */python?.?/*
+    */site-packages/nose/*
+    *version*
+
 # Regexes for lines to exclude from consideration
 exclude_lines =
     # Have to re-enable the standard pragma

@@ -9,5 +9,8 @@ matrix:
 install:
 - pip install tox
 - pip install flake8
+- pip install coveralls 
 script:
 - tox -e $TOXENV
+after_success:
+  coveralls

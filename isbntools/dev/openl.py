@@ -31,7 +31,7 @@ def _mapper(isbn, records):
                                 records.get('authors', ({'name': u('')},))]
         canonical['Publisher'] = records.get('publishers',
                                              [{'name': u('')}, ])[0]['name']
-        canonical['Year'] = records.get('publish_date', ',').split(',')[1]
+        canonical['Year'] = records.get('publish_date', u(',')).split(',')[1]
     except:
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation

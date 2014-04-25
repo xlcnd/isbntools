@@ -1,6 +1,6 @@
-
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# flake8: noqa
 
 """ nose tests
 D25 |-> RELEASE MINIMAL TESTING. (I DON'T WANTED TO BE BLACKLISTED BY THE SERVICES) <-|
@@ -22,6 +22,7 @@ def test_query():
     assert_equals(len(repr(query('9780321534965', 'goob'))) in (189, 195), True)
     assert_equals(len(repr(query('9789934015960'))) in (166, 187), True)
     assert_equals(len(repr(query('9781118241257'))) in (177, 183), True)
+    assert_equals(len(repr(query('9780195132861', 'openl'))) in (185, 191), True)
 
 
 def test_ext_meta():
@@ -30,4 +31,5 @@ def test_ext_meta():
     assert_equals(len(repr(meta('9780321534965', 'wcat'))) in (252, 258), True)
     assert_equals(len(repr(meta('9780321534965', 'merge'))) in (173, 179), True)
     assert_equals(len(repr(meta('9780321534965'))) in (173, 179), True)
-# flake8: noqa
+
+

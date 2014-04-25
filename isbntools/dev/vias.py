@@ -41,7 +41,7 @@ def multi(named_tasks, arg):
     q = Queue()
 
     def _worker(name, task, arg, q):
-        q.put((name, task(arg)))
+        q.put((name, task(arg)))    # pragma: no cover
 
     for name, task in named_tasks:
         p = Process(target=_worker, args=(name, task, arg, q))
