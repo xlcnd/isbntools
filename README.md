@@ -250,6 +250,8 @@ You can write your own *merging scheme* by creating a new provider (see_ `dev.me
 
 > **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
+You can browse the code, in a very structured way, at [sourcegraph](http://bit.ly/1k14kHi).
+
 
 Conf File
 ---------

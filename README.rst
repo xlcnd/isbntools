@@ -281,6 +281,8 @@ You can write your own *merging scheme* by creating a new provider (see_ ``dev.m
 
     **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
+You can browse the code, in a very structured way, at sourcegraph_.
+
 
 Conf File
 =========
@@ -357,3 +359,5 @@ More documentation at http://isbntools.readthedocs.org
 .. _standalone: http://bit.ly/1i8qatY
 
 .. _twitter: https://twitter.com/isbntools
+
+.. _sourcegraph: http://bit.ly/1k14kHi

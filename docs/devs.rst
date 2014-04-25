@@ -69,6 +69,7 @@ You can write your own *merging scheme* by creating a new provider (see_ ``dev.m
 
     **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
+You can browse the code, in a very structured way, at sourcegraph_.
 
 
 .. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/wcat.py
@@ -77,4 +78,4 @@ You can write your own *merging scheme* by creating a new provider (see_ ``dev.m
 
 .. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
 
-
+.. _sourcegraph: http://bit.ly/1k14kHi
