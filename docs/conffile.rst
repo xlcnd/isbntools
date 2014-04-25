@@ -5,7 +5,7 @@ Conf File
 
 You can enter API keys and set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
-``%APPDATA%/isbntools/isbntools.conf``.
+``%APPDATA%/isbntools/isbntools.conf``
 (**create these, directory and file, if don't exist**). The file should look like:
 
 

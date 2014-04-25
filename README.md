@@ -18,7 +18,6 @@ get metadata for ISBN strings.
 Typical usage (as library):
 
 ```python
-
 #!/usr/bin/env python
 import isbntools
     ...
@@ -27,31 +26,26 @@ import isbntools
 **For the end user** several scripts are provided to use **from the command line**:
 
 ```bash
-
 $ to_isbn10 ISBN13
 ```
 transforms an ISBN13 number to ISBN10.
 
 ```bash
-
 $ to_isbn13 ISBN10
 ```
 transforms an ISBN10 number to ISBN13.
 
 ```bash
-
 $ isbn_info ISBN
 ```
 gives you the *group identifier* of the ISBN.
 
 ```bash
-
 $ isbn_mask ISBN
 ```
 *masks* (hyphenate) an ISBN (split it by identifiers).
 
 ```bash
-
 $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [bibtex|...] [YOUR_APIKEY_TO_SERVICE]
 ```
 gives you the main metadata associated with the ISBN, `wcat` uses **worldcat.org**
@@ -69,39 +63,33 @@ The output can be formatted as `bibtex`, `msword`,  `endnote`, `refworks`, or
 
 
 ```bash
-
 $ isbn_editions ISBN
 ```
 gives the collection of ISBNs that represent a given book (uses worldcat.org).
 
 ```bash
-
 $ isbn_validate ISBN
 ```
 validates ISBN10 and ISBN13.
 
 ```bash
-
 $ ... | isbn_stdin_validate
 ```
 to use with *pipes* (e.g. `cat FILE_WITH_ISBNs | isbn_stdin_validate`).
 
 ```bash
-
 $ isbn_from_words "words from title and author name"
 ```
 a *fuzzy* script that returns the *most probable* ISBN from a set of words.
 (You can verify the result with `isbn_meta`)!
 
 ```bash
-
 $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks|json]
 ```
 a script that returns from **Google Books multiple references**.
 
 
 ```bash
-
 $ isbntools
 ```
 writes version and copyright notice and **checks if there are updates**.
@@ -114,7 +102,6 @@ For a *quick-and-dirty solution*, enter the following code in a file
 and save it as `isbn_tmsa_book.py`.
 
 ```python
-
 #!/usr/bin/env python
 import sys
 from isbntools import *
@@ -132,14 +119,12 @@ print((meta(isbn)))
 Then in a command line (in the same directory):
 
 ```bash
-
 $ python isbn_tmsa_book.py 'noise'
 ```
 
 In my case I get:
 
 ```
-
 The ISBN of the most `spoken-about` book with this title is 9780143105985
 
 ... and the book is:
@@ -158,19 +143,16 @@ From the command line enter (in some cases you have to preced the
 command by `sudo`):
 
 ```bash
-
 $ pip install isbntools
 ```
 this installs from [pypi](https://pypi.python.org/pypi/isbntools) or:
 
 ```bash
-
 $ easy_install isbntools
 ```
 this installs from [pypi](https://pypi.python.org/pypi/isbntools) too, or (to install locally in *Linux* or *Mac OS X*):
 
 ```bash
-
 $ pip install isbntools-3.1.2.tar.gz
 ```
 but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-3.1.2.tar.gz) the file!
@@ -179,7 +161,6 @@ but first you have to [download](https://pypi.python.org/packages/source/i/isbnt
 You should check if the install was successful, by enter:
 
 ```bash
-
 $ isbntools
 ```
 
@@ -275,11 +256,10 @@ Conf File
 
 You can enter API keys and set preferences in the file `isbntools.conf` in your
 `$HOME\.isbntools` directory (UNIX). For Windows, you should look at
-`%APPDATA%/isbntools/isbntools.conf`.
+`%APPDATA%/isbntools/isbntools.conf`
 (**create these, directory and file, if don't exist**). The file should look like:
 
 ```bash
-
 [SYS]
 SOCKETS_TIMEOUT=15
 THREADS_TIMEOUT=12
