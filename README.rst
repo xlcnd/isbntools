@@ -17,7 +17,7 @@
 
 .. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=master
     :target: https://coveralls.io/r/xlcnd/isbntools?branch=master
-    :alt: Coverage 
+    :alt: Coverage
 
 .. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
@@ -204,7 +204,7 @@ You should check if the install was successful, by enter:
 Windows
 -------
 
-**If you are on a Windows system**, 
+**If you are on a Windows system**,
 you can download a standalone_ version that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 
