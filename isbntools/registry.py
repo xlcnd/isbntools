@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-
+"""
+Registry for metadata services
+"""
 
 import imp
 import sys
@@ -10,9 +12,6 @@ from .dev import isbndb
 from .dev import openl
 from .exceptions import PluginNotLoadedError
 
-"""
-Registry for metadata services
-"""
 services = {'default': merge.query,
             'wcat': wcat.query,
             'goob': goob.query,
@@ -38,7 +37,7 @@ def add_service(name, query):
     services[name] = query
 
 
-def load_plugin(name, plugin_dir): # pragma: no cover
+def load_plugin(name, plugin_dir):    # pragma: no cover
     """
     Loads pluggins
     """
