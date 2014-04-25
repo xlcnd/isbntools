@@ -53,7 +53,7 @@ def _check_digit10(firstninedigits):
         return None
     try:
         int(firstninedigits)
-    except:
+    except:  # pragma: no cover
         return None
     # checksum
     val = sum((i + 2) * int(x) for
@@ -75,7 +75,7 @@ def _check_digit13(firsttwelvedigits):
         return None
     try:
         int(firsttwelvedigits)
-    except:
+    except:  # pragma: no cover
         return None
     # checksum
     val = sum((i % 2 * 2 + 1) * int(x) for
@@ -170,7 +170,7 @@ def notisbn(isbnlike, level='strict'):
         LOGGER.error('level as no option %s', level)
         return
     isbnlike = canonical(isbnlike)
-    if len(isbnlike) not in [10, 13]:
+    if len(isbnlike) not in (10, 13):
         return True
     if level != 'strict':
         return False
