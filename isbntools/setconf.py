@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-try:
+try:                                 # pragma: no cover
     import configparser
 except ImportError:
     import ConfigParser as configparser
@@ -21,7 +21,7 @@ THREADS_TIMEOUT = float(config.THREADS_TIMEOUT)
 try:
     # read conf file
     conf = configparser.ConfigParser()
-    if os.name == 'nt':
+    if os.name == 'nt':              # pragma: no cover
         conf.read([os.path.join(os.getenv('APPDATA'),
                   'isbntools/isbntools.conf')])
     else:
@@ -41,7 +41,7 @@ try:
             if o.upper() == 'DEFAULT_SERVICE':
                 registry.setdefaultservice(v)
                 continue
-            if 'api_key' in o:  # pragma: no cover
+            if 'api_key' in o:       # pragma: no cover
                 name = o[:-8]
                 config.add_apikey(name, v)
             else:
@@ -53,7 +53,7 @@ try:
             if plugin:
                 registry.add_service(o, plugin.query)
 
-except:
+except:                              # pragma: no cover
     pass
 
 # socket timeout is not exposed at urllib2 level so I had to import the

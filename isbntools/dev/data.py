@@ -54,7 +54,7 @@ class Metadata(object):
         return self._content
 
     @value.setter
-    def value(self, record):
+    def value(self, record):  # pragma: no cover
         """
         Sets value
         """

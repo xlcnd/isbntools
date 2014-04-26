@@ -10,6 +10,6 @@ from nose.tools import assert_equals, assert_raises
 
 
 def test_goom():
-    assert_equals(len(repr(goom.query('the old man and the sea'))), 13)
+    assert_equals(len(repr(goom.query('the old man and the sea'))) > 1000, True)
 
 

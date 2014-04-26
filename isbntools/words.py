@@ -17,7 +17,6 @@ def goos(words):
     user_agent = 'w3m/0.5.2'
 
     content = webservice.query(search_url, user_agent)
-
     isbns = get_isbnlike(content)
 
     for item in isbns:

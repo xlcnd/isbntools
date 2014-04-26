@@ -31,7 +31,7 @@ def _mapper(record):
             if ident['type'] == 'ISBN_13':
                 isbn = ident['identifier']
                 break
-        if not isbn:
+        if not isbn:  # pragma: no cover
             return
         canonical['ISBN-13'] = isbn
         canonical['Title'] = record.get('title', u('')).replace(' :', ':')
