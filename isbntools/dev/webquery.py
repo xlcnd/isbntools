@@ -27,7 +27,7 @@ class WEBQuery(object):
         """
         Checks the data & handle errors
         """
-        if data_checker:
+        if data_checker:                 # pragma: no cover
             return data_checker(self.data)
         if self.data == '{}':
             LOGGER.warning('DataNotFoundAtServiceError for %s', self.url)
@@ -35,7 +35,7 @@ class WEBQuery(object):
         if BOOK_NOT_FOUND in self.data:
             LOGGER.warning('DataNotFoundAtServiceError for %s', self.url)
             raise DataNotFoundAtServiceError(self.url)
-        if OUT_OF_SERVICE in self.data:
+        if OUT_OF_SERVICE in self.data:  # pragma: no cover
             LOGGER.critical('ServiceIsDownError for %s', self.url)
             raise ServiceIsDownError(self.url)
         return True

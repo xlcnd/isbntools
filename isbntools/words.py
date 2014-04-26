@@ -25,5 +25,4 @@ def goos(words):
             break
     if not isbn:    # pragma: no cover
         LOGGER.debug('No ISBN found for %s', words)
-        return
-    return isbn
+    return isbn if isbn else None
