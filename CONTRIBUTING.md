@@ -13,7 +13,7 @@
 6. Write tests for your code using `nose` and put then in the directory `isbnools/test`
 7. Pass **all tests** and with **coverage > 90%**
 8. **Check if all requirements are fulfilled**!
-9. Make a pull request on github... 
+9. Make a pull request on GitHub...
    (see https://help.github.com/articles/using-pull-requests/)
 
 
