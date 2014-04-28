@@ -54,7 +54,7 @@ Main Steps
 
 1. Make sure you have a GitHub account_
 2. Submit a ticket for your issue or idea,
-   on https://github.com/xlcnd/isbntools/issues,
+   on GitHub issues_ 
    (if possible wait for some feedback before any serious commitment... :)
 3. Fork the repository on GitHub
 4. ``pip install -r requirements-dev.txt``
@@ -92,3 +92,4 @@ see them as a learning opportunity. Thanks!
 .. _sourcegraph: http://bit.ly/1k14kHi
 .. _github: http://bit.ly/1oTm5ze
 .. _account: https://github.com/signup/free
+.. _issues: https://github.com/xlcnd/isbntools/issues
