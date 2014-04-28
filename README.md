@@ -4,7 +4,7 @@
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=master)](https://coveralls.io/r/xlcnd/isbntools?branch=master)
 [![Graph](https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png)](https://sourcegraph.com/github.com/xlcnd/isbntools)
-
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.svg?branch=master)](https://travis-ci.org/xlcnd/isbntools)
 
 
 Info
