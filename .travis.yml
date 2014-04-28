@@ -1,7 +1,8 @@
 language: python
 env:
+- TOXENV=py26
 - TOXENV=py27
-- TOXENV=py34
+- TOXENV=py33
 - TOXENV=flake8
 matrix:
   allow_failures:
