@@ -39,7 +39,7 @@ Status
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v3.1.4
+.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=master
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
