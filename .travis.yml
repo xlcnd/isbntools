@@ -3,10 +3,12 @@ env:
 - TOXENV=py26
 - TOXENV=py27
 - TOXENV=py33
+- TOXENV=pypy
 - TOXENV=flake8
 matrix:
   allow_failures:
   - env: TOXENV=flake8
+  - env: TOXENV=pypy
 install:
 - pip install tox
 - pip install flake8
