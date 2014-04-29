@@ -15,14 +15,17 @@ time, so you will find plenty of opportunities to contribute.
 5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
    and be OS independent**) (you will find `travis-ci.org` very handy for this!)
 6. Write tests for your code using `nose` and put then in the directory `isbnools/test`
-7. Pass **all tests** and with **coverage > 90%**
+7. Pass **all tests** and with **coverage > 90%**.
+   Check the coverage in [Coveralls](http://bit.ly/1mWwjuE).
 8. **Check if all requirements are fulfilled**!
 9. Make a pull request on GitHub...
    (see https://help.github.com/articles/using-pull-requests/)
 
 
 ## Style
-Your code **must** be PEP8 compliant and be concise as possible.
+
+Your code **must** be PEP8 compliant and be concise as possible (check it with
+`flake8` and `pylint`).
 
 
 ## Pluggin
@@ -30,5 +33,6 @@ See if your code can be written as a pluggin.
 
 
 ## Important
+
 If you don't have experience in these issues, don't be put off by these requirements,
 see them as a learning opportunity. Thanks!
