@@ -287,6 +287,8 @@ You can write your own *merging scheme* by creating a new provider (see_ ``dev.m
 
 You can browse the code, in a very structured way, at sourcegraph_.
 
+If you would like to contribute to the project please read the guidelines_.
+
 
 Conf File
 =========
@@ -365,3 +367,5 @@ More documentation at http://isbntools.readthedocs.org
 .. _twitter: https://twitter.com/isbntools
 
 .. _sourcegraph: http://bit.ly/1k14kHi
+
+.. _guidelines: http://bit.ly/1jcxq8W

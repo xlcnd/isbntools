@@ -252,6 +252,8 @@ You can write your own *merging scheme* by creating a new provider (see_ `dev.me
 
 You can browse the code, in a very structured way, at [sourcegraph](http://bit.ly/1k14kHi).
 
+If you like to contribute to the project, please read the [guidelines](http://bit.ly/1jcxq8W).
+
 
 Conf File
 ---------
