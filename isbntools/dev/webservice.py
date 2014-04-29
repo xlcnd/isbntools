@@ -3,7 +3,6 @@
 
 import logging
 import gzip
-import zlib # for deflate compression
 from ..bouth23 import s, bstream
 try:
     from urllib.parse import urlencode
