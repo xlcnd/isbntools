@@ -1,5 +1,9 @@
 # How to Contribute
 
+`isbntools` has a very small code base, so it is a good project to begin your
+adventure in open-source... and it is an app, a lib and a framework at the same
+time, so you will find plenty of opportunities to contribute.
+
 ## Main Steps
 
 1. Make sure you have a [GitHub account](https://github.com/signup/free)
@@ -8,8 +12,8 @@
    (if possible wait for some feedback before any serious commitment... :)
 3. Fork the repository on GitHub (see https://help.github.com/articles/fork-a-repo)
 4. `pip install -r requirements-dev.txt`
-5. Do your code... (**remember the code must run on python 2.6+ including pyhon 3.4
-   and be OS independent**)
+5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
+   and be OS independent**) (you will find `travis-ci.org` very handy for this!)
 6. Write tests for your code using `nose` and put then in the directory `isbnools/test`
 7. Pass **all tests** and with **coverage > 90%**
 8. **Check if all requirements are fulfilled**!

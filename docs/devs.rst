@@ -29,10 +29,10 @@ namespace ``isbntools.dev``, namely:
   implemented by a call to ``stdmeta`` function!
 
 * ``vias`` exposes several functions to put calls to services, just by passing the name and
-  a pointer to the service ``query`` function.
-  ``vias.parallel`` allows to put theaded calls. However doesn't implement
+  a pointer to the service's ``query`` function.
+  ``vias.parallel`` allows to put theaded calls, however doesn't implement
   throttling! You can use ``vias.serial`` to make serial calls and
-  ``vias.multi`` to use several cores. The default is ``vias.serial``, however
+  ``vias.multi`` to use several cores. The default is ``vias.serial``, but
   you can change that in the conf file.
 
 All these classes follow a simple design pattern and, if you follow it, will be

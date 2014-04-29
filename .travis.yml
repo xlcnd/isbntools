@@ -9,10 +9,11 @@ env:
 matrix:
   allow_failures:
   - env: TOXENV=flake8
+  - env: TOXENV=py34
 install:
 - pip install tox
 - pip install flake8
-- pip install coveralls 
+- pip install coveralls
 script:
 - tox -e $TOXENV
 after_success:
