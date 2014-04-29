@@ -2,13 +2,17 @@ language: python
 env:
 - TOXENV=py26
 - TOXENV=py27
+- TOXENV=py32
 - TOXENV=py33
+- TOXENV=py34
 - TOXENV=pypy
 - TOXENV=flake8
 matrix:
   allow_failures:
   - env: TOXENV=flake8
   - env: TOXENV=pypy
+  - env: TOXENV=py32
+  - env: TOXENV=py34  
 install:
 - pip install tox
 - pip install flake8
