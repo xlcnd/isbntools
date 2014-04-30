@@ -73,31 +73,18 @@ Main Steps
 
 
 
-Style
-^^^^^
-
-Your code **must** be PEP8 compliant and be concise as possible (check it with
-``flake8`` and ``pylint``).
-
-
-
-Pluggin
-^^^^^^^
-
-See if your code can be written as a pluggin.
-
-
-
 Important
 ^^^^^^^^^
 
 If you don't have experience in these issues, don't be put off by these requirements,
 see them as a learning opportunity. Thanks!
 
-
+> For full instructions read the CONTRIBUTING_ doc.
 
 .. _sourcegraph: http://bit.ly/1k14kHi
 .. _github: http://bit.ly/1oTm5ze
 .. _account: https://github.com/signup/free
 .. _issues: https://github.com/xlcnd/isbntools/issues
 .. _Coveralls: http://bit.ly/1mWwjuE
+.. _CONTRIBUTING: http://bit.ly/1jcxq8W
+
