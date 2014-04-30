@@ -4,7 +4,7 @@
 import logging
 import gzip
 from ..bouth23 import s, bstream
-try:
+try:   # pragma: no cover
     from urllib.parse import urlencode
     from urllib.request import Request, urlopen
     from urllib.error import HTTPError, URLError
@@ -37,11 +37,11 @@ class WEBService(object):
     def _response(self):
         try:
             self.response = urlopen(self._request)
-        except HTTPError as e:
+        except HTTPError as e:  # pragma: no cover
             LOGGER.critical('ISBNToolsHTTPError for %s with code %s',
                             self._url, e.code)
             raise ISBNToolsHTTPError(e.code)
-        except URLError as e:
+        except URLError as e:   # pragma: no cover
             LOGGER.critical('ISBNToolsURLError for %s with reason %s',
                             self._url, e.reason)
             raise ISBNToolsURLError(e.reason)

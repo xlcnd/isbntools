@@ -32,7 +32,7 @@ def _mapper(isbn, records):
         canonical['Publisher'] = records.get('publisher', u(''))
         canonical['Year'] = records.get('year', u(''))
         canonical['Language'] = records.get('lang', u(''))
-    except:
+    except:  # pragma: no cover
         raise RecordMappingError(isbn)
     # call stdmeta for extra cleanning and validation
     return stdmeta(canonical)
@@ -50,7 +50,7 @@ def _records(isbn, data):
             extra = data['stat']
             LOGGER.debug('DataWrongShapeError for %s with data %s',
                          isbn, extra)
-        except:
+        except:  # pragma: no cover
             raise DataWrongShapeError(isbn)
         raise NoDataForSelectorError(isbn)
 
