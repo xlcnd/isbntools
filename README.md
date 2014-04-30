@@ -233,14 +233,6 @@ Any issue that you would like to report, please do it at
 or at [twitter](https://twitter.com/isbntools) (if you are and end user).
 
 
-ISBN
-----
-
-To know about ISBN:
-
-* http://en.wikipedia.org/wiki/International_Standard_Book_Number
-* http://www.isbn-international.org/
-
 
 ---
 More documentation at [http://isbntools.readthedocs.org](http://bit.ly/1l0W4In)
