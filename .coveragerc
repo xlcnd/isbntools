@@ -11,6 +11,7 @@ omit =
     *version*
     *isbndb*
     *fmt*
+    *bouth*
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
