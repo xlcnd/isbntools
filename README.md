@@ -1,4 +1,3 @@
-
 [![Downloads](https://pypip.in/d/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
@@ -232,14 +231,6 @@ Any issue that you would like to report, please do it at
 [github](https://github.com/xlcnd/isbntools/issues) (if you are a developer)
 or at [twitter](https://twitter.com/isbntools) (if you are and end user).
 
-
-ISBN
-----
-
-To know about ISBN:
-
-* http://en.wikipedia.org/wiki/International_Standard_Book_Number
-* http://www.isbn-international.org/
 
 
 ---
