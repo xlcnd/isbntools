@@ -34,7 +34,7 @@ def add_apikey(service, apikey):  # pragma: no cover
 options = {}
 
 
-def set_option(option, value):
+def set_option(option, value):    # pragma: no cover
     """
     Set the value for option
     """
