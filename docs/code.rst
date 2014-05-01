@@ -79,7 +79,8 @@ Important
 If you don't have experience in these issues, don't be put off by these requirements,
 see them as a learning opportunity. Thanks!
 
-> For full instructions read the CONTRIBUTING_ doc.
+     For full instructions read the CONTRIBUTING_ doc.
+
 
 .. _sourcegraph: http://bit.ly/1k14kHi
 .. _github: http://bit.ly/1oTm5ze
