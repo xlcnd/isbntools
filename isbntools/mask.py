@@ -15,7 +15,7 @@ def mask(isbn, separator='-'):
     ISBN-10 identifiers: country-publisher-title-check
 
     Used the iterative version of the `sliding-window` algorithm.
-    Not pretty but fast! Lines 35-45 implement the search loop.
+    Not pretty but fast! Lines 36-46 implement the search loop.
     O(n) for n - number of keys, if data structure like ranges in data4mask.py
     """
     ib = canonical(isbn)
