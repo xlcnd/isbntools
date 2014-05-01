@@ -55,7 +55,7 @@ class WEBService(object):
             buf = bstream(self.response.read())
             f = gzip.GzipFile(fileobj=buf)
             data = f.read()
-        else:
+        else:                   # pragma: no cover
             data = self.response.read()
         return s(data)
 
