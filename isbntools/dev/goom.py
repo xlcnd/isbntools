@@ -25,7 +25,7 @@ def _mapper(record):
     # -> ISBN-13, Title, Authors, Publisher, Year, Language
     try:
         # mapping: canonical <- records
-        if 'industryIdentifiers' not in record:
+        if 'industryIdentifiers' not in record:  # pragma: no cover
             return
         canonical = {}
         isbn = None
