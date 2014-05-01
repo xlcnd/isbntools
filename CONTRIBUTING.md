@@ -36,8 +36,8 @@ for fellow developers. Make your code as clear as possible.
 
 **Don't submit pull requests that are only comments to the code that is
 already in the repo!**
-Don't expect kindness if you do that :(.
-You could comment and give suggestions on the code at
+Don't expect kindness if you do that.
+You **can** comment and give suggestions on the code at
 [issues](http://bit.ly/1i8vmhB) page.
 
 **No** doc tests! Remember point 6 above.
