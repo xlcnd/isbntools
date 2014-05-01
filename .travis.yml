@@ -8,7 +8,6 @@ env:
 - TOXENV=flake8
 matrix:
   allow_failures:
-  - env: TOXENV=py26
   - env: TOXENV=pypy
 install:
 - pip install tox
