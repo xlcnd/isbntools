@@ -7,13 +7,15 @@ from . import vias
 from .. import config
 
 
-def query(isbn, processor='serial'):
+def query(isbn, processor=None):
     """
     Query function for the `merge provider` (waterfall model)
     """
-    processor = config.options.get('VIAS_MERGE', processor)
     if not processor:
-        processor = 'serial'
+        processor = config.options.get('VIAS_MERGE', processor)
+        if not processor:
+            processor = 'serial'
+
     named_tasks = (('wcat', qwcat), ('goob', qgoob))
     if processor == 'parallel':
         results = vias.parallel(named_tasks, isbn)
@@ -33,4 +35,4 @@ def query(isbn, processor='serial'):
     if not md and rg:       # pragma: no cover
         md = Metadata(rg)
         return md.value
-    return md.value if not rg and rw else None
+    return md.value if not rg and rw else None  # pragma: no cover
