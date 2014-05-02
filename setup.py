@@ -35,10 +35,18 @@ if "install" in sys.argv and os.name == 'nt':
         os.rename(s.split('.')[0], s)
 
 
+def is_virtual():
+    import sys
+    return True if hasattr(sys, 'real_prefix') else False
+
+
 def conf_file():
-    homepath = os.path.expanduser('~') if os.name != 'nt' else os.getenv('APPDATA')
-    confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
-    installpath = os.path.join(homepath, confdir)
+    if is_virtual:
+        installpath = ''
+    else:
+        homepath = os.path.expanduser('~') if os.name != 'nt' else os.getenv('APPDATA')
+        confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
+        installpath = os.path.join(homepath, confdir)
     # no special needs for internal files!
     conf = 'isbntools/isbntools.conf'
     return (installpath, [conf])

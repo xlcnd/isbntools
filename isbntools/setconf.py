@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import sys
 try:                                 # pragma: no cover
     import configparser
 except ImportError:
@@ -18,18 +19,27 @@ from . import registry
 SOCKETS_TIMEOUT = float(config.SOCKETS_TIMEOUT)
 THREADS_TIMEOUT = float(config.THREADS_TIMEOUT)
 
+
+def is_virtual():
+    import sys
+    return True if hasattr(sys, 'real_prefix') else False
+
+
 try:
     # read conf file
     conf = configparser.ConfigParser()
-    if os.name == 'nt':              # pragma: no cover
-        conf.read([os.path.join(os.getenv('APPDATA'),
-                  'isbntools/isbntools.conf')])
+    if is_virtual():
+        conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
     else:
-        conf.read(['/etc/isbntools/.isbntools.conf',
-                   '/usr/local/.isbntools.conf',
-                   '/usr/local/bin/.isbntools.conf',
-                  os.path.expanduser('~/.isbntools.conf'),
-                  os.path.expanduser('~/.isbntools/isbntools.conf')])
+        if os.name == 'nt':          # pragma: no cover
+            conf.read([os.path.join(os.getenv('APPDATA'),
+                      'isbntools/isbntools.conf')])
+        else:
+            conf.read(['/etc/isbntools/.isbntools.conf',
+                       '/usr/local/.isbntools.conf',
+                       '/usr/local/bin/.isbntools.conf',
+                      os.path.expanduser('~/.isbntools.conf'),
+                      os.path.expanduser('~/.isbntools/isbntools.conf')])
 
     if conf.has_section('SYS'):
         # get user defined values for timeouts
@@ -45,7 +55,7 @@ try:
                 name = o[:-8]
                 config.add_apikey(name, v)
             else:
-                config.set_options(o.upper(), v)
+                config.set_option(o.upper(), v)
 
     if conf.has_section('PLUGINS'):  # pragma: no cover
         for o, v in conf.items('PLUGINS'):
