@@ -69,6 +69,7 @@ def test_notisbn():
     assert_equals(notisbn('0826497527'), False)
     assert_equals(notisbn('0826497520'), True)
     assert_equals(notisbn('9780826497529', level='strict'), False)
+    assert_equals(notisbn('9426497529', level='strict'), False)
     assert_equals(notisbn('978082649752', level='strict'), True)
     assert_equals(notisbn('978082649752', level='loose'), True)
     assert_equals(notisbn('9780826400001', level='loose'), False)
