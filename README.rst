@@ -250,7 +250,7 @@ You can enter API keys and set preferences in the file ``isbntools.conf`` in you
 The values are self-explanatory!
 
 
-    **NOTE** If you are running `isbntools` inside a virtual environment, the
+    **NOTE** If you are running ``isbntools`` inside a virtual environment, the
     ``isbntools.conf`` file will be at the root of the environment.
 
 
