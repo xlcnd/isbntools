@@ -12,6 +12,8 @@ def query(isbn, processor='serial'):
     Query function for the `merge provider` (waterfall model)
     """
     processor = config.options.get('VIAS_MERGE', processor)
+    if not processor:
+        processor = 'serial'
     named_tasks = (('wcat', qwcat), ('goob', qgoob))
     if processor == 'parallel':
         results = vias.parallel(named_tasks, isbn)
