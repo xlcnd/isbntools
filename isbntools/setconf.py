@@ -4,7 +4,7 @@ import os
 import sys
 try:                                 # pragma: no cover
     import configparser
-except ImportError:
+except ImportError:                  # pragma: no cover
     import ConfigParser as configparser
 import socket
 from . import config

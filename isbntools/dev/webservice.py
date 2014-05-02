@@ -4,11 +4,11 @@
 import logging
 import gzip
 from ..bouth23 import s, bstream
-try:   # pragma: no cover
+try:                     # pragma: no cover
     from urllib.parse import urlencode
     from urllib.request import Request, urlopen
     from urllib.error import HTTPError, URLError
-except ImportError:
+except ImportError:      # pragma: no cover
     from urllib import urlencode
     from urllib2 import Request, urlopen, HTTPError, URLError
 from .exceptions import ISBNToolsHTTPError, ISBNToolsURLError
