@@ -13,7 +13,7 @@ def query(isbn, processor=None):
     """
     if not processor:
         processor = config.options.get('VIAS_MERGE', processor)
-        if not processor:
+        if not processor:     # pragma: no cover
             processor = 'serial'
 
     named_tasks = (('wcat', qwcat), ('goob', qgoob))

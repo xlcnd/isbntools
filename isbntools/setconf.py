@@ -34,7 +34,7 @@ try:
         if os.name == 'nt':          # pragma: no cover
             conf.read([os.path.join(os.getenv('APPDATA'),
                       'isbntools/isbntools.conf')])
-        else:
+        else:                        # pragma: no cover
             conf.read(['/etc/isbntools/.isbntools.conf',
                        '/usr/local/.isbntools.conf',
                        '/usr/local/bin/.isbntools.conf',

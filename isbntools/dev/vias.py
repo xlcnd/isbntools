@@ -23,7 +23,7 @@ def parallel(named_tasks, arg):
     def _worker(name, task, arg):
         try:
             RESULTS[name] = task(arg)
-        except:
+        except:    # pragma: no cover
             pass
 
     for name, task in named_tasks:
