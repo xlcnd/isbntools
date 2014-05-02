@@ -16,4 +16,4 @@ install:
 script:
 - tox -e $TOXENV
 after_success:
-  coveralls
+- "if [[ $TOXENV != 'flake8' ]]; then coveralls; fi"
