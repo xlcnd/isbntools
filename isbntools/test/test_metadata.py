@@ -31,5 +31,3 @@ def test_ext_meta():
     assert_equals(len(repr(meta('9780321534965', 'wcat'))) in (252, 258), True)
     assert_equals(len(repr(meta('9780321534965', 'merge'))) in (173, 179), True)
     assert_equals(len(repr(meta('9780321534965'))) in (173, 179), True)
-
-
