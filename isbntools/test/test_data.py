@@ -36,9 +36,18 @@ def test_stdmeta():
        'Language': u('en'),
        'Authors': [u('author1. mba'), u('author2   ')]
        }
+    B={
+       'ISBN-13': u('9780123456789'),
+       'Title': u('Bla. Bla /Title .'),
+       'Publisher': u(''),
+       'Year': u('2000'),
+       'Language': u('en'),
+       'Authors': u('author1')
+       }
     assert_equals(stdmeta(r), R)
     assert_equals(stdmeta(R), R)
     assert_raises(Exception, stdmeta, A)
+    assert_raises(Exception, stdmeta, B)
 
 def test_metaclass():
     R={
