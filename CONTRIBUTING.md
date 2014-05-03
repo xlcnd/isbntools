@@ -20,7 +20,8 @@ time, so you will find plenty of opportunities to contribute.
    Check the coverage in [Coveralls](http://bit.ly/1mWwjuE).
 8. **Check if all requirements are fulfilled**!
 9. Make a pull request on GitHub
-   (see https://help.github.com/articles/using-pull-requests/).
+   (see https://help.github.com/articles/using-pull-requests/),
+   usually **to the `dev` base branch**.
 
 
 ## Style
