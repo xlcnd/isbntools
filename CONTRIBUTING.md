@@ -19,8 +19,8 @@ time, so you will find plenty of opportunities to contribute.
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage in [Coveralls](http://bit.ly/1mWwjuE).
 8. **Check if all requirements are fulfilled**!
-9. Make a pull request on GitHub...
-   (see https://help.github.com/articles/using-pull-requests/)
+9. Make a pull request on GitHub
+   (see https://help.github.com/articles/using-pull-requests/).
 
 
 ## Style
@@ -82,7 +82,7 @@ https://guides.github.com/introduction/flow/index.html
 - git log:
   - https://www.youtube.com/watch?v=U8GBXvdmHT4&list=PLg7s6cbtAD15Das5LK9mXt_g59DLWxKUe
 
-- contributing
+- contributing:
   - https://www.youtube.com/watch?v=IXnNgLmd6BM
   - http://openhatch.org/
-  - http://opensource.com/
+  - http://opensource.com/resources/how-get-started-open-source
