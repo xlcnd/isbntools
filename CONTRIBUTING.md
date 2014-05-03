@@ -12,10 +12,9 @@ time, so you will find plenty of opportunities to contribute.
    ([help](https://www.youtube.com/watch?v=TJlYiMp8FuY)),
    on https://github.com/xlcnd/isbntools/issues,
    (if possible wait for some feedback before any serious commitment... :)
-3. Fork the repository on GitHub ([help](https://help.github.com/articles/fork-a-repo))
-   and create a feature branch where you will do your work
-   ([help](https://guides.github.com/introduction/flow/index.html)).
-4. `pip install -r requirements-dev.txt`
+3. **Fork** the repository on GitHub and **clone it locally**
+   ([help](https://help.github.com/articles/fork-a-repo)).
+4. `pip install -r requirements-dev.txt` (at your local directory).
 5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
    and be OS independent**) (you will find [Travis](http://travis-ci.org) very handy for this!)
 6. Write tests for your code using `nose` and put then in the directory `isbntools/test`
@@ -23,11 +22,12 @@ time, so you will find plenty of opportunities to contribute.
    Check the coverage in [Coveralls](http://bit.ly/1mWwjuE) or locally with the command
    `nosetests --with-coverage --cover-package=isbntools`.
 8. **Check if all requirements are fulfilled**!
-9. Make a pull request on GitHub
+9. **Push** you local changes to GitHub and make there a pull request
    ([help](https://help.github.com/articles/using-pull-requests/)),
-   **to the `dev` base branch**
-   (we follow the *fork & pull* model, but with this small change).
+   **defaults are fine** (by the way, we follow the *fork & pull* model).
 
+> NOTE: *Travis*, *coverage*, *flake8* and  *pylint*, have already
+configuration files adapted to the project.
 
 ## Style
 
