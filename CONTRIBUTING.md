@@ -15,7 +15,7 @@ time, so you will find plenty of opportunities to contribute.
 4. `pip install -r requirements-dev.txt`
 5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
    and be OS independent**) (you will find `travis-ci.org` very handy for this!)
-6. Write tests for your code using `nose` and put then in the directory `isbnools/test`
+6. Write tests for your code using `nose` and put then in the directory `isbntools/test`
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage in [Coveralls](http://bit.ly/1mWwjuE).
 8. **Check if all requirements are fulfilled**!
@@ -59,3 +59,30 @@ See if your code can be written as a pluggin.
 
 If you don't have experience in these issues, don't be put off by these requirements,
 see them as a learning opportunity. Thanks!
+
+
+
+## Resources
+
+
+### Minimum git
+http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX
+http://gitimmersion.com/
+https://guides.github.com/introduction/flow/index.html
+
+
+### Topics
+
+- fork a repo:
+  - https://help.github.com/articles/fork-a-repo
+
+- pull requests:
+  - https://help.github.com/articles/using-pull-requests/
+
+- git log:
+  - https://www.youtube.com/watch?v=U8GBXvdmHT4&list=PLg7s6cbtAD15Das5LK9mXt_g59DLWxKUe
+
+- contributing
+  - https://www.youtube.com/watch?v=IXnNgLmd6BM
+  - http://openhatch.org/
+
