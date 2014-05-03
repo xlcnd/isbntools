@@ -85,4 +85,4 @@ https://guides.github.com/introduction/flow/index.html
 - contributing
   - https://www.youtube.com/watch?v=IXnNgLmd6BM
   - http://openhatch.org/
-
+  - http://opensource.com/
