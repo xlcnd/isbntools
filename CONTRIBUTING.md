@@ -71,9 +71,10 @@ see them as a learning opportunity. Thanks!
 ## Resources (for *newbies*)
 
 
-### Minimum git
+### Minimum git & GitHub
 
 - http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX
+- https://www.youtube.com/watch?v=U8GBXvdmHT4&list=PLg7s6cbtAD15Das5LK9mXt_g59DLWxKUe
 - http://gitimmersion.com/
 - https://guides.github.com/introduction/flow/index.html
 
