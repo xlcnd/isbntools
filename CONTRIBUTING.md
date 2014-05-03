@@ -8,21 +8,23 @@ time, so you will find plenty of opportunities to contribute.
 ## Main Steps
 
 1. Make sure you have a [GitHub account](https://github.com/signup/free)
-2. Submit a ticket for your issue or idea,
+2. Submit a ticket for your issue or idea
+   ([help](https://www.youtube.com/watch?v=TJlYiMp8FuY)),
    on https://github.com/xlcnd/isbntools/issues,
    (if possible wait for some feedback before any serious commitment... :)
-3. Fork the repository on GitHub (see https://help.github.com/articles/fork-a-repo)
-   and create a feature branch where you will do your work.
+3. Fork the repository on GitHub ([help](https://help.github.com/articles/fork-a-repo))
+   and create a feature branch where you will do your work
+   ([help](https://guides.github.com/introduction/flow/index.html)).
 4. `pip install -r requirements-dev.txt`
 5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
-   and be OS independent**) (you will find `travis-ci.org` very handy for this!)
+   and be OS independent**) (you will find [Travis](http://travis-ci.org) very handy for this!)
 6. Write tests for your code using `nose` and put then in the directory `isbntools/test`
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage in [Coveralls](http://bit.ly/1mWwjuE) or locally with the command
    `nosetests --with-coverage --cover-package=isbntools`.
 8. **Check if all requirements are fulfilled**!
 9. Make a pull request on GitHub
-   (see https://help.github.com/articles/using-pull-requests/),
+   ([help](https://help.github.com/articles/using-pull-requests/)),
    **to the `dev` base branch**
    (we follow the *fork & pull* model, but with this small change).
 
@@ -66,13 +68,14 @@ see them as a learning opportunity. Thanks!
 
 
 
-## Resources
+## Resources (for *newbies*)
 
 
 ### Minimum git
-http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX
-http://gitimmersion.com/
-https://guides.github.com/introduction/flow/index.html
+
+- http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX
+- http://gitimmersion.com/
+- https://guides.github.com/introduction/flow/index.html
 
 
 ### Topics
@@ -88,5 +91,5 @@ https://guides.github.com/introduction/flow/index.html
 
 - contributing:
   - https://www.youtube.com/watch?v=IXnNgLmd6BM
-  - http://openhatch.org/
+  - http://openhatch.org/missions
   - http://opensource.com/resources/how-get-started-open-source
