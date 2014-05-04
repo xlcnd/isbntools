@@ -1,5 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-## Python scripts
-*.py    text eol=lf diff=python
+# Python
+*.py  text eol=lf diff=python
