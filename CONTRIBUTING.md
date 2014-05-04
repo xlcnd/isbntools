@@ -22,7 +22,7 @@ time, so you will find plenty of opportunities to contribute.
    Check the coverage in [Coveralls](http://bit.ly/1mWwjuE) or locally with the command
    `nosetests --with-coverage --cover-package=isbntools`.
 8. **Check if all requirements are fulfilled**!
-9. **Push** you local changes to GitHub and make there a pull request
+9. **Push** you local changes to GitHub and make there a **pull request**
    ([help](https://help.github.com/articles/using-pull-requests/)),
    **defaults are fine** (by the way, we follow the *fork & pull* model).
 
