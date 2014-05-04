@@ -10,6 +10,7 @@
 Info
 ----
 
+![isbntools](https://cloud.githubusercontent.com/assets/6782145/2873321/a13ba578-d3a1-11e3-8d54-8c0b7b65ef7c.png)
 `isbntools` provides several useful methods and functions
 to validate, clean, transform, hyphenate and
 get metadata for ISBN strings.
