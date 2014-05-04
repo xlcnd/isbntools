@@ -237,5 +237,4 @@ or at [twitter](https://twitter.com/isbntools) (if you are and end user).
 
 
 ---
-[![isbntools](https://cloud.githubusercontent.com/assets/6782145/2873321/a13ba578-d3a1-11e3-8d54-8c0b7b65ef7c.png)](http://bit.ly/1iDHZPw)
 More documentation at [isbntools.readthedocs.org](http://bit.ly/1l0W4In)
