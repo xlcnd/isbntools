@@ -42,4 +42,4 @@ v3.1.0, 2014-04-22 -- Small fixes and clear code (some unused methods are not av
 v3.1.1, 2014-04-24 -- Simpler providers & multi `processor`.
 v3.1.2, 2014-04-28 -- Python 3 support.
 v3.1.3, 2014-04-28 -- Fix travis error.
-v3.1.4, 2014-04-28 -- Support py26,27,33,34 and pypy. Full support for virtual environments (close #14).
+v3.1.4, 2014-05-04 -- Support py26,27,33,34 and pypy. Full support for virtual environments (close #14).
