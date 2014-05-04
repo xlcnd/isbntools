@@ -8,16 +8,13 @@ env:
 - TOXENV=flake8
 matrix:
   allow_failures:
-  - env: TOXENV=flake8
   - env: TOXENV=pypy
-  - env: TOXENV=py34
-  - env: TOXENV=py26
-  - env: TOXENV=py33
 install:
 - pip install tox
 - pip install flake8
-- pip install coveralls 
+- pip install pep8-naming
+- pip install coveralls
 script:
 - tox -e $TOXENV
 after_success:
-  coveralls
+- "if [[ $TOXENV == 'py27' ]]; then coveralls; fi"

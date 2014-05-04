@@ -107,7 +107,7 @@ def is_isbn10(isbn10):
     """ Is an isbn-10? """
     isbn10 = canonical(isbn10)
     if len(isbn10) != 10:
-        return False
+        return False          # pragma: no cover
     else:
         if _check_digit10(isbn10[:-1]) != isbn10[-1]:
             return False
@@ -119,7 +119,7 @@ def is_isbn13(isbn13):
     """ Is an isbn-13? """
     isbn13 = canonical(isbn13)
     if len(isbn13) != 13:
-        return False
+        return False          # pragma: no cover
     else:
         if _check_digit13(isbn13[:-1]) != isbn13[-1]:
             return False

@@ -49,7 +49,7 @@ def _records(isbn, data):
     try:
         # put the selected data in records
         records = data['items'][0]['volumeInfo']
-    except:             # pragma: no cover
+    except:           # pragma: no cover
         try:
             extra = data['stat']
             LOGGER.debug('DataWrongShapeError for %s with data %s',

@@ -66,23 +66,10 @@ Main Steps
 5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
    and be OS independent**) (you will find ``travis-ci.org`` very handy for this!)
 6. Write tests for your code using ``nose`` and put then in the directory ``isbnools/test``
-7. Pass **all tests** and with **coverage > 90%**
+7. Pass **all tests** and with **coverage > 90%**.
+   Check the coverage in Coveralls_.
 8. **Check if all requirements are fulfilled**!
 9. Make a pull request on github...
-
-
-
-Style
-^^^^^
-
-Your code **must** be PEP8 compliant and be concise as possible.
-
-
-
-Pluggin
-^^^^^^^
-
-See if your code can be written as a pluggin.
 
 
 
@@ -92,9 +79,13 @@ Important
 If you don't have experience in these issues, don't be put off by these requirements,
 see them as a learning opportunity. Thanks!
 
+     For full instructions read the CONTRIBUTING_ doc.
 
 
 .. _sourcegraph: http://bit.ly/1k14kHi
 .. _github: http://bit.ly/1oTm5ze
 .. _account: https://github.com/signup/free
 .. _issues: https://github.com/xlcnd/isbntools/issues
+.. _Coveralls: http://bit.ly/1mWwjuE
+.. _CONTRIBUTING: http://bit.ly/1jcxq8W
+

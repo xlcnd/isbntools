@@ -210,6 +210,9 @@ ISBNDB_API_KEY=your_api_key_here_or_DELETEME
 The values are self-explanatory!
 
 
+> **NOTE** If you are running `isbntools` inside a virtual environment, the
+`isbntools.conf` file will be at the root of the environment.
+
 Known Issues
 ------------
 

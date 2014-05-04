@@ -131,7 +131,7 @@ In my case I get::
     ... and the book is:
 
     {'Publisher': u'Penguin Books', 'Language': u'eng', 'Title': u'White noise',
-    'Year': u'2009', 'ISBN-13': '9780143105985', 'Authors': u'Don DeLillo ;
+    'Year': u'2009', 'ISBN-13': u'9780143105985', 'Authors': u'Don DeLillo ;
     introduction by Richard Powers.'}
 
 

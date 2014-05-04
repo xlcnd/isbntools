@@ -27,7 +27,7 @@ class Metadata(object):
             self.clean()
 
     @staticmethod
-    def fields():
+    def fields():  # pragma: no cover
         """
         Return a list of fields (names/headers/keys) of value
         """
@@ -65,7 +65,7 @@ class Metadata(object):
         self.clean()
 
     @value.deleter
-    def value(self):
+    def value(self):  # pragma: no cover
         """
         Deletes value
         """
@@ -79,7 +79,7 @@ class Metadata(object):
         self._content.update((k, v) for k, v in list(record.items())
                              if k in overwrite and not overrule(v) or
                              self._content[k] == '')
-        if not self._validate():
+        if not self._validate():  # pragma: no cover
             self._set_empty()
             raise NotValidMetadataError()
         self.clean()
