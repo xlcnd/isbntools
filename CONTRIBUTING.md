@@ -23,8 +23,8 @@ time, so you will find plenty of opportunities to contribute.
    `nosetests --with-coverage --cover-package=isbntools`.
 8. **Check if all requirements are fulfilled**!
 9. **Push** you local changes to GitHub and make there a **pull request**
-   ([help](https://help.github.com/articles/using-pull-requests/)),
-   **defaults are fine** (by the way, we follow the *fork & pull* model).
+   ([help](https://help.github.com/articles/using-pull-requests/))
+   **using `dev` as base branch** (by the way, we follow the *fork & pull* model with this small change).
 
 > NOTE: *Travis*, *coverage*, *flake8* and  *pylint*, have already
 configuration files adapted to the project.
