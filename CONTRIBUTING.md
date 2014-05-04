@@ -63,7 +63,7 @@ See if your code can be written as a pluggin.
 
 ## Important
 
-If you don't have experience in these issues, don't be put off by these requirements,
+If you don't have experience with these issues, don't be put off by these requirements,
 see them as a learning opportunity. Thanks!
 
 
