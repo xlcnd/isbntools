@@ -16,7 +16,7 @@ time, so you will find plenty of opportunities to contribute.
    ([help](https://help.github.com/articles/fork-a-repo)).
 4. `pip install -r requirements-dev.txt` (at your local directory).
 5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
-   and be OS independent**) (you will find [Travis](http://travis-ci.org) very handy for this!)
+   and be OS independent**) (you will find [Travis](http://bit.ly/travis-isbntools) very handy for this!)
 6. Write tests for your code using `nose` and put then in the directory `isbntools/test`
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage in [Coveralls](http://bit.ly/1mWwjuE) or locally with the command
@@ -54,7 +54,7 @@ You **can** comment and give suggestions on the code at
 
 ## Suggestions
 
-Read http://bit.ly/1mctuZk for possible enhancements to the code.
+Read [issues/enhancement](http://bit.ly/1mctuZk) for possible enhancements to the code.
 If you have some idea that is not there enter your own.
 Select some focused issue and enter some comments on how you plan to tackle it.
 
