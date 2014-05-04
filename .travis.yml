@@ -16,4 +16,4 @@ install:
 script:
 - tox -e $TOXENV
 after_success:
-- "if [[ $TOXENV != 'flake8' ]]; then coveralls; fi"
+- "if [[ $TOXENV == 'py27' ]]; then coveralls; fi"
