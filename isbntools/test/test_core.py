@@ -13,6 +13,7 @@ from ..data.data4tests import ISBNs
 
 def test__check_digit10():
     assert_equals(_check_digit10('082649752'), '7')
+    assert_equals(_check_digit10('585270001'), '0')
     assert_equals(_check_digit10('08264975X'), None)
     assert_equals(_check_digit10('08264975'), None)
 
