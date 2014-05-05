@@ -152,9 +152,9 @@ $ easy_install isbntools
 this installs from [pypi](https://pypi.python.org/pypi/isbntools) too, or (to install locally in *Linux* or *Mac OS X*):
 
 ```bash
-$ pip install isbntools-3.1.4.tar.gz
+$ pip install isbntools-3.1.5.tar.gz
 ```
-but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-3.1.4.tar.gz) the file!
+but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-3.1.5.tar.gz) the file!
 
 
 You should check if the install was successful, by enter:
