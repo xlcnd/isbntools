@@ -9,8 +9,11 @@ def serial(named_tasks, arg):
     """
     Serial calls
     """
-    for name, task in named_tasks:
-        RESULTS[name] = task(arg)
+    try:
+        for name, task in named_tasks:
+            RESULTS[name] = task(arg)
+    except:        # pragma: no cover
+        pass
     return RESULTS
 
 
