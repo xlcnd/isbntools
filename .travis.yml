@@ -21,7 +21,7 @@ install:
 - pip install coveralls
 - pip install sphinx 
 script:
-- tox -e $TOXENV
-- "if [[ $DOC == 'sphinx' ]]; then sphinx-build -nW -b html -d _build/doctrees . _build/html; fi"
+- "if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi"
+- "if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -nW -b html -d _build/doctrees . _build/html; fi"
 after_success:
 - "if [[ $TOXENV == 'py27' ]]; then coveralls; fi"
