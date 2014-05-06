@@ -3,6 +3,10 @@
 For Devs
 ========
 
+
+Namespaces
+----------
+
 In the namespace ``isbntools`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
@@ -38,6 +42,11 @@ namespace ``isbntools.dev``, namely:
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
 
+
+
+Plugins
+-------
+
 One easy way to do that, is to write a new metadata provider that will work as a **plugin**.
 (You can use as source a web service, a database, ... ). We just had to follow these steps:
 
@@ -56,6 +65,10 @@ One easy way to do that, is to write a new metadata provider that will work as a
 
 Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of ``9780321534965``.
 
+
+Merge Metadata
+--------------
+
 The original quality of metadata, at the several services, is not very good!
 If you need high quality metadata in your app, the only solution is to use
 *polling & merge* of several providers **and** a **lot** of cleanning and standardization
@@ -69,6 +82,14 @@ You can write your own *merging scheme* by creating a new provider (see_ ``dev.m
 
     **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
+Helpers
+-------
+
+In ``isbntools.dev.lab`` you can find several methods, that we found very useful,
+but you should consider them as betha software and they will change a lot in
+the future.
+
+---------------------------------------------------------------------------------
 You can browse the code, in a very structured way, at sourcegraph_.
 
 
