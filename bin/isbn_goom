@@ -3,6 +3,7 @@
 
 import sys
 import logging
+from isbntools import quiet_errors
 from isbntools.dev import goom
 from isbntools.dev.fmt import fmtbib, fmts
 
@@ -29,6 +30,7 @@ def parse_args(args):
 
 
 if __name__ == "__main__":
+    sys.excepthook = quiet_errors
     try:
         words, fmt = parse_args(sys.argv[1:])
         if not words:
