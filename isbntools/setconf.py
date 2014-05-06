@@ -21,7 +21,6 @@ THREADS_TIMEOUT = float(config.THREADS_TIMEOUT)
 
 
 def is_virtual():
-    import sys
     return True if hasattr(sys, 'real_prefix') else False
 
 
