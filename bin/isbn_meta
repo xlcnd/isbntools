@@ -3,9 +3,8 @@
 
 import sys
 import logging
-from isbntools import meta, clean, canonical, get_canonical_isbn
-from isbntools import config
-from isbntools import registry
+from isbntools import (meta, clean, canonical, get_canonical_isbn,
+                       config, registry, quiet_errors)
 from isbntools.dev.fmt import fmtbib, fmts
 
 logging.basicConfig(level=logging.CRITICAL)
@@ -42,6 +41,7 @@ def parse_args(args):
 
 
 if __name__ == "__main__":
+    sys.excepthook = quiet_errors
     try:
         isbn, service, fmt, apikey = parse_args(sys.argv[1:])
         if not isbn:
