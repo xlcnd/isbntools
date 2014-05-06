@@ -9,6 +9,6 @@ from .. import words
 from nose.tools import assert_equals
 
 
-def test_goom():
+def test_words():
     assert_equals(len(words.goos('the old man and the sea')), 13)
-    assert_equals(words.goos('-ISBN -isbn'), None)
+    assert_equals(words.goos('-ISBN -isbn') in ('9781364200329', None), True)
