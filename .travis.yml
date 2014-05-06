@@ -13,7 +13,6 @@ env:
 matrix:
   allow_failures:
   - env: TOXENV=pypy
-  - env: DOC=sphinx
 install:
 - pip install tox
 - pip install flake8
