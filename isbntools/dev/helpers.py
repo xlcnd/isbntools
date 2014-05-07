@@ -56,7 +56,7 @@ def unicode_to_utf8tex(utex, filtre=()):
     table = dict((k.encode('utf-8'), v) for k, v in unicode_to_tex.items()
                  if v not in filtre)
     regex = re.compile(b('|'.join(re.escape(s(k)) for k in table)))
-    return regex.sub(lambda m: b(table[m.group(0)]), btex)
+    return regex.sub(lambda m: table[m.group(0)], btex)
 
 
 def in_virtual():
