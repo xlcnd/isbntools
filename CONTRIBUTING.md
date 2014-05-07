@@ -91,7 +91,11 @@ see them as a learning opportunity. Thanks!
 - git log:
   - https://www.youtube.com/watch?v=U8GBXvdmHT4&list=PLg7s6cbtAD15Das5LK9mXt_g59DLWxKUe
 
+- git % GitHub tips:
+  - https://github.com/tiimgreen/github-cheat-sheet
+
 - contributing:
   - https://www.youtube.com/watch?v=IXnNgLmd6BM
   - http://openhatch.org/missions
   - http://opensource.com/resources/how-get-started-open-source
+
