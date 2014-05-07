@@ -3,6 +3,7 @@
 import re
 import uuid
 from string import Template
+from .helpers import last_first
 
 
 bibtex = r"""@book{$ISBN,
@@ -70,18 +71,6 @@ def _gen_proc(name, canonical):
     return Template(tpl).safe_substitute(canonical)
 
 
-def _last_first(author):
-    if ',' in author:
-        tokens = author.split(',')
-        last = tokens[0].strip()
-        first = ' '.join(tokens[1:]).strip()
-    else:
-        tokens = author.split(' ')
-        last = tokens[-1].strip()
-        first = ' '.join(tokens[:-1]).strip()
-    return {'last': last, 'first': first}
-
-
 def _spec_proc(name, fmtrec, authors):
     """
     Fixes the Authors records
@@ -101,7 +90,7 @@ def _spec_proc(name, fmtrec, authors):
         person = r"<b:Person><b:Last>$last</b:Last>"\
                  r"<b:First>$first</b:First></b:Person>"
         AUTHORS = '\n'.join(
-            Template(person).safe_substitute(_last_first(a))
+            Template(person).safe_substitute(last_first(a))
             for a in authors)
     elif name == 'json':
         AUTHORS = ', '.join('{"name": "$"}'.replace("$", a)

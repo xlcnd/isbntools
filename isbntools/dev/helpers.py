@@ -27,6 +27,23 @@ def titlecase(s):
                   lambda m: m.group(0)[0].upper() + m.group(0)[1:], s)
 
 
+def last_first(author):
+    """
+    Parses an author name into a dict with keys:
+      last  (surname),
+      first (other names)
+    """
+    if ',' in author:
+        tokens = author.split(',')
+        last = tokens[0].strip()
+        first = ' '.join(tokens[1:]).strip()
+    else:
+        tokens = author.split(' ')
+        last = tokens[-1].strip()
+        first = ' '.join(tokens[:-1]).strip()
+    return {'last': last, 'first': first}
+
+
 def unicode_to_utf8tex(utex, filtre=()):       # pragma: no cover
     """
     Replaces unicode entities with tex entitites and returns utf8 bytes
