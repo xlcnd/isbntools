@@ -12,6 +12,7 @@ omit =
     *isbndb*
     *fmt*
     *bouth*
+    *lab*
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
