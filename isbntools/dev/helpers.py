@@ -32,11 +32,12 @@ def last_first(author):
     Parses an author name into a dict with keys:
       last  (surname),
       first (other names)
+    This works in some cases... however is good enough!
     """
     if ',' in author:
         tokens = author.split(',')
         last = tokens[0].strip()
-        first = ' '.join(tokens[1:]).strip()
+        first = ' '.join(tokens[1:]).strip().replace('  ', ', ')
     else:
         tokens = author.split(' ')
         last = tokens[-1].strip()
