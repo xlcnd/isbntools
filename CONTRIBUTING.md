@@ -76,9 +76,7 @@ see them as a learning opportunity. Thanks!
 - https://guides.github.com/activities/hello-world/
 - https://guides.github.com/introduction/flow/index.html
 - https://www.youtube.com/watch?v=IeW1Irw45hQ
-- http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX
-- https://www.youtube.com/watch?v=U8GBXvdmHT4&list=PLg7s6cbtAD15Das5LK9mXt_g59DLWxKUe
-- http://gitimmersion.com/
+- https://www.youtube.com/watch?v=U8GBXvdmHT4
 
 
 ### Topics
@@ -90,12 +88,14 @@ see them as a learning opportunity. Thanks!
   - https://help.github.com/articles/using-pull-requests/
 
 - git log:
-  - https://www.youtube.com/watch?v=U8GBXvdmHT4&list=PLg7s6cbtAD15Das5LK9mXt_g59DLWxKUe
+  - https://www.youtube.com/watch?v=U8GBXvdmHT4
 
 - git % GitHub tips:
   - https://github.com/tiimgreen/github-cheat-sheet
   - http://cbx33.github.io/gitt/intro.html
   - http://git-scm.com/documentation
+  - http://gitimmersion.com/
+  - http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX
 
 - contributing:
   - https://www.youtube.com/watch?v=IXnNgLmd6BM
