@@ -105,6 +105,12 @@ validates ISBN10 and ISBN13.
 
 to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_stdin_validate``).
 
+    **TIP** Suppose you want to extract the ISBN of a pdf eboook (MYEBOOK.pdf).
+    Install pdfminer_ and then enter in a command line::
+
+    $ pdf2txt.py -m 5 MYEBOOK.pdf | isbn_stdin_validate
+
+
 .. code-block:: bash
 
     $ isbn_from_words "words from title and author name"
@@ -296,3 +302,4 @@ More documentation at http://isbntools.readthedocs.org
 
 .. _twitter: https://twitter.com/isbntools
 
+.. _pdfminer: https://pypi.python.org/pypi/pdfminer
