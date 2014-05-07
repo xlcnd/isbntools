@@ -56,3 +56,11 @@ def unicode_to_utf8tex(utex, filtre=()):       # pragma: no cover
                  if v not in filtre)
     regex = re.compile(b('|'.join(re.escape(s(k)) for k in table)))
     return regex.sub(lambda m: b(table[m.group(0)]), btex)
+
+
+def in_virtual():
+    """
+    Detects if the program is running inside a python virtual environment
+    """
+    return True if hasattr(sys, 'real_prefix') else False
+

@@ -9,6 +9,7 @@ except ImportError:                  # pragma: no cover
 import socket
 from . import config
 from . import registry
+from .dev.helpers import in_virtual
 
 # NOTE: THIS CODE RUNS ON IMPORT!
 
@@ -20,14 +21,10 @@ SOCKETS_TIMEOUT = float(config.SOCKETS_TIMEOUT)
 THREADS_TIMEOUT = float(config.THREADS_TIMEOUT)
 
 
-def is_virtual():
-    return True if hasattr(sys, 'real_prefix') else False
-
-
 try:
     # read conf file
     conf = configparser.ConfigParser()
-    if is_virtual():
+    if in_virtual():
         conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
     else:
         if os.name == 'nt':          # pragma: no cover
