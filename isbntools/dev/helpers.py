@@ -4,6 +4,7 @@ Private helper functions
 """
 
 import re
+import sys
 
 
 def normalize_space(item):
@@ -45,7 +46,7 @@ def last_first(author):
     return {'last': last, 'first': first}
 
 
-def unicode_to_utf8tex(utex, filtre=()):       # pragma: no cover
+def unicode_to_utf8tex(utex, filtre=()):
     """
     Replaces unicode entities with tex entitites and returns utf8 bytes
     """
@@ -63,4 +64,3 @@ def in_virtual():
     Detects if the program is running inside a python virtual environment
     """
     return True if hasattr(sys, 'real_prefix') else False
-
