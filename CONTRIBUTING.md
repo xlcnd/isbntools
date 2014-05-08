@@ -93,7 +93,7 @@ see them as a learning opportunity. Thanks!
 - git (local feature branchs):
   - https://www.youtube.com/watch?v=ImhZj6tpXLE
 
-- git % GitHub tips:
+- git & GitHub tips:
   - https://github.com/tiimgreen/github-cheat-sheet
   - http://cbx33.github.io/gitt/intro.html
   - http://git-scm.com/documentation
