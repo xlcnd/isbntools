@@ -4,7 +4,7 @@
 adventure in open-source... and it is an app, a lib and a framework at the same
 time, so you will find plenty of opportunities to contribute.
 
-> **NOTE**: By contributing you agree with the license terms **LGPL v3** of the project.
+> **NOTE**: By contributing you agree with the license terms (**LGPL v3**) of the project.
 
 
 ## Main Steps
@@ -30,7 +30,7 @@ time, so you will find plenty of opportunities to contribute.
    ([help](https://help.github.com/articles/using-pull-requests/))
    **using `dev` as base branch** (by the way, we follow the *fork & pull* model with this small change).
 
-> NOTE: *Travis*, *coverage*, *flake8* and  *pylint*, have already
+> **NOTE**: *Travis*, *coverage*, *flake8* and  *pylint*, have already
 configuration files adapted to the project.
 
 ## Style
