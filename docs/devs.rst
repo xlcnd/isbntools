@@ -93,7 +93,7 @@ the future.
 
 ---------------------------------------------------------------------------------
 
-**You can browse the code, in a very structured way, at sourcegraph_.**
+**You can browse the code, in a very structured way, at** sourcegraph_.
 
 
 .. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/wcat.py
