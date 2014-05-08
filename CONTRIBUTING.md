@@ -16,7 +16,9 @@ time, so you will find plenty of opportunities to contribute.
    ([help](https://help.github.com/articles/fork-a-repo)).
 4. `pip install -r requirements-dev.txt` (at your local directory).
 5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
-   and be OS independent**) (you will find [Travis](http://bit.ly/travis-isbntools) very handy for this!)
+   and be OS independent** It is easier if you start to write in python 3 and then
+   adapt for python 2) (you will find [Travis](http://bit.ly/travis-isbntools) very handy for
+   testing with this requirement!)
 6. Write tests for your code using `nose` and put then in the directory `isbntools/test`
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage in [Coveralls](http://bit.ly/1mWwjuE) or locally with the command
@@ -54,12 +56,18 @@ You **can** comment and give suggestions on the code at
 
 ## Suggestions
 
-Read [issues/enhancement](http://bit.ly/1mctuZk) for possible enhancements to the code.
+Read the [dev notes](http://isbntools.readthedocs.org/en/latest/devs.html) in the documentation.
+
+Goto [issues/enhancement](http://bit.ly/1mctuZk) for possible enhancements to the code.
 If you have some idea that is not there enter your own.
 Select some focused issue and enter some comments on how you plan to tackle it.
 
-See if your code can be written as a pluggin.
+See if your code can be written as a *pluggin* (a new metadata provider) or as
+a *user script* [they are easier!].
 
+For contributions to the core, you cannot use external libraries (except standard lib),
+and must be pure python. There is another package `isbntools.contrib` where these requirements
+are not applied (new repo comming soon!).
 
 ## Important
 
