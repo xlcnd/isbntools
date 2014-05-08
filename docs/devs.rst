@@ -89,7 +89,9 @@ In ``isbntools.dev.lab`` you can find several methods, that we found very useful
 but you should consider them as betha software and they will change a lot in
 the future.
 
+
 ---------------------------------------------------------------------------------
+
 You can browse the code, in a very structured way, at sourcegraph_.
 
 
