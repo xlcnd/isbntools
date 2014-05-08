@@ -5,12 +5,13 @@ Queries the isbndb.org service for metadata
 
 import logging
 import re
-from .webquery import query as wquery
-from .data import stdmeta
-from ..bouth23 import u
-from ..config import apikeys
-from .exceptions import (DataWrongShapeError, NoDataForSelectorError,
-                         RecordMappingError, NoAPIKeyError)
+from isbntools.dev.webquery import query as wquery
+from isbntools.dev.data import stdmeta
+from isbntools.bouth23 import u
+from isbntools.config import apikeys
+from isbntools.dev.exceptions import (DataWrongShapeError,
+                                      NoDataForSelectorError,
+                                      RecordMappingError, NoAPIKeyError)
 
 
 UA = 'isbntools (gzip)'

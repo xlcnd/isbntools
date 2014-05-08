@@ -13,6 +13,12 @@ from .dev.helpers import in_virtual
 
 # NOTE: THIS CODE RUNS ON IMPORT!
 
+# setup paths for contrib
+# pkg_path = registry.__path__
+pkg_path = os.path.dirname(registry.__file__)
+# pkg_path = '/home/alexandre/Projects/ISBN/isbntools'
+plugins_path = os.path.join(pkg_path, 'contrib/plugins')
+
 # defaults parameters are in config.py they can be overwritten in
 # isbntools.conf at users's $HOME/.isbntools directory (UNIX)
 
@@ -55,7 +61,8 @@ try:
 
     if conf.has_section('PLUGINS'):  # pragma: no cover
         for o, v in conf.items('PLUGINS'):
-            plugin = registry.load_plugin(o, v)
+            path = v if v.startswith('/') else plugins_path
+            plugin = registry.load_plugin(o, path)
             if plugin:
                 registry.add_service(o, plugin.query)
 
