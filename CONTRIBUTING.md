@@ -90,6 +90,9 @@ see them as a learning opportunity. Thanks!
 - git log:
   - https://www.youtube.com/watch?v=U8GBXvdmHT4
 
+- git (local feature branchs):
+  - https://www.youtube.com/watch?v=ImhZj6tpXLE
+
 - git % GitHub tips:
   - https://github.com/tiimgreen/github-cheat-sheet
   - http://cbx33.github.io/gitt/intro.html
