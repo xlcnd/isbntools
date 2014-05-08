@@ -82,17 +82,18 @@ You can write your own *merging scheme* by creating a new provider (see_ ``dev.m
 
     **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
+
 Helpers
 -------
 
 In ``isbntools.dev.lab`` you can find several methods, that we found very useful,
-but you should consider them as betha software and they will change a lot in
+but you should consider them as beta software. They can change a lot in
 the future.
 
 
 ---------------------------------------------------------------------------------
 
-You can browse the code, in a very structured way, at sourcegraph_.
+**You can browse the code, in a very structured way, at sourcegraph_.**
 
 
 .. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/wcat.py
