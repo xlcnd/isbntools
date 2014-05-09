@@ -205,6 +205,9 @@ THREADS_TIMEOUT=12
 DEFAULT_SERVICE=merge
 VIAS_MERGE=serial
 ISBNDB_API_KEY=your_api_key_here_or_DELETEME
+
+[PLUGINS]
+isbndb=isbndb.py
 ```
 
 The values are self-explanatory!
