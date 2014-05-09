@@ -24,4 +24,5 @@ Contents:
    issues
    isbn
    code
+   extra
 

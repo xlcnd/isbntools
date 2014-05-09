@@ -65,6 +65,9 @@ One easy way to do that, is to write a new metadata provider that will work as a
 
 Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of ``9780321534965``.
 
+Useful? Clone the ``isbntools`` repository on GitHub_ and make a pull request
+[help_]!
+
 
 Merge Metadata
 --------------
@@ -101,5 +104,9 @@ the future.
 .. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/isbndb.py
 
 .. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
+
+.. _help: http://bit.ly/1jcxq8W
+
+.. _GitHub: http://bit.ly/1oTm5ze 
 
 .. _sourcegraph: http://bit.ly/1k14kHi
