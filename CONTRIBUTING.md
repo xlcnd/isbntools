@@ -4,7 +4,8 @@
 adventure in open-source... and it is an app, a lib and a framework at the same
 time, so you will find plenty of opportunities to contribute.
 
-> **NOTE**: By contributing you agree with the license terms (**LGPL v3**) of the project.
+> **NOTE**: By contributing you agree with the [license terms](LICENSE-LGPL.txt)
+  (**LGPL v3**) of the project.
 
 
 ## Main Steps
