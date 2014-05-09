@@ -52,7 +52,7 @@ You can enter API keys and set preferences in the file ``isbntools.conf`` in you
     ISBNDB_API_KEY=yOuRshERe
 
     [PLUGINS]
-    isbndb=isbndb
+    isbndb=isbndb.py
 
 
 The values are self-explanatory!
