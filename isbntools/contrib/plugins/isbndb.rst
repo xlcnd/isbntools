@@ -3,9 +3,15 @@ isbndb Plugin
 =============
 
 
-Is a metadata provider that uses the service **isbndb.com**. This plugin adds a new option
-to `isbn_meta`:
- 
+Is a metadata provider that uses the service **isbndb.com**. 
+
+
+Usage
+-----
+
+This plugin adds a new option
+to ``isbn_meta``:
+
 
 .. code-block:: bash
 
@@ -14,7 +20,8 @@ to `isbn_meta`:
 
 You can get an API key for the *isbndb.com service* here_.
 
-The output can be formatted as ``bibtex``, ``msword``, ``endnote``, ``refworks`` or ``json`` (BibJSON) bibliographic formats.
+The output can be formatted as ``bibtex``, ``msword``, ``endnote``, ``refworks`` or
+``json`` (BibJSON) bibliographic formats.
 
 You can access it programatically:
 
@@ -25,7 +32,7 @@ You can access it programatically:
 
 
 Conf File
-=========
+---------
 
 You can enter API keys and set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
@@ -56,5 +63,4 @@ The values are self-explanatory!
 
 
 .. _here: http://isbndb.com/api/v2/docs
-
 
