@@ -13,6 +13,7 @@ omit =
     *fmt*
     *bouth*
     *lab*
+    *__init__*
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
