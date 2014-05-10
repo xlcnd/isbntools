@@ -93,7 +93,7 @@ see them as a learning opportunity. Thanks!
 ### Topics
 
 |                  **Topic**  |                              **Resource**                               |
-|----------------------------:|:-----------------------------------------------------------------------:|
+|----------------------------:|:------------------------------------------------------------------------|
 |                 fork a repo | https://help.github.com/articles/fork-a-repo                            |
 |                pull request | https://help.github.com/articles/using-pull-requests/                   |
 |                     git log | https://www.youtube.com/watch?v=U8GBXvdmHT4                             |
