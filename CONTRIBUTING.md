@@ -92,27 +92,19 @@ see them as a learning opportunity. Thanks!
 
 ### Topics
 
-- fork a repo:
-  - https://help.github.com/articles/fork-a-repo
+|                  **Topic**  |                              **Resource**                               |
+|----------------------------:|:-----------------------------------------------------------------------:|
+|                 fork a repo | https://help.github.com/articles/fork-a-repo                            |
+|                pull request | https://help.github.com/articles/using-pull-requests/                   |
+|                     git log | https://www.youtube.com/watch?v=U8GBXvdmHT4                             |
+|       local feature branchs | https://www.youtube.com/watch?v=ImhZj6tpXLE                             |
+|           git & GitHub tips | https://github.com/tiimgreen/github-cheat-sheet                         |
+|                             | http://cbx33.github.io/gitt/intro.html                                  |
+|                             | http://git-scm.com/documentation                                        |
+|                             | http://gitimmersion.com/                                                |
+|                             | http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX |
+|                contributing | https://www.youtube.com/watch?v=IXnNgLmd6BM                             |
+|                             | http://openhatch.org/missions                                           |
+|                             | http://opensource.com/resources/how-get-started-open-source             |
 
-- pull requests:
-  - https://help.github.com/articles/using-pull-requests/
-
-- git log:
-  - https://www.youtube.com/watch?v=U8GBXvdmHT4
-
-- git (local feature branchs):
-  - https://www.youtube.com/watch?v=ImhZj6tpXLE
-
-- git & GitHub tips:
-  - https://github.com/tiimgreen/github-cheat-sheet
-  - http://cbx33.github.io/gitt/intro.html
-  - http://git-scm.com/documentation
-  - http://gitimmersion.com/
-  - http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX
-
-- contributing:
-  - https://www.youtube.com/watch?v=IXnNgLmd6BM
-  - http://openhatch.org/missions
-  - http://opensource.com/resources/how-get-started-open-source
 
