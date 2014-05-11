@@ -254,6 +254,7 @@ You can enter API keys and set preferences in the file ``isbntools.conf`` in you
 
     [PLUGINS]
     isbndb=isbndb.py
+    openl=openl.py
 
 
 The values are self-explanatory!

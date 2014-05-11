@@ -7,5 +7,5 @@ Extra functionality is provided, but the user needs to install external librarie
 for API Keys with specific services. 
 
 
-.. include:: isbndb.rst
+	**More soon!**
 

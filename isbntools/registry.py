@@ -8,14 +8,12 @@ import sys
 from .dev import wcat
 from .dev import goob
 from .dev import merge
-from .dev import openl
 from .exceptions import PluginNotLoadedError
 
 services = {'default': merge.query,
             'wcat': wcat.query,
             'goob': goob.query,
             'merge': merge.query,
-            'openl': openl.query,
             }
 
 

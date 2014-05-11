@@ -22,7 +22,6 @@ def test_query():
     assert_equals(len(repr(query('9780321534965', 'goob'))) in (189, 195), True)
     assert_equals(len(repr(query('9789934015960'))) in (166, 187), True)
     assert_equals(len(repr(query('9781118241257'))) in (177, 183), True)
-    assert_equals(len(repr(query('9780195132861', 'openl'))) in (185, 191), True)
 
 
 def test_ext_meta():

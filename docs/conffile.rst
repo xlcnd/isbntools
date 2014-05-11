@@ -20,9 +20,12 @@ You can enter API keys and set preferences in the file ``isbntools.conf`` in you
     VIAS_MERGE=serial
     ISBNDB_API_KEY=your_api_key_here_or_DELETEME
 
+    [PLUGINS]
+    isbndb=isbndb.py
+    openl=openl.py
 
 The values are self-explanatory!
 
 
-    **NOTE** If you are running `isbntools` inside a virtual environment, the
+    **NOTE** If you are running ``isbntools`` inside a virtual environment, the
     ``isbntools.conf`` file will be at the root of the environment.

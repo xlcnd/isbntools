@@ -208,6 +208,7 @@ ISBNDB_API_KEY=your_api_key_here_or_DELETEME
 
 [PLUGINS]
 isbndb=isbndb.py
+openl=openl.py
 ```
 
 The values are self-explanatory!

@@ -27,7 +27,7 @@ You can access it programatically:
 
 .. code-block:: python
 
-    from isbntools.plugins.isbndb import query as q_isbndb
+    from isbntools.contrib.plugins.isbndb import query as q_isbndb
     ...
 
 

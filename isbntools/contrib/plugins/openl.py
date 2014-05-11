@@ -4,10 +4,11 @@ Queries the openlibrary.org service for metadata
 """
 
 import logging
-from .webquery import query as wquery
-from .data import stdmeta
-from ..bouth23 import u
-from .exceptions import NoDataForSelectorError, RecordMappingError
+from isbntools.dev.webquery import query as wquery
+from isbntools.dev.data import stdmeta
+from isbntools.bouth23 import u
+from isbntools.dev.exceptions import (NoDataForSelectorError,
+                                      RecordMappingError)
 
 
 UA = 'isbntools (gzip)'
