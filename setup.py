@@ -61,7 +61,7 @@ setup(
     author_email='xlcnd@outlook.com',
     url='https://github.com/xlcnd/isbntools',
     download_url='https://github.com/xlcnd/isbntools/archive/master.zip',
-    packages=['isbntools', 'isbntools/dev', 'isbntools/data', 
+    packages=['isbntools', 'isbntools/dev', 'isbntools/data',
               'isbntools/contrib',
               'isbntools/contrib/plugins', 'isbntools/contrib/modules',
               'isbntools/contrib/test', 'isbntools/contrib/modules/goom'],
