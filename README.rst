@@ -16,7 +16,7 @@
     :alt: License
 
 .. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.2.1
-    :target: https://coveralls.io/r/xlcnd/isbntools?branch=master
+    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v3.2.1
     :alt: Coverage
 
 .. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
