@@ -179,7 +179,7 @@ Install
 =======
 
 From the command line enter (in some cases you have to preced the
-command by ``sudo``):
+command with ``sudo``):
 
 
 .. code-block:: bash

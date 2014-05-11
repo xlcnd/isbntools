@@ -139,7 +139,7 @@ Install
 -------
 
 From the command line enter (in some cases you have to preced the
-command by `sudo`):
+command with `sudo`):
 
 ```bash
 $ pip install isbntools
@@ -235,7 +235,7 @@ Known Issues
 
 Any issue that you would like to report, please do it at
 [github](https://github.com/xlcnd/isbntools/issues) (if you are a developer)
-or at [twitter](https://twitter.com/isbntools) (if you are and end user).
+or at [twitter](https://twitter.com/isbntools) (if you are an end user).
 
 
 
