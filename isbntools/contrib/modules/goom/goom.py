@@ -4,11 +4,12 @@ Queries the Google Books (JSON API v1) for metadata
 """
 
 import logging
-from .webquery import query as wquery
-from .data import stdmeta
-from ..bouth23 import u
-from .exceptions import (DataWrongShapeError, NoDataForSelectorError,
-                         RecordMappingError)
+from isbntools.dev.webquery import query as wquery
+from isbntools.dev.data import stdmeta
+from isbntools.bouth23 import u
+from isbntools.dev.exceptions import (DataWrongShapeError,
+                                      NoDataForSelectorError,
+                                      RecordMappingError)
 
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q=%s&fields='\

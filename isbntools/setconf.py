@@ -63,6 +63,10 @@ try:
             if plugin:
                 registry.add_service(o, plugin.query)
 
+    if conf.has_section('MODULES'):  # pragma: no cover
+        for o, v in conf.items('MODULES'):
+            config.set_option(o.upper(), v)
+
 except:                              # pragma: no cover
     pass
 

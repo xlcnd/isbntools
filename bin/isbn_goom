@@ -4,7 +4,7 @@
 import sys
 import logging
 from isbntools import quiet_errors
-from isbntools.dev import goom
+from isbntools.contrib.modules.goom import goom
 from isbntools.dev.fmt import fmtbib, fmts
 
 logging.basicConfig(level=logging.CRITICAL)

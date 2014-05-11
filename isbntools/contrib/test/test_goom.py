@@ -5,7 +5,7 @@
 nose tests
 """
 
-from ..dev import goom
+from isbntools.contrib.modules.goom import goom
 from nose.tools import assert_equals
 
 
