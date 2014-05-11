@@ -44,3 +44,4 @@ v3.1.2, 2014-04-28 -- Python 3 support.
 v3.1.3, 2014-04-28 -- Fix travis error.
 v3.1.4, 2014-05-04 -- Support py26,27,33,34 and pypy. Full support for virtual environments (close #14).
 v3.1.5, 2014-05-04 -- Unicode to LaTeX in bibtex (for devs), a  more robust `merge` (NOT RELEASED).
+v3.2.1, 2014-05-12 -- Unicode to LaTeX in bibtex (for devs), a  more robust `merge`, new namespaces (lab and contrib).
