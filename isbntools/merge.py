@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from .data import Metadata
+from .dev.data import Metadata
 from .wcat import query as qwcat
 from .goob import query as qgoob
-from . import vias
-from .. import config
+from .dev import vias
+from . import config
 
 
 def query(isbn, processor=None):

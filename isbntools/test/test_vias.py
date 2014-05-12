@@ -5,7 +5,7 @@
 nose tests
 """
 
-from ..dev import merge
+from .. import merge
 from nose.tools import assert_equals
 
 

@@ -4,11 +4,12 @@ Queries the worldcat.org service for metadata
 """
 
 import logging
-from .webquery import query as wquery
-from .data import stdmeta
-from ..bouth23 import u
-from .exceptions import (DataWrongShapeError, NoDataForSelectorError,
-                         RecordMappingError)
+from .dev.webquery import query as wquery
+from .dev.data import stdmeta
+from .bouth23 import u
+from .dev.exceptions import (DataWrongShapeError,
+                             NoDataForSelectorError,
+                             RecordMappingError)
 
 
 UA = 'isbntools (gzip)'

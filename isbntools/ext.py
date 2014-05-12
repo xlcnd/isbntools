@@ -3,7 +3,7 @@
 
 from .metadata import query
 from .infogroup import infogroup
-from .dev.wcated import query as qed
+from .wcated import query as qed
 from .mask import mask as msk
 from .words import goos
 

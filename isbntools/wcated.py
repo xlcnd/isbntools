@@ -5,8 +5,8 @@ Queries the worldcat.org service for related ISBNs
 
 import logging
 from ast import literal_eval
-from .webquery import query as wquery
-from .exceptions import DataWrongShapeError, NoDataForSelectorError
+from .dev.webquery import query as wquery
+from .dev.exceptions import DataWrongShapeError, NoDataForSelectorError
 
 LOGGER = logging.getLogger(__name__)
 UA = 'isbntools (gzip)'
