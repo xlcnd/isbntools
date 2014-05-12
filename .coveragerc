@@ -15,6 +15,7 @@ omit =
     *lab*
     *__init__*
     *plugins*
+    *.conf.py
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
