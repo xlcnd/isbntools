@@ -20,10 +20,16 @@ import sys
 from setuptools import setup
 from isbntools import __version__
 
-scripts = ['bin/isbn_validate', 'bin/to_isbn10', 'bin/to_isbn13',
-           'bin/isbn_mask', 'bin/isbn_info', 'bin/isbn_meta',
-           'bin/isbntools', 'bin/isbn_stdin_validate',
-           'bin/isbn_from_words', 'bin/isbn_editions',
+scripts = ['bin/isbn_validate',
+           'bin/to_isbn10',
+           'bin/to_isbn13',
+           'bin/isbn_mask',
+           'bin/isbn_info',
+           'bin/isbn_meta',
+           'bin/isbntools',
+           'bin/isbn_stdin_validate',
+           'bin/isbn_from_words',
+           'bin/isbn_editions',
            'bin/isbn_goom',
            ]
 
@@ -61,10 +67,14 @@ setup(
     author_email='xlcnd@outlook.com',
     url='https://github.com/xlcnd/isbntools',
     download_url='https://github.com/xlcnd/isbntools/archive/master.zip',
-    packages=['isbntools', 'isbntools/dev', 'isbntools/data',
+    packages=['isbntools',
+              'isbntools/dev',
+              'isbntools/data',
               'isbntools/contrib',
-              'isbntools/contrib/plugins', 'isbntools/contrib/modules',
-              'isbntools/contrib/test', 'isbntools/contrib/modules/goom'],
+              'isbntools/contrib/plugins',
+              'isbntools/contrib/modules',
+              'isbntools/contrib/modules/goom'
+              ],
     scripts=scripts,
     data_files=data_files,
     license='LGPL v3',
