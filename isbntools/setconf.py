@@ -27,6 +27,10 @@ plugins_path = os.path.join(pkg_path, 'contrib/plugins')
 try:
     # read conf file
     conf = configparser.ConfigParser()
+    # read defaults
+    with open(os.path.join(pkg_path, 'isbntools.conf.py'), 'r') as f:
+        conf.readfp(f)
+    # read user options
     if in_virtual():
         conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
     else:
@@ -37,7 +41,6 @@ try:
             conf.read(['/etc/.isbntools/isbntools.conf',
                        '/usr/local/isbntools.conf',
                        '/usr/local/bin/isbntools.conf',
-                       os.path.join(plugins_path, 'isbntools.conf.py'),
                        os.path.expanduser('~/.isbntools.conf'),
                        os.path.expanduser('~/.local/isbntools.conf'),
                        os.path.expanduser('~/.isbntools/isbntools.conf')])
