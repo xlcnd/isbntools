@@ -13,7 +13,6 @@ THREADS_TIMEOUT=11
 # is faster for fast internet connections. 
 DEFAULT_SERVICE=merge
 VIAS_MERGE=serial
-ISBNDB_API_KEY=
 
 
 [PLUGINS]
