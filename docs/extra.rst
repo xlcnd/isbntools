@@ -7,5 +7,5 @@ Extra functionality is provided, but the user needs to install external librarie
 for API Keys with specific services. 
 
 
-	**More soon!**
+	**Check in pypi for packages with name isbntools.contrib...**
 
