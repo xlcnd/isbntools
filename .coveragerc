@@ -16,6 +16,7 @@ omit =
     *__init__*
     *plugins*
     *.conf.py
+    *hook.py
 
 # Regexes for lines to exclude from consideration
 exclude_lines =

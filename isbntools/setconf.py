@@ -32,14 +32,14 @@ try:
         conf.readfp(f)
     # read user options
     if in_virtual():
-        conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
+        conf.files = conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
     else:
         if os.name == 'nt':          # pragma: no cover
-            conf.read([
+            conf.files = conf.read([
                 os.path.join(os.getenv('APPDATA'), 'isbntools/isbntools.conf')
             ])
         else:                        # pragma: no cover
-            conf.read([
+            conf.files = conf.read([
                 '/etc/.isbntools/isbntools.conf',
                 '/usr/local/bin/isbntools.conf',
                 '/usr/local/isbntools.conf',

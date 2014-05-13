@@ -17,3 +17,4 @@ from . import setconf
 from .version import check_version
 
 pkg_path = os.path.dirname(config.__file__)
+defaults_conf = 'isbntools.conf.py'
