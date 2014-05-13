@@ -42,12 +42,11 @@ if "install" in sys.argv and os.name == 'nt':
 
 
 def in_virtual():
-    import sys
     return True if hasattr(sys, 'real_prefix') else False
 
 
 def conf_file():
-    if in_virtual:
+    if in_virtual():
         installpath = ''
     else:
         homepath = os.path.expanduser('~') if os.name != 'nt' else os.getenv('APPDATA')

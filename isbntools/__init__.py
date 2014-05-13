@@ -5,8 +5,9 @@ __all__ = ['is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'quiet_errors', 'config', 'setconf', '__version__',
            'check_version']
 
-__version__ = '3.2.3'
+__version__ = '3.2.2a'
 
+import os
 from .exceptions import quiet_errors
 from .core import (is_isbn10, is_isbn13, to_isbn10, to_isbn13, clean,
                    canonical, notisbn, get_isbnlike, get_canonical_isbn)
@@ -14,3 +15,5 @@ from .ext import (mask, meta, info, editions, isbn_from_words)
 from . import config
 from . import setconf
 from .version import check_version
+
+pkg_path = os.path.dirname(config.__file__)

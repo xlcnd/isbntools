@@ -42,7 +42,7 @@ try:
                        '/usr/local/isbntools.conf',
                        '/usr/local/bin/isbntools.conf',
                        os.path.expanduser('~/.isbntools.conf'),
-                       os.path.expanduser('~/.local/isbntools.conf'),
+                       os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
                        os.path.expanduser('~/.isbntools/isbntools.conf')])
 
     if conf.has_section('SYS'):
