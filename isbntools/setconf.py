@@ -35,15 +35,18 @@ try:
         conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
     else:
         if os.name == 'nt':          # pragma: no cover
-            conf.read([os.path.join(os.getenv('APPDATA'),
-                      'isbntools/isbntools.conf')])
+            conf.read([
+                os.path.join(os.getenv('APPDATA'), 'isbntools/isbntools.conf')
+            ])
         else:                        # pragma: no cover
-            conf.read(['/etc/.isbntools/isbntools.conf',
-                       '/usr/local/isbntools.conf',
-                       '/usr/local/bin/isbntools.conf',
-                       os.path.expanduser('~/.isbntools.conf'),
-                       os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
-                       os.path.expanduser('~/.isbntools/isbntools.conf')])
+            conf.read([
+                '/etc/.isbntools/isbntools.conf',
+                '/usr/local/bin/isbntools.conf',
+                '/usr/local/isbntools.conf',
+                os.path.expanduser('~/.isbntools.conf'),
+                os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
+                os.path.expanduser('~/.isbntools/isbntools.conf'),
+            ])
 
     if conf.has_section('SYS'):
         # get user defined values for timeouts
