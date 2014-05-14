@@ -238,7 +238,7 @@ Conf File
 You can enter API keys and set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
 ``%APPDATA%/isbntools/isbntools.conf``
-(**create these, directory and file, if don't exist** Enter ``isbn_conf mkconf``). 
+(**create these, directory and file, if don't exist** Enter ``isbn_conf mkconf``).
 The file should look like:
 
 .. code-block:: bash
@@ -262,7 +262,7 @@ The values are self-explanatory!
     **NOTE** If you are running ``isbntools`` inside a virtual environment, the
     ``isbntools.conf`` file will be at the root of the environment.
 
-The easier way to manipulate these files is by using the script ``isbn_conf``. 
+The easier way to manipulate these files is by using the script ``isbn_conf``.
 At a terminal enter:
 
 .. code-block:: bash
