@@ -35,7 +35,6 @@ if __name__ == "__main__":
         nargv = len(sys.argv)
         if nargv > 4 or nargv == 1: raise
         if nargv == 2: VERBS[sys.argv[1]]()
-        if nargv == 3: VERBS[sys.argv[1]](sys.argv[2])
-        if nargv == 4: VERBS[sys.argv[1]](sys.argv[2], sys.argv[3])
+        if nargv > 2: VERBS[sys.argv[1]](*sys.argv[2:])
     except:
         usage()
