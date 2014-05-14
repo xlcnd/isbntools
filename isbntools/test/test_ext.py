@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+# flake8: noqa
 
 from nose.tools import assert_equals, assert_raises
-from ..ext import mask, editions, isbn_from_words
+from ..ext import mask, editions, isbn_from_words, doi
 
 
 # nose tests
@@ -39,4 +39,8 @@ def test_editions():
 
 def test_isbn_from_words():
     assert_equals(len(isbn_from_words('old men and sea')), 13)
-# flake8: noqa
+
+def test_doi():
+    assert_equals(doi('9780195132861'), '10.978.019/5132861')
+    assert_equals(doi('9780321534965'), '10.978.0321/534965')
+    assert_equals(doi('9791090636071'), '10.979.1090636/071')
