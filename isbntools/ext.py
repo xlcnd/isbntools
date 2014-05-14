@@ -6,6 +6,7 @@ from .infogroup import infogroup
 from .wcated import query as qed
 from .mask import mask as msk
 from .words import goos
+from .core import canonical
 
 
 def mask(isbn, separator='-'):
@@ -33,3 +34,9 @@ def isbn_from_words(words):
         and author's name (uses Google Search)
     """
     return goos(words)
+
+
+def doi(isbn):
+    """ Returns a DOI's ISBN-A from a ISBN-13
+    """
+    return "10.%s.%s%s/%s%s" % tuple(msk(canonical(isbn), '-').split('-'))
