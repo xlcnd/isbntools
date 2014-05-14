@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys
+import logging
+from isbntools import quiet_errors
+from isbntools.contrib.hook import (reg_plugin, reg_apikey, mk_conf, 
+                                    print_conf, write_conf)
+
+logging.basicConfig(level=logging.CRITICAL)
+
+
+
+VERBS = {'show': print_conf, 'make': mk_conf, 
+         'setkey': reg_apikey, 'regplugin': reg_plugin, 
+         'regmod': lambda x, y: write_conf({x: y})}
+
+def usage():
+    sys.stderr.write('Usage: isbn_conf COMMAND OPTIONS\n  '
+                     '\n'
+                     'COMMAND    OPTIONS\n'
+                     '-------    --------------------\n'
+                     'show \n'
+                     'make \n'
+                     'setkey     SERVICE  APIKEY \n'
+                     'regplugin  SERVICE  [DIRECTORY] \n'
+                     'regmod     OPTION   VALUE \n'
+                     )
+    sys.exit(1)
+
+
+if __name__ == "__main__":
+    sys.excepthook = quiet_errors
+    try: 
+        nargv = len(sys.argv)
+        if nargv > 4 or nargv == 1: raise
+        if nargv == 2: VERBS[sys.argv[1]]()
+        if nargv == 3: VERBS[sys.argv[1]](sys.argv[2])
+        if nargv == 4: VERBS[sys.argv[1]](sys.argv[2], sys.argv[3])
+    except:
+        usage()
