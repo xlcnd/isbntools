@@ -11,7 +11,7 @@ try:
     pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
     conf_file = conf.files[-1] if conf.files else os.path.join(pkg_path, defaults_conf)
 
-    __all__ = ['pkg_version', 'pkg_path', 'pkg_options', 'write_conf',
+    __all__ = ['pkg_version', 'pkg_path', 'pkg_options', 'reg_mod',
                'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf']
 except:
     pass
@@ -26,7 +26,7 @@ def __write2conf(section, opts):
         conf.write(f)
 
 
-def write_conf(opts):
+def reg_mod(opts):
     __write2conf('MODULES', opts)
 
 

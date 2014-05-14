@@ -5,7 +5,7 @@ import sys
 import logging
 from isbntools import quiet_errors
 from isbntools.contrib.hook import (reg_plugin, reg_apikey, mk_conf, 
-                                    print_conf, write_conf)
+                                    print_conf, reg_mod)
 
 logging.basicConfig(level=logging.CRITICAL)
 
@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.CRITICAL)
 
 VERBS = {'show': print_conf, 'make': mk_conf, 
          'setkey': reg_apikey, 'regplugin': reg_plugin, 
-         'regmod': lambda x, y: write_conf({x: y})}
+         'regmod': lambda x, y: reg_mod({x: y})}
 
 def usage():
     sys.stderr.write('Usage: isbn_conf COMMAND OPTIONS\n  '
