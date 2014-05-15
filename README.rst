@@ -128,6 +128,20 @@ a script that returns from **Google Books multiple references**.
 
 .. code-block:: bash
 
+    $ isbn_doi ISBN
+
+returns the doi's ISBN-A code of a given ISBN.
+
+
+.. code-block:: bash
+
+    $ isbn_EAN13 ISBN
+
+returns the EAN13 code of a given ISBN.
+
+
+.. code-block:: bash
+
     $ isbntools
 
 writes version and copyright notice and **checks if there are updates**.
@@ -238,7 +252,7 @@ Conf File
 You can enter API keys and set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
 ``%APPDATA%/isbntools/isbntools.conf``
-(**create these, directory and file, if don't exist** [Now just enter ``isbn_conf male``!]).
+(**create these, directory and file, if don't exist** [Now just enter ``isbn_conf make``!]).
 The file should look like:
 
 .. code-block:: bash

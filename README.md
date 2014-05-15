@@ -89,6 +89,18 @@ a script that returns from **Google Books multiple references**.
 
 
 ```bash
+$ isbn_doi ISBN
+```
+returns the doi's ISBN-A code of a given ISBN.
+
+
+```bash
+$ isbn_EAN13 ISBN
+```
+returns the EAN13 code of a given ISBN.
+
+
+```bash
 $ isbntools
 ```
 writes version and copyright notice and **checks if there are updates**.
