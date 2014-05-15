@@ -31,6 +31,8 @@ scripts = ['bin/isbn_validate',
            'bin/isbn_from_words',
            'bin/isbn_editions',
            'bin/isbn_goom',
+           'bin/isbn_doi',
+           'bin/isbn_EAN13',
            'bin/isbn_conf',
            ]
 

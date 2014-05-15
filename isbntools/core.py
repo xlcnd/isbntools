@@ -244,3 +244,13 @@ def get_canonical_isbn(isbnlike, output='bouth'):
             if output == 'isbn10':
                 return cisbn if len(cisbn) == 10 else to_isbn10(cisbn)
             return to_isbn13(cisbn) if len(cisbn) == 10 else cisbn
+
+
+def EAN13(isbnlike):
+    """ Transforms an `isbnlike` string in an EAN number (canonical ISBN-13)
+    """
+    ib = canonical(isbnlike)
+    if len(ib) == 13:
+        return ib if is_isbn13(ib) else None
+    elif len(ib) == 10:
+        return to_isbn13(ib) if is_isbn10(ib) else None

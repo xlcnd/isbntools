@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+# flake8: noqa
 
 from nose.tools import assert_equals
 from ..core import (_check_digit10, _check_digit13, _check_structure10,
     _check_structure13, is_isbn10, is_isbn13, to_isbn10, to_isbn13,
-    canonical, clean, notisbn, get_isbnlike, get_canonical_isbn)
+    canonical, clean, notisbn, get_isbnlike, get_canonical_isbn, EAN13)
 from ..data.data4tests import ISBNs
 
 
@@ -114,4 +114,11 @@ def test_canonical():
     assert_equals(canonical('isbn9780826497529'), '9780826497529')
     assert_equals(canonical('isbn 0826497527'), '0826497527')
 
-# flake8: noqa
+
+def test_EAN13():
+    assert_equals(EAN13('ISBN 9789720404427'), None)
+    assert_equals(EAN13('ISBN 9789720404428'), '9789720404428')
+    assert_equals(EAN13('ISBN-9780826497529'), '9780826497529')
+    assert_equals(EAN13('ISBN9780826497529'), '9780826497529')
+    assert_equals(EAN13('isbn9780826497529'), '9780826497529')
+    assert_equals(EAN13('isbn 0826497527'), '9780826497529')

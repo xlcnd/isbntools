@@ -2,16 +2,16 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from isbntools import quiet_errors, doi
+from isbntools import quiet_errors, EAN13
 
 
 def usage():
-    print('Usage: isbn_doi ISBN')
+    print('Usage: isbn_EAN13 ISBN')
 
 
 if __name__ == "__main__":
     sys.excepthook = quiet_errors
     try:
-        print(doi(sys.argv[1]))
+        print(EAN13(sys.argv[1]))
     except:
         usage()
