@@ -1,5 +1,5 @@
 # flake8: noqa
-# pylint: skip file
+# pylint: skip-file
 
 [SYS]
 # If you have a slow internet connection you could rise these values
@@ -10,7 +10,7 @@ THREADS_TIMEOUT=11
 
 [SERVICES]
 # 'merge' gives the best result (in quality of data), and 'serial'
-# is faster for fast internet connections. 
+# is faster for fast internet connections.
 DEFAULT_SERVICE=merge
 VIAS_MERGE=serial
 
@@ -19,9 +19,9 @@ VIAS_MERGE=serial
 # Plugins implement additional metadata providers and will be registered as that!
 #
 # In the left side put the name of the plugin and in the right side the name
-# of the file that implements the plugin (in this case the file MUST be 
+# of the file that implements the plugin (in this case the file MUST be
 # inside the directory 'isbntools/contrib/plugins').
-# 
+#
 # In alternative, you can put the file inside any directory you want, but
 # you MUST write in the right side the FULL path of the DIRECTORY and the
 # file that implements the plugin MUST be named with the pattern 'left_side.py'
@@ -31,8 +31,8 @@ openl=openl.py
 
 
 [MODULES]
-# Modules can do whatever you want and can use external libraries. 
-# They must be inside ONE directory. 
+# Modules can do whatever you want and can use external libraries.
+# They must be inside ONE directory.
 #
-# We can have access to the options set in this section 
-# (ex: myoption=myvalue) by myvalue = config.options("MYOPTION") 
+# We can have access to the options set in this section
+# (ex: myoption=myvalue) by myvalue = config.options("MYOPTION")

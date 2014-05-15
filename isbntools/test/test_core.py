@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # flake8: noqa
+# pylint: skip-file
 
 from nose.tools import assert_equals
 from ..core import (_check_digit10, _check_digit13, _check_structure10,
