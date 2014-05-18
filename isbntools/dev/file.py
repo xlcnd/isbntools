@@ -64,9 +64,12 @@ class File(object):
         if basename != os.path.basename(basename):
             LOGGER.critical("This %s is not a basename!", basename)
             return False
-        name, _ = os.path.splitext(basename)
+        name, ext = os.path.splitext(basename)
         if len(name) == 0:
             LOGGER.critical("Not a valid name (lenght 0)!")
+            return False
+        if len(ext) == 0:
+            LOGGER.critical("Not a valid extension (lenght 0)!")
             return False
         return True
 
