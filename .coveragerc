@@ -17,6 +17,7 @@ omit =
     *plugins*
     *.conf.py
     *hook.py
+    *file.py
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
