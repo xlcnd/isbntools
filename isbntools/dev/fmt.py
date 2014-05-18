@@ -7,11 +7,11 @@ from .helpers import last_first
 
 
 bibtex = r"""@book{$ISBN,
-  title={$Title},
-  author={$AUTHORS},
-  isbn={$ISBN},
-  year={$Year},
-  publisher={$Publisher}
+    title  = {$Title},
+    author = {$AUTHORS},
+      isbn = {$ISBN},
+      year = {$Year},
+ publisher = {$Publisher}
 }"""
 
 endnote = r"""%0 Book
