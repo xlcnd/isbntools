@@ -103,6 +103,7 @@ see them as a learning opportunity. Thanks!
 |                             | http://git-scm.com/documentation                                        |
 |                             | http://gitimmersion.com/                                                |
 |                             | http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX |
+|                   nosetests | http://pythontesting.net/framework/nose/nose-introduction/              |
 |                contributing | https://www.youtube.com/watch?v=IXnNgLmd6BM                             |
 |                             | http://openhatch.org/missions                                           |
 |                             | http://opensource.com/resources/how-get-started-open-source             |
