@@ -106,6 +106,7 @@ def test_get_canonical_isbn():
     assert_equals(get_canonical_isbn('0826497520'), None)
     assert_equals(get_canonical_isbn('9780826497529'), '9780826497529')
     assert_equals(get_canonical_isbn('9780826497520'), None)
+    assert_equals(get_canonical_isbn('OSX 9780826497529.pdf'), '9780826497529')
 
 
 def test_canonical():

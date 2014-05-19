@@ -220,11 +220,12 @@ def get_canonical_isbn(isbnlike, output='bouth'):
         LOGGER.error('output as no option %s', output)
         return
 
-    regex = RE_STRICT
+    regex = RE_NORMAL
 
-    if regex.search(isbnlike):
+    match = regex.search(isbnlike)
+    if match:
         # Get only canonical characters and split them into a list
-        cisbn = canonical(isbnlike)
+        cisbn = canonical(match.group())
         chars = list(cisbn)
         # Remove the last digit from `chars` and assign it to `last`
         last = chars.pop()
