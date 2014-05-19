@@ -6,7 +6,7 @@
 
 """
 import os
-from ..dev.file import File, cwdfiles
+from ..dev.files import File, cwdfiles
 from nose.tools import assert_equals, assert_raises
 
 
