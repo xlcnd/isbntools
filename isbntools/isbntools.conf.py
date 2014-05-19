@@ -1,5 +1,12 @@
 # flake8: noqa
 # pylint: skip-file
+[MISC]
+# The place to put somes miscellaneous options
+#
+# Available placeholders: {firstauthourlast}, {authors}, {etall},
+#                         {title}, {year}, {isbn}
+REN_FORMAT="{firstauthourlast}{year}_{title}_{isbn}"
+
 
 [SYS]
 # If you have a slow internet connection you could rise these values
