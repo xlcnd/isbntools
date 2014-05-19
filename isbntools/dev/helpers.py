@@ -64,3 +64,19 @@ def in_virtual():
     Detects if the program is running inside a python virtual environment
     """
     return True if hasattr(sys, 'real_prefix') else False
+
+
+def chop_tokens(tokens, cutoff):
+    """
+    Keeps only the tokens with total length <= cutoff
+    """
+    ltokens = [len(t) for t in tokens]
+    length = 0
+    stokens = []
+    for token, l in zip(tokens, ltokens):
+        if length + l <= cutoff:
+            length = length + l
+            stokens.append(token)
+        else:
+            break
+    return stokens

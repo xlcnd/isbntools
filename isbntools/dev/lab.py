@@ -3,6 +3,6 @@
 # pylint: skip-file
 from .fmt import fmtbib, fmts
 from .helpers import unicode_to_utf8tex as to_utf8tex
-from .helpers import normalize_space, last_first, in_virtual
+from .helpers import normalize_space, last_first, in_virtual, chop_tokens
 from .files import File, cwdfiles
 from .. import bouth23
