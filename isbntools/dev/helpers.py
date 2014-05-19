@@ -66,7 +66,7 @@ def in_virtual():
     return True if hasattr(sys, 'real_prefix') else False
 
 
-def chop_tokens(tokens, cutoff):
+def cutoff_tokens(tokens, cutoff):
     """
     Keeps only the tokens with total length <= cutoff
     """
