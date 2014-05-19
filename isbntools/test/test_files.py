@@ -10,8 +10,8 @@ from ..dev.files import File, cwdfiles
 from nose.tools import assert_equals, assert_raises
 
 
-TESTFILE = '/tmp/deleteme.pdf'
-NEW_BASENAME = 'deleteme-PLEASE.pdf'
+TESTFILE = '/tmp/海明威-deleteme.pdf'
+NEW_BASENAME = '海明威-deleteme-PLEASE.pdf'
 
 
 def setup_module():
@@ -25,7 +25,7 @@ def teardown_module():
 
 
 def test_exists():
-    f = File(TESTFILE)    
+    f = File(TESTFILE)
 
 
 def test_validate():

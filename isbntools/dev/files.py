@@ -63,7 +63,7 @@ class File(object):
         Minimum checks for a basename
         """
         if basename != os.path.basename(basename):
-            LOGGER.critical("This %s is not a basename!", basename)
+            LOGGER.critical("This (%s) is not a basename!", basename)
             return False
         name, ext = os.path.splitext(basename)
         if len(name) == 0:
@@ -96,7 +96,7 @@ class File(object):
             self.ext = ext
             return True
         else:
-            LOGGER.info("This file %s already exists in the directory!",
+            LOGGER.info("The file (%s) already exists in the directory!",
                         new_basename)
             return False
 
