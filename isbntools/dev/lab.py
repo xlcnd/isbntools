@@ -4,5 +4,5 @@
 from .fmt import fmtbib, fmts
 from .helpers import unicode_to_utf8tex as to_utf8tex
 from .helpers import normalize_space, last_first, in_virtual
-from .file import File
+from .file import File, cwdfiles
 from .. import bouth23

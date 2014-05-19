@@ -7,6 +7,7 @@ Helper module to work with files
 import re
 import os
 import logging
+import fnmatch
 from .exceptions import FileNotFoundError
 
 MAXLEN = 100
@@ -98,3 +99,10 @@ class File(object):
             LOGGER.info("This file %s already exists in the directory!",
                         new_basename)
             return False
+
+
+def cwdfiles(pattern='*'):
+    """
+    Lists the files in current directory that match a given pattern
+    """
+    return fnmatch.filter(os.listdir('.'), pattern)

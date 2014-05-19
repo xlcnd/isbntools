@@ -6,7 +6,7 @@
 
 """
 import os
-from ..dev.file import File
+from ..dev.file import File, cwdfiles
 from nose.tools import assert_equals, assert_raises
 
 
@@ -52,10 +52,7 @@ def test_baserename():
     assert f.baserename(NEW_BASENAME) == True
 
 
-
-    
-
-
-
-
-
+def test_cwdfiles():
+    assert (NEW_BASENAME in cwdfiles()) == True
+    assert (NEW_BASENAME in cwdfiles('*.pdf')) == True
+    assert (NEW_BASENAME in cwdfiles('*.txt')) == False
