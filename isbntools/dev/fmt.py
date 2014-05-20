@@ -7,7 +7,7 @@ from .helpers import last_first
 
 
 bibtex = r"""@book{$ISBN,
-    title  = {$Title},
+     title = {$Title},
     author = {$AUTHORS},
       isbn = {$ISBN},
       year = {$Year},
