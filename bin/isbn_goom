@@ -3,6 +3,7 @@
 
 import sys
 import logging
+from difflib import get_close_matches
 from isbntools import quiet_errors
 from isbntools.contrib.modules.goom import goom
 from isbntools.dev.fmt import fmtbib, fmts
@@ -35,6 +36,9 @@ if __name__ == "__main__":
         words, fmt = parse_args(sys.argv[1:])
         if not words:
             raise
+        match = get_close_matches(fmt, fmts)
+        if len(match) == 1:
+            fmt = match[0]
         fmt = fmt if fmt else 'labels'
         for r in goom.query(words):
             print((fmtbib(fmt, r)))
