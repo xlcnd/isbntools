@@ -14,7 +14,7 @@ try:
     conf_file = conf.files[-1] if conf.files else os.path.join(pkg_path, defaults_conf)
 
     __all__ = ['pkg_version', 'pkg_path', 'pkg_options', 'reg_mod',
-               'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf']
+               'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt']
 except:
     pass
 
@@ -74,6 +74,8 @@ def mk_conf():
         with open(__conf_file(), 'wb') as f:
             conf.write(f)
 
+def reg_myopt(opt, value):
+    __write2conf('MISC', {opt.upper(): value})
 
 def print_conf():
     if conf_file.endswith('.py'):

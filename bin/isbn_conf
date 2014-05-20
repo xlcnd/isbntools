@@ -4,23 +4,25 @@
 import sys
 from isbntools import quiet_errors
 from isbntools.contrib.hook import (reg_plugin, reg_apikey, mk_conf,
-                                    print_conf, reg_mod)
+                                    print_conf, reg_mod, reg_myopt)
 
 VERBS = {'show': print_conf, 'make': mk_conf,
          'setkey': reg_apikey, 'regplugin': reg_plugin,
-         'regmod': lambda x, y: reg_mod({x: y})}
+         'regmod': lambda x, y: reg_mod({x: y}),
+         'setopt': reg_myopt}
 
 
 def usage():
     sys.stderr.write('Usage: isbn_conf COMMAND OPTIONS\n'
                      '\n'
-                     'COMMAND    OPTIONS\n'
-                     '-------    --------------------\n'
-                     'show \n'
-                     'make \n'
-                     'setkey     SERVICE  APIKEY \n'
-                     'regplugin  SERVICE  [DIRECTORY] \n'
-                     'regmod     OPTION   VALUE \n'
+                     'COMMAND    OPTIONS               DESCRIPTION\n'
+                     '-------    --------------------  ----------------------------\n'
+                     'show                             show the conf file\n'
+                     'make                             make a conf file\n'
+                     'setkey     SERVICE  APIKEY       sets an apikey\n'
+                     'regplugin  SERVICE  [DIRECTORY]  registers a service\n'
+                     'regmod     OPTION   VALUE        sets options for modules\n'
+                     'setopt     OPTION   VALUE        sets options in MISC section\n'
                      )
     sys.exit(1)
 
