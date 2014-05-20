@@ -3,6 +3,7 @@
 
 import sys
 import logging
+from difflib import get_close_matches
 from isbntools import (meta, clean, canonical, get_canonical_isbn,
                        config, registry, quiet_errors)
 from isbntools.dev.fmt import fmtbib, fmts
@@ -22,19 +23,21 @@ def parse_args(args):
     api = None
     fmt = None
     isbn = get_canonical_isbn(canonical(clean(args[0])))
-    if len(args) == 1:
+    if len(args) == 1 or not isbn:
         return (isbn, service, fmt, api)
     del args[0]
     providers = list(registry.services.keys())
-    for f in fmts:
-        if f in args:
-            fmt = f
-            args.remove(f)
+    for a in args:
+        match = get_close_matches(a, fmts)
+        if len(match) == 1:
+            fmt = match[0]
+            args.remove(a)
             break
-    for s in providers:
-        if s in args:
-            service = s
-            args.remove(s)
+    for a in args:
+        match = get_close_matches(a, providers)
+        if len(match) == 1:
+            service = match[0]
+            args.remove(a)
             break
     api = args[0] if args else None
     return (isbn, service, fmt, api)
