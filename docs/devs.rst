@@ -99,11 +99,11 @@ the future.
 **You can browse the code, in a very structured way, at** sourcegraph_.
 
 
-.. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/wcat.py
+.. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/_wcat.py
 
-.. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/isbndb.py
+.. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/_isbndb.py
 
-.. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/merge.py
+.. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/_merge.py
 
 .. _help: http://bit.ly/1jcxq8W
 
