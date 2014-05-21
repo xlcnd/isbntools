@@ -10,7 +10,7 @@ import logging
 import fnmatch
 from .exceptions import FileNotFoundError
 
-MAXLEN = 100
+MAXLEN = 120
 ILEGAL = r'<>:"/\|?*'
 LOGGER = logging.getLogger(__name__)
 
