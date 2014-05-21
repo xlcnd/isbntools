@@ -99,6 +99,11 @@ $ isbn_EAN13 ISBN
 ```
 returns the EAN13 code of a given ISBN.
 
+```bash
+$ isbn_ren PATTERN
+```
+renames (using metadata) files in the **current directory** that have ISBNs in their
+filename (e.g. `isbn_ren "*.pdf"`).
 
 ```bash
 $ isbntools

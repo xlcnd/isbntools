@@ -112,6 +112,14 @@ returns the EAN13 code of a given ISBN.
 
 .. code-block:: bash
 
+    $ isbn_ren PATTERN
+
+renames (using metadata) files in the **current directory** that have ISBNs in their
+filename (e.g. ``isbn_ren "*.pdf"``).
+
+
+.. code-block:: bash
+
     $ isbntools
 
 writes version and copyright notice and **checks if there are updates**.
