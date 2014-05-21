@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 
-from ..infogroup import infogroup
-from ..ext import info
+from .._infogroup import infogroup
+from .._ext import info
 from nose.tools import assert_equals, assert_raises
 
 

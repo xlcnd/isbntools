@@ -4,7 +4,7 @@
 # pylint: skip-file
 
 from nose.tools import assert_equals
-from ..core import (_check_digit10, _check_digit13, _check_structure10,
+from .._core import (_check_digit10, _check_digit13, _check_structure10,
     _check_structure13, is_isbn10, is_isbn13, to_isbn10, to_isbn13,
     canonical, clean, notisbn, get_isbnlike, get_canonical_isbn, EAN13)
 from ..data.data4tests import ISBNs

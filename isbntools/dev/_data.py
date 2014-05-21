@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .helpers import normalize_space, titlecase
+from ._helpers import normalize_space, titlecase
 from .exceptions import NotValidMetadataError
 from ..bouth23 import u, type3str
 

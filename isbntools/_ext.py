@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 
-from .metadata import query
-from .infogroup import infogroup
-from .wcated import query as qed
-from .msk import msk
-from .words import goos
-from .core import EAN13
+from ._metadata import query
+from ._infogroup import infogroup
+from ._wcated import query as qed
+from ._msk import msk
+from ._words import goos
+from ._core import EAN13
 
 
 def mask(isbn, separator='-'):

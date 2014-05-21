@@ -5,9 +5,9 @@ Registry for metadata services
 
 import imp
 import sys
-from . import wcat
-from . import goob
-from . import merge
+from . import _wcat as wcat
+from . import _goob as goob
+from . import _merge as merge
 from .exceptions import PluginNotLoadedError
 
 services = {'default': merge.query,

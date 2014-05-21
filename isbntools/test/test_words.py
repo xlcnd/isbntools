@@ -5,7 +5,7 @@
 nose tests
 """
 
-from .. import words
+from .. import _words as words
 from nose.tools import assert_equals
 
 

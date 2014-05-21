@@ -9,9 +9,10 @@ __version__ = '3.2.3'
 
 import os
 from .exceptions import quiet_errors
-from .core import (is_isbn10, is_isbn13, to_isbn10, to_isbn13, clean,
-                   canonical, notisbn, get_isbnlike, get_canonical_isbn, EAN13)
-from .ext import (mask, meta, info, editions, isbn_from_words, doi)
+from ._core import (is_isbn10, is_isbn13, to_isbn10, to_isbn13, clean,
+                    canonical, notisbn, get_isbnlike, get_canonical_isbn,
+                    EAN13)
+from ._ext import (mask, meta, info, editions, isbn_from_words, doi)
 from . import config
 from . import setconf
 from .version import check_version

@@ -5,7 +5,7 @@ Queries the openlibrary.org service for metadata
 
 import logging
 from isbntools.dev.webquery import query as wquery
-from isbntools.dev.data import stdmeta
+from isbntools.dev import stdmeta
 from isbntools.bouth23 import u
 from isbntools.dev.exceptions import (NoDataForSelectorError,
                                       RecordMappingError)

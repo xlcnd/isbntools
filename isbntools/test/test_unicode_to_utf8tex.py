@@ -6,7 +6,7 @@
 nose tests
 """
 
-from ..dev.helpers import unicode_to_utf8tex
+from ..dev._helpers import unicode_to_utf8tex
 from nose.tools import assert_equals
 
 

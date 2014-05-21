@@ -5,7 +5,7 @@
 nose tests
 """
 
-from ..dev.helpers import last_first, cutoff_tokens
+from ..dev._helpers import last_first, cutoff_tokens
 from nose.tools import assert_equals
 
 

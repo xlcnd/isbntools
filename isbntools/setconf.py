@@ -9,7 +9,7 @@ except ImportError:                  # pragma: no cover
 import socket
 from . import config
 from . import registry
-from .dev.helpers import in_virtual
+from .dev.lab import in_virtual
 
 # NOTE: THIS CODE RUNS ON IMPORT!
 

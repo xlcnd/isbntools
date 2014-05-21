@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from .dev.data import Metadata
-from .wcat import query as qwcat
-from .goob import query as qgoob
-from .dev import vias
+from ._wcat import query as qwcat
+from ._goob import query as qgoob
+from .dev import vias, Metadata
 from . import config
 
 

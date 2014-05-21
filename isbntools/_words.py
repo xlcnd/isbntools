@@ -2,7 +2,7 @@
 
 
 import logging
-from .core import get_isbnlike, get_canonical_isbn
+from ._core import get_isbnlike, get_canonical_isbn
 from .dev import webservice
 
 LOGGER = logging.getLogger(__name__)

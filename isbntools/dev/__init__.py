@@ -17,5 +17,5 @@ from .exceptions import (ISBNToolsHTTPError, ISBNToolsURLError,
                          NoDataForSelectorError, ServiceIsDownError,
                          DataWrongShapeError, NotValidMetadataError,
                          RecordMappingError, NoAPIKeyError)
-from .data import Metadata, stdmeta
+from ._data import Metadata, stdmeta
 from . import vias

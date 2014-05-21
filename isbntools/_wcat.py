@@ -5,7 +5,7 @@ Queries the worldcat.org service for metadata
 
 import logging
 from .dev.webquery import query as wquery
-from .dev.data import stdmeta
+from .dev import stdmeta
 from .bouth23 import u
 from .dev.exceptions import (DataWrongShapeError,
                              NoDataForSelectorError,

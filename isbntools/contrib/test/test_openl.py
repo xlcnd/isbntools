@@ -5,7 +5,7 @@
 """ nose tests
 NEEDS isbntools installed!
 """
-from isbntools.metadata import query
+from isbntools._metadata import query
 from nose.tools import assert_equals, assert_raises
 
 

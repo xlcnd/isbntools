@@ -4,7 +4,7 @@
 # pylint: skip-file
 
 from nose.tools import assert_equals, assert_raises
-from ..ext import mask, editions, isbn_from_words, doi
+from .._ext import mask, editions, isbn_from_words, doi
 
 
 # nose tests

@@ -6,7 +6,7 @@
 nose tests
 """
 
-from .. import merge
+from .. import _merge as merge
 from nose.tools import assert_equals
 
 

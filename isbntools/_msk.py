@@ -3,7 +3,7 @@
 
 import logging
 from .data.data4mask import ranges
-from .core import canonical, to_isbn13
+from ._core import canonical, to_isbn13
 
 LOGGER = logging.getLogger(__name__)
 

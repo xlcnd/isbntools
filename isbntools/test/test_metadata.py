@@ -7,8 +7,8 @@
 D25 |-> RELEASE MINIMAL TESTING. (I DON'T WANTED TO BE BLACKLISTED BY THE SERVICES) <-|
 """
 
-from ..metadata import query
-from ..ext import meta
+from .._metadata import query
+from .._ext import meta
 from nose.tools import assert_equals, assert_raises
 
 
