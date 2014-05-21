@@ -4,13 +4,15 @@ For Devs
 ========
 
 
-Namespaces
-----------
+Main Namespaces
+---------------
 
 In the namespace ``isbntools`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
-``meta``, ``info``, ``editions``, and ``isbn_from_words``.
+``meta``, ``info``, ``editions``, and ``isbn_from_words``. You have access to
+``bouth23`` a small module to make it possible the code to run in **bouth**
+python 2 and python 3.
 
 You can extend the lib by using the classes and functions exposed in
 namespace ``isbntools.dev``, namely:
@@ -92,6 +94,18 @@ Helpers
 In ``isbntools.dev.lab`` you can find several methods, that we found very useful,
 but you should consider them as beta software. They can change a lot in
 the future.
+
+
+Conf
+----
+
+With ``isbntools.conf`` you can find methods to edit the conf file.
+
+
+    **WARNING**: If you inspect the library, you will see that there are lot of 
+    private modules (their name starts with '_'). These modules **should not**
+    be accessed directly since, with high probability, your program will break
+    with a further version of the library!
 
 
 ---------------------------------------------------------------------------------
