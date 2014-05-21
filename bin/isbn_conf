@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import sys
+from difflib import get_close_matches
 from isbntools import quiet_errors
-from isbntools.contrib.hook import (reg_plugin, reg_apikey, mk_conf,
-                                    print_conf, reg_mod, reg_myopt)
+from isbntools.conf import (reg_plugin, reg_apikey, mk_conf,
+                            print_conf, reg_mod, reg_myopt)
 
 VERBS = {'show': print_conf, 'make': mk_conf,
          'setkey': reg_apikey, 'regplugin': reg_plugin,
@@ -33,9 +34,10 @@ if __name__ == "__main__":
         nargv = len(sys.argv)
         if nargv > 4 or nargv == 1:
             raise
-        elif nargv == 2:
-            VERBS[sys.argv[1]]()
+        cmd = get_close_matches(sys.argv[1], list(VERBS.keys()))[0]
+        if nargv == 2:
+            VERBS[cmd]()
         elif nargv > 2:
-            VERBS[sys.argv[1]](*sys.argv[2:])
+            VERBS[cmd](*sys.argv[2:])
     except:
         usage()

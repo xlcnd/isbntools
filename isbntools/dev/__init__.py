@@ -6,9 +6,7 @@ __all__ = ['ISBNToolsHTTPError', 'ISBNToolsURLError',
            'ISBNToolsHTTPError', 'ISBNToolsURLError', 'vias',
            'NoDataForSelectorError', 'ServiceIsDownError',
            'DataWrongShapeError', 'NotValidMetadataError',
-           'RecordMappingError', 'NoAPIKeyError',
-           'reg_plugin', 'reg_apikey', 'mk_conf',
-           'print_conf', 'reg_mod', 'reg_myopt'
+           'RecordMappingError', 'NoAPIKeyError'
            ]
 
 
@@ -21,5 +19,3 @@ from .exceptions import (ISBNToolsHTTPError, ISBNToolsURLError,
                          RecordMappingError, NoAPIKeyError)
 from .data import Metadata, stdmeta
 from . import vias
-from ..contrib.hook import (reg_plugin, reg_apikey, mk_conf,
-                            print_conf, reg_mod, reg_myopt)

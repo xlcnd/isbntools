@@ -8,7 +8,7 @@ from .core import canonical, to_isbn13
 LOGGER = logging.getLogger(__name__)
 
 
-def mask(isbn, separator='-'):
+def msk(isbn, separator='-'):
     """ Transforms a canonical ISBN to a `masked` one
 
     `Mask` the ISBN, separating by identifier

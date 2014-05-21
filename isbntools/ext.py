@@ -4,7 +4,7 @@
 from .metadata import query
 from .infogroup import infogroup
 from .wcated import query as qed
-from .mask import mask as msk
+from .msk import msk
 from .words import goos
 from .core import EAN13
 
