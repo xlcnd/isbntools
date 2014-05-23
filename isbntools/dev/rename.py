@@ -7,9 +7,11 @@ import logging
 
 from ._helpers import last_first
 from ..bouth23 import u
+from .. import config
 
 LOGGER = logging.getLogger(__name__)
-PATTERN = '{firstAuthorLastName}{year}_{title}_{isbn}'
+DEFAULT_PATT = '{firstAuthorLastName}{year}_{title}_{isbn}'
+PATTERN = config.options.get('REN_FORMAT', DEFAULT_PATT)
 
 
 def checkpattern(pattern):
