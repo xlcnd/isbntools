@@ -4,8 +4,7 @@
 import sys
 from isbntools import canonical, clean, config, get_canonical_isbn, \
     get_isbnlike, meta, registry
-from isbntools.dev._files import File
-from isbntools.dev._fmt import fmts
+from isbntools.dev.lab import File, fmts
 from isbntools.dev.rename import checkpattern, newfilename
 
 
@@ -30,14 +29,12 @@ def usage(wservs="wcat|goob|..."):
         '    - {language}\n  '
         '    Author names are separated with commas, (\',\').\n  '
         '    Default pattern is \"'
-        '{authorslast}_{year}_{title}_{isbn}\".\n\n')
+        '{firstAuthorLastName}{year}_{title}_{isbn}\".\n\n')
     sys.exit(1)
 
 
 def parse_args(args):
-    """
-    parse and return a tuple of the command line arguments
-    """
+    """Parse and return a tuple of the command line arguments."""
 
     if len(args) == 2:
         return (args[0], None, None, None, args[1])
@@ -63,7 +60,6 @@ def parse_args(args):
 
 
 def main(args):
-
     try:
         isbnorflag, service, apikey, pattern, filename = parse_args(args)
 

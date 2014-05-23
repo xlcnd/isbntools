@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 
+"""Rename file using metadata."""
+
 import string
 import logging
 
 from ._helpers import last_first
-from isbntools.bouth23 import u
+from ..bouth23 import u
 
 LOGGER = logging.getLogger(__name__)
+PATTERN = '{firstAuthorLastName}{year}_{title}_{isbn}'
 
 
 def checkpattern(pattern):
-    """
-    checks a pattern for renaming a file for validity
-    """
-
+    """Check a pattern for renaming a file for validity."""
     placeholders = ['{authorsFullNames}', '{authorsLastNames}',
                     '{firstAuthorLastName}', '{year}', '{publisher}',
                     '{title}', '{isbn}', '{language}']
@@ -36,12 +36,8 @@ def checkpattern(pattern):
     return True
 
 
-def newfilename(metadata, pattern='{authorsLastNames}_{year}_{title}_{isbn}'):
-    """
-    returns a new file name created from
-    book metadata formatted according to pattern
-    """
-
+def newfilename(metadata, pattern=PATTERN):
+    """Return a new file name created from book metadata."""
     for key in metadata.keys():
         if not metadata[key]:
             metadata[key] = u('UNKNOWN')
@@ -68,5 +64,6 @@ def newfilename(metadata, pattern='{authorsLastNames}_{year}_{title}_{isbn}'):
 
 
 def cleannewname(newname):
+    """Strip '.,_' from newname."""
     newname = newname.strip('.,_')
     return newname.strip()
