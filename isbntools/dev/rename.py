@@ -65,5 +65,5 @@ def newfilename(metadata, pattern=PATTERN):
 
 def cleannewname(newname):
     """Strip '.,_' from newname."""
-    newname = newname.strip('.,_')
-    return newname.strip()
+    newname = newname.strip().strip('.,_')
+    return newname
