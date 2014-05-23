@@ -2,11 +2,13 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import logging
 from isbntools import canonical, clean, config, get_canonical_isbn, \
-    get_isbnlike, meta, registry
+    get_isbnlike, meta, registry, quiet_errors
 from isbntools.dev.lab import File, fmts
 from isbntools.dev.rename import checkpattern, newfilename
 
+logging.basicConfig(level=logging.CRITICAL)
 
 def usage(wservs="wcat|goob|..."):
     sys.stderr.write('Usage: \n\nisbn_ren [ISBN|\'-f\'] [%s] '
@@ -73,10 +75,9 @@ def main(args):
             isbn = canonical(get_isbnlike(name, level='normal')[0])
             if not isbn:
                 sys.stderr.write(
-                    'no ISBN found in file name \'' + name + '\'' + '\n')
+                    'no ISBN found in file name %s \n' % name)
                 return None
-            sys.stderr.write('found ISBN in file name: '
-                             + isbn + '\n')
+            sys.stderr.write('found ISBN in file name %s \n' % isbn)
 
         if apikey:
             try:
@@ -91,20 +92,23 @@ def main(args):
 
         ext = oldfile.ext
         if pattern:
-            newbasename = newfilename(metadata, pattern) + ext
+            newname = newfilename(metadata, pattern)
         else:
-            newbasename = newfilename(metadata) + ext
+            newname = newfilename(metadata)
+        if newname:
+            newbasename = newname + ext
+        else:
+            sys.stderr.write('%s NOT renamed \n' % filename)
+            return
 
         oldbasename = oldfile.basename
         success = oldfile.baserename(newbasename)
         if success:
-            sys.stdout.write('renamed \''
-                             + oldbasename + '\' to \''
-                             + oldfile.basename + '\'\n')
+            sys.stdout.write('renamed %s to %s \n' % (oldbasename, oldfile.basename))
         return oldfile.basename
 
     except Exception as e:
-        sys.stderr.write(str(e) + '\n')
+        sys.stderr.write("%s\n" % e)
         sys.stderr.write('\n')
         providers = list(registry.services.keys())
         providers.remove('default')
@@ -112,13 +116,13 @@ def main(args):
         try:
             fmts.remove('labels')
         except ValueError as e:
-            sys.stderr.write('Already removed \'labels\' from fmts: '
-                             + str(e))
+            sys.stderr.write('already removed %s from fmts: %s' % (labels, e))
         usage(available)
         return None
 
 
 if __name__ == "__main__":
+    sys.excepthook = quiet_errors
     if len(sys.argv) > 1:
         main(sys.argv[1:])
     else:

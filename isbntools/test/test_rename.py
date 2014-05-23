@@ -5,13 +5,14 @@
 
 from nose.tools import assert_equals
 from isbntools.dev.rename import checkpattern, newfilename
+from ..bouth23 import u
 
 """
 nose tests
 """
 
 
-def test_rename_dev():
+def test_checkpattern():
     assert_equals(checkpattern(
                   '{authorsLastNames}_{year}_{title}_{isbn}.pdf'), True)
     assert_equals(checkpattern('mypattern.pdf'), False)
@@ -21,6 +22,8 @@ def test_rename_dev():
                   '{publisher}({title}){isbn}{language}'), True)
     assert_equals(checkpattern('authors:{authorsFullNames}'), False)
 
+
+def test_newfilename():
     metadata = {'Title': 'A Dictionary Of The Internet',
                 'Authors': ['Darrel Ince', 'Oxford University Press'],
                 'Publisher': 'Oxford University Press',
@@ -36,13 +39,16 @@ def test_rename_dev():
     assert_equals(newfilename(metadata,
                   'myfile_{year} {authorsLastNames}.pdf'),
                   'myfile_2009 Ince,Press.pdf')
+
     assert_equals(newfilename(metadata, 'myfile_{nokey}'), None)
     assert_equals(newfilename(metadata, '{authorsFullNames}: {title}'),
                   'Darrel Ince,Oxford University Press: A '
                   'Dictionary Of The Internet')
     assert_equals(newfilename(metadata, 'myfile.pdf'), 'myfile.pdf')
 
-    metadata['Publisher'] = ''
+    metadata['Publisher'] = u('')
     assert_equals(newfilename(metadata,
                   pattern='{authorsFullNames}_{publisher}_{language}'),
                   'Darrel Ince,Oxford University Press_UNKNOWN_eng')
+    metadata['Title'] = u('')
+    assert_equals(newfilename(metadata), None)

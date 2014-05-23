@@ -4,21 +4,21 @@
 
 import string
 import logging
-
 from ._helpers import last_first
 from ..bouth23 import u
 from .. import config
 
 LOGGER = logging.getLogger(__name__)
+
 DEFAULT_PATT = '{firstAuthorLastName}{year}_{title}_{isbn}'
 PATTERN = config.options.get('REN_FORMAT', DEFAULT_PATT)
 
 
 def checkpattern(pattern):
     """Check a pattern for renaming a file for validity."""
-    placeholders = ['{authorsFullNames}', '{authorsLastNames}',
+    placeholders = ('{authorsFullNames}', '{authorsLastNames}',
                     '{firstAuthorLastName}', '{year}', '{publisher}',
-                    '{title}', '{isbn}', '{language}']
+                    '{title}', '{isbn}', '{language}')
     tocheck = pattern[:]
 
     placeholderfound = False
@@ -27,15 +27,19 @@ def checkpattern(pattern):
             tocheck = tocheck.replace(placeholder, '')
             placeholderfound = True
     if not placeholderfound:
-        LOGGER.warning('no placeholders found in pattern \'' + pattern + '\'')
+        LOGGER.warning('Not valid pattern %s', pattern)
         return False
 
     validchars = '-_.,() {0}{1}'.format(string.ascii_letters, string.digits)
-    for char in tocheck:
-        if char not in validchars:
-            LOGGER.warning('invalid character in pattern: \'' + char + '\'')
-            return False
+    for placeholder in tocheck:
+        for char in placeholder:
+            if char not in validchars:
+                LOGGER.warning('Invalid character in pattern (%s)', char)
+                return False
     return True
+
+
+PATTERN = PATTERN if checkpattern(PATTERN) else DEFAULT_PATT
 
 
 def newfilename(metadata, pattern=PATTERN):
@@ -57,15 +61,17 @@ def newfilename(metadata, pattern=PATTERN):
                         for authorname in metadata['Authors']]
     d['authorsLastNames'] = ','.join(authorslastnames)
     d['firstAuthorLastName'] = authorslastnames[0]
-
+    if d['title'] == u('UNKNOWN') or d['isbn'] == u('UNKNOWN'):
+        LOGGER.critical('Not enough metadata')
+        return
     try:
         formatted = u(pattern).format(**d)
         return cleannewname(formatted)
     except KeyError as e:
-        LOGGER.warning('unknown placeholder: ' + str(e))
+        LOGGER.warning('Error with placeholder: %s', e)
+        return
 
 
 def cleannewname(newname):
     """Strip '.,_' from newname."""
-    newname = newname.strip().strip('.,_')
-    return newname
+    return newname.strip().strip('.,_')
