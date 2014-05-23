@@ -1,3 +1,4 @@
+"""Define isbntools API."""
 
 __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'to_isbn10', 'to_isbn13', 'get_isbnlike', 'notisbn', 'EAN13',

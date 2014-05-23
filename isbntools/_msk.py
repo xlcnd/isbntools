@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+"""Hyphenate an ISBN."""
 
 import logging
 from .data.data4mask import ranges
@@ -9,7 +9,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 def msk(isbn, separator='-'):
-    """ Transforms a canonical ISBN to a `masked` one
+    """Transform a canonical ISBN to a `masked` one.
 
     `Mask` the ISBN, separating by identifier
     ISBN-10 identifiers: country-publisher-title-check

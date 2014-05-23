@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+# flake8:noqa
+# pylint: skip-file
+
+"""Help code to run in py1 and py3."""
+
+
 import sys
 
 if sys.version < '3':

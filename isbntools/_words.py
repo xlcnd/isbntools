@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Use Google to get an ISBN from words from title and author's name."""
 
 
 import logging
@@ -9,9 +10,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 def goos(words):
-    """
-    Uses Google Search to get an ISBN from words from title and author's name
-    """
+    """Use Google to get an ISBN from words from title and author's name."""
     search_url = "http://www.google.com/search?q=%s+ISBN" % \
                  words.replace(' ', '+')
     user_agent = 'w3m/0.5.2'
