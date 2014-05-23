@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
-Helper module to work with files
-"""
+"""Helper module to work with files."""
 
 import re
 import os
@@ -16,14 +14,11 @@ LOGGER = logging.getLogger(__name__)
 
 
 class File(object):
-    """
-    Allows easy manipulation of files on the SAME directory
-    """
+
+    """Easy manipulation of files on the SAME directory."""
 
     def __init__(self, fp):
-        """
-        Sets and validates the basic properties
-        """
+        """Set and validate the basic properties."""
         if not self.exists(fp):
             raise FileNotFoundError(fp)
         self.path = os.path.dirname(fp) or os.getcwd()
@@ -31,16 +26,12 @@ class File(object):
         self.name, self.ext = os.path.splitext(self.basename)
 
     def siblings(self):
-        """
-        Collection of other files and folders in the same folder
-        """
+        """Collect files and folders in the same folder."""
         return [f for f in os.listdir(self.path) if f != self.basename]
 
     @staticmethod
     def exists(fp):
-        """
-        Checks if a given filepath exists
-        """
+        """Check if a given filepath exists."""
         if not os.path.isfile(fp):
             LOGGER.critical("This file %s doesn't exist", fp)
             return False
@@ -48,9 +39,7 @@ class File(object):
 
     @staticmethod
     def mkwinsafe(name, space=' '):
-        """
-        Deletes the most common characters not allowed in Windows filenames
-        """
+        """Delete most common characters not allowed in Windows filenames."""
         space = space if space not in ILEGAL else ' '
         name = ''.join(c for c in name if c not in ILEGAL)\
                .replace(' ', space).strip()
@@ -59,9 +48,7 @@ class File(object):
 
     @staticmethod
     def validate(basename):
-        """
-        Minimum checks for a basename
-        """
+        """Check for a proper basename."""
         if basename != os.path.basename(basename):
             LOGGER.critical("This (%s) is not a basename!", basename)
             return False
@@ -75,9 +62,7 @@ class File(object):
         return True
 
     def baserename(self, new_basename):
-        """
-        Renames the file to a 'safe' basename
-        """
+        """Rename the file to a 'safe' basename."""
         if not self.validate(new_basename):
             return False
         name, ext = os.path.splitext(new_basename)
@@ -102,7 +87,5 @@ class File(object):
 
 
 def cwdfiles(pattern='*'):
-    """
-    Lists the files in current directory that match a given pattern
-    """
+    """List the files in current directory that match a given pattern."""
     return fnmatch.filter(os.listdir('.'), pattern)

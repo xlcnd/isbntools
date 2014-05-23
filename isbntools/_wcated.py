@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Queries the worldcat.org service for related ISBNs
-"""
+"""Query the worldcat.org service for related ISBNs."""
 
 import logging
 from ast import literal_eval
@@ -15,9 +13,7 @@ SERVICE_URL = 'http://xisbn.worldcat.org/webservices/xid/isbn/%s?'\
 
 
 def _editions(isbn, data):
-    """
-    Returns the records from the parsed response
-    """
+    """Return the records from the parsed response."""
     try:
         # put the selected data in records
         records = [ib['isbn'][0] for ib in data['list']]
@@ -33,8 +29,6 @@ def _editions(isbn, data):
 
 
 def query(isbn):
-    """
-    Queries the worldcat.org service for metadata
-    """
+    """Query the worldcat.org service for related ISBNs."""
     data = wquery(SERVICE_URL % isbn, UA, parser=literal_eval)
     return _editions(isbn, data)

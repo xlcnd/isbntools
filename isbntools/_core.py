@@ -17,7 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-""" isbntools main file
+"""isbntools main file.
 
 Tools for extracting, cleaning, transforming and validating ISBN ids.
 """
@@ -47,7 +47,7 @@ LEGAL = '0123456789xXisbnISBN- '
 
 
 def _check_digit10(firstninedigits):
-    """ Checks """
+    """Check sum ISBN-10."""
     # minimum checks
     if len(firstninedigits) != 9:
         return None
@@ -69,7 +69,7 @@ def _check_digit10(firstninedigits):
 
 
 def _check_digit13(firsttwelvedigits):
-    """ Checks """
+    """Check sum ISBN-13."""
     # minimum checks
     if len(firsttwelvedigits) != 12:
         return None
@@ -87,7 +87,7 @@ def _check_digit13(firsttwelvedigits):
 
 
 def _check_structure10(isbn10like):
-    """ Looks like a isbn-10? """
+    """Check structure of an ISBN-10."""
     match = re.match(RE_ISBN10, isbn10like)
     if match:
         return True
@@ -96,7 +96,7 @@ def _check_structure10(isbn10like):
 
 
 def _check_structure13(isbn13like):
-    """ Looks like an isbn-13? """
+    """Check structure of an ISBN-13."""
     if re.match(RE_ISBN13, isbn13like):
         return True
     else:
@@ -104,7 +104,7 @@ def _check_structure13(isbn13like):
 
 
 def is_isbn10(isbn10):
-    """ Is an isbn-10? """
+    """Validate as ISBN-10."""
     isbn10 = canonical(isbn10)
     if len(isbn10) != 10:
         return False          # pragma: no cover
@@ -116,7 +116,7 @@ def is_isbn10(isbn10):
 
 
 def is_isbn13(isbn13):
-    """ Is an isbn-13? """
+    """Validate as ISBN-13."""
     isbn13 = canonical(isbn13)
     if len(isbn13) != 13:
         return False          # pragma: no cover
@@ -128,7 +128,7 @@ def is_isbn13(isbn13):
 
 
 def to_isbn10(isbn13):
-    """ isbn-13 to isbn-10 """
+    """Transform isbn-13 to isbn-10."""
     # Check prefix
     if isbn13[:3] != ISBN13_PREFIX:
         return None
@@ -139,27 +139,27 @@ def to_isbn10(isbn13):
 
 
 def to_isbn13(isbn10):
-    """ isbn-10 to isbn-13 """
+    """Transform isbn-10 to isbn-13."""
     isbn13 = ISBN13_PREFIX + isbn10[:-1]
     check = _check_digit13(isbn13)
     return isbn13 + check if check else None
 
 
 def canonical(isbnlike):
-    """ Only numbers and X """
+    """Keep only numbers and X."""
     numb = [c for c in isbnlike if c in '0123456789X']
     return ''.join(numb)
 
 
 def clean(isbnlike):
-    """ Clean isbn (only legal characters) """
+    """Clean ISBN (only legal characters)."""
     cisbn = [c for c in isbnlike if c in LEGAL]
     buf = re.sub(r'\s*-\s*', '-', ''.join(cisbn))
     return re.sub(r'\s+', ' ', buf).strip()
 
 
 def notisbn(isbnlike, level='strict'):
-    """ Multiple checks with the goal to invalidate isbn-like
+    """Check with the goal to invalidate isbn-like.
 
     These values are possible for `level`:
        * `strict` for certain they are not ISBNs (default)
@@ -176,17 +176,13 @@ def notisbn(isbnlike, level='strict'):
         return False
     if len(isbnlike) == 10:
         # an isbn-10 starting with 94 is not valid
-        if isbnlike[0:2] == '94':
-            return True
-        return not is_isbn10(isbnlike)
+        return True if isbnlike[0:2] == '94' else not is_isbn10(isbnlike)
     else:
-        if isbnlike[3:5] == '94':
-            return True
-        return not is_isbn13(isbnlike)
+        return True if isbnlike[3:5] == '94' else not is_isbn13(isbnlike)
 
 
 def get_isbnlike(text, level='normal'):
-    """ Extracts all substrings that seem like ISBNs
+    """ Extract all substrings that seem like ISBNs.
 
     Three values are possible for `level`:
        * `strict` almost as certain they are ISBNs
@@ -207,8 +203,7 @@ def get_isbnlike(text, level='normal'):
 
 
 def get_canonical_isbn(isbnlike, output='bouth'):
-    """ Checks for ISBN-10 or ISBN-13 format
-        and returns a ISBN in `canonical` form
+    """Extract ISBNs and transform them to the canonical form.
 
     `output` can be:
        * `isbn10`
@@ -248,8 +243,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
 
 
 def EAN13(isbnlike):
-    """ Transforms an `isbnlike` string in an EAN number (canonical ISBN-13)
-    """
+    """Transform an `isbnlike` string in an EAN number (canonical ISBN-13)."""
     ib = canonical(isbnlike)
     if len(ib) == 13:
         return ib if is_isbn13(ib) else None

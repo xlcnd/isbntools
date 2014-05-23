@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Queries the Google Books (JSON API v1) for metadata
-"""
+"""Query the Google Books (JSON API v1) service for metadata."""
 
 import logging
 from .dev.webquery import query as wquery
@@ -19,13 +17,9 @@ LOGGER = logging.getLogger(__name__)
 
 
 def _mapper(isbn, records):
-    """
-    Mapping canonical <- records
-    """
-    # canonical:
-    # -> ISBN-13, Title, Authors, Publisher, Year, Language
+    """Mapp: canonical <- records."""
+    # canonical: ISBN-13, Title, Authors, Publisher, Year, Language
     try:
-        # mapping: canonical <- records
         canonical = {}
         canonical['ISBN-13'] = u(isbn)
         canonical['Title'] = records.get('title', u('')).replace(' :', ':')
@@ -44,9 +38,7 @@ def _mapper(isbn, records):
 
 
 def _records(isbn, data):
-    """
-    Classifies (canonically) the parsed data
-    """
+    """Classify (canonically) the parsed data."""
     try:
         # put the selected data in records
         records = data['items'][0]['volumeInfo']
@@ -64,8 +56,6 @@ def _records(isbn, data):
 
 
 def query(isbn):
-    """
-    Queries the Google Books (JSON API v1)service for metadata
-    """
+    """Query the Google Books (JSON API v1) service for metadata."""
     data = wquery(SERVICE_URL % isbn, UA)
     return _records(isbn, data)

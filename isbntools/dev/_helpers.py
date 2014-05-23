@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-Private helper functions
-"""
+
+"""Private helper functions."""
 
 import re
 import sys
 
 
 def normalize_space(item):
-    """
-    Normalizes space
+    """Normalize white space.
 
     Strips leading and trailing white space and replaces sequences of
     white space characters with a single space.
@@ -19,8 +17,7 @@ def normalize_space(item):
 
 
 def titlecase(s):
-    """
-    Title case function suitable to normalize book's title in metadata
+    """Format string in title case.
 
     Only changes the first character of each word.
     """
@@ -29,12 +26,7 @@ def titlecase(s):
 
 
 def last_first(author):
-    """
-    Parses an author name into a dict with keys:
-      last  (surname),
-      first (other names)
-    This works in some cases... however is good enough!
-    """
+    """Parse an author name into last (name) and first."""
     if ',' in author:
         tokens = author.split(',')
         last = tokens[0].strip()
@@ -47,9 +39,7 @@ def last_first(author):
 
 
 def unicode_to_utf8tex(utex, filtre=()):
-    """
-    Replaces unicode entities with tex entitites and returns utf8 bytes
-    """
+    """Replace unicode entities with tex entitites and returns utf8 bytes."""
     from ..bouth23 import b, s
     from ..data.data4tex import unicode_to_tex
     btex = utex.encode('utf-8')
@@ -60,16 +50,12 @@ def unicode_to_utf8tex(utex, filtre=()):
 
 
 def in_virtual():
-    """
-    Detects if the program is running inside a python virtual environment
-    """
+    """Detect if the program is running inside a python virtual environment."""
     return True if hasattr(sys, 'real_prefix') else False
 
 
 def cutoff_tokens(tokens, cutoff):
-    """
-    Keeps only the tokens with total length <= cutoff
-    """
+    """Keep only the tokens with total length <= cutoff."""
     ltokens = [len(t) for t in tokens]
     length = 0
     stokens = []

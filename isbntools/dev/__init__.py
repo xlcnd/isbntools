@@ -1,4 +1,4 @@
-__all__ = ['ISBNToolsHTTPError', 'ISBNToolsURLError',
+__all__ = ('ISBNToolsHTTPError', 'ISBNToolsURLError',
            'DataNotFoundAtServiceError',
            'ServiceIsDownError', 'DataWrongShapeError',
            'NotValidMetadataError', 'Metadata', 'stdmeta',
@@ -7,7 +7,7 @@ __all__ = ['ISBNToolsHTTPError', 'ISBNToolsURLError',
            'NoDataForSelectorError', 'ServiceIsDownError',
            'DataWrongShapeError', 'NotValidMetadataError',
            'RecordMappingError', 'NoAPIKeyError'
-           ]
+           )
 
 
 from .webservice import WEBService

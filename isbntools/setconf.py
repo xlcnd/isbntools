@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Read and set config parameters."""
 
 import os
 import sys
@@ -31,7 +32,7 @@ try:
     with open(os.path.join(pkg_path, 'isbntools.conf.py'), 'r') as f:
         conf.readfp(f)
     # read user options
-    if in_virtual():
+    if in_virtual():                 # pragma: no cover
         conf.files = conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
     else:
         if os.name == 'nt':          # pragma: no cover

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+"""Format canonical in bibliographic formats."""
+
 import re
 import uuid
 from string import Template
@@ -72,9 +74,7 @@ def _gen_proc(name, canonical):
 
 
 def _spec_proc(name, fmtrec, authors):
-    """
-    Fixes the Authors records
-    """
+    """Fix the Authors records."""
     if name not in fmts:
         return
     if name == 'labels':
@@ -99,8 +99,6 @@ def _spec_proc(name, fmtrec, authors):
 
 
 def fmtbib(fmtname, canonical):
-    """
-    Returns a canonical record in the selected format
-    """
+    """Return a canonical record in the selected format."""
     return _spec_proc(fmtname, _gen_proc(fmtname, canonical),
                       canonical['Authors'])
