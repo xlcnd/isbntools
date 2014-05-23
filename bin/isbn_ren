@@ -3,8 +3,8 @@
 
 import sys
 import logging
-from isbntools import canonical, clean, config, get_canonical_isbn, \
-    get_isbnlike, meta, registry, quiet_errors
+from isbntools import (canonical, clean, config, get_canonical_isbn,
+                       get_isbnlike, meta, registry, quiet_errors)
 from isbntools.dev.lab import File, fmts
 from isbntools.dev.rename import checkpattern, newfilename
 
@@ -25,7 +25,7 @@ def usage(wservs="wcat|goob|..."):
         '    - {authorsLastNames}    (last names of the author(s))\n  '
         '    - {firstAuthorLastName} (only last name of first author)\n'
         '    - {year}\n  '
-        '    - {publisher}\n  '
+        '    - {publisher}\n'
         '    - {title}\n  '
         '    - {isbn}(ISBN-13) \n  '
         '    - {language}\n  '
@@ -65,7 +65,7 @@ def main(args):
         isbnorflag, service, apikey, pattern, filename = parse_args(args)
 
         if pattern and not checkpattern(pattern):
-            return None
+            return
 
         oldfile = File(filename)
         name = oldfile.name
