@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Provide metadata by merging metadata from other providers."""
 
 from ._wcat import query as qwcat
 from ._goob import query as qgoob
@@ -7,9 +8,7 @@ from . import config
 
 
 def query(isbn, processor=None):
-    """
-    Query function for the `merge provider` (waterfall model)
-    """
+    """Query function for the `merge provider` (waterfall model)."""
     if not processor:
         processor = config.options.get('VIAS_MERGE', processor)
         if not processor:     # pragma: no cover

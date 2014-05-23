@@ -6,9 +6,7 @@ RESULTS = {}
 
 
 def serial(named_tasks, arg):
-    """
-    Serial calls
-    """
+    """Serial calls."""
     try:
         for name, task in named_tasks:
             RESULTS[name] = task(arg)
@@ -18,9 +16,7 @@ def serial(named_tasks, arg):
 
 
 def parallel(named_tasks, arg):
-    """
-    Threaded calls
-    """
+    """Threaded calls."""
     from threading import Thread
 
     def _worker(name, task, arg):
@@ -37,9 +33,7 @@ def parallel(named_tasks, arg):
 
 
 def multi(named_tasks, arg):
-    """
-    Multiprocessing: using several cores (if available)
-    """
+    """Multiprocessing: using several cores (if available)."""
     from multiprocessing import Process, Queue
     q = Queue()
 

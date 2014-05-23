@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Base class to query a webservice and parse the result to py objects."""
 
 import logging
 import json
@@ -12,21 +13,15 @@ LOGGER = logging.getLogger(__name__)
 
 
 class WEBQuery(object):
-    """
-    Base class to query a webservice and parse the result to py objects
-    """
+    """Base class to query a webservice and parse the result to py objects."""
 
     def __init__(self, service_url, ua=UA):
-        """
-        Initializer & call webservice
-        """
+        """Initialize & call webservice."""
         self.url = service_url
         self.data = webservice.query(service_url, ua)
 
     def check_data(self, data_checker=None):  # pragma: no cover
-        """
-        Checks the data & handle errors
-        """
+        """Checks the data & handle errors."""
         if data_checker:
             return data_checker(self.data)
         if self.data == '{}':
@@ -41,16 +36,12 @@ class WEBQuery(object):
         return True
 
     def parse_data(self, parser=json.loads):
-        """
-        Parse the data (default JSON -> PY)
-        """
+        """Parse the data (default JSON -> PY)."""
         return parser(self.data)   # <-- data is now unicode
 
 
 def query(url, user_agent=UA, data_checker=None, parser=json.loads):
-    """
-    Puts the call and returns the data from a web service
-    """
+    """Puts the call and returns the data from a web service."""
     wq = WEBQuery(url, user_agent)
     return wq.parse_data(parser) \
         if wq.check_data(data_checker) else None

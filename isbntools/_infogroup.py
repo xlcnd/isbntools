@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Get the Language/Country of an ISBN."""
 
 import logging
 from .data.data4info import d, identifiers, dnew, newidentifiers
@@ -8,7 +9,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 def infogroup(isbn):
-    """ Language/Country of this ISBN """
+    """Get the Language/Country of this ISBN."""
     # if isbn is not a valid ISBN this def can give a wrong result!
     # -> do a minimal test
     if len(isbn) not in (10, 13):

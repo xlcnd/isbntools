@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+"""Query web services."""
 
 import logging
 import gzip
@@ -18,14 +18,10 @@ LOGGER = logging.getLogger(__name__)
 
 
 class WEBService(object):
-    """
-    Class to query web services
-    """
+    """Class to query web services."""
 
     def __init__(self, url, user_agent=UA, values=None):
-        """
-        Initializer (KISS without subclassing urllib2.BaseHandler!)
-        """
+        """Initialize main properties."""
         self._url = url
         # headers to accept gzipped content
         headers = {'Accept-Encoding': 'gzip', 'User-Agent': user_agent}
@@ -47,9 +43,7 @@ class WEBService(object):
             raise ISBNToolsURLError(e.reason)
 
     def data(self):
-        """
-        Returns the uncompressed data
-        """
+        """Return the uncompressed data."""
         self._response()
         if self.response.info().get('Content-Encoding') == 'gzip':
             buf = bstream(self.response.read())
@@ -61,8 +55,6 @@ class WEBService(object):
 
 
 def query(url, user_agent=UA, values=None):
-    """
-    Query to a web service
-    """
+    """Query to a web service."""
     service = WEBService(url, user_agent, values)
     return service.data()
