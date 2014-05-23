@@ -9,7 +9,7 @@ from isbntools.dev.rename import checkpattern, newfilename
 
 
 def usage(wservs="wcat|goob|..."):
-    sys.stderr.write('Usage: \n\nisbn_rename [ISBN|\'-f\'] [%s] '
+    sys.stderr.write('Usage: \n\nisbn_ren [ISBN|\'-f\'] [%s] '
                      '[\'key=\'apikey] [pattern] filename\n  '
                      '...  or try with '
                      'another service in list!\n' % (wservs))
@@ -35,7 +35,6 @@ def usage(wservs="wcat|goob|..."):
 
 def parse_args(args):
     """Parse and return a tuple of the command line arguments."""
-
     if len(args) == 2:
         return (args[0], None, None, None, args[1])
 
@@ -43,7 +42,7 @@ def parse_args(args):
         return (args[0], args[1], args[2][4:], args[3], args[4])
 
     service = None
-    for s in registry.services.keys():
+    for s in list(registry.services.keys()):
         if args[1] == s:
             service = args[1]
 
@@ -120,4 +119,7 @@ def main(args):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    if len(sys.argv) > 1:
+        main(sys.argv[1:])
+    else:
+        usage()
