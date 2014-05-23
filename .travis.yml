@@ -11,15 +11,17 @@ env:
 - TOXENV=py33
 - TOXENV=py34
 - TOXENV=pypy
-- TOXENV=flake8
+- TOXENV=checkers
 - DOC=sphinx
 matrix:
   allow_failures:
   - env: TOXENV=pypy
+  - env: TOXENV=checkers
 install:
 - pip install tox
 - pip install flake8
 - pip install pep8-naming
+- pip install pep257
 - pip install coveralls
 - pip install sphinx
 script:
