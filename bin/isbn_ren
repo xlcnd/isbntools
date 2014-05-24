@@ -7,7 +7,6 @@ from difflib import get_close_matches
 from isbntools import (canonical, clean, config, get_canonical_isbn,
                        get_isbnlike, meta, registry, quiet_errors)
 from isbntools.dev.lab import File
-from isbntools.dev.rename import checkpattern, newfilename
 
 FORMAT = '%(message)s'
 logging.basicConfig(level=logging.INFO, format=FORMAT)
@@ -67,6 +66,7 @@ def parse_args(args):
 
 
 def main(args):
+    from isbntools.dev.rename import checkpattern, newfilename
     isbn, service, apikey, pattern, filename = parse_args(args)
 
     if pattern and not checkpattern(pattern):
