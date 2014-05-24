@@ -9,14 +9,13 @@ from isbntools import (canonical, clean, config, get_canonical_isbn,
 from isbntools.dev.lab import File
 from isbntools.dev.rename import checkpattern, newfilename
 
-logging.basicConfig(level=logging.CRITICAL)
+FORMAT = '%(message)s'
+logging.basicConfig(level=logging.INFO, format=FORMAT)
 
 
 def usage(wservs="wcat|goob|..."):
     sys.stderr.write('Usage: \n\nisbn_ren [ISBN] [%s] '
-                     '[apikey] [pattern] filename\n  '
-                     '...  or try with '
-                     'another service in list!\n' % (wservs))
+                     '[apikey] [pattern] filename\n  ' % (wservs))
     sys.stderr.write(
         '\n  - If no ISBN is provided, the file name will \n'
         '    be searched for a valid ISBN.\n'
@@ -25,9 +24,9 @@ def usage(wservs="wcat|goob|..."):
         '    and one or more of the following placeholders:\n  '
         '    - {authorsFullNames}    (full names of the author(s))\n  '
         '    - {authorsLastNames}    (last names of the author(s))\n  '
-        '    - {firstAuthorLastName} (only last name of first author)\n'
+        '    - {firstAuthorLastName} (only last name of first author)\n  '
         '    - {year}\n  '
-        '    - {publisher}\n'
+        '    - {publisher}\n  '
         '    - {title}\n  '
         '    - {isbn}(ISBN-13) \n  '
         '    - {language}\n  '
@@ -68,62 +67,58 @@ def parse_args(args):
 
 
 def main(args):
-    try:
-        isbn, service, apikey, pattern, filename = parse_args(args)
+    isbn, service, apikey, pattern, filename = parse_args(args)
 
-        if pattern and not checkpattern(pattern):
-            return
-
-        oldfile = File(filename)
-        name = oldfile.name
-        if not isbn:
-            isbn = canonical(get_isbnlike(name, level='normal')[0])
-            if not isbn:
-                sys.stderr.write('no ISBN found in file name %s \n' % name)
-                return
-
-        if apikey:
-            try:
-                config.add_apikey(service, apikey)
-            except:
-                pass
-
-        if service:
-            metadata = meta(isbn, service)
-        else:
-            metadata = meta(isbn)
-
-        ext = oldfile.ext
-        if pattern:
-            newname = newfilename(metadata, pattern)
-        else:
-            newname = newfilename(metadata)
-        if newname:
-            newbasename = newname + ext
-        else:
-            sys.stderr.write('%s NOT renamed \n' % filename)
-            return
-
-        oldbasename = oldfile.basename
-        success = oldfile.baserename(newbasename)
-        if success:
-            sys.stdout.write('renamed %s to %s \n' %
-                             (oldbasename, oldfile.basename))
-        return oldfile.basename
-
-    except Exception as e:
-        sys.stderr.write("%s\n" % e)
-        sys.stderr.write('\n')
-        providers = list(registry.services.keys())
-        providers.remove('default')
-        available = '|'.join(providers)
-        usage(available)
+    if pattern and not checkpattern(pattern):
         return
+
+    oldfile = File(filename)
+    name = oldfile.name
+    if not isbn:
+        isbn = canonical(get_isbnlike(name, level='normal')[0])
+        if not isbn:
+            sys.stderr.write('no ISBN found in name of file %s \n' % name)
+            return
+
+    if apikey:
+        try:
+            config.add_apikey(service, apikey)
+        except:
+            pass
+
+    if service:
+        metadata = meta(isbn, service)
+    else:
+        metadata = meta(isbn)
+
+    ext = oldfile.ext
+
+    if pattern:
+        newname = newfilename(metadata, pattern)
+    else:
+        newname = newfilename(metadata)
+
+    if newname:
+        newbasename = newname + ext
+    else:
+        sys.stderr.write('%s NOT renamed \n' % filename)
+        return
+
+    oldbasename = oldfile.basename
+    success = oldfile.baserename(newbasename)
+    if success:
+        sys.stdout.write('%s renamed to %s \n' %
+                         (oldbasename, oldfile.basename))
+        return True
+    return
 
 
 if __name__ == "__main__":
     sys.excepthook = quiet_errors
-    if len(sys.argv) > 1:
-        main(sys.argv[1:])
-    else:
-        usage()
+    success = main(sys.argv[1:]) if len(sys.argv) > 1 else False
+    if success:
+        sys.exit(0)
+    providers = list(registry.services.keys())
+    providers.remove('default')
+    available = '|'.join(providers)
+    usage(available)

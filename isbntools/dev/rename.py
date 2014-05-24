@@ -15,7 +15,7 @@ PATTERN = config.options.get('REN_FORMAT', DEFAULT_PATT)
 
 
 def checkpattern(pattern):
-    """Check a pattern for renaming a file for validity."""
+    """Check the validity of pattern for renaming a file."""
     placeholders = ('{authorsFullNames}', '{authorsLastNames}',
                     '{firstAuthorLastName}', '{year}', '{publisher}',
                     '{title}', '{isbn}', '{language}')
