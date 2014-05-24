@@ -105,7 +105,7 @@ def main(args):
         return
 
     oldbasename = oldfile.basename
-    success = oldfile.baserename(newbasename)
+    success = oldfile.baserename(newbasename.encode('utf-8'))
     if success:
         sys.stdout.write('%s renamed to %s \n' %
                          (oldbasename, oldfile.basename))
