@@ -64,6 +64,11 @@ def newfilename(metadata, pattern=PATTERN):
     if d['title'] == u('UNKNOWN') or d['isbn'] == u('UNKNOWN'):
         LOGGER.critical('Not enough metadata')
         return
+
+    # cutoff title at 65
+    cutoff = min(len(d['title']), 65)
+    d['title'] = d['title'][:cutoff]
+
     try:
         formatted = u(pattern).format(**d)
         return cleannewname(formatted)
