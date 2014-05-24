@@ -7,7 +7,7 @@
 # Available placeholders: 
 #     {authorsFullNames}, {authorsLastNames}, {firstAuthorLastName}
 #     {year}, {publisher}, {title}, {isbn}, {language}
-REN_FORMAT="{firstAuthourLastName}{year}_{title}_{isbn}"
+REN_FORMAT={firstAuthorLastName}{year}_{title}_{isbn}
 
 
 [SYS]
