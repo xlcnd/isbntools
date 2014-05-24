@@ -3,21 +3,23 @@
 
 import sys
 import logging
+from difflib import get_close_matches
 from isbntools import (canonical, clean, config, get_canonical_isbn,
                        get_isbnlike, meta, registry, quiet_errors)
-from isbntools.dev.lab import File, fmts
+from isbntools.dev.lab import File
 from isbntools.dev.rename import checkpattern, newfilename
 
 logging.basicConfig(level=logging.CRITICAL)
 
+
 def usage(wservs="wcat|goob|..."):
-    sys.stderr.write('Usage: \n\nisbn_ren [ISBN|\'-f\'] [%s] '
-                     '[\'key=\'apikey] [pattern] filename\n  '
+    sys.stderr.write('Usage: \n\nisbn_ren [ISBN] [%s] '
+                     '[apikey] [pattern] filename\n  '
                      '...  or try with '
                      'another service in list!\n' % (wservs))
     sys.stderr.write(
-        '\n  - If the \'-f\' flag is used instead of an ISBN, \n'
-        '    the file name will be searched for a valid ISBN.\n'
+        '\n  - If no ISBN is provided, the file name will \n'
+        '    be searched for a valid ISBN.\n'
         '  - [pattern] must be a string in quotes containing\n  '
         '    only ASCII letters, digits and \'#\'-_.,() \'\n  '
         '    and one or more of the following placeholders:\n  '
@@ -37,47 +39,48 @@ def usage(wservs="wcat|goob|..."):
 
 def parse_args(args):
     """Parse and return a tuple of the command line arguments."""
-    if len(args) == 2:
-        return (args[0], None, None, None, args[1])
-
-    if len(args) == 5:
-        return (args[0], args[1], args[2][4:], args[3], args[4])
-
+    fn = args[-1]
     service = None
-    for s in list(registry.services.keys()):
-        if args[1] == s:
-            service = args[1]
-
-    if not service:  # second arg is pattern
-        return (args[0], None, None, args[1], args[-1])
-
-    if len(args) == 3:
-        return (args[0], args[1], None, None, args[-1])
-
-    if args[2].startswith('key='):
-        return (args[0], args[1], args[2][4:], None, args[-1])
-    else:
-        return (args[0], args[1], None, args[2], args[-1])
+    key = None
+    isbn = None
+    pattern = None
+    if len(args) == 1:
+        return (isbn, service, key, pattern, fn)
+    isbn = get_canonical_isbn(canonical(clean(args[0])))
+    providers = list(registry.services.keys())
+    if isbn:
+        args.pop(0)
+    if args[0] != fn:
+        service = args[0]
+        match = get_close_matches(service, providers)
+        if len(match) == 1:
+            service = match[0]
+        else:
+            service = None
+            pattern = args[0]
+        key = None if args[1] == fn else args[1]
+        if key and '{' in key:
+            pattern = key
+            key = None
+        if not args[1] == fn:
+            pattern = pattern if args[2] == fn else args[2]
+    return (isbn, service, key, pattern, fn)
 
 
 def main(args):
     try:
-        isbnorflag, service, apikey, pattern, filename = parse_args(args)
+        isbn, service, apikey, pattern, filename = parse_args(args)
 
         if pattern and not checkpattern(pattern):
             return
 
         oldfile = File(filename)
         name = oldfile.name
-        if isbnorflag != '-f':
-            isbn = get_canonical_isbn(canonical(clean(args[0])))
-        else:
+        if not isbn:
             isbn = canonical(get_isbnlike(name, level='normal')[0])
             if not isbn:
-                sys.stderr.write(
-                    'no ISBN found in file name %s \n' % name)
-                return None
-            sys.stderr.write('found ISBN in file name %s \n' % isbn)
+                sys.stderr.write('no ISBN found in file name %s \n' % name)
+                return
 
         if apikey:
             try:
@@ -104,7 +107,8 @@ def main(args):
         oldbasename = oldfile.basename
         success = oldfile.baserename(newbasename)
         if success:
-            sys.stdout.write('renamed %s to %s \n' % (oldbasename, oldfile.basename))
+            sys.stdout.write('renamed %s to %s \n' %
+                             (oldbasename, oldfile.basename))
         return oldfile.basename
 
     except Exception as e:
@@ -113,12 +117,8 @@ def main(args):
         providers = list(registry.services.keys())
         providers.remove('default')
         available = '|'.join(providers)
-        try:
-            fmts.remove('labels')
-        except ValueError as e:
-            sys.stderr.write('already removed %s from fmts: %s' % (labels, e))
         usage(available)
-        return None
+        return
 
 
 if __name__ == "__main__":
