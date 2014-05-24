@@ -26,16 +26,16 @@ def checkpattern(pattern):
         if placeholder in tocheck:
             tocheck = tocheck.replace(placeholder, '')
             placeholderfound = True
-    if not placeholderfound:
+    if not placeholderfound or '{' in tocheck:
         LOGGER.warning('Not valid pattern %s', pattern)
         return False
 
     validchars = '-_.,() {0}{1}'.format(string.ascii_letters, string.digits)
-    for placeholder in tocheck:
-        for char in placeholder:
-            if char not in validchars:
-                LOGGER.warning('Invalid character in pattern (%s)', char)
-                return False
+
+    for char in tocheck:
+        if char not in validchars:
+            LOGGER.warning('Invalid character in pattern (%s)', char)
+            return False
     return True
 
 
