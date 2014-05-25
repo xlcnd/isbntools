@@ -2,7 +2,7 @@
 # flake8:noqa
 # pylint: skip-file
 
-"""Help code to run in py1 and py3."""
+"""Help code to run in py2 and py3."""
 
 
 import sys
@@ -17,6 +17,9 @@ if sys.version < '3':
 
     def u(x):
         return unicode(x, "utf-8")
+
+    def b2u3(x):
+        return x.encode("utf-8")
 
     def type3str():
         return type(u'')
@@ -33,6 +36,9 @@ else:
         return x.encode("utf-8")
 
     def u(x):
+        return x
+
+    def b2u3(x):
         return x
 
     def type3str():
