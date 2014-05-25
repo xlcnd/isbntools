@@ -1,6 +1,4 @@
-"""
-Copyright notice and checks updates
-"""
+"""Copyright notice and checks updates."""
 
 import re
 from .bouth23 import s
@@ -14,9 +12,7 @@ from . import colors
 
 
 def check_version():
-    """
-    Checks online if there is a new version of isbntools
-    """
+    """Check online if there is a new version of isbntools."""
     try:
         from .__init__ import __version__
 

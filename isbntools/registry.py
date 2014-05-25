@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Registry for metadata services
-"""
+"""Registry for metadata services."""
 
 import imp
 import sys
@@ -18,25 +16,19 @@ services = {'default': merge.query,
 
 
 def setdefaultservice(name):
-    """
-    Sets the default service
-    """
+    """Set the default service."""
     global services
     services['default'] = services[name]
 
 
 def add_service(name, query):         # pragma: no cover
-    """
-    Add a new service to services
-    """
+    """Add a new service to services."""
     global services
     services[name] = query
 
 
 def load_plugin(name, plugin_dir):    # pragma: no cover
-    """
-    Loads pluggins
-    """
+    """Load pluggins."""
     try:
         return sys.modules[name]
     except KeyError:
