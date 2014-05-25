@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Queries the isbndb.org service for metadata
-"""
+"""Query the isbndb.org service for metadata."""
 
 import logging
 import re
@@ -21,9 +19,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 def _mapper(isbn, records):
-    """
-    Mapping canonical <- records
-    """
+    """Map canonical <- records."""
     # canonical:
     # -> ISBN-13, Title, Authors, Publisher, Year, Language
     try:
@@ -48,9 +44,7 @@ def _mapper(isbn, records):
 
 
 def _records(isbn, data):
-    """
-    Classifies (canonically) the parsed data
-    """
+    """Classify (canonically) the parsed data."""
     try:
         # put the selected data in records
         records = data['data'][0]
@@ -68,9 +62,7 @@ def _records(isbn, data):
 
 
 def query(isbn):
-    """
-    Queries the isbndb.org service for metadata
-    """
+    """Query the isbndb.org service for metadata."""
     if not apikeys.get('isbndb'):
         raise NoAPIKeyError
     data = wquery(SERVICE_URL % (apikeys['isbndb'], isbn), UA)

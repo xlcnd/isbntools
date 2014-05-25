@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Queries the openlibrary.org service for metadata
-"""
+"""Query the openlibrary.org service for metadata."""
 
 import logging
 from isbntools.dev.webquery import query as wquery
@@ -18,9 +16,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 def _mapper(isbn, records):
-    """
-    Mapping canonical <- records
-    """
+    """Map canonical <- records."""
     # canonical:
     # -> ISBN-13, Title, Authors, Publisher, Year, Language
     try:
@@ -40,9 +36,7 @@ def _mapper(isbn, records):
 
 
 def _records(isbn, data):
-    """
-    Classifies (canonically) the parsed data
-    """
+    """Classify (canonically) the parsed data."""
     try:
         # put the selected data in records
         records = data['ISBN:%s' % isbn]
@@ -54,8 +48,6 @@ def _records(isbn, data):
 
 
 def query(isbn):
-    """
-    Queries the openlibrary.org service for metadata
-    """
+    """Query the openlibrary.org service for metadata."""
     data = wquery(SERVICE_URL % isbn, UA)
     return _records(isbn, data)
