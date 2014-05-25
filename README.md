@@ -105,6 +105,8 @@ $ isbn_ren PATTERN
 renames (using metadata) files in the **current directory** that have ISBNs in their
 filename (e.g. `isbn_ren "*.pdf"`).
 
+>Enter `isbn_ren` to see many other options.
+
 ```bash
 $ isbntools
 ```
