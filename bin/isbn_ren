@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""Rename files using metadata."""
 
 import sys
 import logging
@@ -14,6 +15,7 @@ logging.basicConfig(level=logging.INFO, format=FORMAT)
 
 
 def usage(wservs="wcat|goob|..."):
+    """Write usage message."""
     sys.stderr.write('Usage: \n\nisbn_ren [ISBN] [%s] '
                      '[apikey] [pattern] filename\n  ' % (wservs))
     sys.stderr.write(
@@ -66,38 +68,68 @@ def parse_args(args):
     return (isbn, service, key, pattern, fn)
 
 
+def get_isbn(filename):
+    """Extract the ISBN from file's name."""
+    isbn = canonical(get_isbnlike(filename, level='normal')[0])
+    if not isbn:
+        sys.stderr.write('no ISBN found in name of file %s \n' % filename)
+        return
+    return isbn
+
+
+def reg_apikey(service, apikey):
+    """Register API-KEY."""
+    try:
+        config.add_apikey(service, apikey)
+    except:
+        pass
+
+
+def get_metadata(isbn, service='default'):
+    """Get metadata."""
+    if service:
+        metadata = meta(isbn, service)
+    else:
+        metadata = meta(isbn)
+    return metadata
+
+
+def renfile(oldbasename, newbasename):
+    """Rename file."""
+    oldfile = File(oldbasename)
+    success = oldfile.baserename(b2u3(newbasename))
+    if success:
+        sys.stdout.write('%s renamed to %s \n' %
+                         (oldbasename, newbasename))
+        return True
+    return
+
+
 def main(args):
+    """Rename files."""
     from isbntools.dev.rename import checkpattern, newfilename
     isbn, service, apikey, pattern, filename = parse_args(args)
 
     if pattern and not checkpattern(pattern):
         return
 
-    oldfile = File(filename)
-    name = oldfile.name
     if not isbn:
-        isbn = canonical(get_isbnlike(name, level='normal')[0])
+        isbn = get_isbn(filename)
         if not isbn:
-            sys.stderr.write('no ISBN found in name of file %s \n' % name)
             return
 
     if apikey:
-        try:
-            config.add_apikey(service, apikey)
-        except:
-            pass
+        reg_apikey(service, apikey)
 
-    if service:
-        metadata = meta(isbn, service)
-    else:
-        metadata = meta(isbn)
-
-    ext = oldfile.ext
+    metadata = get_metadata(isbn, service='default')
 
     if pattern:
         newname = newfilename(metadata, pattern)
     else:
         newname = newfilename(metadata)
+
+    oldfile = File(filename)
+    ext = oldfile.ext
 
     if newname:
         newbasename = newname + ext
@@ -106,12 +138,7 @@ def main(args):
         return
 
     oldbasename = oldfile.basename
-    success = oldfile.baserename(b2u3(newbasename))
-    if success:
-        sys.stdout.write('%s renamed to %s \n' %
-                         (oldbasename, oldfile.basename))
-        return True
-    return
+    return renfile(oldbasename, newbasename)
 
 
 if __name__ == "__main__":
