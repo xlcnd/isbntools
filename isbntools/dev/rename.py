@@ -2,11 +2,15 @@
 
 """Rename file using metadata."""
 
+import sys
 import string
 import logging
 from ._helpers import last_first
-from ..bouth23 import u
+from ..bouth23 import u, b2u3
 from .. import config
+from ._files import File, cwdfiles
+from .. import EAN13, get_isbnlike, meta
+
 
 LOGGER = logging.getLogger(__name__)
 
@@ -81,3 +85,45 @@ def newfilename(metadata, pattern=PATTERN):
 def cleannewname(newname):
     """Strip '.,_' from newname."""
     return newname.strip().strip('.,_')
+
+
+def get_isbn(filename):
+    """Extract the ISBN from file's name."""
+    isbn = EAN13(get_isbnlike(filename, level='normal')[0])
+    if not isbn:
+        sys.stderr.write('no ISBN found in name of file %s \n' % filename)
+        return
+    return isbn
+
+
+def renfile(filename, isbn, service, pattern=PATTERN):
+    """Rename file with associate ISBN."""
+    service = service if service else 'default'
+    metadata = meta(isbn, service)
+    newname = newfilename(metadata, pattern)
+    if not newname:
+        sys.stderr.write('%s NOT renamed \n' % filename)
+        return
+    oldfile = File(filename)
+    ext = oldfile.ext
+    newbasename = b2u3(newname + ext)
+    oldbasename = oldfile.basename
+    if oldfile.mkwinsafe(newbasename) == oldbasename:
+        return True
+    success = oldfile.baserename(newbasename)
+    if success:
+        try:
+            sys.stdout.write('%s renamed to %s \n' %
+                             (oldbasename, oldfile.basename))
+        except:
+            pass
+        return True
+    return
+
+
+def rencwdfiles(fnpatt="*", service='default', pattern=PATTERN):
+    """Rename cwd files with a ISBN in their filenames and within fnpatt."""
+    files = [(get_isbn(f), f) for f in cwdfiles(fnpatt) if get_isbn(f)]
+    for isbn, f in files:
+        renfile(f, isbn, service, pattern)
+    return True
