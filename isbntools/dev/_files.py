@@ -80,7 +80,7 @@ class File(object):
         else:
             LOGGER.info("The file (%s) already exists in the directory!",
                         new_basename)
-            return False
+            return True
 
 
 def cwdfiles(pattern='*'):

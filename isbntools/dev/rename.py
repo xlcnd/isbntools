@@ -44,6 +44,7 @@ PATTERN = PATTERN if checkpattern(PATTERN) else DEFAULT_PATT
 
 def newfilename(metadata, pattern=PATTERN):
     """Return a new file name created from book metadata."""
+    pattern = pattern if pattern else PATTERN
     for key in metadata.keys():
         if not metadata[key]:
             metadata[key] = u('UNKNOWN')

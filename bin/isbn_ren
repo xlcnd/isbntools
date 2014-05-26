@@ -7,7 +7,7 @@ import logging
 from difflib import get_close_matches
 from isbntools import (canonical, clean, config, get_canonical_isbn,
                        get_isbnlike, meta, registry, quiet_errors)
-from isbntools.dev.lab import File
+from isbntools.dev.lab import File, cwdfiles
 from isbntools.bouth23 import b2u3
 
 FORMAT = '%(message)s'
@@ -20,7 +20,8 @@ def usage(wservs="wcat|goob|..."):
                      '[apikey] [pattern] filename\n  ' % (wservs))
     sys.stderr.write(
         '\n  - If no ISBN is provided, the file name will \n'
-        '    be searched for a valid ISBN.\n'
+        '    be searched for a valid ISBN and in this case you \n'
+        '    can enter a glob pattern like "*.pdf". \n'
         '  - [pattern] must be a string in quotes containing\n  '
         '    only ASCII letters, digits and \'#\'-_.,() \'\n  '
         '    and one or more of the following placeholders:\n  '
@@ -87,20 +88,23 @@ def reg_apikey(service, apikey):
 
 def get_metadata(isbn, service='default'):
     """Get metadata."""
-    if service:
-        metadata = meta(isbn, service)
-    else:
-        metadata = meta(isbn)
-    return metadata
+    service = service if service else 'default'
+    return meta(isbn, service)
 
 
 def renfile(oldbasename, newbasename):
     """Rename file."""
+    newbasename = b2u3(newbasename)
     oldfile = File(oldbasename)
-    success = oldfile.baserename(b2u3(newbasename))
+    if oldfile.mkwinsafe(newbasename) == oldbasename:
+        return True
+    success = oldfile.baserename(newbasename)
     if success:
-        sys.stdout.write('%s renamed to %s \n' %
-                         (oldbasename, newbasename))
+        try:
+            sys.stdout.write('%s renamed to %s \n' %
+                             (oldbasename, oldfile.basename))
+        except:
+            pass
         return True
     return
 
@@ -110,8 +114,20 @@ def is_fnpatt(filename):
     return True if '*' in filename or '?' in filename else False
 
 
-def rencwdfiles(fnpatt):
+def rencwdfiles(fnpatt="*", pattern='default', service='default'):
     """Rename cwd files with a ISBN in their filenames and within fnpatt."""
+    from isbntools.dev.rename import newfilename
+    files = [(get_isbn(f), f) for f in cwdfiles(fnpatt) if get_isbn(f)]
+    for isbn, file in files:
+        metadata = get_metadata(isbn, service)
+        newname = newfilename(metadata, pattern)
+        if not newname:
+            continue
+        oldfile = File(file)
+        ext = oldfile.ext
+        newbasename = newname + ext
+        oldbasename = oldfile.basename
+        renfile(oldbasename, newbasename)
     return True
 
 
@@ -128,18 +144,13 @@ def main(args):
 
     if not isbn:
         if is_fnpatt(filename):
-            return rencwdfiles(filename)
+            return rencwdfiles(filename, pattern, service)
         isbn = get_isbn(filename)
         if not isbn:
             return
 
-    metadata = get_metadata(isbn, service='default')
-
-    if pattern:
-        newname = newfilename(metadata, pattern)
-    else:
-        newname = newfilename(metadata)
-
+    metadata = get_metadata(isbn, service)
+    newname = newfilename(metadata, pattern)
     oldfile = File(filename)
     ext = oldfile.ext
 
