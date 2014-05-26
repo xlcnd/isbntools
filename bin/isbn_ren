@@ -105,6 +105,16 @@ def renfile(oldbasename, newbasename):
     return
 
 
+def is_fnpatt(filename):
+    """Check if filename is a fnpattern."""
+    return True if '*' in filename or '?' in filename else False
+
+
+def rencwdfiles(fnpatt):
+    """Rename cwd files with a ISBN in their filenames and within fnpatt."""
+    return True
+
+
 def main(args):
     """Rename files."""
     from isbntools.dev.rename import checkpattern, newfilename
@@ -113,13 +123,15 @@ def main(args):
     if pattern and not checkpattern(pattern):
         return
 
+    if apikey:
+        reg_apikey(service, apikey)
+
     if not isbn:
+        if is_fnpatt(filename):
+            return rencwdfiles(filename)
         isbn = get_isbn(filename)
         if not isbn:
             return
-
-    if apikey:
-        reg_apikey(service, apikey)
 
     metadata = get_metadata(isbn, service='default')
 
