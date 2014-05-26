@@ -102,7 +102,7 @@ Conf
 With ``isbntools.conf`` you can find methods to edit the conf file.
 
 
-    **WARNING**: If you inspect the library, you will see that there are lot of 
+    **WARNING**: If you inspect the library, you will see that there are a lot of 
     private modules (their name starts with '_'). These modules **should not**
     be accessed directly since, with high probability, your program will break
     with a further version of the library!
@@ -110,7 +110,8 @@ With ``isbntools.conf`` you can find methods to edit the conf file.
 
 ---------------------------------------------------------------------------------
 
-**You can browse the code, in a very structured way, at** sourcegraph_.
+**You can browse the code, in a very structured way, at** sourcegraph_ (but not
+the most recent version, for that go to GitHub_).
 
 
 .. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/_wcat.py
