@@ -48,3 +48,4 @@ v3.2.1, 2014-05-12 -- Unicode to LaTeX in bibtex (for devs), a  more robust `mer
 v3.2.2, 2014-05-12 -- Fix conf error (close #40).
 v3.2.2a, 2014-05-13 -- Fix installer.
 v3.2.3, 2014-05-25 -- EAN13, doi, rename files using metadata, conf editor and new features to make easier to contrib.
+v3.2.4, 2014-06-02 -- TENTATIVE 

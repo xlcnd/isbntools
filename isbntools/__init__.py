@@ -6,7 +6,7 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'quiet_errors', 'config', 'setconf', '__version__', 'doi',
            'check_version', 'ISBN13')
 
-__version__ = '3.2.3'
+__version__ = '3.2.4'
 
 import os
 from .exceptions import quiet_errors
