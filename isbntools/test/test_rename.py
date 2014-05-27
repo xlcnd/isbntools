@@ -4,7 +4,7 @@
 # pylint: skip-file
 
 import os
-from nose.tools import assert_equals
+from nose.tools import assert_equals, assert_raises
 from isbntools.dev.rename import (checkpattern, newfilename, get_isbn,
                                   renfile, rencwdfiles)
 from isbntools.dev.lab import File, cwdfiles
@@ -38,6 +38,7 @@ FILES = FISBN + FFT + [F11]
 
 PATT0 = "{firstAuthorLastName}{year}_{title}_{isbn}"
 PATT1 = "{year}_{title}_{isbn}"
+PATT2 = "{isbn}"
 
 
 def create_files(files):
@@ -129,3 +130,8 @@ def test_rencwdfiles():
     pdfs = cwdfiles("*.pdf")
     for f in FISBN:
         assert f not in pdfs
+    rencwdfiles("*.pdf", 'default', PATT0)
+    rencwdfiles("*.pdf", 'default', PATT2)
+    pdfs = cwdfiles("*.pdf")
+    for f in FISBN:
+        assert f in pdfs
