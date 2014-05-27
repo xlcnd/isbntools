@@ -88,19 +88,12 @@ def _check_digit13(firsttwelvedigits):
 
 def _check_structure10(isbn10like):
     """Check structure of an ISBN-10."""
-    match = re.match(RE_ISBN10, isbn10like)
-    if match:
-        return True
-    else:
-        return False
+    return True if re.match(RE_ISBN10, isbn10like) else False
 
 
 def _check_structure13(isbn13like):
     """Check structure of an ISBN-13."""
-    if re.match(RE_ISBN13, isbn13like):
-        return True
-    else:
-        return False
+    return True if re.match(RE_ISBN13, isbn13like) else False
 
 
 def is_isbn10(isbn10):
@@ -109,10 +102,7 @@ def is_isbn10(isbn10):
     if len(isbn10) != 10:
         return False          # pragma: no cover
     else:
-        if _check_digit10(isbn10[:-1]) != isbn10[-1]:
-            return False
-        else:
-            return True
+        return False if _check_digit10(isbn10[:-1]) != isbn10[-1] else True
 
 
 def is_isbn13(isbn13):
@@ -121,10 +111,7 @@ def is_isbn13(isbn13):
     if len(isbn13) != 13:
         return False          # pragma: no cover
     else:
-        if _check_digit13(isbn13[:-1]) != isbn13[-1]:
-            return False
-        else:
-            return True
+        return False if _check_digit13(isbn13[:-1]) != isbn13[-1] else True
 
 
 def to_isbn10(isbn13):
