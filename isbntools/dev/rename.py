@@ -93,7 +93,7 @@ def get_isbn(filename):
     isbn = None
     if isbnlikes:
         isbn = EAN13(get_isbnlike(filename, level='normal')[0])
-    if not isbn:
+    if not isbn:            # pragma: no cover
         sys.stderr.write('no ISBN found in name of file %s \n' % filename)
         return
     return isbn
@@ -104,24 +104,24 @@ def renfile(filename, isbn, service, pattern=PATTERN):
     service = service if service else 'default'
     metadata = meta(isbn, service)
     newname = newfilename(metadata, pattern)
-    if not newname:
+    if not newname:         # pragma: no cover
         sys.stderr.write('%s NOT renamed \n' % filename)
         return
     oldfile = File(filename)
     ext = oldfile.ext
     newbasename = b2u3(newname + ext)
     oldbasename = oldfile.basename
-    if oldfile.mkwinsafe(newbasename) == oldbasename:
+    if oldfile.mkwinsafe(newbasename) == oldbasename:  # pragma: no cover
         return True
     success = oldfile.baserename(newbasename)
     if success:
-        try:
+        try:                # pragma: no cover
             sys.stdout.write('%s renamed to %s \n' %
                              (oldbasename, oldfile.basename))
-        except:
+        except:             # pragma: no cover
             pass
         return True
-    return
+    return                  # pragma: no cover
 
 
 def rencwdfiles(fnpatt="*", service='default', pattern=PATTERN):
