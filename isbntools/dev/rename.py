@@ -89,7 +89,10 @@ def cleannewname(newname):
 
 def get_isbn(filename):
     """Extract the ISBN from file's name."""
-    isbn = EAN13(get_isbnlike(filename, level='normal')[0])
+    isbnlikes = get_isbnlike(filename, level='normal')
+    isbn = None
+    if isbnlikes:
+        isbn = EAN13(get_isbnlike(filename, level='normal')[0])
     if not isbn:
         sys.stderr.write('no ISBN found in name of file %s \n' % filename)
         return
