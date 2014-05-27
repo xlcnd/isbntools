@@ -53,7 +53,7 @@ def parse_args(args):
     if args[0] != fn:
         service = args[0]
         match = get_close_matches(service, providers)
-        if len(match) == 1:
+        if len(match) == 1 and '{' not in args[0]:  # <- rule out placeholders
             service = match[0]
         else:
             service = None
