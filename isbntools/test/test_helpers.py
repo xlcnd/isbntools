@@ -5,7 +5,7 @@
 nose tests
 """
 
-from ..dev._helpers import last_first, cutoff_tokens
+from ..dev._helpers import last_first, cutoff_tokens, parse_placeholders
 from nose.tools import assert_equals
 
 
@@ -17,3 +17,7 @@ def test_last_first():
 
 def test_cutoff_tokens():
     assert_equals(cutoff_tokens(['1', '23', '456'], 3), ['1', '23'])
+
+
+def test_parse_placeholders():
+    assert_equals(parse_placeholders('{isbn}_akaj_{name}'), ['{isbn}', '{name}'])

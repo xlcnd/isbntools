@@ -66,3 +66,9 @@ def cutoff_tokens(tokens, cutoff):
         else:
             break
     return stokens
+
+
+def parse_placeholders(pattern):
+    """Return a list of placeholders in a pattern."""
+    regex = re.compile(r'({[^}]*})')
+    return regex.findall(pattern)
