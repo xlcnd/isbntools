@@ -11,7 +11,7 @@ try:
 
     pkg_version = __version__
     pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
-    conf_file = conf.files[-1] if conf.files else os.path.join(pkg_path, defaults_conf)
+    conf_file = conf.files[-1] if conf.files else defaults_conf
 
     __all__ = ['pkg_version', 'pkg_path', 'pkg_options', 'reg_mod',
                'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt']
@@ -69,16 +69,19 @@ def __conf_file():
 
 
 def mk_conf():
-    if conf_file.endswith('.py') or not os.path.exists(__conf_file()):
+    if conf_file == defaults_conf or not os.path.exists(__conf_file()):
         __mkpath(__conf_file())
         with open(__conf_file(), 'wb') as f:
             conf.write(f)
 
+
 def reg_myopt(opt, value):
     __write2conf('MISC', {opt.upper(): value})
 
+
 def print_conf():
-    if conf_file.endswith('.py'):
+    if conf_file == defaults_conf:
+        print("NO conf file! Using default builtins.")
         return
     print(("conf file at %s:" % conf_file))
     conf.write(sys.stdout)

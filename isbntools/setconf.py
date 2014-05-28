@@ -17,6 +17,21 @@ from .dev.lab import in_virtual
 # defaults parameters are in config.py they can be overwritten in
 # isbntools.conf at users's $HOME/.isbntools directory (UNIX)
 
+DEFAULTS = r"""
+[MISC]
+REN_FORMAT={firstAuthorLastName}{year}_{title}_{isbn}
+[SYS]
+SOCKETS_TIMEOUT=12
+THREADS_TIMEOUT=11
+[SERVICES]
+DEFAULT_SERVICE=merge
+VIAS_MERGE=serial
+[PLUGINS]
+isbndb=isbndb.py
+openl=openl.py
+[MODULES]
+"""
+
 # get defaults
 SOCKETS_TIMEOUT = float(config.SOCKETS_TIMEOUT)
 THREADS_TIMEOUT = float(config.THREADS_TIMEOUT)
@@ -29,8 +44,11 @@ try:
     # read conf file
     conf = configparser.ConfigParser()
     # read defaults
-    with open(os.path.join(pkg_path, 'isbntools.conf.py'), 'r') as f:
-        conf.readfp(f)
+    try:                             # pragma: no cover
+        conf.read_string(DEFAULTS)            # PY3
+    except:                          # pragma: no cover
+        import io
+        conf.readfp(io.BytesIO(DEFAULTS))     # PY2
     # read user options
     if in_virtual():                 # pragma: no cover
         conf.files = conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
