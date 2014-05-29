@@ -148,9 +148,9 @@ def clean(isbnlike):
 def notisbn(isbnlike, level='strict'):
     """Check with the goal to invalidate isbn-like.
 
-    These values are possible for `level`:
-       * `strict` for certain they are not ISBNs (default)
-       * `loose`  only filters obvious NO ISBNs
+    level:
+    strict for certain they are not ISBNs (default)
+    loose  only filters obvious NO ISBNs
 
     """
     if level not in ('strict', 'loose'):
@@ -169,12 +169,12 @@ def notisbn(isbnlike, level='strict'):
 
 
 def get_isbnlike(text, level='normal'):
-    """ Extract all substrings that seem like ISBNs.
+    """Extract all substrings that seem like ISBNs.
 
-    Three values are possible for `level`:
-       * `strict` almost as certain they are ISBNs
-       * `normal` (default)
-       * `loose`  catch many as possible
+    level:
+    strict almost as certain they are ISBNs
+    normal (default)
+    loose  catch many as possible
 
     """
     if level == 'normal':
@@ -192,10 +192,10 @@ def get_isbnlike(text, level='normal'):
 def get_canonical_isbn(isbnlike, output='bouth'):
     """Extract ISBNs and transform them to the canonical form.
 
-    `output` can be:
-       * `isbn10`
-       * `isbn13`
-       * `bouth` (default)
+    output:
+    isbn10
+    isbn13
+    bouth  (default)
 
     """
     if output not in ('bouth', 'isbn10', 'isbn13'):
