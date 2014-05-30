@@ -15,7 +15,7 @@ class Metadata(object):
     """Class for metadata objects."""
 
     def __init__(self, record=None):
-        """Initialize properties."""
+        """Initialize attributes."""
         self._content = None
         self._set_empty()
         if record:
