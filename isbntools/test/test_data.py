@@ -69,6 +69,3 @@ def test_metaclass():
        }
     dt = Metadata(R)
     assert_equals(dt.value, R)
-
-
-# flake8: noqa
