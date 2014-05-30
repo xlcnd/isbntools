@@ -77,17 +77,17 @@ def newfilename(metadata, pattern=PATTERN):
         'isbn': metadata['ISBN-13']
     }
 
+    if d['title'] == u('UNKNOWN') or d['isbn'] == u('UNKNOWN'):
+        LOGGER.critical('Not enough metadata')
+        return
+    d['title'] = cleannewname(d['title'])
+    cutoff = min(len(d['title']), 65)      # cutoff title at 65
+    d['title'] = d['title'][:cutoff]
+
     authorslastnames = [last_first(authorname)['last']
                         for authorname in metadata['Authors']]
     d['authorsLastNames'] = ','.join(authorslastnames)
     d['firstAuthorLastName'] = authorslastnames[0]
-    if d['title'] == u('UNKNOWN') or d['isbn'] == u('UNKNOWN'):
-        LOGGER.critical('Not enough metadata')
-        return
-
-    # cutoff title at 65
-    cutoff = min(len(d['title']), 65)
-    d['title'] = d['title'][:cutoff]
 
     try:
         formatted = u(pattern).format(**d)
