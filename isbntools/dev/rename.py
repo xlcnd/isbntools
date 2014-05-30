@@ -46,6 +46,21 @@ def checkpattern(pattern):
 PATTERN = PATTERN if checkpattern(PATTERN) else DEFAULT_PATT
 
 
+def get_isbn(filename):
+    """Extract the ISBN from file's name."""
+    isbnlikes = get_isbnlike(filename, level='normal')
+    isbn = EAN13(isbnlikes[0]) if isbnlikes else None
+    if not isbn:            # pragma: no cover
+        sys.stderr.write('no ISBN found in name of file %s \n' % filename)
+        return
+    return isbn
+
+
+def cleannewname(newname):
+    """Strip '.,_!? ' from newname."""
+    return newname.strip('.,_!? ')
+
+
 def newfilename(metadata, pattern=PATTERN):
     """Return a new file name created from book metadata."""
     pattern = pattern if pattern else PATTERN
@@ -80,21 +95,6 @@ def newfilename(metadata, pattern=PATTERN):
     except KeyError as e:
         LOGGER.warning('Error with placeholder: %s', e)
         return
-
-
-def cleannewname(newname):
-    """Strip '.,_!? ' from newname."""
-    return newname.strip('.,_!? ')
-
-
-def get_isbn(filename):
-    """Extract the ISBN from file's name."""
-    isbnlikes = get_isbnlike(filename, level='normal')
-    isbn = EAN13(isbnlikes[0]) if isbnlikes else None
-    if not isbn:            # pragma: no cover
-        sys.stderr.write('no ISBN found in name of file %s \n' % filename)
-        return
-    return isbn
 
 
 def renfile(filename, isbn, service, pattern=PATTERN):
