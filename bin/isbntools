@@ -3,7 +3,7 @@
 
 import time
 from isbntools import __version__
-from isbntools import colors
+from isbntools import _colors as colors
 
 NOTICE = """
  This program is free software: you can redistribute it and/or modify

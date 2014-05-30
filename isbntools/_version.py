@@ -8,7 +8,7 @@ try:
 except ImportError:
     from urllib2 import Request
     from urllib2 import urlopen
-from . import colors
+from . import _colors as colors
 
 
 def check_version():

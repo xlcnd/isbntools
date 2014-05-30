@@ -16,7 +16,7 @@ from ._core import (is_isbn10, is_isbn13, to_isbn10, to_isbn13, clean,
 from ._ext import (mask, meta, info, editions, isbn_from_words, doi)
 from . import config
 from . import setconf
-from .version import check_version
+from ._version import check_version
 
 pkg_path = os.path.dirname(config.__file__)
 defaults_conf = 'DEFAULTS'
