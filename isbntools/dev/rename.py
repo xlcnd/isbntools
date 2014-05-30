@@ -83,8 +83,8 @@ def newfilename(metadata, pattern=PATTERN):
 
 
 def cleannewname(newname):
-    """Strip '.,_' from newname."""
-    return newname.strip().strip('.,_')
+    """Strip '.,_!? ' from newname."""
+    return newname.strip('.,_!? ')
 
 
 def get_isbn(filename):

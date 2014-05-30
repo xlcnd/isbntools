@@ -6,7 +6,7 @@
 import os
 from nose.tools import assert_equals, assert_raises
 from isbntools.dev.rename import (checkpattern, newfilename, get_isbn,
-                                  renfile, rencwdfiles)
+                                  renfile, rencwdfiles, cleannewname)
 from isbntools.dev.lab import File, cwdfiles
 from ..bouth23 import u
 
@@ -106,6 +106,10 @@ def test_newfilename():
                   'Darrel Ince,Oxford University Press_UNKNOWN_eng')
     metadata['Title'] = u('')
     assert_equals(newfilename(metadata), None)
+
+
+def test_cleannewname():
+    assert_equals(cleannewname(' this, is a newname., _'), 'this, is a newname')
 
 
 def test_get_isbn():
