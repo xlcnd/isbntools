@@ -5,7 +5,7 @@
 
 import os
 from nose.tools import assert_equals, assert_raises
-from isbntools.dev.rename import (checkpattern, newfilename, get_isbn,
+from isbntools.dev._rename import (checkpattern, newfilename, get_isbn,
                                   renfile, rencwdfiles, cleannewname)
 from isbntools.dev.lab import File, cwdfiles
 from ..bouth23 import u

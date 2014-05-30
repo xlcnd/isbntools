@@ -82,7 +82,7 @@ def reg_apikey(service, apikey):
 
 def main(args):
     """Rename files."""
-    from isbntools.dev.rename import (checkpattern, rencwdfiles,
+    from isbntools.dev._rename import (checkpattern, rencwdfiles,
                                       renfile, get_isbn)
     isbn, service, apikey, pattern, filename = parse_args(args)
 
