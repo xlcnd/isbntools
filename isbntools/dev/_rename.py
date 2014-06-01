@@ -101,6 +101,9 @@ def renfile(filename, isbn, service, pattern=PATTERN):
     """Rename file with associate ISBN."""
     service = service if service else 'default'
     metadata = meta(isbn, service)
+    if not metadata:        # pragma: no cover
+        sys.stderr.write('No metadata for %s\n' % filename)
+        return
     newname = newfilename(metadata, pattern)
     if not newname:         # pragma: no cover
         sys.stderr.write('%s NOT renamed \n' % filename)
