@@ -25,5 +25,14 @@ defaults_conf = 'DEFAULTS'
 # alias
 ISBN13 = EAN13
 
-# config logging for lib
-logging.getLogger('isbntools').addHandler(logging.NullHandler())
+# config logging for lib (NullHandler not available for py26)
+try:
+    nh = logging.NullHandler()
+except:
+    class NullHandler(logging.Handler):
+        def emit(self, record):
+            pass
+
+    nh = NullHandler()
+
+logging.getLogger('isbntools').addHandler(nh)
