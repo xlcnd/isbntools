@@ -18,6 +18,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 class WEBService(object):
+
     """Class to query web services."""
 
     def __init__(self, url, user_agent=UA, values=None):
