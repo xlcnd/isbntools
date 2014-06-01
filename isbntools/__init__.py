@@ -28,7 +28,7 @@ ISBN13 = EAN13
 # config logging for lib (NullHandler not available for py26)
 try:
     nh = logging.NullHandler()
-except:
+except:              # pragma: no cover
     class NullHandler(logging.Handler):
         def emit(self, record):
             pass
