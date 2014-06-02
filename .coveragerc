@@ -19,6 +19,7 @@ omit =
     *hook.py
     *files.py
     *conf.py
+    *cache.py
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
