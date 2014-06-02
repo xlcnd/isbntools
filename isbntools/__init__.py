@@ -4,7 +4,7 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'to_isbn10', 'to_isbn13', 'get_isbnlike', 'notisbn', 'EAN13',
            'canonical', 'get_canonical_isbn', 'editions', 'isbn_from_words',
            'quiet_errors', 'config', 'setconf', '__version__', 'doi',
-           'check_version', 'ISBN13')
+           'check_version', 'ISBN13', 'Cache')
 
 __version__ = '3.2.5'
 
@@ -18,6 +18,7 @@ from ._ext import (mask, meta, info, editions, isbn_from_words, doi)
 from . import config
 from . import setconf
 from ._version import check_version
+from ._cache import Cache
 
 pkg_path = os.path.dirname(config.__file__)
 defaults_conf = 'DEFAULTS'
