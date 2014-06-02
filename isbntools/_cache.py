@@ -40,6 +40,9 @@ class Cache(object):
             return s[key]['value'] if s[key] else None
         except KeyError:
             return None
+        except ValueError:
+            self.new()
+            return None
         finally:
             s.close()
 
@@ -61,7 +64,10 @@ class Cache(object):
             s = self._sh.open(self._cache)
             del s[key]
         except KeyError:
-            return None
+            return
+        except ValueError:
+            self.new()
+            return
         finally:
             s.close()
 
@@ -102,5 +108,13 @@ class Cache(object):
             return datetime.datetime.fromtimestamp(ts).strftime(fmt)
         except KeyError:
             return
+        except ValueError:
+            self.new()
+            return
         finally:
             s.close()
+
+    def new(self):
+        """Make new cache."""
+        s = self._sh.open(self._cache, 'n')
+        s.close()
