@@ -4,9 +4,10 @@
 """Read and write shelve cache.
 
 Implements The Basic Sequence and Mapping Protocol
-NOTE: 1. cannot use context manager for shelve because py2!
-      2. metacache has different incompatible formats
-         in py2 and py3!!!
+
+NOTES:
+1. cannot use context manager for shelve because py2
+2. metacache has different incompatible formats in py2 and py3
 """
 
 
