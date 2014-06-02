@@ -49,7 +49,8 @@ PATTERN = PATTERN if checkpattern(PATTERN) else DEFAULT_PATT
 def get_isbn(filename):
     """Extract the ISBN from file's name."""
     isbnlikes = get_isbnlike(filename, level='normal')
-    isbn = EAN13(isbnlikes[0]) if isbnlikes else None
+    eans = [EAN13(isbnlike) for isbnlike in isbnlikes] if isbnlikes else None
+    isbn = eans[0] if eans else None
     if not isbn:            # pragma: no cover
         sys.stderr.write('no ISBN found in name of file %s \n' % filename)
         return
