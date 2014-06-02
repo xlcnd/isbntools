@@ -7,7 +7,7 @@ from ._cache import Cache
 from .config import options
 
 CACHE = options.get('CACHE', 'default')
-CACHE = None if CACHE == 'No' else CACHE
+CACHE = None if CACHE.lower() == 'no' else CACHE
 
 
 def query(isbn, service='default', cache=CACHE):
