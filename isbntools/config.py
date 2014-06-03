@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 """Config file for isbntools."""
 
+# Special files
+CACHE_FILE = '.metacache'
+
+
 # Paths
 CONF_PATH = None
 

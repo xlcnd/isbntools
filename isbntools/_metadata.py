@@ -4,11 +4,10 @@
 import os
 from .registry import services
 from .exceptions import NotRecognizedServiceError
-from .config import options, CONF_PATH
+from .config import options, CONF_PATH, CACHE_FILE
 from ._cache import Cache
 
 
-CACHE_FILE = '.metacache'
 if CONF_PATH:
     DEFAULT_CACHE = os.path.join(CONF_PATH, CACHE_FILE)
 else:           # pragma: no cover
