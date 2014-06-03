@@ -11,7 +11,7 @@ from ._cache import Cache
 CACHE_FILE = '.metacache'
 if CONF_PATH:
     DEFAULT_CACHE = os.path.join(CONF_PATH, CACHE_FILE)
-else:
+else:           # pragma: no cover
     DEFAULT_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                  CACHE_FILE)
 CACHE = options.get('CACHE', DEFAULT_CACHE)

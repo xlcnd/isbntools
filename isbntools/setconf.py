@@ -8,6 +8,7 @@ try:                                 # pragma: no cover
 except ImportError:                  # pragma: no cover
     import ConfigParser as configparser
 import socket
+from . import in_virtual
 from . import config
 from . import registry
 
@@ -49,8 +50,7 @@ try:
         import io
         conf.readfp(io.BytesIO(DEFAULTS))     # PY2
     # read user options
-    invirtual = True if hasattr(sys, 'real_prefix') else False
-    if invirtual:                    # pragma: no cover
+    if in_virtual():                 # pragma: no cover
         conf.files = conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
     else:
         if os.name == 'nt':          # pragma: no cover
