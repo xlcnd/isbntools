@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
 """Query providers for metadata."""
 
+import os
 from .registry import services
 from .exceptions import NotRecognizedServiceError
+from .config import options, CONF_PATH
 from ._cache import Cache
-from .config import options
 
-CACHE = options.get('CACHE', 'default')
+
+CACHE_FILE = '.metacache'
+if CONF_PATH:
+    DEFAULT_CACHE = os.path.join(CONF_PATH, CACHE_FILE)
+else:
+    DEFAULT_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                 CACHE_FILE)
+CACHE = options.get('CACHE', DEFAULT_CACHE)
 CACHE = None if CACHE.lower() == 'no' else CACHE
 
 

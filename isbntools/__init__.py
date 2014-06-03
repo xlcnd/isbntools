@@ -10,17 +10,18 @@ __version__ = '3.2.5'
 
 import os
 import logging
+from . import config        # <-- first import
+from . import setconf       # <-- first import
 from ._version import check_version
 from .exceptions import quiet_errors
+from ._cache import Cache
 from ._core import (is_isbn10, is_isbn13, to_isbn10, to_isbn13, clean,
                     canonical, notisbn, get_isbnlike, get_canonical_isbn,
                     EAN13)
 from ._ext import (mask, meta, info, editions, isbn_from_words, doi)
-from . import config
-from . import setconf
-from ._cache import Cache
 
-pkg_path = os.path.dirname(config.__file__)
+
+pkg_path = os.path.dirname(os.path.abspath(__file__))
 defaults_conf = 'DEFAULTS'
 
 # alias

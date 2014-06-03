@@ -10,7 +10,6 @@ except ImportError:                  # pragma: no cover
 import socket
 from . import config
 from . import registry
-from .dev.lab import in_virtual
 
 # NOTE: THIS CODE RUNS ON IMPORT!
 
@@ -50,7 +49,8 @@ try:
         import io
         conf.readfp(io.BytesIO(DEFAULTS))     # PY2
     # read user options
-    if in_virtual():                 # pragma: no cover
+    invirtual = True if hasattr(sys, 'real_prefix') else False
+    if invirtual:                    # pragma: no cover
         conf.files = conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
     else:
         if os.name == 'nt':          # pragma: no cover
@@ -66,6 +66,10 @@ try:
                 os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
                 os.path.expanduser('~/.isbntools/isbntools.conf'),
             ])
+    try:
+        config.setconfpath(os.path.dirname(conf.files[0]))
+    except:
+        pass
 
     if conf.has_section('SYS'):
         # get user defined values for timeouts

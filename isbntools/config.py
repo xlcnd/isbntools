@@ -1,6 +1,15 @@
 # -*- coding: utf-8 -*-
 """Config file for isbntools."""
 
+# Paths
+CONF_PATH = None
+
+
+def setconfpath(path):
+    """Set the directory of the conf file."""
+    global CONF_PATH
+    CONF_PATH = path
+
 
 # Timeouts
 SOCKETS_TIMEOUT = 12    # seconds

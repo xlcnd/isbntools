@@ -10,14 +10,15 @@ NOTES:
 2. metacache has different incompatible formats in py2 and py3
 """
 
-
 import os
 import shelve
 import datetime
 from time import time as timestamp
 
+
+CACHE_FILE = '.metacache'
 DEFAULT_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                             '.metacache')
+                             CACHE_FILE)
 
 
 class Cache(object):
