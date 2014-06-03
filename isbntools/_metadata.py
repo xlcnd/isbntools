@@ -18,9 +18,9 @@ def query(isbn, service='default', cache=CACHE):
         return services[service](isbn)
     kache = Cache() if cache == 'default' else Cache(cache)
     key = isbn + service
-    if not kache[key]:
-        meta = services[service](isbn)
-        if meta:
-            kache[key] = meta
-        return meta if meta else None
-    return kache[key]
+    if kache[key]:
+        return kache[key]
+    meta = services[service](isbn)
+    if meta:
+        kache[key] = meta
+    return meta if meta else None
