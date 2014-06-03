@@ -49,4 +49,4 @@ v3.2.2, 2014-05-12 -- Fix conf error (close #40).
 v3.2.2a, 2014-05-13 -- Fix installer.
 v3.2.3, 2014-05-25 -- EAN13, doi, rename files using metadata, conf editor and new features to make easier to contrib.
 v3.2.4, 2014-06-01 -- Glob rename (ex *.pdf, *.epub, ...) and small fixes.
-v3.2.5, 2014-06-08 -- TENTATIVE: cache. 
+v3.2.5, 2014-06-08 -- Cache for metadata - first iteration (NOT RELEASED). 
