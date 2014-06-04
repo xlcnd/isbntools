@@ -23,7 +23,7 @@ def test_stdmeta():
        }
     R={
        'ISBN-13': u('9780123456789'),
-       'Title': u('Bla. Bla /Title .'),
+       'Title': u('Bla. Bla /Title'),
        'Publisher': u(''),
        'Year': u('2000'),
        'Language': u('en'),
@@ -53,15 +53,7 @@ def test_stdmeta():
 def test_metaclass():
     R={
        'ISBN-13': u('9780123456789'),
-       'Title': u('Bla. Bla /Title .'),
-       'Publisher': u(''),
-       'Year': u('2000'),
-       'Language': u('en'),
-       'Authors': [u('author1. mba'), u('author2')]
-       }
-    A={
-       'ISBN-13': u('9780123456789'),
-       'Title': u('Bla. Bla /Title .'),
+       'Title': u('Bla. Bla /Title'),
        'Publisher': u(''),
        'Year': u('2000'),
        'Language': u('en'),
