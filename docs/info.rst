@@ -115,7 +115,7 @@ returns the EAN13 code of a given ISBN.
     $ isbn_ren FILENAME 
 
 renames (using metadata) files in the **current directory** that have ISBNs in their
-filename (e.g. ``isbn_ren 1783559284_book.pdf``). 
+filename (e.g. ``isbn_ren 1783559284_book.pdf``, ``isbn_ren "*.pdf"``). 
 
     Enter ``isbn_ren`` to see many other options.
 
