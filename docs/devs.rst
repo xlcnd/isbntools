@@ -99,7 +99,7 @@ the future.
 Conf
 ----
 
-With ``isbntools.conf`` you can find methods to edit the conf file.
+``isbntools.conf`` provides methods to edit the configuration file.
 
 
     **WARNING**: If you inspect the library, you will see that there are a lot of 
