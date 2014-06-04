@@ -30,12 +30,12 @@ class Metadata(object):
         """Return a list of value's fields."""
         return list(FIELDS)
 
-    def clean(self, broom=normalize_space, filtre=()):
+    def clean(self, broom=normalize_space, exclude=()):
         """Clean fields of value."""
         self._content.update((k, broom(v)) for k, v
                              in list(self._content.items())
-                             if k != 'Authors' and k not in filtre)
-        if 'Authors' not in filtre:
+                             if k != 'Authors' and k not in exclude)
+        if 'Authors' not in exclude:
             self._content['Authors'] = [broom(i) for i in
                                         self._content['Authors']]
         self._content['Title'] = self._content['Title'].strip(',.?:;!-_ ')
