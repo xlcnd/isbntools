@@ -5,7 +5,7 @@
 nose tests
 """
 
-from ..dev._helpers import last_first, cutoff_tokens, parse_placeholders, internet_on
+from ..dev._helpers import last_first, cutoff_tokens, parse_placeholders
 from nose.tools import assert_equals
 
 
@@ -21,9 +21,4 @@ def test_cutoff_tokens():
 
 def test_parse_placeholders():
     assert_equals(parse_placeholders('{isbn}_akaj_{name}'), ['{isbn}', '{name}'])
-
-
-def test_internet_on():
-    assert_equals(internet_on(), True)
-    assert_equals(internet_on('8.8.8.8'), False)
     
