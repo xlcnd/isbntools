@@ -66,3 +66,16 @@ def parse_placeholders(pattern):
     """Return a list of placeholders in a pattern."""
     regex = re.compile(r'({[^}]*})')
     return regex.findall(pattern)
+
+
+def internet_on(ip='74.125.228.100'):
+    """Check internet status."""
+    try:                     # pragma: no cover
+        from urllib.request import urlopen
+    except ImportError:      # pragma: no cover
+        from urllib2 import urlopen
+    try:
+        urlopen('http://' + ip, timeout=1)
+        return True
+    except:
+        return False
