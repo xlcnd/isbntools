@@ -142,10 +142,10 @@ returns the EAN13 code of a given ISBN.
 
 .. code-block:: bash
 
-    $ isbn_ren FILENAME 
+    $ isbn_ren FILENAME
 
 renames (using metadata) files in the **current directory** that have ISBNs in their
-filename (e.g. ``isbn_ren 1783559284_book.pdf``). 
+filename (e.g. ``isbn_ren 1783559284_book.pdf``).
 
     Enter ``isbn_ren`` to see many other options.
 
@@ -314,6 +314,9 @@ Known Issues
    if you have a version of ``isbntools`` that is too old, ``mask`` doesn't work for
    valid (recent) issued ISBNs. The solution? **Update isbntools often**!
 
+4. Calls to metadata services are cached by default. If you don't want this
+   feature, just enter ``isbn_conf setopt cache no``. If by any reason you need
+   to clear the cache, just enter ``isbn_conf delcache``.
 
 Any issue that you would like to report, please do it at github_ (if you are a
 dev) or at twitter_ (if you are an end user).
@@ -325,7 +328,7 @@ More documentation at http://isbntools.readthedocs.org
 
 --------------------------------
 
-.. _github: https://github.com/xlcnd/isbntools/issues
+.. _github: https://github.com/xlcnd/isbntools/issues?labels=info&page=1&state=open
 
 .. _range: https://www.isbn-international.org/range_file_generation
 

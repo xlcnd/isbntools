@@ -267,6 +267,9 @@ Known Issues
    have a version of `isbntools` that is too old, `mask` doesn't work for
    valid (recent) issued ISBNs. The solution? **Update `isbntools` often**!
 
+4. Calls to metadata services are cached by default. If you don't want this
+   feature, just enter `isbn_conf setopt cache no`. If by any reason you need
+   to clear the cache, just enter `isbn_conf delcache`.
 
 Any issue that you would like to report, please do it at
 [github](https://github.com/xlcnd/isbntools/issues) (if you are a developer)
