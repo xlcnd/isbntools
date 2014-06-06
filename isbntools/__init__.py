@@ -1,12 +1,13 @@
-"""Define isbntools API."""
+"""Define isbntools API and set lib environment."""
 
 __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'to_isbn10', 'to_isbn13', 'get_isbnlike', 'notisbn', 'EAN13',
            'canonical', 'get_canonical_isbn', 'editions', 'isbn_from_words',
-           'quiet_errors', 'config', 'setconf', '__version__', 'doi',
-           'check_version', 'ISBN13', 'Cache', 'in_virtual')
+           'quiet_errors', 'config', 'setconf', '__version__', '__support__',
+           'doi', 'check_version', 'ISBN13', 'Cache', 'in_virtual')
 
 __version__ = '3.3.1'
+__support__ = ('py26', 'py27', 'py33', 'py34', 'pypy')
 
 
 import sys
