@@ -10,34 +10,35 @@ __version__ = '3.3.1'
 __support__ = ('py26', 'py27', 'py33', 'py34', 'pypy')
 
 
-import sys
+import sys as _sys
 
 
 def in_virtual():
     """Detect if the program is running inside a python virtual environment."""
-    return True if hasattr(sys, 'real_prefix') else False
+    return True if hasattr(_sys, 'real_prefix') else False
 
 
-import os
-import logging
+import os as _os
+import logging as _logging
 from . import config        # <-- first import
 from . import setconf       # <-- first import
 from ._version import check_version
 from .exceptions import quiet_errors
 
 
-pkg_path = os.path.dirname(os.path.abspath(__file__))
+pkg_path = _os.path.dirname(_os.path.abspath(__file__))
 defaults_conf = 'DEFAULTS'
 
-# config logging for lib (NullHandler not available for py26)
+
+# config _logging for lib (NullHandler not available for py26)
 try:
-    nh = logging.NullHandler()
+    _nh = _logging.NullHandler()
 except:              # pragma: no cover
-    class NullHandler(logging.Handler):
+    class NullHandler(_logging.Handler):
         def emit(self, record):
             pass
-    nh = NullHandler()
-logging.getLogger('isbntools').addHandler(nh)
+    _nh = NullHandler()
+_logging.getLogger('isbntools').addHandler(_nh)
 
 
 # main modules
