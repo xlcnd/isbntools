@@ -30,16 +30,16 @@ def check_version():
         headers = {'User-Agent': UA, 'Pragma': 'no-cache'}
         url = "https://raw.githubusercontent.com/xlcnd/"\
               "isbntools/master/isbntools/__init__.py"
-        RE_SUPPORT = re.compile(r"__support__\s*=\s*'(.*)'")
-        RE_VERSION = re.compile(r"__version__\s*=\s*'(.*)'")
         request = Request(url, headers=headers)
         content = s(urlopen(request).read())
 
+        RE_SUPPORT = re.compile(r"__support__\s*=\s*'(.*)'")
         supported = [iden.strip() for iden
                      in re.search(RE_SUPPORT, content).group(1).split(',')]
         if pyversion not in supported:
             raise
 
+        RE_VERSION = re.compile(r"__version__\s*=\s*'(.*)'")
         newversion = re.search(RE_VERSION, content).group(1)
         if __version__ != newversion:
             print((colors.BOLD + colors.RED))
