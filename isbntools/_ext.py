@@ -5,7 +5,7 @@ from ._metadata import query
 from ._infogroup import infogroup
 from ._wcated import query as qed
 from ._msk import msk
-from ._words import goos
+from .contrib.modules.gwords.gwords import goos
 from ._core import EAN13
 
 

@@ -76,7 +76,8 @@ setup(
               'isbntools/contrib',
               'isbntools/contrib/plugins',
               'isbntools/contrib/modules',
-              'isbntools/contrib/modules/goom'
+              'isbntools/contrib/modules/goom',
+              'isbntools/contrib/modules/gwords'
               ],
     scripts=scripts,
     data_files=data_files,
