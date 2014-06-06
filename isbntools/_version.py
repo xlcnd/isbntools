@@ -15,7 +15,7 @@ from . import _colors as colors
 def check_version():
     """Check online if there is a new version of isbntools."""
     try:
-        from .__init__ import __version__, __support__
+        from .__init__ import __version__
 
         # dont't upgrade if this version of python is not supported anymore
         import platform
@@ -25,20 +25,22 @@ def check_version():
                                           sys.version_info.minor)
         else:
             pyversion = "pypy"
-        if pyversion not in __support__:
-            raise
 
         UA = "isbntools (%s)" % __version__
         headers = {'User-Agent': UA, 'Pragma': 'no-cache'}
         url = "https://raw.githubusercontent.com/xlcnd/"\
               "isbntools/master/isbntools/__init__.py"
+        RE_SUPPORT = re.compile(r"__support__\s*=\s*'(.*)'")
         RE_VERSION = re.compile(r"__version__\s*=\s*'(.*)'")
-
         request = Request(url, headers=headers)
         content = s(urlopen(request).read())
 
-        newversion = re.search(RE_VERSION, content).group(1)
+        supported = [iden.strip() for iden
+                     in re.search(RE_SUPPORT, content).group(1).split(',')]
+        if pyversion not in supported:
+            raise
 
+        newversion = re.search(RE_VERSION, content).group(1)
         if __version__ != newversion:
             print((colors.BOLD + colors.RED))
             print((" ** A new version (%s) is available! **" % newversion))
@@ -51,4 +53,4 @@ def check_version():
     except:
         pass
     finally:
-        print("")
+        sys.exit()
