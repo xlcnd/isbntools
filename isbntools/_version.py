@@ -1,6 +1,7 @@
 """Copyright notice and checks updates."""
 
 import re
+import sys
 from .bouth23 import s
 try:
     from urllib.request import Request
@@ -14,7 +15,13 @@ from . import _colors as colors
 def check_version():
     """Check online if there is a new version of isbntools."""
     try:
-        from .__init__ import __version__
+        from .__init__ import __version__, __support__
+
+        # dont't upgrade if this version of python is not supported anymore
+        pyversion = "py{0}{1}".format(sys.version_info.major,
+                                      sys.version_info.minor)
+        if pyversion not in __support__:
+            raise
 
         UA = "isbntools (%s)" % __version__
         headers = {'User-Agent': UA, 'Pragma': 'no-cache'}
