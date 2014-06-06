@@ -18,8 +18,13 @@ def check_version():
         from .__init__ import __version__, __support__
 
         # dont't upgrade if this version of python is not supported anymore
-        pyversion = "py{0}{1}".format(sys.version_info.major,
-                                      sys.version_info.minor)
+        import platform
+        implementation = platform.python_implementation()
+        if implementation != "PyPy":
+            pyversion = "py{0}{1}".format(sys.version_info.major,
+                                          sys.version_info.minor)
+        else:
+            pyversion = "pypy"
         if pyversion not in __support__:
             raise
 
