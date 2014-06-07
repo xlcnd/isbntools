@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# flake8: noqa
+# pylint: skip-file
 
 """Format canonical in bibliographic formats."""
 
@@ -52,6 +54,20 @@ json = r'''{"type": "book",
 "identifier": [{"type": "ISBN", "id": "$ISBN"}],
 "publisher": "$Publisher"}'''
 
+opf = r"""<?xml version='1.0' encoding='utf-8'?>
+<package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:type>BOOK</dc:type>
+    <dc:identifier opf:scheme="uuid" id="uuid_id">$uid</dc:identifier>
+    <dc:identifier opf:scheme="ISBN" id="isbn_id">$ISBN</dc:identifier>
+    <dc:title>$Title</dc:title>
+    $AUTHORS
+    <dc:publisher>$Publisher</dc:publisher>
+    <dc:date>$Year</dc:date>
+    <dc:contributor opf:file-as="isbntools" opf:role="mdc">isbntools [http://github.com/xlcnd/isbntools]</dc:contributor>
+  </metadata>
+</package>"""
+
 labels = r"""Type:      BOOK
 Title:     $Title
 Author:    $AUTHORS
@@ -61,7 +77,7 @@ Publisher: $Publisher"""
 
 templates = {'labels': labels, 'bibtex': bibtex,
              'endnote': endnote, 'refworks': refworks,
-             'msword': msword, 'json': json}
+             'msword': msword, 'json': json, 'opf': opf}
 
 fmts = list(templates.keys())
 
@@ -95,6 +111,13 @@ def _spec_proc(name, fmtrec, authors):
     elif name == 'json':
         AUTHORS = ', '.join('{"name": "$"}'.replace("$", a)
                             for a in authors)
+    elif name == 'opf':
+        fmtrec = fmtrec.replace('$uid', str(uuid.uuid4()))
+        creator = r'<dc:creator opf:file-as="$last, $first"'\
+                  r' opf:role="aut">$first $last</dc:creator>'
+        AUTHORS = '\n    '.join(
+            Template(creator).safe_substitute(last_first(author))
+            for author in authors)
     return re.sub(r'\$AUTHORS', AUTHORS, fmtrec)
 
 
