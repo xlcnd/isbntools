@@ -57,7 +57,7 @@ json = r'''{"type": "book",
 opf = r"""<?xml version='1.0' encoding='utf-8'?>
 <package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
-    <dc:type>BOOK</dc:type>
+    <dc:type>Book</dc:type>
     <dc:identifier opf:scheme="uuid" id="uuid_id">$uid</dc:identifier>
     <dc:identifier opf:scheme="ISBN" id="isbn_id">$ISBN</dc:identifier>
     <dc:title>$Title</dc:title>
