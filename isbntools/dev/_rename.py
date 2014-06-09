@@ -5,7 +5,7 @@
 import sys
 import string
 import logging
-from ._helpers import last_first
+from ._helpers import last_first, cutoff_tokens
 from ..bouth23 import u, b2u3
 from .. import config
 from ._files import File, cwdfiles
@@ -16,6 +16,7 @@ LOGGER = logging.getLogger(__name__)
 
 DEFAULT_PATT = '{firstAuthorLastName}{year}_{title}_{isbn}'
 PATTERN = config.options.get('REN_FORMAT', DEFAULT_PATT)
+CUTOFF = 65
 
 
 def checkpattern(pattern):
@@ -82,8 +83,8 @@ def newfilename(metadata, pattern=PATTERN):
         LOGGER.critical('Not enough metadata')
         return
     d['title'] = cleannewname(d['title'])
-    cutoff = min(len(d['title']), 65)      # cutoff title at 65
-    d['title'] = d['title'][:cutoff]
+    cutoff = min(len(d['title']), CUTOFF)
+    d['title'] = ' '.join(cutoff_tokens(d['title'].split(' '), cutoff))
 
     authorslastnames = [last_first(authorname)['last']
                         for authorname in metadata['Authors']]
