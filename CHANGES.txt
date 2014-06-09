@@ -51,4 +51,4 @@ v3.2.3, 2014-05-25 -- EAN13, doi, rename files using metadata, conf editor and n
 v3.2.4, 2014-06-01 -- Glob rename (ex *.pdf, *.epub, ...) and small fixes.
 v3.2.5, 2014-06-02 -- Cache for metadata - first iteration (NOT RELEASED). 
 v3.3.1, 2014-06-08 -- Cache for metadata and 'opf' format.
-v3.3.2, 2014-06-17 -- TENTATIVE 
+v3.3.2, 2014-06-17 -- TENTATIVE:
