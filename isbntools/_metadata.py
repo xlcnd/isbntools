@@ -6,13 +6,18 @@ from .registry import services
 from .exceptions import NotRecognizedServiceError
 from .config import options, CONF_PATH, CACHE_FILE
 from ._cache import Cache
+from . import in_virtual
 
 
 if CONF_PATH:
     DEFAULT_CACHE = os.path.join(CONF_PATH, CACHE_FILE)
 else:           # pragma: no cover
-    DEFAULT_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                 CACHE_FILE)
+    if in_virtual():
+        # This default cache location only makes sense for virtalenv installs
+        DEFAULT_CACHE = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), CACHE_FILE)
+    else:
+        DEFAULT_CACHE = 'no'
 CACHE = options.get('CACHE', DEFAULT_CACHE)
 CACHE = None if CACHE.lower() == 'no' else CACHE
 
