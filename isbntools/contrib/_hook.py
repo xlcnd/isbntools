@@ -13,7 +13,7 @@ try:
     pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
     conf_file = conf.files[-1] if conf.files else defaults_conf
 
-    __all__ = ['pkg_version', 'pkg_path', 'pkg_options', 'reg_mod',
+    __all__ = ['pkg_version', 'pkg_path', 'pkg_options', 'reg_mod', 'conf_file',
                'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt']
 except:
     pass
@@ -73,6 +73,7 @@ def mk_conf():
         __mkpath(__conf_file())
         with open(__conf_file(), 'wb') as f:
             conf.write(f)
+            conf_file = f.name
 
 
 def reg_myopt(opt, value):
