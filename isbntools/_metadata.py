@@ -10,7 +10,8 @@ from . import in_virtual
 
 
 if CONF_PATH:
-    DEFAULT_CACHE = os.path.join(CONF_PATH, CACHE_FILE)
+    writable = os.access(CONF_PATH, os.W_OK)
+    DEFAULT_CACHE = os.path.join(CONF_PATH, CACHE_FILE) if writable else 'no'
 else:           # pragma: no cover
     if in_virtual():
         # This default cache location only makes sense for virtalenv installs
