@@ -18,6 +18,7 @@
 import os
 import sys
 from setuptools import setup
+from subprocess import call
 from isbntools import __version__
 
 scripts = ['bin/isbn_validate',
@@ -103,3 +104,10 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )
+
+# pos-setup: make conf
+if "install" in sys.argv and os.name != 'nt':
+    try:
+        call(['isbn_conf', 'make'])
+    except:
+        pass
