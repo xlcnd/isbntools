@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 # isbntools - tools for extracting, cleaning and transforming ISBNs
 # Copyright (C) 2014  Alexandre Lima Conde
@@ -18,7 +19,6 @@
 import os
 import sys
 from setuptools import setup
-from subprocess import call
 from isbntools import __version__
 
 scripts = ['bin/isbn_validate',
@@ -54,7 +54,8 @@ def conf_file():
     if in_virtual():
         installpath = ''
     else:
-        homepath = os.path.expanduser('~') if os.name != 'nt' else os.getenv('APPDATA')
+        user = '~%s' % os.getenv("SUDO_USER", '')
+        homepath = os.path.expanduser(user) if os.name != 'nt' else os.getenv('APPDATA')
         confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
         installpath = os.path.join(homepath, confdir)
     # no special needs for internal files!
@@ -105,9 +106,18 @@ setup(
     ],
 )
 
-# pos-setup: make conf
-if "install" in sys.argv and os.name != 'nt':
-    try:
-        call(['isbn_conf', 'make'])
-    except:
-        pass
+# pos-setup processing
+
+
+def uxchown(fp):
+    from pwd import getpwnam, getpwuid
+    from grp import getgrnam, getgrgid
+    uid = getpwnam(os.getenv("SUDO_USER", getpwuid(os.getuid()).pw_name)).pw_uid
+    gid = getgrnam(os.getenv("SUDO_USER", getgrgid(os.getgid()).gr_name)).gr_gid
+    os.chown(fp, uid, gid)
+
+
+if not in_virtual() and os.name != 'nt' and "install" in sys.argv:
+    conffile = os.path.join(data_files[-1][0], 'isbntools.conf')
+    uxchown(conffile)
+    uxchown(os.path.dirname(conffile))
