@@ -24,6 +24,7 @@ class File(object):
         self.path = os.path.dirname(fp) or os.getcwd()
         self.basename = os.path.basename(fp)
         self.name, self.ext = os.path.splitext(self.basename)
+        self.writable = os.access(fp, os.W_OK)
 
     def siblings(self):
         """Collect files and folders in the same folder."""
@@ -81,6 +82,17 @@ class File(object):
             LOGGER.info("The file (%s) already exists in the directory!",
                         new_basename)
             return True
+
+    @staticmethod
+    def uxchown(fp):
+        """Change the owner to the effective user (UNIX)."""
+        from pwd import getpwnam, getpwuid
+        from grp import getgrnam, getgrgid
+        uid = getpwnam(os.getenv("SUDO_USER",
+                                 getpwuid(os.getuid()).pw_name)).pw_uid
+        gid = getgrnam(os.getenv("SUDO_USER",
+                                 getgrgid(os.getgid()).gr_name)).gr_gid
+        return os.chown(fp, uid, gid)
 
 
 def cwdfiles(pattern='*'):
