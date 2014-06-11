@@ -118,7 +118,7 @@ depending on your needs...
 1. If you need only basic manipulation of ISBNs (validation, transforming, 
    extraction, hyphenation, ...) but not metadata or file renaming, 
    then you don't need a conf file. Just use the methods in ``isbntools``. 
-   This is true even if you need metadata and file renaming and the defaults are find.
+   This is true even if you need metadata and file renaming and the defaults are fine.
 
 2. If you rely heavely in metadata (or file renaming) and don't want to
    implement caching yourself, then you **need** an ``isbntools.conf`` file in a
