@@ -10,24 +10,16 @@ NOTES:
 2. metacache has different incompatible formats in py2 and py3
 """
 
-import os
 import shelve
 import datetime
 from time import time as timestamp
-
-
-# This default cache doesn't work for a system install
-# if the file mode is not 0666!
-CACHE_FILE = '.metacache'
-DEFAULT_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                             CACHE_FILE)
 
 
 class Cache(object):
 
     """Read and write shelve cache."""
 
-    def __init__(self, cache=DEFAULT_CACHE):
+    def __init__(self, cache):
         """Initialize attributes."""
         self._sh = shelve
         self._cache = cache
