@@ -39,7 +39,7 @@ scripts = ['bin/isbn_validate',
            ]
 
 
-if not "sdist" in sys.argv and os.name == 'nt':
+if "sdist" not in sys.argv and os.name == 'nt':
     scripts = [s + '.py' for s in scripts]
     # rename files to '....py'
     for s in scripts:
