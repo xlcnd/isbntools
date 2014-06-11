@@ -27,7 +27,7 @@ class File(object):
         self.writable = os.access(fp, os.W_OK)
 
     def siblings(self):
-        """Collect files and folders in the same folder."""
+        """Collect files and directories in the same directory."""
         return [f for f in os.listdir(self.path) if f != self.basename]
 
     @staticmethod
