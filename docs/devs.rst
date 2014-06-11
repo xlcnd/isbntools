@@ -108,6 +108,31 @@ Conf
     with a further version of the library!
 
 
+
+Just an ISBN lib!
+-----------------
+
+If you just want to integrate the lib in your project, you have several options, 
+depending on your needs...
+
+1. If you need only basic manipulation of ISBNs (validation, transforming, 
+   extraction, hyphenation, ...) but not metadata or file renaming, 
+   then you don't need a conf file. Just use the methods in ``isbntools``. 
+   This is true even if you need metadata and file renaming and the defaults are find.
+
+2. If you rely heavely in metadata (or file renaming) and don't want to
+   implement caching yourself, then you **need** an ``isbntools.conf`` file in a
+   directory were your program could write.  You can use ``isbntools.conf`` to
+   programatically manipulate the conf file.
+
+3. If you want to vendorize the lib you should take a careful look at
+   ``setup.py``!
+
+Any way, you could use the ``isbn_...`` scripts in the bin directory as examples
+on how to use the library and as debugger tools for your implementation.
+
+
+
 ---------------------------------------------------------------------------------
 
 **You can browse the code, in a very structured way, at** sourcegraph_ (but not
