@@ -1,4 +1,6 @@
 include *.txt
 include *.md
 include *.rst
+include isbntools/.metacache
 recursive-include isbntools *.conf
+recursive-include isbntools *.rst

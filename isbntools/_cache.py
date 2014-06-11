@@ -16,7 +16,8 @@ import datetime
 from time import time as timestamp
 
 
-# This default cache doesn't work for a system install!
+# This default cache doesn't work for a system install
+# if the file mode is not 0666!
 CACHE_FILE = '.metacache'
 DEFAULT_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                              CACHE_FILE)

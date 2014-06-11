@@ -85,17 +85,6 @@ class File(object):
             return True
 
     @staticmethod
-    def uxchown(fp):
-        """Change the owner to the effective user (UNIX)."""
-        from pwd import getpwnam, getpwuid
-        from grp import getgrnam, getgrgid
-        uid = getpwnam(os.getenv("SUDO_USER",
-                                 getpwuid(os.getuid()).pw_name)).pw_uid
-        gid = getgrnam(os.getenv("SUDO_USER",
-                                 getgrgid(os.getgid()).gr_name)).gr_gid
-        return os.chown(fp, uid, gid)
-
-    @staticmethod
     def uxchmod(fp, mode=stat.S_IROTH | stat.S_IWOTH):
         """Change the mode of the file (default is 0666)."""
         return os.chmod(fp, mode)

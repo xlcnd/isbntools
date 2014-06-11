@@ -39,7 +39,7 @@ scripts = ['bin/isbn_validate',
            ]
 
 
-if "install" in sys.argv and os.name == 'nt':
+if not "sdist" in sys.argv and os.name == 'nt':
     scripts = [s + '.py' for s in scripts]
     # rename files to '....py'
     for s in scripts:
@@ -50,7 +50,7 @@ def in_virtual():
     return True if hasattr(sys, 'real_prefix') else False
 
 
-def conf_file():
+def data_path():
     if in_virtual():
         installpath = ''
     else:
@@ -58,12 +58,21 @@ def conf_file():
         homepath = os.path.expanduser(user) if os.name != 'nt' else os.getenv('APPDATA')
         confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
         installpath = os.path.join(homepath, confdir)
+    return installpath
+
+
+DATAPATH = data_path()
+
+
+def conf_file():
     # no special needs for internal files!
     conf = 'isbntools/isbntools.conf'
-    return (installpath, [conf])
+    return (DATAPATH, [conf])
+
 
 data_files = []
 data_files.append(conf_file())
+
 
 setup(
     name='isbntools',
@@ -105,19 +114,3 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )
-
-# pos-setup processing
-
-
-def uxchown(fp):
-    from pwd import getpwnam, getpwuid
-    from grp import getgrnam, getgrgid
-    uid = getpwnam(os.getenv("SUDO_USER", getpwuid(os.getuid()).pw_name)).pw_uid
-    gid = getgrnam(os.getenv("SUDO_USER", getgrgid(os.getgid()).gr_name)).gr_gid
-    os.chown(fp, uid, gid)
-
-
-if not in_virtual() and os.name != 'nt' and "install" in sys.argv:
-    conffile = os.path.join(data_files[-1][0], 'isbntools.conf')
-    uxchown(conffile)
-    uxchown(os.path.dirname(conffile))
