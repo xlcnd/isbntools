@@ -4,6 +4,7 @@
 
 import re
 import os
+import stat
 import logging
 import fnmatch
 from .exceptions import FileNotFoundError
@@ -93,6 +94,11 @@ class File(object):
         gid = getgrnam(os.getenv("SUDO_USER",
                                  getgrgid(os.getgid()).gr_name)).gr_gid
         return os.chown(fp, uid, gid)
+
+    @staticmethod
+    def uxchmod(fp, mode=stat.S_IROTH | stat.S_IWOTH):
+        """Change the mode of the file (default is 0666)."""
+        return os.chmod(fp, mode)
 
 
 def cwdfiles(pattern='*'):
