@@ -57,7 +57,7 @@ You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api
 You can enter API keys and set preferences in the file `isbntools.conf` in your
 `$HOME\.isbntools` directory (UNIX). For Windows, you should look at
 `%APPDATA%/isbntools/isbntools.conf`.
-The output can be formatted as `bibtex`, `msword`,  `endnote`, `refworks`, or
+The output can be formatted as `bibtex`, `msword`,  `endnote`, `refworks`, `opf`, or
 `json` (BibJSON) bibliographic formats.
 
 
@@ -83,7 +83,7 @@ a *fuzzy* script that returns the *most probable* ISBN from a set of words.
 (You can verify the result with `isbn_meta`)!
 
 ```bash
-$ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks|json]
+$ isbn_goom "words from title and author name" [bibtex|opf|msword|endnote|refworks|json]
 ```
 a script that returns from **Google Books multiple references**.
 
@@ -103,7 +103,7 @@ returns the EAN13 code of a given ISBN.
 $ isbn_ren FILENAME
 ```
 renames (using metadata) files in the **current directory** that have ISBNs in their
-filename (e.g. `isbn_ren 1783559284_book.pdf`, `isbn_ren "*.pdf"`).
+filename (e.g. `isbn_ren 1783559284_book.epub`, `isbn_ren "*.pdf"`).
 
 >Enter `isbn_ren` to see many other options.
 

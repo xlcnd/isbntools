@@ -72,7 +72,7 @@ gives you the *group identifier* of the ISBN.
 
 .. code-block:: bash
 
-    $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [bibtex|msword|endnote|refworks|json] [YOUR_APIKEY_TO_SERVICE]
+    $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [bibtex|msword|endnote|refworks|opf|json] [YOUR_APIKEY_TO_SERVICE]
 
 gives you the main metadata associated with the ISBN, ``wcat`` uses **worldcat.org**
 (**no key is needed**), ``goob`` uses the **Google Books service** (**no key is needed**),
@@ -84,7 +84,7 @@ You can get an API key for the *isbndb.com service* here_.  You can enter API ke
 set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
 ``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``,
-``msword``, ``endnote``, ``refworks`` or ``json`` (BibJSON) bibliographic formats.
+``msword``, ``endnote``, ``refworks``, ``opf`` or ``json`` (BibJSON) bibliographic formats.
 
 
 .. code-block:: bash
@@ -145,7 +145,7 @@ returns the EAN13 code of a given ISBN.
     $ isbn_ren FILENAME
 
 renames (using metadata) files in the **current directory** that have ISBNs in their
-filename (e.g. ``isbn_ren 1783559284_book.pdf``, ``isbn_ren "*.pdf"``).
+filename (e.g. ``isbn_ren 1783559284_book.epub``, ``isbn_ren "*.pdf"``).
 
     Enter ``isbn_ren`` to see many other options.
 
