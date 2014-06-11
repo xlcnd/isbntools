@@ -88,9 +88,10 @@ see them as a learning opportunity. Thanks!
 - https://guides.github.com/introduction/flow/index.html
 - https://www.youtube.com/watch?v=IeW1Irw45hQ
 - https://www.youtube.com/watch?v=U8GBXvdmHT4
+- https://www.youtube.com/watch?v=9Blbj1HMROU
 
 
-### Topics
+### More Resources by Topic
 
 |                  **Topic**  |                              **Resource**                               |
 |----------------------------:|:------------------------------------------------------------------------|
