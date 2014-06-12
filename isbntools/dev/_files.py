@@ -4,14 +4,15 @@
 
 import re
 import os
-import stat
 import logging
 import fnmatch
+from stat import S_IRUSR, S_IWUSR, S_IRGRP, S_IWGRP, S_IROTH, S_IWOTH
 from .exceptions import FileNotFoundError
 
 MAXLEN = 120
 ILEGAL = r'<>:"/\|?*'
 LOGGER = logging.getLogger(__name__)
+MODE666 = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH
 
 
 class File(object):
@@ -85,7 +86,7 @@ class File(object):
             return True
 
     @staticmethod
-    def uxchmod(fp, mode=stat.S_IROTH | stat.S_IWOTH):
+    def uxchmod(fp, mode=MODE666):
         """Change the mode of the file (default is 0666)."""
         return os.chmod(fp, mode)
 
