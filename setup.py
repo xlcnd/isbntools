@@ -50,6 +50,14 @@ def in_virtual():
     return True if hasattr(sys, 'real_prefix') else False
 
 
+def uxchown(fp):
+    from pwd import getpwnam, getpwuid
+    from grp import getgrnam, getgrgid
+    uid = getpwnam(os.getenv("SUDO_USER", getpwuid(os.getuid()).pw_name)).pw_uid
+    gid = getgrnam(os.getenv("SUDO_USER", getgrgid(os.getgid()).gr_name)).gr_gid
+    os.chown(fp, uid, gid)
+
+
 def data_path():
     if in_virtual():
         installpath = ''
@@ -58,6 +66,9 @@ def data_path():
         homepath = os.path.expanduser(user) if os.name != 'nt' else os.getenv('APPDATA')
         confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
         installpath = os.path.join(homepath, confdir)
+        if not os.path.exists(installpath) and "sdist" not in sys.argv:
+            os.mkdir(installpath)
+            uxchown(installpath)
     return installpath
 
 
@@ -114,3 +125,12 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )
+
+# pos-setup processing
+
+if not in_virtual() and os.name != 'nt' and "sdist" not in sys.argv:
+    conffile = os.path.join(DATAPATH, 'isbntools.conf')
+    try:
+        uxchown(conffile)
+    except:
+        pass
