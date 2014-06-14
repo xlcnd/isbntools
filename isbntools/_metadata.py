@@ -7,7 +7,8 @@ from .exceptions import NotRecognizedServiceError
 from .config import options, CONF_PATH, CACHE_FILE
 from ._cache import Cache
 
-
+# TODO put the setup of cache in registry and cache should
+#      be an instance of a cache
 if CONF_PATH:
     DEFAULT_CACHE = os.path.join(CONF_PATH, CACHE_FILE)
     writable = os.access(CONF_PATH, os.W_OK)
@@ -35,7 +36,7 @@ def query(isbn, service='default', cache=CACHE):
     """Query worldcat.org, Google Books (JSON API), ... for metadata."""
     if service != 'default' and service not in services:
         raise NotRecognizedServiceError(service)
-    if not cache:
+    if cache is None:
         return services[service](isbn)
     kache = Cache() if cache == 'default' else Cache(cache)
     key = isbn + service
