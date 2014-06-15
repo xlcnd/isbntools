@@ -8,6 +8,9 @@ from . import _goob as goob
 from . import _merge as merge
 from .exceptions import PluginNotLoadedError
 
+
+# SERVICES
+
 services = {'default': merge.query,
             'wcat': wcat.query,
             'goob': goob.query,
@@ -26,6 +29,8 @@ def add_service(name, query):         # pragma: no cover
     global services
     services[name] = query
 
+
+# PLUGINS
 
 def load_plugin(name, plugin_dir):    # pragma: no cover
     """Load pluggins."""

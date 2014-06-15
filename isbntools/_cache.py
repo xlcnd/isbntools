@@ -7,7 +7,7 @@ Implements The Basic Sequence and Mapping Protocol
 
 NOTES:
 1. cannot use context manager for shelve because py2
-2. metacache has different incompatible formats in py2 and py3
+2. shelve has different incompatible formats in py2 and py3
 """
 
 import shelve
