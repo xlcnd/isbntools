@@ -53,3 +53,4 @@ v3.2.5, 2014-06-02 -- Cache for metadata - first iteration (NOT RELEASED).
 v3.3.1, 2014-06-08 -- Cache for metadata and 'opf' format.
 v3.3.2, 2014-06-10 -- Fix bug #60 (`isbn_meta` and `isbn_ren` don't work for system installs).
 v3.3.3, 2014-06-16 -- A more robust install for `system installs` in UNIX systems.
+v3.3.4, 2014-06-24 -- TENTATIVE 

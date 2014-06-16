@@ -6,7 +6,7 @@ __all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'quiet_errors', 'config', 'setconf', '__version__', '__support__',
            'doi', 'check_version', 'ISBN13', 'Cache', 'in_virtual')
 
-__version__ = '3.3.3'                               # <-- literal IDs
+__version__ = '3.3.4'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
 
 
