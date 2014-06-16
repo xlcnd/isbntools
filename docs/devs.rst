@@ -1,5 +1,4 @@
 
-
 For Devs
 ========
 
@@ -36,7 +35,7 @@ namespace ``isbntools.dev``, namely:
 
 * ``vias`` exposes several functions to put calls to services, just by passing the name and
   a pointer to the service's ``query`` function.
-  ``vias.parallel`` allows to put theaded calls, however doesn't implement
+  ``vias.parallel`` allows to put threaded calls, however doesn't implement
   throttling! You can use ``vias.serial`` to make serial calls and
   ``vias.multi`` to use several cores. The default is ``vias.serial``, but
   you can change that in the conf file.
@@ -76,7 +75,7 @@ Merge Metadata
 
 The original quality of metadata, at the several services, is not very good!
 If you need high quality metadata in your app, the only solution is to use
-*polling & merge* of several providers **and** a **lot** of cleanning and standardization
+*polling & merge* of several providers **and** a **lot** of cleaning and standardization
 for fields like ``Authors`` and ``Publisher``.
 A *simple merge* provider is now the default in ``isbn_meta`` (and ``isbntools.meta``).
 It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
@@ -102,7 +101,7 @@ Conf
 ``isbntools.conf`` provides methods to edit the configuration file.
 
 
-    **WARNING**: If you inspect the library, you will see that there are a lot of 
+    **WARNING**: If you inspect the library, you will see that there are a lot of
     private modules (their name starts with '_'). These modules **should not**
     be accessed directly since, with high probability, your program will break
     with a further version of the library!
@@ -112,13 +111,13 @@ Conf
 Just an ISBN lib!
 -----------------
 
-If you just want to integrate the lib in your project, you have several options, 
+If you just want to integrate the lib in your project, you have several options,
 depending on your needs...
 
-1. If you need only basic manipulation of ISBNs (validation, transforming, 
-   extraction, hyphenation, ...) but not metadata or file renaming, 
-   then you don't need a conf file. Just use the methods in ``isbntools``. 
-   This is true even if you need metadata and file renaming and the defaults are fine.
+1. If you need only basic manipulation of ISBNs (validation, transforming,
+   extraction, hyphenation, ...) but not metadata or file renaming,
+   then you don't need a conf file. Just use the methods in ``isbntools``.
+   Probably you are better served with isbnlib_.
 
 2. If you rely heavely in metadata (or file renaming) and don't want to
    implement caching yourself, then you **need** an ``isbntools.conf`` file in a
@@ -131,7 +130,7 @@ depending on your needs...
 Any way, you could use the ``isbn_...`` scripts in the bin directory as examples
 on how to use the library and as debugger tools for your implementation.
 
-
+  **Don't forget** to take a look at isbnlib_.
 
 ---------------------------------------------------------------------------------
 
@@ -147,6 +146,8 @@ the most recent version, for that go to GitHub_).
 
 .. _help: http://bit.ly/1jcxq8W
 
-.. _GitHub: http://bit.ly/1oTm5ze 
+.. _GitHub: http://bit.ly/1oTm5ze
 
 .. _sourcegraph: http://bit.ly/1k14kHi
+
+.. _isbnlib: http://bit.ly/ISBNlib

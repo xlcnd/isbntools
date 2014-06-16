@@ -2,9 +2,9 @@
 [![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-[![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.4)](https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.3)
+[![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.4)](https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.4)
 [![Graph](https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png)](https://sourcegraph.com/github.com/xlcnd/isbntools)
-[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.4)](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.3)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.4)](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.4)
 
 
 Info
@@ -51,7 +51,7 @@ gives you the main metadata associated with the ISBN, `wcat` uses **worldcat.org
 (**no key is needed**), `goob` uses the **Google Books service** (**no key is needed**),
 `isbndb` uses the **isbndb.com** service (**an api key is needed**),
 `openl` uses the **OpenLibrary.org** api (**no key is needed**), `merge` uses
-a mergeded record of `wcat` and `goob` records (**no key is needed**) and
+a merged record of `wcat` and `goob` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`).
 You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
 You can enter API keys and set preferences in the file `isbntools.conf` in your
@@ -191,7 +191,7 @@ you can download a
 that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 
->**Intructions**:
+>**Instructions**:
 1. unzip the file and put the file `isbn.exe` in a folder
 2. go to that folder and open a command line
 3. run `isbn help` to get further instructions
@@ -200,11 +200,15 @@ access to the scripts. However, doesn't support add-ins or customization!
 For Devs
 --------
 
-Please read at least [this page of the documentation](http://isbntools.readthedocs.org/en/latest/devs.html).
+If all you want is to add `isbntools` to the requirements of your project,
+probably you will better served with [isbnlib](http://bit.ly/ISBNlib),
+it implements the basic functionality
+of `isbntools` without end user scripts and configuration files!
 
-You can browse the code, in a very structured way, at [sourcegraph](http://bit.ly/1k14kHi).
+If you thing that that is not enough,
+please read at least [this page of the documentation](http://isbntools.readthedocs.org/en/latest/devs.html).
 
-If you would like to contribute to the project, please read the [guidelines](http://bit.ly/1jcxq8W).
+If you would like to contribute to the project please read the [guidelines](http://bit.ly/1jcxq8W).
 
 
 Conf File

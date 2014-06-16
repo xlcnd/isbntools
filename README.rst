@@ -1,4 +1,3 @@
-
 .. image:: https://pypip.in/d/isbntools/badge.png
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: Downloads
@@ -78,7 +77,7 @@ gives you the main metadata associated with the ISBN, ``wcat`` uses **worldcat.o
 (**no key is needed**), ``goob`` uses the **Google Books service** (**no key is needed**),
 ``isbndb`` uses the **isbndb.com** service (**an api key is needed**),
 ``openl`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
-a mergeded record of ``wcat`` and ``goob`` records (**no key is needed**) and
+a merged record of ``wcat`` and ``goob`` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``).
 You can get an API key for the *isbndb.com service* here_.  You can enter API keys and
 set preferences in the file ``isbntools.conf`` in your
@@ -202,7 +201,7 @@ Have fun!
 Install
 =======
 
-From the command line enter (in some cases you have to preced the
+From the command line enter (in some cases you have to precede the
 command with ``sudo``):
 
 
@@ -220,7 +219,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-3.3.4.tar.gz
+    $ pip install isbntools-3.3.3.tar.gz
 
 (first you have to download the file!)
 
@@ -238,7 +237,7 @@ Windows
 you can download a standalone_ version that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 
-    **Intructions**:
+    **Instructions**:
 
     1. unzip the file and put the file ``isbn.exe`` in a folder.
     2. go to that folder and open a command line.
@@ -249,9 +248,12 @@ access to the scripts. However, doesn't support add-ins or customization!
 For Devs
 ========
 
-Please read_ at least this page of the documentation.
+If all you want is to add ``isbntools`` to the requirements of your project, 
+probably you will better served with isbnlib_, it implements the basic functionality
+of ``isbntools`` without end user scripts and configuration files!
 
-You can browse the code, in a very structured way, at sourcegraph_.
+If you thing that that is not enough,
+please read_ at least this page of the documentation.
 
 If you would like to contribute to the project please read the guidelines_.
 
@@ -345,3 +347,5 @@ More documentation at http://isbntools.readthedocs.org
 .. _twitter: https://twitter.com/isbntools
 
 .. _pdfminer: https://pypi.python.org/pypi/pdfminer
+
+.. _isbnlib: http://bit.ly/ISBNlib

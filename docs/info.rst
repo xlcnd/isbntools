@@ -47,7 +47,7 @@ gives you the main metadata associated with the ISBN, ``wcat`` uses **worldcat.o
 (**no key is needed**), ``goob`` uses the **Google Books service** (**no key is needed**),
 ``isbndb`` uses the **isbndb.com** service (**an api key is needed**),
 ``openl`` uses the **OpenLibrary.org** api (**no key is needed**), ``merge`` uses
-a mergeded record of ``wcat`` and ``goob`` records (**no key is needed**) and
+a merged record of ``wcat`` and ``goob`` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``).
 You can get an API key for the *isbndb.com service* here_.  You can enter API keys and
 set preferences in the file ``isbntools.conf`` in your

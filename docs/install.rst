@@ -39,7 +39,7 @@ Windows
     you can download a standalone_ version that **doesn't need python** and gives you
     access to the scripts. However, doesn't support add-ins or customization!
 
-    **Intructions**:
+    **Instructions**:
     1. unzip the file and put the file ``isbn.exe`` in a folder.
     2. go to that folder and open a command line.
     3. run ``isbn help`` to get further instructions.
