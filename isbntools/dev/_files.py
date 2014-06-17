@@ -65,6 +65,8 @@ class File(object):
         """Rename the file to a 'safe' basename."""
         if not self.validate(new_basename):
             return False
+        # first normalize basename if os requires it
+        new_basename = os.path.normcase(new_basename)
         name, ext = os.path.splitext(new_basename)
         name = self.mkwinsafe(name)
         new_basename = name + ext
