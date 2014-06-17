@@ -8,7 +8,7 @@
 
 from ..dev import Metadata, stdmeta
 from nose.tools import assert_equals, assert_raises
-from ..bouth23 import u
+from ..dev.bouth23 import u
 
 
 def test_stdmeta():

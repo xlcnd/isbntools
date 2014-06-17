@@ -39,7 +39,7 @@ def last_first(author):
 
 def unicode_to_utf8tex(utex, filtre=()):
     """Replace unicode entities with tex entitites and returns utf8 bytes."""
-    from ..bouth23 import b, s
+    from .bouth23 import b, s
     from ..data.data4tex import unicode_to_tex
     btex = utex.encode('utf-8')
     table = dict((k.encode('utf-8'), v) for k, v in unicode_to_tex.items()

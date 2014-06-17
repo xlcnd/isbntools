@@ -5,7 +5,7 @@ import logging
 import re
 from isbntools.dev.webquery import query as wquery
 from isbntools.dev import stdmeta
-from isbntools.bouth23 import u
+from isbntools.dev.bouth23 import u
 from isbntools.config import apikeys
 from isbntools.dev.exceptions import (DataWrongShapeError,
                                       NoDataForSelectorError,

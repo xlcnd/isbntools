@@ -2,7 +2,7 @@
 
 import re
 import sys
-from .bouth23 import s
+from .dev.bouth23 import s
 try:
     from urllib.request import Request
     from urllib.request import urlopen

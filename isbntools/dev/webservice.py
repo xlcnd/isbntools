@@ -3,7 +3,7 @@
 
 import logging
 import gzip
-from ..bouth23 import s, bstream
+from .bouth23 import s, bstream
 try:                     # pragma: no cover
     from urllib.parse import urlencode
     from urllib.request import Request, urlopen

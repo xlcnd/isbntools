@@ -6,7 +6,7 @@ import sys
 import string
 import logging
 from ._helpers import last_first, cutoff_tokens
-from ..bouth23 import u, b2u3
+from .bouth23 import u, b2u3
 from .. import config
 from ._files import File, cwdfiles
 from .. import EAN13, get_isbnlike, meta

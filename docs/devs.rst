@@ -9,9 +9,7 @@ Main Namespaces
 In the namespace ``isbntools`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
-``meta``, ``info``, ``editions``, and ``isbn_from_words``. You have access to
-``bouth23`` a small module to make it possible the code to run in **bouth**
-python 2 and python 3.
+``meta``, ``info``, ``editions``, and ``isbn_from_words``.
 
 You can extend the lib by using the classes and functions exposed in
 namespace ``isbntools.dev``, namely:
@@ -39,6 +37,10 @@ namespace ``isbntools.dev``, namely:
   throttling! You can use ``vias.serial`` to make serial calls and
   ``vias.multi`` to use several cores. The default is ``vias.serial``, but
   you can change that in the conf file.
+
+* ``bouth23`` a small module to make it possible the code to run in 
+  **bouth** python 2 and python 3.
+
 
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
