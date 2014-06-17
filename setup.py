@@ -21,6 +21,47 @@ import sys
 from setuptools import setup
 from isbntools import __version__
 
+
+# ENV
+
+PIP = len(sys.argv) == 1
+INSTALL = "install" in sys.argv or PIP
+WINDOWS = os.name == 'nt'
+VIRTUAL = True if hasattr(sys, 'real_prefix') else False
+
+
+# DEFS
+
+CONFDIR = '.isbntools' if not WINDOWS else 'isbntools'
+CONFFILE = 'isbntools.conf'
+
+
+# HELPERS
+
+def uxchown(fp):
+    from pwd import getpwnam, getpwuid
+    from grp import getgrnam, getgrgid
+    uid = getpwnam(os.getenv("SUDO_USER", getpwuid(os.getuid()).pw_name)).pw_uid
+    gid = getgrnam(os.getenv("SUDO_USER", getgrgid(os.getgid()).gr_name)).gr_gid
+    os.chown(fp, uid, gid)
+
+
+def data_path():
+    if VIRTUAL:
+        installpath = ''
+    else:
+        user = '~%s' % os.getenv("SUDO_USER", '')
+        homepath = os.path.expanduser(user) if not WINDOWS else os.getenv('APPDATA')
+        installpath = os.path.join(homepath, CONFDIR)
+        if not os.path.exists(installpath) and INSTALL:
+            print('making data dir...')
+            os.mkdir(installpath)
+            uxchown(installpath)
+    return installpath
+
+
+# SET VARIABLES
+
 scripts = ['bin/isbn_validate',
            'bin/to_isbn10',
            'bin/to_isbn13',
@@ -39,51 +80,24 @@ scripts = ['bin/isbn_validate',
            ]
 
 
-if "sdist" not in sys.argv and os.name == 'nt':
+DATAPATH = data_path()
+
+data_files = [
+    (DATAPATH, ['isbntools/isbntools.conf'])
+]
+
+
+# PRE-SETUP
+
+if INSTALL and WINDOWS:
     scripts = [s + '.py' for s in scripts]
     # rename files to '....py'
+    print('adding file extensions...')
     for s in scripts:
         os.rename(s.split('.')[0], s)
 
 
-def in_virtual():
-    return True if hasattr(sys, 'real_prefix') else False
-
-
-def uxchown(fp):
-    from pwd import getpwnam, getpwuid
-    from grp import getgrnam, getgrgid
-    uid = getpwnam(os.getenv("SUDO_USER", getpwuid(os.getuid()).pw_name)).pw_uid
-    gid = getgrnam(os.getenv("SUDO_USER", getgrgid(os.getgid()).gr_name)).gr_gid
-    os.chown(fp, uid, gid)
-
-
-def data_path():
-    if in_virtual():
-        installpath = ''
-    else:
-        user = '~%s' % os.getenv("SUDO_USER", '')
-        homepath = os.path.expanduser(user) if os.name != 'nt' else os.getenv('APPDATA')
-        confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
-        installpath = os.path.join(homepath, confdir)
-        if not os.path.exists(installpath) and "sdist" not in sys.argv:
-            os.mkdir(installpath)
-            uxchown(installpath)
-    return installpath
-
-
-DATAPATH = data_path()
-
-
-def conf_file():
-    # no special needs for internal files!
-    conf = 'isbntools/isbntools.conf'
-    return (DATAPATH, [conf])
-
-
-data_files = []
-data_files.append(conf_file())
-
+# SETUP
 
 setup(
     name='isbntools',
@@ -126,11 +140,12 @@ setup(
     ],
 )
 
-# pos-setup processing
+# POS-SETUP
 
-if not in_virtual() and os.name != 'nt' and "sdist" not in sys.argv:
-    conffile = os.path.join(DATAPATH, 'isbntools.conf')
+if not VIRTUAL and not WINDOWS and INSTALL:
+    conffile = os.path.join(DATAPATH, CONFFILE)
     try:
         uxchown(conffile)
+        print('setting permissions...')
     except:
         pass
