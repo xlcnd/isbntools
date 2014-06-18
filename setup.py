@@ -18,22 +18,27 @@
 
 import os
 import sys
+import pkg_resources
 from setuptools import setup
 from isbntools import __version__
 
 
 # ENV
 
-PIP = len(sys.argv) == 1
-INSTALL = "install" in sys.argv or PIP
+ARGVS = sys.argv
+FIRSTRUN = 'egg_info' in ARGVS
+PIP = '-c' in ARGVS
+INSTALL = any((m in ARGVS for m in ('install', 'development'))) or PIP
 WINDOWS = os.name == 'nt'
 VIRTUAL = True if hasattr(sys, 'real_prefix') else False
+SECONDRUN = INSTALL and not FIRSTRUN
 
 
 # DEFS
 
 CONFDIR = '.isbntools' if not WINDOWS else 'isbntools'
 CONFFILE = 'isbntools.conf'
+CONFRES = pkg_resources.resource_filename('isbntools', CONFFILE)
 
 
 # HELPERS
@@ -54,7 +59,7 @@ def data_path():
         homepath = os.path.expanduser(user) if not WINDOWS else os.getenv('APPDATA')
         installpath = os.path.join(homepath, CONFDIR)
         if not os.path.exists(installpath) and INSTALL:
-            print('making data dir...')
+            print('making data dir %s' % installpath)
             os.mkdir(installpath)
             uxchown(installpath)
     return installpath
@@ -83,15 +88,15 @@ scripts = ['bin/isbn_validate',
 DATAPATH = data_path()
 
 data_files = [
-    (DATAPATH, ['isbntools/isbntools.conf'])
+    (DATAPATH, [CONFRES])
 ]
 
 
 # PRE-SETUP
 
-if INSTALL and WINDOWS:
+if SECONDRUN and WINDOWS:
+    # add expension to scripts
     scripts = [s + '.py' for s in scripts]
-    # rename files to '....py'
     print('adding file extensions...')
     for s in scripts:
         os.rename(s.split('.')[0], s)
@@ -142,10 +147,13 @@ setup(
 
 # POS-SETUP
 
-if not VIRTUAL and not WINDOWS and INSTALL:
+if not VIRTUAL and not WINDOWS and SECONDRUN:
     conffile = os.path.join(DATAPATH, CONFFILE)
+    if not os.path.exists(conffile):
+        print("Warning: file %s doesn't exist! Use 'isbn_conf make'" % conffile)
+        sys.exit()
     try:
         uxchown(conffile)
-        print('setting permissions...')
+        print('changing mode of %s to 666' % conffile)
     except:
-        pass
+        print('Warning: permissions not set for file %s' % conffile)
