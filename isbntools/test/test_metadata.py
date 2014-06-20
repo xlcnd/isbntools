@@ -15,9 +15,9 @@ from nose.tools import assert_equals, assert_raises
 
 def test_query():
     # test query from metadata
-    assert_raises(Exception, query, '9781849692342', 'goog')
+    assert_raises(Exception, query, '9781849692341', 'goog')
     assert_equals(len(repr(query('9781849692342', 'goob'))) in (201, 208), True)
-    assert_raises(Exception, query, '9781849692342', 'wcat')
+    assert_raises(Exception, query, '9781849692341', 'wcat')
     assert_equals(len(repr(query('9780321534965', 'wcat'))) in (252, 258), True)
     assert_equals(len(repr(query('9780321534965'))) in (173, 179), True)
     assert_equals(len(repr(query('9780321534965', 'merge'))) in (173, 179), True)

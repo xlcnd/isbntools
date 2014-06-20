@@ -33,8 +33,8 @@ def test_mask():
 
 
 def test_editions():
-    assert_equals(len(editions('9780156001311')), 19)
-    assert_equals(len(editions('9780151446476')), 19)
+    assert_equals(len(editions('9780156001311')) > 19, True)
+    assert_equals(len(editions('9780151446476')) > 19, True)
     assert_raises(TypeError, len(editions('9780151446476')))
 
 
