@@ -162,10 +162,9 @@ def notisbn(isbnlike, level='strict'):
     if level != 'strict':
         return False
     if len(isbnlike) == 10:
-        # an isbn-10 starting with 94 is not valid
-        return True if isbnlike[0:2] == '94' else not is_isbn10(isbnlike)
+        return not is_isbn10(isbnlike)
     else:
-        return True if isbnlike[3:5] == '94' else not is_isbn13(isbnlike)
+        return not is_isbn13(isbnlike)
 
 
 def get_isbnlike(text, level='normal'):
