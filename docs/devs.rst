@@ -129,7 +129,7 @@ depending on your needs...
 3. If you want to vendorize the lib you should take a careful look at
    ``setup.py``!
 
-Any way, you could use the ``isbn_...`` scripts in the bin directory as examples
+Anyway, you could use the ``isbn_...`` scripts in the bin directory as examples
 on how to use the library and as debugger tools for your implementation.
 
   **Don't forget** to take a look at isbnlib_.
