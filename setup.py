@@ -92,7 +92,6 @@ scripts = ['bin/isbn_validate',
            'bin/isbn_ren',
            ]
 
-
 DATAPATH = data_path()
 
 data_files = [
