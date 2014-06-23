@@ -23,7 +23,7 @@ def test_query():
     assert_equals(len(repr(query('9780321534965', 'merge'))) in (173, 179), True)
     assert_equals(len(repr(query('9780321534965', 'goob'))) in (154, 160, 189, 195), True)
     assert_equals(len(repr(query('9789934015960'))) in (166, 187), True)
-    assert_equals(len(repr(query('9781118241257'))) in (177, 183), True)
+    assert_equals(len(repr(query('9781118241257'))) > 150, True)
     assert_raises(Exception, query, '9780000000', 'wcat', None)
     assert_raises(Exception, query, randrange(0, 1000000), 'wcat')
 
