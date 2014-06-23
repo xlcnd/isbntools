@@ -10,6 +10,8 @@ __version__ = '3.3.5'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
 
 
+import logging as _logging
+import os as _os
 import sys as _sys
 
 
@@ -18,8 +20,6 @@ def in_virtual():
     return True if hasattr(_sys, 'real_prefix') else False
 
 
-import os as _os
-import logging as _logging
 from . import config        # <-- first import
 from . import setconf       # <-- first import
 from ._version import check_version
