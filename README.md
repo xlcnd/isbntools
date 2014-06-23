@@ -2,9 +2,9 @@
 [![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-[![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.4)](https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.4)
+[![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.5)](https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.4)
 [![Graph](https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png)](https://sourcegraph.com/github.com/xlcnd/isbntools)
-[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.4)](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.4)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.5)](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.4)
 
 
 Info
@@ -171,9 +171,9 @@ $ easy_install isbntools
 this installs from [pypi](https://pypi.python.org/pypi/isbntools) too, or (to install locally in *Linux* or *Mac OS X*):
 
 ```bash
-$ pip install isbntools-3.3.4.tar.gz
+$ pip install isbntools-3.3.5.tar.gz
 ```
-but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-3.3.4.tar.gz) the file!
+but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-3.3.5.tar.gz) the file!
 
 
 You should check if the install was successful, by enter:
