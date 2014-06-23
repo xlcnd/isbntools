@@ -229,7 +229,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
 
 
 def EAN13(isbnlike):
-    """Transform an `isbnlike` string into an EAN number (canonical ISBN-13)."""
+    """Transform an isbnlike string into an EAN number (canonical ISBN-13)."""
     ib = canonical(isbnlike)
     if len(ib) == 13:
         return ib if is_isbn13(ib) else None
