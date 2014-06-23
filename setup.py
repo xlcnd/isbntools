@@ -36,7 +36,7 @@ if tuple(int(x) for x in sys.version[:3].split('.')) not in SUPPORTED:
 ARGVS = sys.argv
 FIRSTRUN = 'egg_info' in ARGVS
 PIP = '-c' in ARGVS
-INSTALL = any((m in ARGVS for m in ('install', 'development'))) or PIP
+INSTALL = any((m in ARGVS for m in ('install', 'develop'))) or PIP
 WINDOWS = os.name == 'nt'
 VIRTUAL = True if hasattr(sys, 'real_prefix') else False
 SECONDRUN = INSTALL and not FIRSTRUN
