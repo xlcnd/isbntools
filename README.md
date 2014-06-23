@@ -2,9 +2,9 @@
 [![Latest Version](https://pypip.in/v/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Download format](https://pypip.in/format/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-[![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.5)](https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.4)
+[![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.5)](https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.5)
 [![Graph](https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png)](https://sourcegraph.com/github.com/xlcnd/isbntools)
-[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.5)](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.4)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.5)](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.5)
 
 
 Info
