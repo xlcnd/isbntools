@@ -70,7 +70,7 @@ class Cache(object):
     def __iter__(self):
         """Iterator for values in Cache."""
         s = self._sh.open(self._cache)
-        for k in self.keys():
+        for k in s.keys():
             yield s[k]['value']
         s.close()
 
@@ -79,17 +79,18 @@ class Cache(object):
         return len(self.keys()) if self.keys() else 0
 
     def keys(self):
-        """Return a list of keys."""
+        """Iterator for keys in Cache."""
         try:
             s = self._sh.open(self._cache)
-            return list(s.keys())
+            for k in s.keys():
+                yield k
         finally:
             s.close()
 
     def items(self):
         """Iterator for items in Cache."""
         s = self._sh.open(self._cache)
-        for k in self.keys():
+        for k in s.keys():
             yield k, s[k]['value']
         s.close()
 
