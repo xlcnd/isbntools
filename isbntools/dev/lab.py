@@ -9,5 +9,4 @@ from ._helpers import (normalize_space, last_first,
                        cutoff_tokens, parse_placeholders)
 from ._files import File, cwdfiles
 from ._rename import renfile, rencwdfiles
-
 from ._imcache import IMCache
