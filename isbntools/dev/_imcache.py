@@ -13,7 +13,7 @@ from collections import MutableMapping
 
 class IMCache(MutableMapping):
 
-    """Read and write to a dict-like cache."""
+    """Read and write to an in-memory dict-like cache."""
 
     MAXLEN = 1000
 
