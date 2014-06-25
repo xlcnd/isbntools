@@ -87,6 +87,15 @@ class Cache(object):
         finally:
             s.close()
 
+    def values(self):
+        """Iterator for values in Cache."""
+        try:
+            s = self._sh.open(self._cache)
+            for k in s.keys():
+                yield s[k]['value']
+        finally:
+            s.close()
+
     def items(self):
         """Iterator for items in Cache."""
         s = self._sh.open(self._cache)
