@@ -55,3 +55,4 @@ v3.3.2, 2014-06-10 -- Fix bug #60 (`isbn_meta` and `isbn_ren` don't work for sys
 v3.3.3, 2014-06-16 -- A more robust install for `system installs` in UNIX systems.
 v3.3.4, 2014-06-23 -- Fix bug in 'notisbn' and improved install. 
 v3.3.5, 2014-06-25 -- Fix bug 'develop' and optional in-memory cache.
+v3.3.6, 2014-06-30 -- TENTATIVE 
