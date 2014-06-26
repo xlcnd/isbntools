@@ -107,7 +107,8 @@ except:                              # pragma: no cover
     pass
 
 # get plugins from entry_points
-for entry in iter_entry_points(group='isbntools.plugin', name=None):  # pragma: no cover
+for entry in iter_entry_points(group='isbntools.plugin',
+                               name=None):  # pragma: no cover
     plugin = entry.load()
     if plugin:
         registry.add_service(entry.name, plugin.query)
