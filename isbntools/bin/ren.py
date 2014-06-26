@@ -80,7 +80,7 @@ def reg_apikey(service, apikey):
         pass
 
 
-def main(args):
+def ren(args):
     """Rename files."""
     from isbntools.dev._rename import (checkpattern, rencwdfiles,
                                       renfile, get_isbn)
@@ -101,9 +101,9 @@ def main(args):
     return renfile(filename, isbn, service, pattern)
 
 
-if __name__ == "__main__":
+def main():
     sys.excepthook = quiet_errors
-    success = main(sys.argv[1:]) if len(sys.argv) > 1 else False
+    success = ren(sys.argv[1:]) if len(sys.argv) > 1 else False
     if success:
         sys.exit(0)
     providers = list(registry.services.keys())

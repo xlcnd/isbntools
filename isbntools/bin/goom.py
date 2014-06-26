@@ -30,7 +30,7 @@ def parse_args(args):
     return (words, fmt)
 
 
-if __name__ == "__main__":
+def main():
     sys.excepthook = quiet_errors
     try:
         words, fmt = parse_args(sys.argv[1:])

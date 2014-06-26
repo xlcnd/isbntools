@@ -27,7 +27,3 @@ def stdin_validate():
             buf = get_canonical_isbn(buf)
             if buf:
                 print(buf)
-
-
-if __name__ == "__main__":
-    stdin_validate()

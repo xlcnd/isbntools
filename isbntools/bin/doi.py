@@ -9,7 +9,7 @@ def usage():
     print('Usage: isbn_doi ISBN')
 
 
-if __name__ == "__main__":
+def main():
     sys.excepthook = quiet_errors
     try:
         print(doi(sys.argv[1]))

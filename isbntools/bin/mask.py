@@ -9,7 +9,7 @@ def usage():
     print('Usage: isbn_mask ISBN')
 
 
-if __name__ == "__main__":
+def main():
     try:
         print((mask(sys.argv[1])))
     except:

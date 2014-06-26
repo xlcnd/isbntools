@@ -10,7 +10,7 @@ def usage():
     sys.exit(1)
 
 
-if __name__ == "__main__":
+def main():
     try:
         print((info(sys.argv[1])))
     except:

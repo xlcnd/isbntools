@@ -19,7 +19,7 @@
 import os
 import sys
 import pkg_resources
-from setuptools import setup
+from setuptools import setup, find_packages
 from isbntools import __version__
 
 
@@ -73,40 +73,13 @@ def data_path():
     return installpath
 
 
-# SET VARIABLES
-
-scripts = ['bin/isbn_validate',
-           'bin/to_isbn10',
-           'bin/to_isbn13',
-           'bin/isbn_mask',
-           'bin/isbn_info',
-           'bin/isbn_meta',
-           'bin/isbntools',
-           'bin/isbn_stdin_validate',
-           'bin/isbn_from_words',
-           'bin/isbn_editions',
-           'bin/isbn_goom',
-           'bin/isbn_doi',
-           'bin/isbn_EAN13',
-           'bin/isbn_conf',
-           'bin/isbn_ren',
-           ]
+# PRE-SETUP
 
 DATAPATH = data_path()
 
 data_files = [
     (DATAPATH, [CONFRES])
 ]
-
-
-# PRE-SETUP
-
-if SECONDRUN and WINDOWS:
-    # add expension to scripts
-    scripts = [s + '.py' for s in scripts]
-    print('adding file extensions...')
-    for s in scripts:
-        os.rename(s.split('.')[0], s)
 
 
 # SETUP
@@ -118,16 +91,24 @@ setup(
     author_email='xlcnd@outlook.com',
     url='https://github.com/xlcnd/isbntools',
     download_url='https://github.com/xlcnd/isbntools/archive/master.zip',
-    packages=['isbntools',
-              'isbntools/dev',
-              'isbntools/data',
-              'isbntools/contrib',
-              'isbntools/contrib/plugins',
-              'isbntools/contrib/modules',
-              'isbntools/contrib/modules/goom',
-              'isbntools/contrib/modules/gwords'
-              ],
-    scripts=scripts,
+    packages=find_packages(exclude=["*.test"]),
+    entry_points = {
+        'console_scripts': ['isbn_conf=isbntools.bin.conf:main',
+                            'isbn_doi=isbntools.bin.doi:main',
+                            'isbn_EAN13=isbntools.bin.EAN13:main',
+                            'isbn_editions=isbntools.bin.editions:main',
+                            'isbn_from_words=isbntools.bin.from_words:main',
+                            'isbn_goom=isbntools.bin.goom:main',
+                            'isbn_info=isbntools.bin.info:main',
+                            'isbn_mask=isbntools.bin.mask:main',
+                            'isbn_meta=isbntools.bin.meta:main',
+                            'isbn_ren=isbntools.bin.ren:main',
+                            'to_isbn10=isbntools.bin.to_isbn10:main',
+                            'to_isbn13=isbntools.bin.to_isbn13:main',
+                            'isbn_validate=isbntools.bin.validate:main',
+                            'isbn_stdin_validate=isbntools.bin.stdin_validate:stdin_validate',
+                            'isbntools=isbntools.bin.version:main',
+                           ]},
     data_files=data_files,
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',

@@ -6,7 +6,7 @@ import sys
 from isbntools import isbn_from_words, quiet_errors
 
 
-if __name__ == "__main__":
+def main():
     sys.excepthook = quiet_errors
 
     if len(sys.argv) != 2:

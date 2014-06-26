@@ -9,7 +9,7 @@ def usage():
     print('Usage: isbn_editions ISBN')
 
 
-if __name__ == "__main__":
+def main():
     sys.excepthook = quiet_errors
     try:
         for ib in editions(sys.argv[1]):

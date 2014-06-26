@@ -43,7 +43,7 @@ def parse_args(args):
     return (isbn, service, fmt, api)
 
 
-if __name__ == "__main__":
+def main():
     sys.excepthook = quiet_errors
     try:
         isbn, service, fmt, apikey = parse_args(sys.argv[1:])

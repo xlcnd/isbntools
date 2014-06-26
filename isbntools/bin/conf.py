@@ -39,7 +39,7 @@ def usage():
     sys.exit(1)
 
 
-if __name__ == "__main__":
+def main():
     sys.excepthook = quiet_errors
     try:
         nargv = len(sys.argv)
