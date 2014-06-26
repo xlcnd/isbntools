@@ -8,6 +8,7 @@ try:                                 # pragma: no cover
 except ImportError:                  # pragma: no cover
     import ConfigParser as configparser
 import socket
+from pkg_resources import iter_entry_points
 from . import in_virtual
 from . import config
 from . import registry
@@ -104,6 +105,12 @@ try:
 
 except:                              # pragma: no cover
     pass
+
+# get plugins from entry_points
+for entry in iter_entry_points(group='isbntools.plugin', name=None):  # pragma: no cover
+    plugin = entry.load()
+    if plugin:
+        registry.add_service(entry.name, plugin.query)
 
 # socket timeout is not exposed at urllib2 level so I had to import the
 # module and set a default value for all the sockets (timeout in seconds)
