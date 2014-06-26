@@ -111,7 +111,7 @@ for entry in iter_entry_points(group='isbntools.plugin',
                                name=None):  # pragma: no cover
     plugin = entry.load()
     if plugin:
-        registry.add_service(entry.name, plugin.query)
+        registry.add_service(entry.name, plugin)
 
 # socket timeout is not exposed at urllib2 level so I had to import the
 # module and set a default value for all the sockets (timeout in seconds)
