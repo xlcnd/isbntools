@@ -107,7 +107,7 @@ except:                              # pragma: no cover
     pass
 
 # get plugins from entry_points
-for entry in iter_entry_points(group='isbntools.plugin'):
+for entry in iter_entry_points(group='isbntools.plugins'):
     registry.add_service(entry.name, entry.load())  # pragma: no cover
 
 # socket timeout is not exposed at urllib2 level so I had to import the
