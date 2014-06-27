@@ -65,7 +65,7 @@ One easy way to do that, is to write a new metadata provider that will work as a
    In alternative, you can use *setuptools's entry points* and enter in your
    ``setup.py`` file something like this:
    
-    .. code-block:: bash
+.. code-block:: bash
    entry_points = {
         'isbntools.plugin': [
             'name_of_service = myns.mypkg.mymodule:query'
