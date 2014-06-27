@@ -107,17 +107,16 @@ but you should consider them as beta software. They can change a lot in
 the future.
 
 
-Conf
-----
-
-``isbntools.conf`` provides methods to edit the configuration file.
-
-
     **WARNING**: If you inspect the library, you will see that there are a lot of
     private modules (their name starts with '_'). These modules **should not**
     be accessed directly since, with high probability, your program will break
     with a further version of the library!
 
+
+Conf
+----
+
+``isbntools.conf`` provides methods to edit the configuration file.
 
 
 Just an ISBN lib!
