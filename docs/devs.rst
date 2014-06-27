@@ -62,14 +62,23 @@ One easy way to do that, is to write a new metadata provider that will work as a
 
 2. Create a new section called ``[PLUGINS]`` in ``isbntools.conf`` and, for the
    example above, enter a new line like this ``goodr=/full/path/to/directory/of/py/file``.
+   In alternative, you can use *setuptools's entry points* and enter in your
+   ``setup.py`` file something like this::
+   entry_points = {
+        'isbntools.plugin': [
+            'name_of_service = myns.mypkg.mymodule:query'
+                            ]
+                   },
+   install_requires=["isbntools>=3.3.6"],
 
 3. If your plugin uses a service with an API key (e.g. qWeRTY), you must enter a new line in
    the ``[SERVICES]`` section like this ``GOODR_API_KEY=qWeRTY``.
 
 Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of ``9780321534965``.
 
-Useful? Clone the ``isbntools`` repository on GitHub_ and make a pull request
-[help_]!
+If you think that your *service* could be useful to other persons, publish it to *pypi* using the 
+name ``isbntools.contrib.yourservice`` or clone the ``isbntools`` repository on GitHub_ and 
+make a pull request [help_]!
 
 
 Merge Metadata
