@@ -67,7 +67,7 @@ One easy way to do that, is to write a new metadata provider that will work as a
 
        entry_points = {
             'isbntools.plugin': [
-                'name_of_service = myns.mypkg.mymodule:query'
+                'name_of_service=myns.mypkg.mymodule:query'
                                 ]
                        },
        install_requires=["isbntools>=3.3.6"],

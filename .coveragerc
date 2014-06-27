@@ -6,6 +6,7 @@ branch = True
 # Regexes for directories to exclude from consideration
 omit = 
     */test/*
+    */bin/*
     */python?.?/*
     */site-packages/nose/*
     *version*
