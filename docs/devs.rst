@@ -66,9 +66,7 @@ One easy way to do that, is to write a new metadata provider that will work as a
    ``setup.py`` file something like this::
 
        entry_points = {
-            'isbntools.plugin': [
-                'name_of_service=myns.mypkg.mymodule:query'
-                                ]
+            'isbntools.plugin': ['name_of_service=myns.mypkg.mymodule:query']
                        },
        install_requires=["isbntools>=3.3.6"],
 
