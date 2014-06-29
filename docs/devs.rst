@@ -153,7 +153,7 @@ the most recent version, for that go to GitHub_).
 
 .. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/_merge.py
 
-.. _here: https://github.com/xlcnd/isbntools/blob/master/isbntools/PLUGIN.zip
+.. _here: https://github.com/xlcnd/isbntools/blob/dev/PLUGIN.zip
 
 .. _help: http://bit.ly/1jcxq8W
 
