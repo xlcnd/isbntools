@@ -58,7 +58,7 @@ One easy way to do that, is to write a new metadata provider that will work as a
    that it **must** have a function called ``query``, with signature
    ``query(isbn)``, and that **must** return records in a standard form (like ``wcat`` for
    example). One way to garantee that, is by *returning* with ``return
-   stdmeta(records)``. You can download a template for a plugin here_.
+   stdmeta(records)``. You can **download a template for a plugin** here_.
 
 2. Create a new section called ``[PLUGINS]`` in ``isbntools.conf`` and, for the
    example above, enter a new line like this ``goodr=/full/path/to/directory/of/py/file``.
@@ -153,7 +153,7 @@ the most recent version, for that go to GitHub_).
 
 .. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/_merge.py
 
-.. _here: https://github.com/xlcnd/isbntools/blob/dev/PLUGIN.zip
+.. _here: https://github.com/xlcnd/isbntools/raw/dev/PLUGIN.zip
 
 .. _help: http://bit.ly/1jcxq8W
 
