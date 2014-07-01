@@ -6,8 +6,8 @@ from isbntools.dev.webquery import query as wquery
 from isbntools.dev import stdmeta
 from isbntools.dev.bouth23 import u
 from isbntools.dev._exceptions import (DataWrongShapeError,
-                                      NoDataForSelectorError,
-                                      RecordMappingError)
+                                       NoDataForSelectorError,
+                                       RecordMappingError)
 
 UA = 'isbntools (gzip)'
 SERVICE_URL = 'https://www.googleapis.com/books/v1/volumes?q={words}&fields='\

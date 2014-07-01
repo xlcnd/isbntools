@@ -6,7 +6,7 @@ from isbntools.dev.webquery import query as wquery
 from isbntools.dev import stdmeta
 from isbntools.dev.bouth23 import u
 from isbntools.dev._exceptions import (NoDataForSelectorError,
-                                      RecordMappingError)
+                                       RecordMappingError)
 
 
 UA = 'isbntools (gzip)'

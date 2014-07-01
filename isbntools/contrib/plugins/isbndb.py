@@ -8,8 +8,8 @@ from isbntools.dev import stdmeta
 from isbntools.dev.bouth23 import u
 from isbntools.config import apikeys
 from isbntools.dev._exceptions import (DataWrongShapeError,
-                                      NoDataForSelectorError,
-                                      RecordMappingError, NoAPIKeyError)
+                                       NoDataForSelectorError,
+                                       RecordMappingError, NoAPIKeyError)
 
 
 UA = 'isbntools (gzip)'
