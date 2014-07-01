@@ -5,7 +5,7 @@ import logging
 from .dev.webquery import query as wquery
 from .dev import stdmeta
 from .dev.bouth23 import u
-from .dev.exceptions import (DataWrongShapeError,
+from .dev._exceptions import (DataWrongShapeError,
                              NoDataForSelectorError,
                              RecordMappingError)
 

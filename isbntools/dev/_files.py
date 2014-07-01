@@ -7,7 +7,7 @@ import os
 import logging
 import fnmatch
 from stat import S_IRUSR, S_IWUSR, S_IRGRP, S_IWGRP, S_IROTH, S_IWOTH
-from .exceptions import FileNotFoundError
+from ._exceptions import FileNotFoundError
 
 MAXLEN = 120
 ILEGAL = r'<>:"/\|?*'

@@ -3,7 +3,7 @@
 
 import os
 from .registry import services
-from .exceptions import NotRecognizedServiceError
+from ._exceptions import NotRecognizedServiceError
 from .config import options, CONF_PATH, CACHE_FILE
 from ._cache import Cache
 

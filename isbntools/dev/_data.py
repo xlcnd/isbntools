@@ -3,7 +3,7 @@
 
 
 from ._helpers import normalize_space, titlecase
-from .exceptions import NotValidMetadataError
+from ._exceptions import NotValidMetadataError
 from .bouth23 import u, type3str
 
 # For now you cannot add custom fields!

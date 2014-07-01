@@ -4,7 +4,7 @@
 import logging
 from ast import literal_eval
 from .dev.webquery import query as wquery
-from .dev.exceptions import DataWrongShapeError, NoDataForSelectorError
+from .dev._exceptions import DataWrongShapeError, NoDataForSelectorError
 
 LOGGER = logging.getLogger(__name__)
 UA = 'isbntools (gzip)'

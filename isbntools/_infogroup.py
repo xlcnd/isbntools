@@ -3,7 +3,7 @@
 
 import logging
 from .data.data4info import d, identifiers, dnew, newidentifiers
-from .exceptions import NotValidISBNError
+from ._exceptions import NotValidISBNError
 
 LOGGER = logging.getLogger(__name__)
 

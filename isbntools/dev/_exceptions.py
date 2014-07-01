@@ -2,12 +2,12 @@
 
 """ Exceptions for isbntools.dev
 
-The classes in isbntools.dev should use the exceptions below.
+The classes in isbntools.dev should use the _exceptions below.
 """
 
 
 class ISBNToolsDevException(Exception):
-    """ Base class for isbntools.dev exceptions
+    """ Base class for isbntools.dev _exceptions
 
     This exception should not be raised directly,
     only subclasses of this exception should be used!

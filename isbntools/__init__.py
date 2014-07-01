@@ -23,7 +23,7 @@ def in_virtual():
 from . import config        # <-- first import
 from . import setconf       # <-- first import
 from ._version import check_version
-from .exceptions import quiet_errors
+from ._exceptions import quiet_errors
 
 
 pkg_path = _os.path.dirname(_os.path.abspath(__file__))

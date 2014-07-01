@@ -11,7 +11,7 @@ try:                     # pragma: no cover
 except ImportError:      # pragma: no cover
     from urllib import urlencode
     from urllib2 import Request, urlopen, HTTPError, URLError
-from .exceptions import ISBNToolsHTTPError, ISBNToolsURLError
+from ._exceptions import ISBNToolsHTTPError, ISBNToolsURLError
 
 UA = 'webservice (gzip)'
 LOGGER = logging.getLogger(__name__)

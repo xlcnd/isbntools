@@ -12,7 +12,7 @@ __all__ = ('ISBNToolsHTTPError', 'ISBNToolsURLError',
 
 from .webservice import WEBService
 from .webquery import WEBQuery
-from .exceptions import (ISBNToolsHTTPError, ISBNToolsURLError,
+from ._exceptions import (ISBNToolsHTTPError, ISBNToolsURLError,
                          DataNotFoundAtServiceError,
                          NoDataForSelectorError, ServiceIsDownError,
                          DataWrongShapeError, NotValidMetadataError,

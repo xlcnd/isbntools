@@ -6,7 +6,7 @@ import sys
 from . import _wcat as wcat
 from . import _goob as goob
 from . import _merge as merge
-from .exceptions import PluginNotLoadedError
+from ._exceptions import PluginNotLoadedError
 
 
 # SERVICES
