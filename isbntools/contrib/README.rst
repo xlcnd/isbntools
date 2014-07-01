@@ -10,9 +10,10 @@ You have two possibilities:
    a pull request to the project. Your code must be pure python, and run in py26, py27, py33, py34 and pypy,
    with **no** external dependencies. If approved will be installed with the main library. 
    **You don't have to write the install script**!  
+
 2. Write your code using the namespace ``isbntools.contrib`` as prefix and call your package 
    ``isbntools.contrib.yourpackagename``, then upload it to **pypi**. You will have to write the
-   install script.
+   install script. You can **download a template for a plugin** here_.
 
    Note that to hook up your code you need to register it in the ``isbntools.conf`` file. 
    This is **not** a system file, but is usually in the home directory of the user (or at the root
@@ -22,6 +23,11 @@ You have two possibilities:
    Take a look at the setup_ file for the main library and at the methods of ``isbntools.conf`` for editing 
    the conf file.
 
+   Another way to hook up the code (*just for the case of plugins*) is to use setuptools's 'entry_points'. **See
+   the template above for an example**.
+
 
 
 .. _setup: https://github.com/xlcnd/isbntools/blob/dev/setup.py
+
+.. _here: https://github.com/xlcnd/isbntools/raw/dev/PLUGIN.zip
