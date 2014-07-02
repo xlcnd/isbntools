@@ -37,7 +37,7 @@ def query(isbn, service='default', cache=CACHE):
         raise NotRecognizedServiceError(service)
     if cache is None:
         return services[service](isbn)
-    kache = Cache() if cache == 'default' else Cache(cache)
+    kache = Cache(cache)
     key = isbn + service
     if kache[key]:
         return kache[key]
