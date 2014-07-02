@@ -1,6 +1,7 @@
 """Define isbntools API and set lib environment."""
 
-__all__ = ('is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
+__all__ = ('ISBNToolsException',
+           'is_isbn10', 'is_isbn13', 'clean', 'mask', 'info', 'meta',
            'to_isbn10', 'to_isbn13', 'get_isbnlike', 'notisbn', 'EAN13',
            'canonical', 'get_canonical_isbn', 'editions', 'isbn_from_words',
            'quiet_errors', 'config', 'setconf', '__version__', '__support__',
@@ -23,7 +24,7 @@ def in_virtual():
 from . import config        # <-- first import
 from . import setconf       # <-- first import
 from ._version import check_version
-from ._exceptions import quiet_errors
+from ._exceptions import quiet_errors, ISBNToolsException
 
 
 pkg_path = _os.path.dirname(_os.path.abspath(__file__))
