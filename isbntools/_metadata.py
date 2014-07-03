@@ -2,8 +2,9 @@
 """Query providers for metadata."""
 
 import os
+from ._core import EAN13
 from .registry import services
-from ._exceptions import NotRecognizedServiceError
+from ._exceptions import NotRecognizedServiceError, NotValidISBNError
 from .config import options, CONF_PATH, CACHE_FILE
 from ._cache import Cache
 
@@ -33,6 +34,9 @@ CACHE = None if CACHE.lower() == 'no' else CACHE
 
 def query(isbn, service='default', cache=CACHE):
     """Query worldcat.org, Google Books (JSON API), ... for metadata."""
+    isbn = EAN13(isbn)
+    if not isbn:
+        raise NotValidISBNError(isbn)
     if service != 'default' and service not in services:
         raise NotRecognizedServiceError(service)
     if cache is None:
