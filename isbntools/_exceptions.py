@@ -4,20 +4,26 @@ import sys
 
 
 def quiet_errors(exc_type, exc_value, traceback):
-    """ An error format suitable for end user scripts
+    """An error format suitable for end user scripts.
 
-        Usage: enter the following lines in your script
-               from isbntools import quiet_errors
-               sys.excepthook = quiet_errors
+       Usage: enter the following lines in your script
+              from isbntools import quiet_errors
+              sys.excepthook = quiet_errors
+
     """
     sys.stderr.write('Error: %s\n' % exc_value)  # pragma: no cover
 
 
 class ISBNToolsException(Exception):
-    """ Base class for isbntools exceptions
+
+    """Base class for isbntools exceptions.
 
     This exception should not be raised directly,
     only subclasses of this exception should be used!
+
+    However, you could use it to catch all errors defined 
+    by his subclasses.
+
     """
 
     def __str__(self):
@@ -25,8 +31,8 @@ class ISBNToolsException(Exception):
 
 
 class NotRecognizedServiceError(ISBNToolsException):
-    """ Exception raised when the service is not in config.py
-    """
+
+    """Exception raised when the service is not in config.py."""
 
     def __init__(self, service):
         self.message = "(%s) is not a recognized service" % service
@@ -41,8 +47,8 @@ class NotValidISBNError(ISBNToolsException):
 
 
 class PluginNotLoadedError(ISBNToolsException):  # pragma: no cover
-    """ Exception raised when the plugin's loader doesn't load the plugin
-    """
+
+    """Exception raised when the plugin's loader doesn't load the plugin."""
 
     def __init__(self, path):
         self.message = "plugin (%s) wasn't loaded" % path
