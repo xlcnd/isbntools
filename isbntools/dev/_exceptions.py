@@ -14,7 +14,7 @@ class ISBNToolsDevException(Exception):
     This exception should not be raised directly,
     only subclasses of this exception should be used!
 
-    However, you could use it to catch all errors defined 
+    However, you could use it to catch all errors defined
     by his subclasses.
 
     """
@@ -72,7 +72,7 @@ class NoDataForSelectorError(ISBNToolsDevException):
 class NotValidMetadataError(ISBNToolsDevException):
 
     """Exception raised when the metadata hasn't the expected format."""
-    
+
     message = "the metadata hasn't the expected format"
 
 
