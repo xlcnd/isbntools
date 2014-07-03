@@ -34,9 +34,10 @@ CACHE = None if CACHE.lower() == 'no' else CACHE
 
 def query(isbn, service='default', cache=CACHE):
     """Query worldcat.org, Google Books (JSON API), ... for metadata."""
-    isbn = EAN13(isbn)
-    if not isbn:
+    ean = EAN13(isbn)
+    if not ean:
         raise NotValidISBNError(isbn)
+    isbn = ean
     if service != 'default' and service not in services:
         raise NotRecognizedServiceError(service)
     if cache is None:
