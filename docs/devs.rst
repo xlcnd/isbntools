@@ -3,13 +3,14 @@ For Devs
 ========
 
 
-Main Namespaces
----------------
+API's Main Namespaces
+---------------------
 
 In the namespace ``isbntools`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
 ``meta``, ``info``, ``editions``, and ``isbn_from_words``.
+The exceptions raised by these methods can all be catched using ``ISBNToolsException``.
 
 You can extend the lib by using the classes and functions exposed in
 namespace ``isbntools.dev``, namely:
@@ -19,7 +20,7 @@ namespace ``isbntools.dev``, namely:
   You can subclass it to extend the functionality... but
   probably you don't need to use it! It is used in the next class.
 
-* ``WEBQuery`` a class that uses ``WEBService`` to retrive and parse
+* ``WEBQuery`` a class that uses ``WEBService`` to retrieve and parse
   data from a web service. You can build a new provider of metadata
   by subclassing this class.
   His main methods allow passing custom
@@ -42,9 +43,28 @@ namespace ``isbntools.dev``, namely:
   **bouth** python 2 and python 3.
 
 
+The exceptions raised by these methods can all be catched using ``ISBNToolsDevException``.
+
+
+In ``isbntools.dev.lab`` you can find several methods, that we found very useful,
+but you should consider them as beta software. They can change a lot in
+the future.
+
+
+Finally, ``isbntools.conf`` provides methods to edit the configuration file.
+
+
+    **WARNING**: If you inspect the library, you will see that there are a lot of
+    private modules (their name starts with '_'). These modules **should not**
+    be accessed directly since, with high probability, your program will break
+    with a further version of the library! You should access only methods in the
+    API's ``isbntools``, ``isbntools.dev``, ``isbntools.dev.lab`` and
+    ``isbntools.conf``
+
+
+
 All these classes follow a simple design pattern and, if you follow it, will be
 very easy to integrate your classes with the rest of the lib.
-
 
 
 Plugins
@@ -90,31 +110,11 @@ for fields like ``Authors`` and ``Publisher``.
 A *simple merge* provider is now the default in ``isbn_meta`` (and ``isbntools.meta``).
 It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
-by default (faster for faster internet connections).
+by default (faster for fast Internet connections).
 You can change that, by setting ``VIAS_MERGE=parallel`` or ``VIAS_MERGE=multi`` (see note below).
 You can write your own *merging scheme* by creating a new provider (see_ ``merge`` for an example).
 
     **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
-
-
-Helpers
--------
-
-In ``isbntools.dev.lab`` you can find several methods, that we found very useful,
-but you should consider them as beta software. They can change a lot in
-the future.
-
-
-    **WARNING**: If you inspect the library, you will see that there are a lot of
-    private modules (their name starts with '_'). These modules **should not**
-    be accessed directly since, with high probability, your program will break
-    with a further version of the library!
-
-
-Conf
-----
-
-``isbntools.conf`` provides methods to edit the configuration file.
 
 
 Just an ISBN lib!
@@ -128,7 +128,7 @@ depending on your needs...
    then you don't need a conf file. Just use the methods in ``isbntools``.
    Probably you are better served with isbnlib_.
 
-2. If you rely heavely in metadata (or file renaming) and don't want to
+2. If you rely heavily in metadata (or file renaming) and don't want to
    implement caching yourself, then you **need** an ``isbntools.conf`` file in a
    directory were your program could write.  You can use ``isbntools.conf`` to
    programatically manipulate the conf file.
