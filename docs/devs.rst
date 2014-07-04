@@ -51,15 +51,17 @@ but you should consider them as beta software. They can change a lot in
 the future.
 
 
-Finally, ``isbntools.conf`` provides methods to edit the configuration file.
+Finally, ``isbntools.conf`` provides methods to edit the configuration file and
+helpers to work with isbntools's modules.
 
 
     **WARNING**: If you inspect the library, you will see that there are a lot of
     private modules (their name starts with '_'). These modules **should not**
     be accessed directly since, with high probability, your program will break
-    with a further version of the library! You should access only methods in the
-    API's ``isbntools``, ``isbntools.dev``, ``isbntools.dev.lab`` and
-    ``isbntools.conf``
+    with a further version of the library!
+
+    You should access only methods in the API's ``isbntools``, ``isbntools.dev``,
+    ``isbntools.dev.lab`` and ``isbntools.conf``
 
 
 
