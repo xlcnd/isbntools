@@ -221,6 +221,8 @@ You can enter API keys and set preferences in the file `isbntools.conf` in your
 The file should look like:
 
 ```bash
+...
+
 [SYS]
 SOCKETS_TIMEOUT=15
 THREADS_TIMEOUT=12
@@ -233,6 +235,8 @@ ISBNDB_API_KEY=your_api_key_here_or_DELETEME
 [PLUGINS]
 isbndb=isbndb.py
 openl=openl.py
+
+...
 ```
 
 The values are self-explanatory!

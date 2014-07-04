@@ -269,6 +269,8 @@ The file should look like:
 
 .. code-block:: bash
 
+    ...
+
     [SYS]
     SOCKETS_TIMEOUT=15
     THREADS_TIMEOUT=12
@@ -280,6 +282,8 @@ The file should look like:
     [PLUGINS]
     isbndb=isbndb.py
     openl=openl.py
+
+    ...
 
 
 The values are self-explanatory!
