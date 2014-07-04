@@ -117,4 +117,6 @@ except:                              # pragma: no cover
 # module and set a default value for all the sockets (timeout in seconds)
 # however this should be done at top level due to strong side effects...
 socket.setdefaulttimeout(SOCKETS_TIMEOUT)
+
+# THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
 config.setthreadstimeout(THREADS_TIMEOUT)
