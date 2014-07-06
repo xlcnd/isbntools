@@ -44,7 +44,7 @@ def _records(isbn, data):
             extra = data['stat']
             LOGGER.debug('DataWrongShapeError for %s with data %s',
                          isbn, extra)
-        except:  
+        except:
             raise DataWrongShapeError(isbn)
         raise NoDataForSelectorError(isbn)
 
