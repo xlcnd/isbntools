@@ -40,7 +40,7 @@ def query(isbn, service='default', cache=CACHE):
     isbn = ean
     if service != 'default' and service not in services:
         raise NotRecognizedServiceError(service)
-    if cache is None:
+    if cache is None:  # pragma: no cover
         return services[service](isbn)
     kache = Cache(cache)
     key = isbn + service
