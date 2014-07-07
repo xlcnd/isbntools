@@ -21,6 +21,7 @@ omit =
     *files.py
     *conf.py
     *cache.py
+    *exceptions*
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
