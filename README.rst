@@ -305,6 +305,14 @@ This script has many options that allow a controlled editing of the conf file.
 Just enter ``isbn_conf`` for help.
 
 
+
+isbntools.contrib
+=================
+
+To get extra functionality, search pypi for packages starting with ``isbntools.contrib``.
+
+
+
 Known Issues
 ============
 
