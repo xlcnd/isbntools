@@ -22,7 +22,7 @@
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.7
+.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v3.3.7
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 

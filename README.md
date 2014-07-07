@@ -4,7 +4,7 @@
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.7)](https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.7)
 [![Graph](https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png)](https://sourcegraph.com/github.com/xlcnd/isbntools)
-[![Build Status](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.7)](https://travis-ci.org/xlcnd/isbntools.png?branch=v3.3.7)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.svg?branch=v3.3.7)](https://travis-ci.org/xlcnd/isbntools)
 
 
 Info
