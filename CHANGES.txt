@@ -56,4 +56,5 @@ v3.3.3, 2014-06-16 -- A more robust install for `system installs` in UNIX system
 v3.3.4, 2014-06-23 -- Fix bug in 'notisbn' and improved install.
 v3.3.5, 2014-06-25 -- Fix bug 'develop' and optional in-memory cache.
 v3.3.6, 2014-06-30 -- Add 'entry_points' plugins support.
-v3.3.7, 2014-07-07 -- Fix bug #68. 
+v3.3.7, 2014-07-07 -- Fix bug #68.
+v3.3.8, 2014-07-15 -- TENTATIVE
