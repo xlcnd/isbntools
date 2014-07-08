@@ -259,6 +259,15 @@ Just enter `isbn_conf` for help.
 
 
 
+isbntools.contrib
+-----------------
+
+To get extra functionality, 
+[search pypi](https://pypi.python.org/pypi?%3Aaction=search&term=isbntools.contrib&submit=search)
+for packages starting with ``isbntools.contrib``.
+
+
+
 Known Issues
 ------------
 
