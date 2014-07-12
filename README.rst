@@ -252,8 +252,13 @@ If all you want is to add ``isbntools`` to the requirements of your project,
 probably you will better served with isbnlib_, it implements the basic functionality
 of ``isbntools`` without end user scripts and configuration files!
 
-If you thing that that is not enough,
-please read_ at least this page of the documentation.
+   **NOTICE** ``isbntools`` uses an old customized version of ``isbnlib``. 
+   Starting with the next major version (version 4.0.1), ``isbntools`` will use ``isbnlib``
+   as a dependency, so if you are a developer, 
+   you should use **now** ``isbnlib``. Doing that will
+   make your sofware compatible with version 3.3.8+.
+
+If you thing that that is not enough, please read_ at least this page of the documentation.
 
 If you would like to contribute to the project please read the guidelines_.
 
