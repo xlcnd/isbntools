@@ -14,15 +14,15 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
-.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.8
-    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.8
+.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.9
+    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.9
     :alt: Coverage
 
 .. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v3.3.8
+.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v3.3.9
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
@@ -219,7 +219,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-3.3.8.tar.gz
+    $ pip install isbntools-3.3.9.tar.gz
 
 (first you have to download the file!)
 
@@ -256,7 +256,7 @@ of ``isbntools`` without end user scripts and configuration files!
    Starting with the next major version (version 4.0.1), ``isbntools`` will use ``isbnlib``
    as a dependency, so if you are a developer, 
    you should use **now** ``isbnlib``. Doing that will
-   make your sofware compatible with version 3.3.8+.
+   make your sofware compatible with version 3.3.9+.
 
 If you thing that that is not enough, please read_ at least this page of the documentation.
 
