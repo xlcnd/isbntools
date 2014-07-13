@@ -39,7 +39,7 @@ configuration files adapted to the project.
 Your code **must** be PEP8 compliant and be concise as possible (check it with
 `flake8` and `pylint`).
 
-Comments should be used only on doc strings or (**very** sparengly) as signposts
+Use doc strings for the users and comments (few) as signposts
 for fellow developers. Make your code as clear as possible.
 
 
