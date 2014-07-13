@@ -92,7 +92,7 @@ setup(
     url='https://github.com/xlcnd/isbntools',
     download_url='https://github.com/xlcnd/isbntools/archive/master.zip',
     packages=find_packages(exclude=["*.test"]),
-    entry_points = {
+    entry_points={
         'console_scripts': ['isbn_conf=isbntools.bin.conf:main',
                             'isbn_doi=isbntools.bin.doi:main',
                             'isbn_EAN13=isbntools.bin.EAN13:main',
@@ -107,10 +107,10 @@ setup(
                             'to_isbn13=isbntools.bin.to_isbn13:main',
                             'isbn_validate=isbntools.bin.validate:main',
                             'isbn_stdin_validate=isbntools.bin.stdin_validate:stdin_validate',
-                            'isbntools=isbntools.bin.version:main',
-                           ]},
+                            'isbntools=isbntools.bin.version:main']
+    },
     data_files=data_files,
-    install_requires=["isbnlib>=3.3.8"],
+    install_requires=["isbnlib>=3.3.9"],
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
