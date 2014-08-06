@@ -17,7 +17,7 @@ def test_query():
     assert_raises(Exception, query, '9781849692341', 'wcat')
     assert_equals(len(repr(query('9780321534965', 'wcat'))) > 150, True)
     assert_equals(len(repr(query('9780321534965'))) > 150, True)
-    assert_equals(len(repr(query('9780321534965', 'merge'))) > 150), True)
+    assert_equals(len(repr(query('9780321534965', 'merge'))) > 150, True)
     assert_equals(len(repr(query('9780321534965', 'goob'))) > 150, True)
     assert_equals(len(repr(query('9789934015960'))) > 150, True)
     assert_equals(len(repr(query('9781118241257'))) > 150, True)
