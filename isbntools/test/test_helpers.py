@@ -5,7 +5,7 @@
 nose tests
 """
 
-from ..dev._helpers import last_first, cutoff_tokens, parse_placeholders
+from isbntools.dev.helpers import last_first, cutoff_tokens, parse_placeholders
 from nose.tools import assert_equals
 
 

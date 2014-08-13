@@ -4,36 +4,12 @@
 # pylint: skip-file
 
 from nose.tools import assert_equals
-from .._core import (_check_digit10, _check_digit13, _check_structure10,
-    _check_structure13, is_isbn10, is_isbn13, to_isbn10, to_isbn13,
+from isbntools import (is_isbn10, is_isbn13, to_isbn10, to_isbn13,
     canonical, clean, notisbn, get_isbnlike, get_canonical_isbn, EAN13)
-from ..data.data4tests import ISBNs
+from .data4tests import ISBNs
 
 
 # nose tests
-
-def test__check_digit10():
-    assert_equals(_check_digit10('082649752'), '7')
-    assert_equals(_check_digit10('585270001'), '0')
-    assert_equals(_check_digit10('08264975X'), None)
-    assert_equals(_check_digit10('08264975'), None)
-
-
-def test__check_digit13():
-    assert_equals(_check_digit13('978082649752'), '9')
-    assert_equals(_check_digit13('97808264975'), None)
-    assert_equals(_check_digit13('97808264975X'), None)
-
-
-def test__check_structure10():
-    assert_equals(_check_structure10('0826497527'), True)
-    assert_equals(_check_structure10('0826497X27'), True) # isbnlike!
-    assert_equals(_check_structure10('0826497XI7'), False)
-
-
-def test__check_structure13():
-    assert_equals(_check_structure13('9780826497529'), True)
-    assert_equals(_check_structure13('978082649752X'), False)
 
 
 def test_is_isbn10():
@@ -46,6 +22,9 @@ def test_is_isbn13():
     assert_equals(is_isbn13('9780826497529'), True)
     assert_equals(is_isbn13('9791090636071'), True)
     assert_equals(is_isbn13('9780826497520'), False)
+    assert_equals(is_isbn13('9700000000000'), False)
+    assert_equals(is_isbn13('9000000000000'), False)
+    assert_equals(is_isbn13('9710000000000'), False)
 
 
 def test_to_isbn10():
@@ -124,3 +103,6 @@ def test_EAN13():
     assert_equals(EAN13('ISBN9780826497529'), '9780826497529')
     assert_equals(EAN13('isbn9780826497529'), '9780826497529')
     assert_equals(EAN13('isbn 0826497527'), '9780826497529')
+    assert_equals(EAN13('9700000000000'), None)
+    assert_equals(EAN13('9000000000000'), None)
+    assert_equals(EAN13('9710000000000'), None)

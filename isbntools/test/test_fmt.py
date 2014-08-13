@@ -5,7 +5,7 @@
 nose tests
 """
 
-from ..dev._fmt import fmtbib
+from ..dev.helpers import fmtbib
 from nose.tools import assert_equals
 from ..dev.bouth23 import u
 
@@ -27,4 +27,3 @@ def test_fmtbib():
     assert_equals(len(fmtbib("json", canonical)), 213)
     assert_equals(len(fmtbib("refworks", canonical)), 130)
     assert_equals(len(fmtbib("opf", canonical)), 867)
-    

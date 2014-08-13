@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-""" nose tests
 
-"""
+# nose tests
+
 
 from ..dev import Metadata, stdmeta
-from nose.tools import assert_equals, assert_raises
 from ..dev.bouth23 import u
+from nose.tools import assert_equals, assert_raises
 
 
 def test_stdmeta():
