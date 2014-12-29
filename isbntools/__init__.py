@@ -5,7 +5,7 @@ __all__ = ('__version__', '__support__', 'check_version', 'audit', 'ren',
            'doi', 'editions', 'get_canonical_isbn', 'get_isbnlike', 
            'info', 'is_isbn10', 'is_isbn13', 'isbn_from_words', 
            'mask', 'meta', 'notisbn', 'to_isbn10', 'to_isbn13', 'goom',
-           'libversion', 'config', 'registry', 'doi2tex')
+           'libversion', 'config', 'registry', 'doi2tex', 'quiet_errors')
 
 __version__ = '4.0.1'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
@@ -21,7 +21,7 @@ defaults_conf = 'DEFAULTS'
 from isbnlib import (canonical, clean, doi, editions, get_canonical_isbn,
                      get_isbnlike, info, is_isbn10, is_isbn13, 
                      isbn_from_words, mask, meta, notisbn,
-                     to_isbn10, to_isbn13, EAN13, goom, doi2tex)
+                     to_isbn10, to_isbn13, EAN13, goom, doi2tex, quiet_errors)
 from isbnlib import __version__ as libversion
 
 # inject isbntools dependencies on isbnlib

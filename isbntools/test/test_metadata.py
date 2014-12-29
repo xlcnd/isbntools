@@ -5,7 +5,7 @@
 
 """nose tests for metadata."""
 
-from .. import meta
+from isbntools import meta
 from nose.tools import assert_equals, assert_raises
 
 
