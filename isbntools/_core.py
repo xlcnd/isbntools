@@ -111,6 +111,8 @@ def is_isbn13(isbn13):
     if len(isbn13) != 13:
         return False          # pragma: no cover
     else:
+        if isbn13[0:3] not in ('978', '979'):
+            return False
         return False if _check_digit13(isbn13[:-1]) != isbn13[-1] else True
 
 
@@ -231,7 +233,7 @@ def get_canonical_isbn(isbnlike, output='bouth'):
 
 
 def EAN13(isbnlike):
-    """Transform an isbnlike string into an EAN number (canonical ISBN-13)."""
+    """Transform an `isbnlike` string in an EAN number (canonical ISBN-13)."""
     ib = canonical(isbnlike)
     if len(ib) == 13:
         return ib if is_isbn13(ib) else None

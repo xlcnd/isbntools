@@ -59,6 +59,9 @@ def test_to_isbn13():
     assert_equals(to_isbn13('0826497527'), '9780826497529')
     assert_equals(to_isbn13('0826497520'), '9780826497529')  # ISBN10 not valid
     assert_equals(to_isbn13('08X6497527'), None)
+    assert_equals(is_isbn13('9700000000000'), False)
+    assert_equals(is_isbn13('9000000000000'), False)
+    assert_equals(is_isbn13('9710000000000'), False)
 
 
 def test_clean():
