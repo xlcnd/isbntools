@@ -4,6 +4,7 @@
 import sys
 import logging
 from difflib import get_close_matches
+
 from isbntools import (meta, clean, canonical, get_canonical_isbn,
                        config, registry, quiet_errors)
 from isbntools.dev.bouth23 import b2u3
