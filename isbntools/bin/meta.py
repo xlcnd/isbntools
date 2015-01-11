@@ -7,6 +7,7 @@ from difflib import get_close_matches
 from isbntools import (meta, clean, canonical, get_canonical_isbn,
                        config, registry, quiet_errors)
 from isbntools.dev.lab import fmtbib, fmts
+from isbntools.dev.bouth23 import b2u3
 
 logging.basicConfig(level=logging.CRITICAL)
 
@@ -57,7 +58,10 @@ def main():
             except:
                 pass
         r = meta(isbn, service)
-        print((fmtbib(fmt, r)))
+        # see issue 75
+        # print((fmtbib(fmt, r)))
+        s = fmtbib(fmt, r) + '\n'
+        sys.stdout.write(b2u3(s))
     except:
         providers = list(registry.services.keys())
         providers.remove('default')
