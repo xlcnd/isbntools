@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import sys
 import logging
 from difflib import get_close_matches
@@ -60,10 +61,14 @@ def main():
             except:
                 pass
         r = meta(isbn, service)
-        # see issue 75
-        # print((fmtbib(fmt, r)))
-        s = fmtbib(fmt, r) + '\n'
-        sys.stdout.write(b2u3(s))
+        if os.name == 'nt':
+            # print detects the appropriate codec
+            # (Windows terminal doesn't use UTF-8)
+            print((fmtbib(fmt, r)))
+        else:
+            # stdout gets UTF-8, so that redirection works... (see issue 75)
+            s = fmtbib(fmt, r) + '\n'
+            sys.stdout.write(b2u3(s))
     except:
         providers = list(registry.services.keys())
         providers.remove('default')
