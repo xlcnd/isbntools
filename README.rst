@@ -22,6 +22,10 @@
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
+.. image:: https://readthedocs.org/projects/isbntools/badge/?version=latest
+    :target: https://readthedocs.org/projects/isbntools/?badge=latest
+    :alt: Documentation Status
+
 .. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v3.3.9
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
