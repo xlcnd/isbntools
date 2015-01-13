@@ -341,11 +341,11 @@ dev) or at twitter_ (if you are an end user).
 
 --------------------------------
 
-More documentation at http://isbntools.readthedocs.org
+More documentation at Read the Docs_.
 
 --------------------------------
 
-.. _github: https://github.com/xlcnd/isbntools/issues?labels=info&page=1&state=open
+.. _github: https://github.com/xlcnd/isbntools/issues
 
 .. _range: https://www.isbn-international.org/range_file_generation
 
@@ -366,3 +366,5 @@ More documentation at http://isbntools.readthedocs.org
 .. _isbnlib: http://bit.ly/ISBNlib
 
 .. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbntools.contrib&submit=search
+
+.. _Docs: http://bit.ly/1l0W4In
