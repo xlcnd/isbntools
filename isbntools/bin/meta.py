@@ -14,6 +14,8 @@ from isbntools.dev.lab import fmtbib, fmts
 
 logging.basicConfig(level=logging.CRITICAL)
 
+WINDOWS = os.name == 'nt'
+
 
 def usage(wservs="wcat|goob|...", ofmts="labels"):
     sys.stderr.write('Usage: isbn_meta ISBN [%s] [%s] [apikey]\n  '
@@ -61,7 +63,7 @@ def main():
             except:
                 pass
         r = meta(isbn, service)
-        if os.name == 'nt':
+        if WINDOWS:
             # print detects the appropriate codec
             # (Windows terminal doesn't use UTF-8)
             print((fmtbib(fmt, r)))
