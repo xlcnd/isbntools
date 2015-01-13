@@ -26,11 +26,13 @@ matrix:
   - env: TOXENV=checkers
 install:
 - pip install tox
-- pip install flake8
-- pip install pep8-naming
-- pip install coveralls
-- pip install sphinx
-- pip install isbnlib
+- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'checkers' ]]; then pip install flake8; fi 
+- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi 
+- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'py27' ]]; then pip install coveralls; fi 
+- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'py27' ]]; then pip install isbnlib; fi 
+- if [[ $TRAVIS_PYTHON_VERSION == '3.3' && $TOXENV == 'py33' ]]; then pip install isbnlib; fi 
+- if [[ $TRAVIS_PYTHON_VERSION == '3.4' && $TOXENV == 'py34' ]]; then pip install isbnlib; fi 
+- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DOC == 'sphinx' ]]; then pip install sphinx; fi 
 script:
 - if [[ $TRAVIS_PYTHON_VERSION == '2.6' && $TOXENV == 'py26' ]]; then tox -e $TOXEVEN; fi 
 - if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'py27' ]]; then tox -e $TOXEVEN; fi 
