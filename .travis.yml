@@ -3,37 +3,30 @@ os:
     - linux
     - osx
 language: python
-python:
-    - "2.6"
-    - "2.7"
-    - "3.3"
-    - "3.4"
-    - "pypy"
 branches:
     except:
     - gh-pages
 env:
-- TOXENV=py
-- TOXENV=checkers
-- DOC=sphinx
-matrix:
-  allow_failures:
-  - env: TOXENV=pypy
-  - env: TOXENV=checkers
+    matrix:
+    - TOXENV=py26
+    - TOXENV=py27
+    - TOXENV=py33
+    - TOXENV=py34
+    - TOXENV=pypy
+    - TOXENV=checkers
+    - DOC=sphinx
+      allow_failures:
+      - env: TOXENV=pypy
+      - env: TOXENV=checkers
 install:
 - pip install tox
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'checkers' ]]; then pip install flake8; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'py' ]]; then pip install coveralls; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'py' ]]; then pip install isbnlib; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DOC == 'sphinx' ]]; then pip install sphinx; fi 
+- if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi 
+- if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi 
+- if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi 
+- if [[ $TOXENV == 'py27' ]]; then pip install isbnlib; fi 
+- if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi 
 script:
-- if [[ $TRAVIS_PYTHON_VERSION == '2.6' && $TOXENV == 'py' ]]; then tox -e $TOXENV; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'py' ]]; then tox -e $TOXENV; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'checkers' ]]; then tox -e $TOXENV; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == '3.3' && $TOXENV == 'py' ]]; then tox -e $TOXENV; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == '3.4' && $TOXENV == 'py' ]]; then tox -e $TOXENV; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == 'pypy' && $TOXENV == 'py' ]]; then tox -e $TOXENV; fi 
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi"
+- if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi 
+- if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 after_success:
-- if [[ $TRAVIS_PYTHON_VERSION == '2.7' && $TOXENV == 'py' ]]; then coveralls; fi
+- if [[ $TOXENV == 'py27' ]]; then coveralls; fi
