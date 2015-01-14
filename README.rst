@@ -23,7 +23,7 @@
     :alt: Graph
 
 .. image:: https://readthedocs.org/projects/isbntools/badge/?version=latest
-    :target: https://readthedocs.org/projects/isbntools/?badge=latest
+    :target: http://isbntools.readthedocs.org/en/latest/
     :alt: Documentation Status
 
 .. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v3.3.9
