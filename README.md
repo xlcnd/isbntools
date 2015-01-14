@@ -184,9 +184,9 @@ $ isbntools
 ```
 
 
-### Windows
+### Windows (NOW for Linux too!)
 
->**If you are on a Windows system**,
+>**If you are on a Windows system (NOW for Linux too)**,
 you can download a
 [standalone version](http://bit.ly/1i8qatY)
 that **doesn't need python** and gives you
