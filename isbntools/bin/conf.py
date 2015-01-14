@@ -17,10 +17,17 @@ def delcache():
         pass
 
 
+def cachepath():
+    try:
+        print(CACHE_FILE)
+    except:
+        pass
+
+
 VERBS = {'show': print_conf, 'make': mk_conf,
          'setkey': reg_apikey, 'regplugin': reg_plugin,
          'regmod': lambda x, y: reg_mod({x: y}),
-         'setopt': reg_myopt, 'delcache': delcache}
+         'setopt': reg_myopt, 'delcache': delcache, 'cachepath': cachepath}
 
 
 def usage():
@@ -35,6 +42,7 @@ def usage():
                      'regmod     OPTION   VALUE        sets options for modules\n'
                      'setopt     OPTION   VALUE        sets options in MISC section\n'
                      'delcache                         deletes the metadata cache\n'
+                     'cachepath                        show the path of the cache\n'
                      )
     sys.exit(1)
 
