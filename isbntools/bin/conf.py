@@ -20,7 +20,7 @@ def delcache():
 
 def cachepath():
     try:
-        print(CACHE_FILE)
+        print(os.path.join(CONF_PATH, CACHE_FILE))
     except:
         pass
 
