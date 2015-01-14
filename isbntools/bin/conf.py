@@ -4,6 +4,7 @@
 import os
 import sys
 from difflib import get_close_matches
+
 from isbntools import quiet_errors
 from isbntools.config import CONF_PATH, CACHE_FILE
 from isbntools.conf import (reg_plugin, reg_apikey, mk_conf,
