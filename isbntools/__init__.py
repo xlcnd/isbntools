@@ -7,7 +7,7 @@ __all__ = ('ISBNToolsException',
            'quiet_errors', 'config', 'setconf', '__version__', '__support__',
            'doi', 'check_version', 'ISBN13', 'Cache', 'in_virtual')
 
-__version__ = '3.3.9'                               # <-- literal IDs
+__version__ = '4.0.1'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
 
 

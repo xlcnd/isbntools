@@ -14,8 +14,8 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
-.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.9
-    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.9
+.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.0.1
+    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.0.1
     :alt: Coverage
 
 .. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
@@ -26,7 +26,7 @@
     :target: http://isbntools.readthedocs.org/en/latest/
     :alt: Documentation Status
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v3.3.9
+.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.0.1
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
@@ -223,7 +223,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-3.3.9.tar.gz
+    $ pip install isbntools-4.0.1.tar.gz
 
 (first you have to download the file!)
 
