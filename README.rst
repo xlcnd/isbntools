@@ -14,10 +14,6 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
-.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.0.1
-    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.0.1
-    :alt: Coverage
-
 .. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
@@ -25,6 +21,10 @@
 .. image:: https://readthedocs.org/projects/isbntools/badge/?version=latest
     :target: http://isbntools.readthedocs.org/en/latest/
     :alt: Documentation Status
+
+.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.0.1
+    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.0.1
+    :alt: Coverage
 
 .. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.0.1
     :target: https://travis-ci.org/xlcnd/isbntools
