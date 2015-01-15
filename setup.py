@@ -90,7 +90,7 @@ setup(
     author='xlcnd',
     author_email='xlcnd@outlook.com',
     url='https://github.com/xlcnd/isbntools',
-    download_url='https://github.com/xlcnd/isbntools/archive/master.zip',
+    download_url='https://github.com/xlcnd/isbntools/archive/v4.0.1.zip',
     packages=find_packages(exclude=["*.test"]),
     entry_points={
         'console_scripts': ['isbn_conf=isbntools.bin.conf:main',
