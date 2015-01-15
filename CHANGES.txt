@@ -58,4 +58,4 @@ v3.3.5, 2014-06-25 -- Fix bug 'develop' and optional in-memory cache.
 v3.3.6, 2014-06-30 -- Add 'entry_points' plugins support.
 v3.3.7, 2014-07-07 -- Fix bug #68.
 v3.3.8, 2014-07-13 -- Prepare for 'isbnlib'. 
-v3.3.9, 2014-08-17 -- Fix bug #75 and acept 'x' in ISBNs. 
+v3.3.9, 2015-01-15 -- Fix bug #75 and acept 'x' in ISBNs. 
