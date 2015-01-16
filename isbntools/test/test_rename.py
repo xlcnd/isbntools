@@ -4,10 +4,13 @@
 # pylint: skip-file
 
 import os
+
 from nose.tools import assert_equals, assert_raises
-from .. import ren
-from ..dev.helpers import File, cwdfiles
-from ..dev.bouth23 import u
+
+from isbnlib.dev.helpers import File, cwdfiles
+from isbnlib.dev.bouth23 import u
+
+from isbntools.contrib.modules.rename import ren
 
 """
 nose tests
