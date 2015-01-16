@@ -2,8 +2,8 @@
 
 __all__ = ('__version__', '__support__', 'check_version', 'audit', 'ren',
            'ISBNToolsException', 'canonical', 'clean', 'EAN13',
-           'doi', 'editions', 'get_canonical_isbn', 'get_isbnlike', 
-           'info', 'is_isbn10', 'is_isbn13', 'isbn_from_words', 
+           'doi', 'editions', 'get_canonical_isbn', 'get_isbnlike',
+           'info', 'is_isbn10', 'is_isbn13', 'isbn_from_words',
            'mask', 'meta', 'notisbn', 'to_isbn10', 'to_isbn13', 'goom',
            'libversion', 'config', 'registry', 'doi2tex', 'quiet_errors')
 
@@ -19,17 +19,19 @@ defaults_conf = 'DEFAULTS'
 
 # isbnlib hook
 from isbnlib import (canonical, clean, doi, editions, get_canonical_isbn,
-                     get_isbnlike, info, is_isbn10, is_isbn13, 
+                     get_isbnlike, info, is_isbn10, is_isbn13,
                      isbn_from_words, mask, meta, notisbn,
                      to_isbn10, to_isbn13, EAN13, goom, doi2tex, quiet_errors)
 from isbnlib import __version__ as libversion
 
 # inject isbntools dependencies on isbnlib
 from . import _setconf         # <-- first import after lib (IMPORTANT)
-from isbnlib import config
-from isbnlib import registry
+# from isbnlib import config
+# from isbnlib import registry
+from ._setconf import config
+from ._setconf import registry
 
-# isbntools 
+# isbntools
 from .contrib.modules.report import check_version, audit
 from .contrib.modules.rename import ren
 
