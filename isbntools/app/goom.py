@@ -40,11 +40,12 @@ def main():
         words, fmt = parse_args(sys.argv[1:])
         if not words:
             raise
-        match = get_close_matches(fmt, fmts)
-        if len(match) == 1:
-            fmt = match[0]
+        if fmt:
+            match = get_close_matches(fmt, fmts)
+            if len(match) == 1:
+                fmt = match[0]
         fmt = fmt if fmt else 'labels'
-        for r in goom.query(words):
+        for r in goom(words):
             print((fmtbib(fmt, r)))
             print("---")
     except:
