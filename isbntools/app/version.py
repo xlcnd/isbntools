@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import time
+
 from isbntools import __version__
 from isbntools.contrib.modules.uxcolors import _colors as colors
 

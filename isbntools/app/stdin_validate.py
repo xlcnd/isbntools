@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
 import re
+import sys
+
 from isbntools import get_isbnlike, get_canonical_isbn
 
 

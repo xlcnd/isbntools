@@ -1,15 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
 import logging
+import os
+import sys
+
 from difflib import get_close_matches
+
+from isbnlib.dev.bouth23 import b2u3
+from isbnlib.dev.helpers import fmtbib, fmts
+
 from isbntools import (meta, clean, canonical, get_canonical_isbn,
-                     config, registry, quiet_errors)
-from isbntools.dev.helpers import fmtbib, fmts   # <-- FIXME
-from isbntools import init
+                       config, registry, quiet_errors)
+
 
 logging.basicConfig(level=logging.CRITICAL)
+
+WINDOWS = os.name == 'nt'
 
 
 def usage(wservs="wcat|goob|...", ofmts="labels"):
@@ -46,7 +53,6 @@ def parse_args(args):
 
 def main():
     sys.excepthook = quiet_errors
-    init()
     try:
         isbn, service, fmt, apikey = parse_args(sys.argv[1:])
         if not isbn:
@@ -59,7 +65,14 @@ def main():
             except:
                 pass
         r = meta(isbn, service)
-        print((fmtbib(fmt, r)))
+        if WINDOWS:
+            # print detects the appropriate codec
+            # (Windows terminal doesn't use UTF-8)
+            print((fmtbib(fmt, r)))
+        else:
+            # stdout gets UTF-8, so that redirection works... (see issue 75)
+            s = fmtbib(fmt, r) + '\n'
+            sys.stdout.write(b2u3(s))
     except:
         providers = list(registry.services.keys())
         providers.remove('default')

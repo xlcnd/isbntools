@@ -3,7 +3,9 @@
 
 import os
 import sys
+
 from difflib import get_close_matches
+
 from isbntools import quiet_errors
 from isbntools.config import CONF_PATH, CACHE_FILE
 from isbntools.conf import (reg_plugin, reg_apikey, mk_conf,
@@ -17,13 +19,17 @@ def delcache():
         pass
 
 
-VERBS = {'show': print_conf, 
-         'make': mk_conf,
-         'setkey': reg_apikey, 
-         'regplugin': reg_plugin,
+def cachepath():
+    try:
+        print(os.path.join(CONF_PATH, CACHE_FILE))
+    except:
+        pass
+
+
+VERBS = {'show': print_conf, 'make': mk_conf,
+         'setkey': reg_apikey, 'regplugin': reg_plugin,
          'regmod': lambda x, y: reg_mod({x: y}),
-         'setopt': reg_myopt, 
-         'delcache': delcache}
+         'setopt': reg_myopt, 'delcache': delcache, 'cachepath': cachepath}
 
 
 def usage():
@@ -38,6 +44,7 @@ def usage():
                      'regmod     OPTION   VALUE        sets options for modules\n'
                      'setopt     OPTION   VALUE        sets options in MISC section\n'
                      'delcache                         deletes the metadata cache\n'
+                     'cachepath                        show the path of the cache\n'
                      )
     sys.exit(1)
 

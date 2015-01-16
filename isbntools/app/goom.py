@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
 import logging
+import sys
+
 from difflib import get_close_matches
+
+from isbnlib.dev.helpers import fmtbib, fmts
+
 from isbntools import quiet_errors
 from isbntools.contrib.modules.goom import goom
-from isbntools.dev.lab import fmtbib, fmts
 
 logging.basicConfig(level=logging.CRITICAL)
 
