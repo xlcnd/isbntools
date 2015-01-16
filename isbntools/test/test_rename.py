@@ -10,7 +10,8 @@ from nose.tools import assert_equals, assert_raises
 from isbnlib.dev.helpers import File, cwdfiles
 from isbnlib.dev.bouth23 import u
 
-from isbntools.contrib.modules.rename import ren
+from isbntools.contrib.modules.rename import (checkpattern, rencwdfiles,
+                                              renfile, get_isbn)
 
 """
 nose tests
@@ -63,14 +64,14 @@ def teardown_module():
     delete_files("*.pdf")
 
 
-def test_ren():
-    ren(F1)
+def test_rename():
+    renfile(F1)
     assert_equals('Knuth2008_The Art Of Computer Programming_9780321534965.pdf' in cwdfiles("*.pdf"), True)
     create_files([F5])
-    ren(F5)
+    renfile(F5)
     assert_equals('Campos2011_Emergências obstétricas_9789727576807.pdf' in cwdfiles("*.pdf"), True)
-    ren(F2)
+    renfile(F2)
     assert_equals("O'Connor2012_Violent Python A Cookbook For Hackers Forensic Analysts Penetration Testers_9781597499644.pdf" in cwdfiles("*.pdf"), True)
-    ren(F4)
+    renfile(F4)
     assert_equals("海明威2007_Lao ren yu hai_9787500117018.pdf" in cwdfiles("*.pdf"), True)
 

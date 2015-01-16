@@ -8,8 +8,9 @@ from difflib import get_close_matches
 
 from isbnlib.dev.helpers import fmtbib, fmts
 
-from isbntools import quiet_errors
 from isbntools import goom
+from isbntools import quiet_errors
+
 
 logging.basicConfig(level=logging.CRITICAL)
 

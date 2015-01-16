@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import sys
@@ -10,18 +11,8 @@ def usage():
     sys.exit(1)
 
 
-try:
-    ISBN10 = sys.argv[1]
-except:
-    usage()
-
-
-def run(isbn10):       # <-- Test this function
-    return to_isbn13()
-
-
 def main():
     try:
-        print(run(ISBN10))
+        print(to_isbn13(sys.argv[1]))
     except:
         usage()
