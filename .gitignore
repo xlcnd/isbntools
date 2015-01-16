@@ -24,7 +24,7 @@ _build/
 .coverage
 .metacache
 tasks/
-apps/
+oneapps/
 spin/
 CONTRIB
 LIB
