@@ -1,15 +1,9 @@
 # -*- coding: utf-8 -*-
 """Rename files using metadata."""
 
-import sys
-import logging
-from difflib import get_close_matches
-from isbnlib import (canonical, clean, config, get_canonical_isbn,
-                     registry, quiet_errors)
 
-FORMAT = '%(message)s'
-logging.basicConfig(level=logging.INFO, format=FORMAT)
-
+from isbntools import (canonical, clean, config, get_canonical_isbn,
+                       registry, quiet_errors)
 
 
 
