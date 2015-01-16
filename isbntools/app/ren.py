@@ -2,11 +2,16 @@
 # -*- coding: utf-8 -*-
 """Rename files using metadata."""
 
-import sys
 import logging
+import sys
+
 from difflib import get_close_matches
+
 from isbntools import (canonical, clean, config, get_canonical_isbn,
-                     registry, quiet_errors)
+                       registry, quiet_errors)
+from isbntools.contrib.modules.rename import (checkpattern, rencwdfiles,
+                                              renfile, get_isbn)
+
 
 FORMAT = '%(message)s'
 logging.basicConfig(level=logging.INFO, format=FORMAT)
@@ -82,8 +87,6 @@ def reg_apikey(service, apikey):
 
 def ren(args):
     """Rename files."""
-    from isbntools.contrib.modules.rename import (checkpattern, rencwdfiles,
-                                                  renfile, get_isbn)
     isbn, service, apikey, pattern, filename = parse_args(args)
 
     if pattern and not checkpattern(pattern):

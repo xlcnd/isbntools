@@ -5,11 +5,11 @@
 import sys
 import string
 import logging
-from isbnlib.dev.helpers import last_first, cutoff_tokens
+
 from isbnlib.dev.bouth23 import u, b2u3
-from isbnlib import config
-from isbnlib.dev.helpers import File, cwdfiles
-from isbnlib import EAN13, get_isbnlike, meta
+from isbnlib.dev.helpers import last_first, cutoff_tokens, File, cwdfiles
+
+from ....__init__ import config, EAN13, get_isbnlike, meta
 
 
 LOGGER = logging.getLogger(__name__)
