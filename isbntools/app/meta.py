@@ -5,6 +5,8 @@ import logging
 import os
 import sys
 
+import isbntools   # <--- IMPORTANT
+
 from difflib import get_close_matches
 
 from isbnlib.dev.bouth23 import b2u3
