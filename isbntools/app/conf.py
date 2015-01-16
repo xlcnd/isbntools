@@ -4,26 +4,24 @@
 import os
 import sys
 
-import isbntools   # <--- IMPORTANT
 
 from difflib import get_close_matches
 
-from isbntools import quiet_errors
-from isbntools import config
+from isbntools import quiet_errors, CONF_PATH, CACHE_FILE
 from isbntools.conf import (reg_plugin, reg_apikey, mk_conf,
                             print_conf, reg_mod, reg_myopt)
 
 
 def delcache():
     try:
-        os.remove(os.path.join(config.CONF_PATH, config.CACHE_FILE))
+        os.remove(os.path.join(CONF_PATH, CACHE_FILE))
     except:
         pass
 
 
 def cachepath():
     try:
-        print(os.path.join(config.CONF_PATH, config.CACHE_FILE))
+        print(os.path.join(CONF_PATH, CACHE_FILE))
     except:
         pass
 

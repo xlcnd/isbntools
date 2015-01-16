@@ -5,7 +5,7 @@ import logging
 import os
 import sys
 
-import isbntools   # <--- IMPORTANT
+#import isbntools   # <--- IMPORTANT
 
 from difflib import get_close_matches
 

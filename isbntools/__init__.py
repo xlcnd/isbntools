@@ -5,7 +5,8 @@ __all__ = ('__version__', '__support__', 'check_version', 'audit',
            'doi', 'editions', 'get_canonical_isbn', 'get_isbnlike',
            'info', 'is_isbn10', 'is_isbn13', 'isbn_from_words',
            'mask', 'meta', 'notisbn', 'to_isbn10', 'to_isbn13', 'goom',
-           'libversion', 'config', 'registry', 'doi2tex', 'quiet_errors')
+           'libversion', 'config', 'registry', 'doi2tex', 'quiet_errors',
+           'CONF_PATH', 'CACHE_FILE')
 
 __version__ = '4.0.1'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
@@ -30,6 +31,7 @@ from . import _setconf         # <-- first import after lib (IMPORTANT)
 # from isbnlib import registry
 from ._setconf import config
 from ._setconf import registry
+from ._setconf import CONF_PATH, CACHE_FILE
 
 # isbntools
 from .contrib.modules.report import check_version, audit
