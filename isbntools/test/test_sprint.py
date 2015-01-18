@@ -5,7 +5,7 @@
 
 import sys
 
-from isbntools._helpers import sprint
+from isbntools._lab import sprint
 
 
 """

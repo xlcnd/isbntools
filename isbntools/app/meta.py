@@ -11,7 +11,7 @@ from isbnlib.dev.helpers import fmtbib, fmts
 
 from isbntools import (meta, clean, canonical, get_canonical_isbn,
                        config, registry, quiet_errors)
-from isbntools._helpers import sprint
+from isbntools._lab import sprint
 
 
 logging.basicConfig(level=logging.CRITICAL)

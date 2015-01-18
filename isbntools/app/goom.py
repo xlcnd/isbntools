@@ -9,7 +9,7 @@ from difflib import get_close_matches
 from isbnlib.dev.helpers import fmtbib, fmts
 
 from isbntools import goom, quiet_errors
-from isbntools._helpers import sprint
+from isbntools._lab import sprint
 
 
 logging.basicConfig(level=logging.CRITICAL)
