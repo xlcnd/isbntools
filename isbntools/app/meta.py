@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import os
 import sys
-
-#import isbntools   # <--- IMPORTANT
 
 from difflib import get_close_matches
 
@@ -14,11 +11,11 @@ from isbnlib.dev.helpers import fmtbib, fmts
 
 from isbntools import (meta, clean, canonical, get_canonical_isbn,
                        config, registry, quiet_errors)
+from isbntools.helpers import sprint
 
 
 logging.basicConfig(level=logging.CRITICAL)
 
-WINDOWS = os.name == 'nt'
 
 
 def usage(wservs="wcat|goob|...", ofmts="labels"):
@@ -67,14 +64,7 @@ def main():
             except:
                 pass
         r = meta(isbn, service)
-        if WINDOWS:
-            # print detects the appropriate codec
-            # (Windows terminal doesn't use UTF-8)
-            print((fmtbib(fmt, r)))
-        else:
-            # stdout gets UTF-8, so that redirection works... (see issue 75)
-            s = fmtbib(fmt, r) + '\n'
-            sys.stdout.write(b2u3(s))
+        sprint((fmtbib(fmt, r)))
     except:
         providers = list(registry.services.keys())
         providers.remove('default')

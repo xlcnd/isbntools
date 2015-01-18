@@ -8,8 +8,8 @@ from difflib import get_close_matches
 
 from isbnlib.dev.helpers import fmtbib, fmts
 
-from isbntools import goom
-from isbntools import quiet_errors
+from isbntools import goom, quiet_errors
+from isbntools.helpers import sprint
 
 
 logging.basicConfig(level=logging.CRITICAL)
@@ -46,7 +46,7 @@ def main():
                 fmt = match[0]
         fmt = fmt if fmt else 'labels'
         for r in goom(words):
-            print((fmtbib(fmt, r)))
+            sprint((fmtbib(fmt, r)))
             print("---")
     except:
         fmts.remove('labels')
