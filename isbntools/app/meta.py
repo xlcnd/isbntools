@@ -17,7 +17,6 @@ from isbntools._helpers import sprint
 logging.basicConfig(level=logging.CRITICAL)
 
 
-
 def usage(wservs="wcat|goob|...", ofmts="labels"):
     sys.stderr.write('Usage: isbn_meta ISBN [%s] [%s] [apikey]\n  '
                      '...  or try with '
