@@ -52,6 +52,7 @@ plugins_path = os.path.join(pkg_path, 'contrib/plugins')
 # set conf path
 CONF_PATH = None
 
+
 def setconfpath(path):
     """Set the directory of the conf file."""
     global CONF_PATH

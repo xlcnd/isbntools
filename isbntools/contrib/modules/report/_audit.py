@@ -7,7 +7,6 @@ from pkg_resources import iter_entry_points
 
 def audit():
     """Perform an audit and report on installed scripts and plugins."""
-
     errcode = 1
 
     cmds = [entry.name for entry in iter_entry_points(group='console_scripts')
@@ -31,4 +30,3 @@ def audit():
         errcode = 1 if errcode == 1 else 0
 
     return errcode
-    

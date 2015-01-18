@@ -13,7 +13,7 @@ WINDOWS = os.name == 'nt'
 
 def sprint(content):
     """Smart print function so that redirection works... (see issue 75)."""
-    if WINDOWS:
+    if WINDOWS:  # pragma: no cover
         # print detects the appropriate code
         # (Windows terminal doesn't use UTF-8)
         print(content)
