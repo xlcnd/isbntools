@@ -43,18 +43,15 @@ def main():
     from isbntools.conf import conf_file
     if conf_file != 'DEFAULTS':
         print("")
-        print('Your configuration file is at:')
-        print((colors.BOLD))
-        print(conf_file)
-        print((colors.RESET))
+        print(' Your configuration file is at:')
+        print("  %s%s%s" % (colors.BOLD, conf_file, colors.RESET))
         print("")
 
 
     # lib version
     from isbntools import libversion
-    print((colors.BOLD))
-    print("'isbntools' is using 'isbnlib' version %s" % libversion)
-    print((colors.RESET))
+    print(" And 'isbntools' is using:")
+    print("  'isbnlib' version %s%s%s" % (colors.BOLD, libversion, colors.RESET))
     print("")
 
 
