@@ -5,18 +5,25 @@
 
 import sys
 
-from isbnlib.dev.bouth23 import u
+from isbnlib.dev.bouth23 import u, b, b2u3
 
 from isbntools._lab import sprint
-
+from isbntools.test.adapters import run_code
 
 """
 nose tests
 """
 
 
-def test_sprint():
+def test_sprint1():
     try:
         sprint(u('海明威'))
     except:
         raise
+
+def test_sprint2():
+    code = "from isbnlib.dev.bouth23 import u;from isbntools._lab import sprint;sprint(u('abc'))"
+    run_code(code)
+    assert run_code(code) == b('abc\n')
+
+
