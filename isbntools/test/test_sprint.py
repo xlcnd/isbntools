@@ -5,6 +5,7 @@
 
 import sys
 
+from nose.tools import assert_equals
 from isbnlib.dev.bouth23 import u, b, b2u3
 
 from isbntools._lab import sprint
@@ -24,6 +25,4 @@ def test_sprint1():
 def test_sprint2():
     code = "from isbnlib.dev.bouth23 import u;from isbntools._lab import sprint;sprint(u('abc'))"
     run_code(code)
-    assert run_code(code) == b('abc\n')
-
-
+    assert_equals(run_code(code), b('abc\n'))
