@@ -14,15 +14,19 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
-.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v3.3.9
-    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v3.3.9
-    :alt: Coverage
-
 .. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v3.3.9
+.. image:: https://readthedocs.org/projects/isbntools/badge/?version=latest
+    :target: http://isbntools.readthedocs.org/en/latest/
+    :alt: Documentation Status
+
+.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.0.1
+    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.0.1
+    :alt: Coverage
+
+.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.0.1
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
@@ -219,7 +223,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-3.3.9.tar.gz
+    $ pip install isbntools-4.0.1.tar.gz
 
 (first you have to download the file!)
 
@@ -230,10 +234,10 @@ You should check if the install was successful, by enter:
     $ isbntools
 
 
-Windows
--------
+Windows (NOW for Linux too!) 
+----------------------------
 
-**If you are on a Windows system**,
+**If you are on a Windows system (NOW for Linux too)**,
 you can download a standalone_ version that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 
@@ -337,11 +341,11 @@ dev) or at twitter_ (if you are an end user).
 
 --------------------------------
 
-More documentation at http://isbntools.readthedocs.org
+More documentation at Read the Docs_.
 
 --------------------------------
 
-.. _github: https://github.com/xlcnd/isbntools/issues?labels=info&page=1&state=open
+.. _github: https://github.com/xlcnd/isbntools/issues
 
 .. _range: https://www.isbn-international.org/range_file_generation
 
@@ -362,3 +366,5 @@ More documentation at http://isbntools.readthedocs.org
 .. _isbnlib: http://bit.ly/ISBNlib
 
 .. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbntools.contrib&submit=search
+
+.. _Docs: http://bit.ly/1l0W4In

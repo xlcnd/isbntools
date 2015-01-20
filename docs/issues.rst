@@ -26,7 +26,7 @@ dev) or at twitter_ (if you are an end user).
 
 
 
-.. _github: https://github.com/xlcnd/isbntools/issues?labels=info&page=1&state=open
+.. _github: https://github.com/xlcnd/isbntools/issues
 
 .. _range: https://www.isbn-international.org/range_file_generation
 
