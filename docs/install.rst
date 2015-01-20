@@ -32,14 +32,15 @@ You should check if the install was successful, by enter:
     $ isbntools
 
 
-Windows
--------
+Windows (NOW for Linux too!) 
+----------------------------
 
-    **If you are on a Windows system**,
-    you can download a standalone_ version that **doesn't need python** and gives you
-    access to the scripts. However, doesn't support add-ins or customization!
+**If you are on a Windows system (NOW for Linux too)**,
+you can download a standalone_ version that **doesn't need python** and gives you
+access to the scripts. However, doesn't support add-ins or customization!
 
     **Instructions**:
+
     1. unzip the file and put the file ``isbn.exe`` in a folder.
     2. go to that folder and open a command line.
     3. run ``isbn help`` to get further instructions.
