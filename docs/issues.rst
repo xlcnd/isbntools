@@ -20,8 +20,9 @@ Known Issues
    to clear the cache, just enter ``isbn_conf delcache``.
 
 
-Any issue that you would like to report, please do it at github_ (if you are a
-dev) or at twitter_ (if you are an end user).
+Any issue that you would like to report, (if you are a developer) please do it at github_ 
+or at stackoverflow_ with tag **isbntools**, 
+(if you are an end user) at twitter_.
 
 
 
@@ -43,3 +44,5 @@ dev) or at twitter_ (if you are an end user).
 .. _standalone: http://bit.ly/1i8qatY
 
 .. _twitter: https://twitter.com/isbntools
+
+.. _stackoverflow: http://stackoverflow.com

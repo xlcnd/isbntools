@@ -340,8 +340,9 @@ Known Issues
    feature, just enter ``isbn_conf setopt cache no``. If by any reason you need
    to clear the cache, just enter ``isbn_conf delcache``.
 
-Any issue that you would like to report, please do it at github_ (if you are a
-dev) or at twitter_ (if you are an end user).
+Any issue that you would like to report, (if you are a developer) please do it at github_ 
+or at stackoverflow_ with tag **isbntools**, 
+(if you are an end user) at twitter_.
 
 
 --------------------------------
@@ -373,3 +374,5 @@ More documentation at Read the Docs_.
 .. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbntools.contrib&submit=search
 
 .. _Docs: http://bit.ly/1l0W4In
+
+.. _stackoverflow: http://stackoverflow.com

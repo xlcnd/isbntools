@@ -39,6 +39,8 @@ Windows (NOW for Linux too!)
 you can download a standalone_ version that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 
+[![Download isbntools](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/isbntools/files/latest/download)
+
     **Instructions**:
 
     1. unzip the file and put the file ``isbn.exe`` in a folder.
