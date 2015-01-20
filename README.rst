@@ -14,10 +14,6 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
-.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
-    :target: https://sourcegraph.com/github.com/xlcnd/isbntools
-    :alt: Graph
-
 .. image:: https://readthedocs.org/projects/isbntools/badge/?version=latest
     :target: http://isbntools.readthedocs.org/en/latest/
     :alt: Documentation Status
@@ -358,8 +354,6 @@ More documentation at Read the Docs_.
 .. _here: http://isbndb.com/api/v2/docs
 
 .. _read: http://isbntools.readthedocs.org/en/latest/devs.html
-
-.. _sourcegraph: http://bit.ly/1k14kHi
 
 .. _guidelines: http://bit.ly/1jcxq8W
 

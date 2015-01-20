@@ -7,7 +7,7 @@ Code
 Search
 ------
 
-Search/Browse the code at sourcegraph_ or github_
+Search/Browse the code at github_
 
 
 
@@ -33,10 +33,6 @@ Status
 .. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=master
     :target: https://coveralls.io/r/xlcnd/isbntools?branch=master
     :alt: Coverage
-
-.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
-    :target: https://sourcegraph.com/github.com/xlcnd/isbntools
-    :alt: Graph
 
 .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=master
     :target: https://travis-ci.org/xlcnd/isbntools
@@ -82,7 +78,7 @@ see them as a learning opportunity. Thanks!
      For full instructions read the CONTRIBUTING_ doc.
 
 
-.. _sourcegraph: http://bit.ly/1k14kHi
+
 .. _github: http://bit.ly/1oTm5ze
 .. _account: https://github.com/signup/free
 .. _issues: https://github.com/xlcnd/isbntools/issues

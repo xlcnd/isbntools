@@ -145,8 +145,7 @@ on how to use the library and as debugger tools for your implementation.
 
 ---------------------------------------------------------------------------------
 
-**You can browse the code, in a very structured way, at** sourcegraph_ (but not
-the most recent version, for that go to GitHub_).
+You can browse the code at GitHub_.
 
 
 .. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/_wcat.py
@@ -160,7 +159,5 @@ the most recent version, for that go to GitHub_).
 .. _help: http://bit.ly/1jcxq8W
 
 .. _GitHub: http://bit.ly/1oTm5ze
-
-.. _sourcegraph: http://bit.ly/1k14kHi
 
 .. _isbnlib: http://bit.ly/ISBNlib
