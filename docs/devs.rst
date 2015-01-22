@@ -12,8 +12,8 @@ In the namespace ``isbntools`` you have access to the core methods:
 ``meta``, ``info``, ``editions``, and ``isbn_from_words``.
 The exceptions raised by these methods can all be catched using ``ISBNToolsException``.
 
-You can extend the lib by using the classes and functions exposed in
-namespace ``isbntools.dev``, namely:
+You can use advanced features by using the classes and functions exposed in
+namespace ``isbnlib.dev``, namely:
 
 * ``WEBService`` a class that handles the access to web
   services (just by passing an url) and supports ``gzip``.
@@ -43,10 +43,10 @@ namespace ``isbntools.dev``, namely:
   **bouth** python 2 and python 3.
 
 
-The exceptions raised by these methods can all be catched using ``ISBNToolsDevException``.
+The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
 
 
-In ``isbntools.dev.lab`` you can find several methods, that we found very useful,
+In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful,
 but you should consider them as beta software. They can change a lot in
 the future.
 
@@ -60,8 +60,8 @@ helpers to work with isbntools's modules.
     be accessed directly since, with high probability, your program will break
     with a further version of the library!
 
-    You should access only methods in the API's ``isbntools``, ``isbntools.dev``,
-    ``isbntools.dev.lab`` and ``isbntools.conf``
+    You should access only methods in the API's ``isbntools``, ``isbnlib.dev``,
+    ``isbnlib.dev.helpers`` and ``isbntools.conf``
 
 
 
@@ -126,9 +126,9 @@ If you just want to integrate the lib in your project, you have several options,
 depending on your needs...
 
 1. If you need only basic manipulation of ISBNs (validation, transforming,
-   extraction, hyphenation, ...) but not metadata or file renaming,
+   extraction, hyphenation, ...) but not custom metadata or file renaming,
    then you don't need a conf file. Just use the methods in ``isbntools``.
-   Probably you are better served with isbnlib_.
+   But probably you are better served with isbnlib_.
 
 2. If you rely heavily in metadata (or file renaming) and don't want to
    implement caching yourself, then you **need** an ``isbntools.conf`` file in a
