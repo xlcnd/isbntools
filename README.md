@@ -264,7 +264,7 @@ Just enter `isbn_conf` for help.
 isbntools.contrib
 -----------------
 
-To get extra functionality, 
+To get extra functionality,
 [search pypi](https://pypi.python.org/pypi?%3Aaction=search&term=isbntools.contrib&submit=search)
 for packages starting with ``isbntools.contrib``.
 
@@ -291,7 +291,7 @@ Known Issues
    to clear the cache, just enter `isbn_conf delcache`.
 
 Any issue that you would like to report, (if you are a developer) please do it at
-[github](https://github.com/xlcnd/isbntools/issues) or at [stackoverflow](http://stackoverflow.com/) 
+[github](https://github.com/xlcnd/isbntools/issues) or at [stackoverflow](http://stackoverflow.com/tagged/isbntools)
 with tag `isbntools`, (if you are an end user) at [twitter](https://twitter.com/isbntools).
 
 

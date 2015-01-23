@@ -230,7 +230,7 @@ You should check if the install was successful, by enter:
     $ isbntools
 
 
-Windows (NOW for Linux too!) 
+Windows (NOW for Linux too!)
 ----------------------------
 
 If you are on a Windows system **(and NOW for Linux too)**,
@@ -240,7 +240,7 @@ access to the scripts. However, doesn't support add-ins or customization!
 
 .. image:: https://a.fsdn.com/con/app/sf-download-button
     :target: https://sourceforge.net/projects/isbntools/files/latest/download
-    :alt: Download isbntools portable (one file)   
+    :alt: Download isbntools portable (one file)
 
 
     **Instructions**:
@@ -254,7 +254,7 @@ access to the scripts. However, doesn't support add-ins or customization!
 For Devs
 ========
 
-If all you want is to add ``isbntools`` to the requirements of your project, 
+If all you want is to add ``isbntools`` to the requirements of your project,
 probably you will better served with isbnlib_, it implements the basic functionality
 of ``isbntools`` without end user scripts and configuration files!
 
@@ -337,8 +337,8 @@ Known Issues
    feature, just enter ``isbn_conf setopt cache no``. If by any reason you need
    to clear the cache, just enter ``isbn_conf delcache``.
 
-Any issue that you would like to report, (if you are a developer) please do it at github_ 
-or at stackoverflow_ with tag **isbntools**, 
+Any issue that you would like to report, (if you are a developer) please do it at github_
+or at stackoverflow_ with tag **isbntools**,
 (if you are an end user) at twitter_.
 
 
@@ -370,4 +370,4 @@ More documentation at Read the Docs_.
 
 .. _Docs: http://bit.ly/1l0W4In
 
-.. _stackoverflow: http://stackoverflow.com
+.. _stackoverflow: http://stackoverflow.com/questions/tagged/isbntools
