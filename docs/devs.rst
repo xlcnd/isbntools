@@ -136,7 +136,7 @@ depending on your needs...
    programatically manipulate the conf file.
 
 3. If you want to vendorize the lib you should take a careful look at
-   ``setup.py``!
+   ``setup.py`` and maybe this package (datafolder_) could help!
 
 Anyway, you could use the ``isbn_...`` scripts in the ``isbntools/app`` directory
 as examples on how to use the library and as debugger tools for your implementation.
@@ -161,3 +161,5 @@ You can browse the code at GitHub_.
 .. _GitHub: http://bit.ly/1oTm5ze
 
 .. _isbnlib: http://bit.ly/ISBNlib
+
+.. _datafolder: https://pypi.python.org/pypi/datafolder
