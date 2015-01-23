@@ -291,7 +291,7 @@ Known Issues
    to clear the cache, just enter `isbn_conf delcache`.
 
 Any issue that you would like to report, (if you are a developer) please do it at
-[github](https://github.com/xlcnd/isbntools/issues) or at [stackoverflow](http://stackoverflow.com/tagged/isbntools)
+[github](https://github.com/xlcnd/isbntools/issues) or at [stackoverflow](http://stackoverflow.com/questions/tagged/isbntools)
 with tag `isbntools`, (if you are an end user) at [twitter](https://twitter.com/isbntools).
 
 
