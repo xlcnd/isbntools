@@ -1,4 +1,4 @@
-version: '{build}'
+version: '4.0.1.{build}'
 build: off
 environment:
   matrix:
@@ -50,7 +50,4 @@ install:
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%\\Scripts\\pip.exe install -r requirements-test.txt"
 test_script:
-  - "%PYTHON_HOME%\\Scripts\\tox --version"
-  - "%PYTHON_HOME%\\Scripts\\virtualenv --version"
-  - "%PYTHON_HOME%\\Scripts\\pip --version"
   - "%PYTHON_HOME%\\Scripts\\tox"
