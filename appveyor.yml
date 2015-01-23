@@ -49,7 +49,7 @@ init:
   - ps: "ls C:\\Python*"
 install:
   - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:/get-pip.py')
-  - "%TOXPYTHON%/ C:/get-pip.py"
+  - "%TOXPYTHON% C:/get-pip.py"
   - "%TOXPYTHON%/Scripts/pip.exe install -e ."
 test_script:
   - "%PYTHON_HOME%\\Scripts\\tox --version"
