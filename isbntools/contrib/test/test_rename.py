@@ -10,7 +10,7 @@ from isbntools.contrib.modules.rename import (checkpattern, newfilename,
                                               renfile, rencwdfiles, 
                                               cleannewname)
 from isbnlib.dev.helpers import File, cwdfiles
-from isbnlib.dev.bouth23 import u
+from isbnlib.dev.bouth23 import u, b, b2u3
 
 """
 nose tests
@@ -48,7 +48,7 @@ def create_files(files):
     os.chdir(os.path.dirname(TESTFILE))
     for fn in files:
         f = open(fn, 'w')
-        f.write('ooo' + fn)
+        f.write(b2u3('ooo') + b2u3(fn))
         f.close()
 
 
@@ -59,7 +59,7 @@ def delete_files(fnpatt):
 
 
 def setup_module():
-    create_files([TESTFILE, '海明威-deleteme-PLEASE.pdf'])
+    create_files([u(TESTFILE), u('./海明威-deleteme-PLEASE.pdf')])
     os.chdir(os.path.dirname(TESTFILE))
     create_files(FISBN+[F11])
 
