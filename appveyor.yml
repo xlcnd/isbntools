@@ -48,7 +48,7 @@ init:
 install:
   - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:/get-pip.py')
   - "%TOXPYTHON% C:/get-pip.py"
-  - "%PYTHON_HOME%\\Scripts\\pip.exe install -r requirements-dev.txt"
+  - "%PYTHON_HOME%\\Scripts\\pip.exe install -r requirements-test.txt"
 test_script:
   - "%PYTHON_HOME%\\Scripts\\tox --version"
   - "%PYTHON_HOME%\\Scripts\\virtualenv --version"
