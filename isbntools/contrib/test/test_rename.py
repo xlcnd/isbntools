@@ -16,8 +16,9 @@ from isbnlib.dev.bouth23 import u
 nose tests
 """
 
+WINDOWS = os.name == 'nt'
 
-TESTFILE = '/tmp/海明威-deleteme.pdf'
+TESTFILE = './海明威-deleteme.pdf'
 NEW_BASENAME = '海明威-deleteme-PLEASE.pdf'
 
 F1 = '9780321534965.pdf'
@@ -58,7 +59,7 @@ def delete_files(fnpatt):
 
 
 def setup_module():
-    create_files([TESTFILE, '/tmp/海明威-deleteme-PLEASE.pdf'])
+    create_files([TESTFILE, '海明威-deleteme-PLEASE.pdf'])
     os.chdir(os.path.dirname(TESTFILE))
     create_files(FISBN+[F11])
 
