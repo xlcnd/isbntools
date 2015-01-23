@@ -18,8 +18,8 @@ nose tests
 
 WINDOWS = os.name == 'nt'
 
-TESTFILE = './海明威-deleteme.pdf'
-NEW_BASENAME = '海明威-deleteme-PLEASE.pdf'
+TESTFILE = './ç-deleteme.pdf'
+NEW_BASENAME = 'ç-deleteme-PLEASE.pdf'
 
 F1 = '9780321534965.pdf'
 F2 = '9781597499644.pdf'
@@ -31,7 +31,7 @@ F6 = 'Campos2011_Emergências obstétricas_9789727576807.pdf'
 F7 = 'Knuth2008_The Art Of Computer Programming_9780321534965.pdf'
 F8 = 'Man2001_Genetic Algorithms Concepts And Designs_9781852330729.pdf'
 F9 = "O'Connor2012_Violent Python A Cookbook for Hackers, Forensic Analysts, Penetra_9781597499644.pdf"
-F10 = '海明威2007_Lao ren yu hai_9787500117018.pdf'
+F10 = 'Lao2007_Lao ren yu hai_9787500117018.pdf'
 
 F11 = 'myfile.pdf'
 
@@ -59,7 +59,7 @@ def delete_files(fnpatt):
 
 
 def setup_module():
-    create_files([u(TESTFILE), u('./海明威-deleteme-PLEASE.pdf')])
+    create_files([u(TESTFILE), u('./ç-deleteme-PLEASE.pdf')])
     os.chdir(os.path.dirname(TESTFILE))
     create_files(FISBN+[F11])
 
@@ -117,7 +117,7 @@ def test_cleannewname():
 
 def test_get_isbn():
     assert_equals(get_isbn('The Internet_9780199571444.epub'), '9780199571444')
-    assert_equals(get_isbn('海明威2007_Lao ren yu hai_9787500117018.pdf'), '9787500117018')
+    assert_equals(get_isbn('ç2007_Lao ren yu hai_9787500117018.pdf'), '9787500117018')
     assert_equals(get_isbn('ebook 0826497527 isbn.pdf'), '9780826497529')
     # assert_equals(get_isbn('9780199571445.epub'), None)
 
