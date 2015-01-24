@@ -16,13 +16,13 @@ def sprint(content):
     if WINDOWS:  # pragma: no cover
         # the `print` function detects the appropriate codec
         # (Windows terminal doesn't use UTF-8)
-        # s = content + '\n'
+        s = content + '\n'
         # s = content.encode("utf-8")
         ecode = 'UTF-8' if sys.version < '3' else sys.stdout.encoding
         ecode = 'UTF-8' if ecode is None else ecode
-        print(sys.stdout.encoding)
-        print(content.encode(ecode))
-        # sys.stdout.write(s)
+        # print(sys.stdout.encoding)
+        # print(content.encode(ecode))
+        sys.stdout.write(s.encode(ecode))
     else:
         # stdout gets UTF-8
         s = content + '\n'
