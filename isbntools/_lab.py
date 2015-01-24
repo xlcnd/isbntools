@@ -11,7 +11,6 @@ from isbnlib.dev.bouth23 import b2u3
 WINDOWS = os.name == 'nt'
 
 
-
 def b2s3(x):
     """For Windows."""
     return x.encode("utf-8") if sys.version < '3' else x.decode("utf-8", 'ignore')
