@@ -27,7 +27,6 @@ def sprint(content):
             print(s.encode(sys.stdout.encoding))
         # print(sys.stdout.encoding)
         # print(content.encode(ecode))
-        
     else:
         # stdout gets UTF-8
         s = content + '\n'
