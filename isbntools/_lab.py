@@ -6,7 +6,7 @@
 import os
 import sys
 
-from isbnlib.dev.bouth23 import b2u3
+from isbnlib.dev.bouth23 import b2u3, s
 
 WINDOWS = os.name == 'nt'
 
@@ -18,11 +18,16 @@ def sprint(content):
         # (Windows terminal doesn't use UTF-8)
         s = content + '\n'
         # s = content.encode("utf-8")
-        ecode = 'UTF-8' if sys.version < '3' else sys.stdout.encoding
-        ecode = 'UTF-8' if ecode is None else ecode
+        # ecode = 'UTF-8' if sys.version < '3' else sys.stdout.encoding
+        # ecode = 'UTF-8' if ecode is None else ecode
+        if sys.version < '3':
+            sys.stdout.write(s.encode('utf-8'))
+        else:
+            # sys.stdout.write(s)
+            print(s.encode(sys.stdout.encoding))
         # print(sys.stdout.encoding)
         # print(content.encode(ecode))
-        sys.stdout.write(s.encode(ecode))
+        
     else:
         # stdout gets UTF-8
         s = content + '\n'
