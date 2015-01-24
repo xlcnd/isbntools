@@ -18,7 +18,9 @@ def sprint(content):
         # (Windows terminal doesn't use UTF-8)
         # s = content + '\n'
         # s = content.encode("utf-8")
-        print(content.encode("utf-8"))
+        ecode = 'UTF-8' if sys.version < '3' else sys.stdout.encoding
+        print(sys.stdout.encoding)
+        print(content.encode(ecode))
         # sys.stdout.write(s)
     else:
         # stdout gets UTF-8
