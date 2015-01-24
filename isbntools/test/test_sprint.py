@@ -7,7 +7,7 @@ import os
 import sys
 
 from nose.tools import assert_equals
-from isbnlib.dev.bouth23 import u, b, b2u3
+from isbnlib.dev.bouth23 import u, b
 
 from isbntools._lab import sprint
 from isbntools.test.adapters import run_code
@@ -28,6 +28,9 @@ def test_sprint1():
 def test_sprint2():
     code = "from isbnlib.dev.bouth23 import u;from isbntools._lab import sprint;sprint(u('abc'))"
     if WINDOWS:
-        assert_equals(run_code(code), b('abc\n'))
+        if sys.version < '3':
+            assert_equals(run_code(code), b('abc\r\n'))
+        else:
+            assert_equals(run_code(code), b('abc\n'))
     else:
         assert_equals(run_code(code), b('abc\n'))
