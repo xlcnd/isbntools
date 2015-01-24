@@ -6,7 +6,7 @@
 import os
 import sys
 
-from isbnlib.dev.bouth23 import b2u3
+from isbnlib.dev.bouth23 import b2u3, b
 
 WINDOWS = os.name == 'nt'
 
