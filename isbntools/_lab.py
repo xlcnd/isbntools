@@ -17,11 +17,13 @@ def sprint(content):
         # the print function doesn't work well with redirection
         # is best to work with bytes (unicode encoded as UTF-8)
         # (Windows terminal doesn't use UTF-8 by default)
-        s = content + '\n'
-        buf = s.encode("utf-8")
         if sys.version < '3':
+            s = content + '\n'
+            buf = s.encode("utf-8")
             sys.stdout.write(buf)
         else:
+            s = content + '\r\n'
+            buf = s.encode("utf-8")
             sys.stdout.buffer.write(buf)
             # sys.stdout.write(s)
             # print(s.encode(ecode))

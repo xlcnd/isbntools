@@ -28,9 +28,6 @@ def test_sprint1():
 def test_sprint2():
     code = "from isbnlib.dev.bouth23 import u;from isbntools._lab import sprint;sprint(u('abc'))"
     if WINDOWS:
-        if sys.version < '3':
-            assert_equals(run_code(code), b('abc\r\n'))
-        else:
-            assert_equals(run_code(code), b('abc\n'))
+        assert_equals(run_code(code), b('abc\r\n'))
     else:
         assert_equals(run_code(code), b('abc\n'))
