@@ -14,8 +14,9 @@ WINDOWS = os.name == 'nt'
 def sprint(content):
     """Smart print function so that redirection works... (see issue 75)."""
     if WINDOWS:  # pragma: no cover
-        # the `print` function detects the appropriate codec
-        # (Windows terminal doesn't use UTF-8)
+        # the print function doesn't work well with redirection
+        # is best to work with bytes (unicode encoded as UTF-8)
+        # (Windows terminal doesn't use UTF-8 by default)
         s = content + '\n'
         buf = s.encode("utf-8")
         if sys.version < '3':
