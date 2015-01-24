@@ -17,10 +17,11 @@ def sprint(content):
         # the `print` function detects the appropriate codec
         # (Windows terminal doesn't use UTF-8)
         s = content + '\n'
-        # s = content.encode("utf-8")
+        buf = s.encode("utf-8")
         if sys.version < '3':
-            sys.stdout.write(s.encode('utf-8'))
+            sys.stdout.write(buf)
         else:
+            sys.stdout.buffer.write(buf)
             # sys.stdout.write(s)
             # print(s.encode(ecode))
             # sys.stdout.write(s.encode(ecode))
@@ -39,13 +40,13 @@ def sprint(content):
             #     ecode = 'utf-8' if ecode is None else ecode
             #     print(s.encode(ecode))
             #     sys.stdout.write(s)
-            try:
-                print(content)
-            except:
-                sys.stdout.buffer.write(s.encode('utf-8'))
-                # enc = sys.stdout.encoding
-                # mess = 'Please change your terminal encoding from %s to F-8!'
-                # print(mess % enc, file=sys.stderr)
+            # try:
+            #     print(content)
+            # except:
+            #     sys.stdout.buffer.write(s.encode('utf-8'))
+            #     enc = sys.stdout.encoding
+            #     mess = 'Please change your terminal encoding from %s to F-8!'
+            #     print(mess % enc, file=sys.stderr)
     else:
         # stdout gets UTF-8
         s = content + '\n'
