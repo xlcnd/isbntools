@@ -17,7 +17,7 @@ def sprint(content):
         # print detects the appropriate code
         # (Windows terminal doesn't use UTF-8)
         # print(content)
-        s = content + '\r\n'
+        s = content + '\n'
         sys.stdout.write(b2u3(s))
     else:
         # stdout gets UTF-8
