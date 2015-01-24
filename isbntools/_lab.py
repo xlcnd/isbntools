@@ -26,12 +26,12 @@ def sprint(content):
             # sys.stdout.write(s.encode(ecode))
             # IS almost impossible to write non-ascii characters
             # in a Windows terminal with python 3!!!
-            try:
-                print(content)
-            except:
-                ecode = sys.stdout.encoding
-                ecode = 'UTF-8' if ecode is None else ecode
-                sys.stdout.write(s.encode(ecode))
+            # try:
+            #     print(content)
+            # except:
+            ecode = sys.stdout.encoding
+            ecode = 'utf-8' if ecode is None else ecode
+            sys.stdout.write(s.encode(ecode))
     else:
         # stdout gets UTF-8
         s = content + '\n'
