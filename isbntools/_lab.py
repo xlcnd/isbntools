@@ -22,12 +22,11 @@ def sprint(content):
             sys.stdout.write(s.encode('utf-8'))
         else:
             # sys.stdout.write(s)
-            ecode = 'UTF-8' if sys.version < '3' else sys.stdout.encoding
-            ecode = 'UTF-8' if ecode is None else ecode
+            # ecode = 'UTF-8' if sys.version < '3' else sys.stdout.encoding
+            # ecode = 'UTF-8' if ecode is None else ecode
             # print(s.encode(ecode))
-            sys.stdout.write(s.encode(ecode))
-        # print(sys.stdout.encoding)
-        # print(content.encode(ecode))
+            # sys.stdout.write(s.encode(ecode))
+            print(content)
     else:
         # stdout gets UTF-8
         s = content + '\n'
