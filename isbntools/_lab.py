@@ -42,7 +42,9 @@ def sprint(content):
             try:
                 print(content)
             except:
-                print('')
+                enc = sys.stdout.encoding
+                mess = 'Please change your terminal encoding from %s to UTF-8!'
+                print(mess % enc)
     else:
         # stdout gets UTF-8
         s = content + '\n'
