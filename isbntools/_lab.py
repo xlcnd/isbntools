@@ -16,7 +16,9 @@ def sprint(content):
     if WINDOWS:  # pragma: no cover
         # print detects the appropriate code
         # (Windows terminal doesn't use UTF-8)
-        print(content)
+        #print(content)
+        s = content + '\r\n'
+        sys.stdout.write(b2u3(s))
     else:
         # stdout gets UTF-8
         s = content + '\n'
