@@ -31,7 +31,8 @@ def sprint(content):
             # except:
             # ecode = sys.stdout.encoding
             # ecode = 'utf-8' if ecode is None else ecode
-            sys.stdout.write(s)
+            # sys.stdout.write(s)
+            print(content)
     else:
         # stdout gets UTF-8
         s = content + '\n'
