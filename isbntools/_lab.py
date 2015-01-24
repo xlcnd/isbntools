@@ -29,7 +29,7 @@ def sprint(content):
             try:
                 print(content)
             except:
-                ecode = 'UTF-8' if sys.version < '3' else sys.stdout.encoding
+                ecode = sys.stdout.encoding
                 ecode = 'UTF-8' if ecode is None else ecode
                 sys.stdout.write(s.encode(ecode))
     else:
