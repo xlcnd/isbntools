@@ -18,8 +18,8 @@ nose tests
 
 WINDOWS = os.name == 'nt'
 
-TESTFILE = './海明威-deleteme.pdf'
-NEW_BASENAME = '海明威-deleteme-PLEASE.pdf'
+TESTFILE = './ç-deleteme.pdf'
+NEW_BASENAME = 'ç-deleteme-PLEASE.pdf'
 
 F1 = '9780321534965.pdf'
 F2 = '9781597499644.pdf'
@@ -59,7 +59,7 @@ def delete_files(fnpatt):
 
 
 def setup_module():
-    create_files([u(TESTFILE), u('./海明威-deleteme-PLEASE.pdf')])
+    create_files([u(TESTFILE), u('./ç-deleteme-PLEASE.pdf')])
     os.chdir(os.path.dirname(TESTFILE))
     create_files(FISBN+[F11])
 
