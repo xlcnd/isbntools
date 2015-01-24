@@ -40,9 +40,9 @@ def sprint(content):
             #     print(s.encode(ecode))
             #     sys.stdout.write(s)
             try:
-                 print(content)
+                print(content)
             except:
-                 print('')
+                print('')
     else:
         # stdout gets UTF-8
         s = content + '\n'
