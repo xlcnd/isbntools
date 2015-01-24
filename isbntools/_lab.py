@@ -6,7 +6,7 @@
 import os
 import sys
 
-from isbnlib.dev.bouth23 import b, b2u3
+from isbnlib.dev.bouth23 import b2u3
 
 WINDOWS = os.name == 'nt'
 
@@ -18,7 +18,7 @@ def sprint(content):
         # (Windows terminal doesn't use UTF-8)
         # s = content + '\n'
         # s = content.encode("utf-8")
-        print(b(content))
+        print(content.encode("utf-8"))
         # sys.stdout.write(s)
     else:
         # stdout gets UTF-8
