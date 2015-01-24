@@ -6,7 +6,7 @@
 import os
 import sys
 
-from isbnlib.dev.bouth23 import b, b2u3
+from isbnlib.dev.bouth23 import b2u3
 
 WINDOWS = os.name == 'nt'
 
@@ -16,7 +16,7 @@ def sprint(content):
     if WINDOWS:  # pragma: no cover
         # print detects the appropriate code
         # (Windows terminal doesn't use UTF-8)
-        print(b(content))
+        print(content.encode("utf-8"))
         # s = content + '\n'
         # sys.stdout.write(b2u3(s))
     else:
