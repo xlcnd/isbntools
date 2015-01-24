@@ -27,11 +27,11 @@ F3 = '9781852330729.pdf'
 F4 = '9787500117018.pdf'
 F5 = '9789727576807.pdf'
 
-F6 = 'Campos2011_Emergências obstétricas_9789727576807.pdf'
-F7 = 'Knuth2008_The Art Of Computer Programming_9780321534965.pdf'
-F8 = 'Man2001_Genetic Algorithms Concepts And Designs_9781852330729.pdf'
-F9 = "O'Connor2012_Violent Python A Cookbook for Hackers, Forensic Analysts, Penetra_9781597499644.pdf"
-F10 = 'Lao2007_Lao ren yu hai_9787500117018.pdf'
+F6 = u('Campos2011_Emergências obstétricas_9789727576807.pdf')
+F7 = u('Knuth2008_The Art Of Computer Programming_9780321534965.pdf')
+F8 = u('Man2001_Genetic Algorithms Concepts And Designs_9781852330729.pdf')
+F9 = u("O'Connor2012_Violent Python A Cookbook for Hackers, Forensic Analysts, Penetra_9781597499644.pdf")
+F10 = u('Lao2007_Lao ren yu hai_9787500117018.pdf')
 
 F11 = 'myfile.pdf'
 
