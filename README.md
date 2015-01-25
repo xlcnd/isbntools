@@ -5,6 +5,7 @@
 [![Documentation Status](https://readthedocs.org/projects/isbntools/badge/?version=latest)](http://isbntools.readthedocs.org/en/latest/)
 [![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.0.1)](https://coveralls.io/r/xlcnd/isbntools?branch=v4.0.1)
 [![Build Status](https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.0.1)](https://travis-ci.org/xlcnd/isbntools)
+[![Build status](https://ci.appveyor.com/api/projects/status/chdwjfamexdp97rt?svg=true)](https://ci.appveyor.com/project/xlcnd/isbntools)
 
 
 Info
