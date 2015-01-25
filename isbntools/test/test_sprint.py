@@ -21,7 +21,7 @@ WINDOWS = os.name == 'nt'
 
 # def test_sprint1():
 #    try:
-#        sprint(u('海明威'))
+#        sprint('海明威')
 #    except:
 #        raise
 

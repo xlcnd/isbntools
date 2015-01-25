@@ -6,51 +6,21 @@
 import os
 import sys
 
-from isbnlib.dev.bouth23 import b2u3
+from isbnlib.dev.bouth23 import u
 
 WINDOWS = os.name == 'nt'
+EOL = u('\r\n') if WINDOWS else u('\n')
+PY2 = sys.version < '3'
 
 
 def sprint(content):
     """Smart print function so that redirection works... (see issue 75)."""
-    if WINDOWS:  # pragma: no cover
-        # the print function doesn't work well with redirection
-        # is best to work with bytes (unicode encoded as UTF-8)
-        # (Windows terminal doesn't use UTF-8 by default)
-        if sys.version < '3':
-            s = content + '\n'
-            buf = s.encode("utf-8")
-            sys.stdout.write(buf)
-        else:
-            s = content + '\r\n'
-            buf = s.encode("utf-8")
-            sys.stdout.buffer.write(buf)
-            # sys.stdout.write(s)
-            # print(s.encode(ecode))
-            # sys.stdout.write(s.encode(ecode))
-            # IS almost impossible to write non-ascii characters
-            # in a Windows terminal with python 3!!!
-            # UNLESS the user change the default encoding
-            # to 'UTF-8' in terminal
-            # try:
-            #     print(content)
-            # except:
-            # ecode = sys.stdout.encoding
-            # ecode = 'utf-8' if ecode is None else ecode
-            # print(s.encode(ecode))
-            # try:
-            #     ecode = sys.stdout.encoding
-            #     ecode = 'utf-8' if ecode is None else ecode
-            #     print(s.encode(ecode))
-            #     sys.stdout.write(s)
-            # try:
-            #     print(content)
-            # except:
-            #     sys.stdout.buffer.write(s.encode('utf-8'))
-            #     enc = sys.stdout.encoding
-            #     mess = 'Please change your terminal encoding from %s to F-8!'
-            #     print(mess % enc, file=sys.stderr)
+    # FIXME adopt the same solution for both ops
+    s = content + EOL
+    # the print function doesn't work well with redirection
+    # is best to work with bytes (unicode encoded as UTF-8)
+    buf = s.encode("utf-8")
+    if PY2:
+        sys.stdout.write(buf)
     else:
-        # stdout gets UTF-8
-        s = content + '\n'
-        sys.stdout.write(b2u3(s))
+        sys.stdout.buffer.write(buf)
