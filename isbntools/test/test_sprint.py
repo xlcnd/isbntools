@@ -7,7 +7,7 @@ import os
 import sys
 
 from nose.tools import assert_equals
-from isbnlib.dev.bouth23 import u, b
+from isbnlib.dev.bouth23 import b
 
 from isbntools._lab import sprint
 from isbntools.test.adapters import run_code
