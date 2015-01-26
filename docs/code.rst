@@ -34,6 +34,10 @@ Status
     :target: https://coveralls.io/r/xlcnd/isbntools?branch=master
     :alt: Coverage
 
+.. image:: https://ci.appveyor.com/api/projects/status/chdwjfamexdp97rt
+    :target: https://ci.appveyor.com/project/xlcnd/isbntools
+    :alt: Windows Built Status
+
 .. image:: https://travis-ci.org/xlcnd/isbntools.png?branch=master
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
