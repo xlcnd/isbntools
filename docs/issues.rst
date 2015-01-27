@@ -45,4 +45,4 @@ or at stackoverflow_ with tag **isbntools**,
 
 .. _twitter: https://twitter.com/isbntools
 
-.. _stackoverflow: http://stackoverflow.com
+.. _stackoverflow: http://stackoverflow.com/questions/tagged/isbntools
