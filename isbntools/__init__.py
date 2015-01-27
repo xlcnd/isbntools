@@ -8,7 +8,7 @@ __all__ = ('__version__', '__support__', 'check_version', 'audit',
            'libversion', 'config', 'registry', 'doi2tex', 'quiet_errors',
            'CONF_PATH', 'CACHE_FILE')
 
-__version__ = '4.0.1'                               # <-- literal IDs
+__version__ = '4.0.2'                               # <-- literal IDs
 __support__ = 'py26, py27, py33, py34, pypy'        # <-- literal IDs
 
 
