@@ -6,7 +6,6 @@ import sys
 
 from difflib import get_close_matches
 
-from isbnlib.dev.bouth23 import b2u3
 from isbnlib.dev.helpers import fmtbib, fmts
 
 from isbntools import (meta, clean, canonical, get_canonical_isbn,

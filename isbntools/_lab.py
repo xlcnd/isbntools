@@ -6,7 +6,6 @@
 import os
 import sys
 
-# from isbnlib.dev.bouth23 import u
 
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
