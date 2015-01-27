@@ -241,10 +241,6 @@ you can download a standalone_ version that **doesn't need python** and gives yo
 access to the scripts. However, doesn't support add-ins or customization!
 
 
-.. image:: https://a.fsdn.com/con/app/sf-download-button
-    :target: https://sourceforge.net/projects/isbntools/files/latest/download
-    :alt: Download isbntools portable (one file)
-
 
     **Instructions**:
 
