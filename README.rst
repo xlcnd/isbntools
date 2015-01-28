@@ -38,13 +38,6 @@ Info
 to validate, clean, transform, hyphenate and
 get metadata for ISBN strings.
 
-Typical usage (as library):
-
-.. code-block:: python
-
-    #!/usr/bin/env python
-    import isbntools
-    ...
 
 **For the end user** several scripts are provided to use **from the command line**:
 
@@ -169,7 +162,7 @@ and save it as ``isbn_tmsa_book.py``.
 
     #!/usr/bin/env python
     import sys
-    from isbntools import *
+    from isbntools.app import *
 
     query = sys.argv[1].replace(' ', '+')
     isbn = isbn_from_words(query)

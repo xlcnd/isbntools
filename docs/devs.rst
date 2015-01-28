@@ -6,7 +6,7 @@ For Devs
 API's Main Namespaces
 ---------------------
 
-In the namespace ``isbntools`` you have access to the core methods:
+In the namespace ``isbntools.app`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
 ``meta``, ``info``, ``editions``, and ``isbn_from_words``.
