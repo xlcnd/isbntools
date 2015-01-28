@@ -6,7 +6,8 @@ import os
 import sys
 
 try:
-    from .__init__ import __version__, pkg_path, defaults_conf
+    from .__init__ import __version__
+    from .app import pkg_path, defaults_conf
     from ._setconf import conf
 
     pkg_version = __version__
