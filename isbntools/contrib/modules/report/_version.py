@@ -52,7 +52,7 @@ def check_version():
         except:
             newversion = None
             has_newversion = __version__ != _newversion
-            
+
         if has_newversion and newversion:
             print((colors.BOLD + colors.RED))
             print((" ** A new version (%s) is available! **" % _newversion))
@@ -60,7 +60,7 @@ def check_version():
             print((" At command line enter: [sudo] pip install -U isbntools"))
             print("    or")
             print((" Download it from %s"
-                  % "https://pypi.python.org/pypi/isbntools"))
+                   % "https://pypi.python.org/pypi/isbntools"))
             print((colors.RESET))
     except:
         pass
