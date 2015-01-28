@@ -77,7 +77,7 @@ data_files = [
 
 setup(
     name='isbntools',
-    version=__version__,
+    version='4.0.2',
     author='xlcnd',
     author_email='xlcnd@outlook.com',
     url='https://github.com/xlcnd/isbntools',
