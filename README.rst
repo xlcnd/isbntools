@@ -340,6 +340,8 @@ or at stackoverflow_ with tag **isbntools**,
 
 --------------------------------
 
+.. class:: center
+
 More documentation at Read the Docs_.
 
 --------------------------------
