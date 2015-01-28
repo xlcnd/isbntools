@@ -41,10 +41,21 @@ def check_version():
             raise
 
         RE_VERSION = re.compile(r"__version__\s*=\s*'(.*)'")
-        newversion = re.search(RE_VERSION, content).group(1)
-        if __version__ != newversion:
+        _newversion = re.search(RE_VERSION, content).group(1)
+
+        has_newversion = False
+        try:
+            newversion = tuple(map(int, _newversion.split('.')))
+            version = tuple(map(int, __version__.split('.')))
+            if newversion > version:
+                has_newversion = True
+        except:
+            newversion = None
+            has_newversion = __version__ != _newversion
+            
+        if has_newversion and newversion:
             print((colors.BOLD + colors.RED))
-            print((" ** A new version (%s) is available! **" % newversion))
+            print((" ** A new version (%s) is available! **" % _newversion))
             print((colors.BLUE))
             print((" At command line enter: [sudo] pip install -U isbntools"))
             print("    or")
