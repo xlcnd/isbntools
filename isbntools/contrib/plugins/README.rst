@@ -1,1 +1,1 @@
-Put here new pluggins (for example, new metadata poviders).
+Put here new plugins (for example, new metadata poviders).
