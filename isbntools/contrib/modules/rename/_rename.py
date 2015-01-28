@@ -9,7 +9,7 @@ import logging
 from isbnlib.dev.bouth23 import u, b2u3
 from isbnlib.dev.helpers import last_first, cutoff_tokens, File, cwdfiles
 
-from ....__init__ import config, EAN13, get_isbnlike, meta
+from ....app import config, EAN13, get_isbnlike, meta
 
 
 LOGGER = logging.getLogger(__name__)
