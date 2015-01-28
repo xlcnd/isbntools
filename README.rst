@@ -18,6 +18,10 @@
     :target: http://isbntools.readthedocs.org/en/latest/
     :alt: Documentation Status
 
+ .. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.png
+     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
+     :alt: Graph
+
 .. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.0.2
     :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.0.2
     :alt: Coverage
