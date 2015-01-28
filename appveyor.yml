@@ -35,6 +35,9 @@ environment:
       PYTHON_HOME: "C:\\Python34-x64"
       PYTHON_VERSION: "3.4"
       PYTHON_ARCH: "64"
+matrix:
+  allow_failures:
+    - TOXENV: checkers
 init:
   - "ECHO %TOXENV%"
   - ps: "ls C:\\Python*"
