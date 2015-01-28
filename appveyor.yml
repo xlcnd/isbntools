@@ -42,7 +42,6 @@ install:
   - ps: (new-object net.webclient).DownloadFile('https://raw.github.com/pypa/pip/master/contrib/get-pip.py', 'C:/get-pip.py')
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%\\Scripts\\pip.exe install -r requirements-test.txt"
-  - "%TOXPYTHON% setup.py install"
 test_script:
   - "%PYTHON_HOME%\\Scripts\\tox"
 build: off
