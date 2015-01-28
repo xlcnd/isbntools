@@ -45,5 +45,4 @@ install:
   - "%TOXPYTHON% setup.py install"
 test_script:
   - "%PYTHON_HOME%\\Scripts\\tox"
-  - "%PYTHON_HOME%\\Scripts\\isbntools"
 build: off
