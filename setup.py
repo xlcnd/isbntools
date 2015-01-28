@@ -20,15 +20,6 @@ import os
 import sys
 import pkg_resources
 from setuptools import setup, find_packages
-from isbntools import __version__
-
-
-# CHECK SUPPORT
-
-SUPPORTED = ((2, 6), (2, 7), (3, 3), (3, 4))
-if tuple(int(x) for x in sys.version[:3].split('.')) not in SUPPORTED:
-    raise Exception('isbntools %s  requires Python 2.6+ or 3.3+.' %
-                    __version__)
 
 
 # ENV
