@@ -25,7 +25,7 @@ def selected(cur, cond, ref):
         return cur < ref
  
         
-def get_messages():
+def messages():
     """Check online if there are messages from isbntools."""
     try:
         from ....__init__ import __version__

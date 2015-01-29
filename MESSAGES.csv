@@ -1,2 +1,2 @@
-4.0.1|==|Before update, please uninstall 'isbntools' and delete all files 'isbn*' (including the folder 'isbntools') from your 'site-packages' directory!
-0.0.0|>=|New data range available, update 'isbntools'.
+4.0.1|=|Before update, please uninstall 'isbntools' and delete all files 'isbn*' (including the folder 'isbntools') from your 'site-packages' directory!
+0.0.0|>|New data range available, update 'isbntools'.
