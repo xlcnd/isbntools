@@ -23,8 +23,8 @@ def selected(cur, cond, ref):
         return cur == ref
     if cond == '<':
         return cur < ref
- 
-        
+
+
 def messages():
     """Check online if there are messages from isbntools."""
     try:
@@ -43,15 +43,17 @@ def messages():
         display = []
         lines = content.split('\n')
         for line in lines:
+            if not line.strip().strip('\n'):
+                continue
             vrs, cnd, msg = line.split('|')
-            ref = tuple([int(c) for c in vrs.split('.')])
+            ref = tuple([int(c) for c in vrs.split('.')  if vrs])
             if selected(cur, cnd, ref):
                 display.append(msg)
 
         if display:
             print((colors.BOLD + colors.RED))
             for msg in display:
-                print(msg)
+                print("=> %s" % msg)
             print((colors.RESET))
     except:
         pass

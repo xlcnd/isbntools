@@ -55,11 +55,12 @@ def main():
     print("")
 
 
-    # check for updates
+    # check for updates and messages
     try:
         import threading
-        from isbntools.app import check_version
+        from isbntools.app import check_version, messages
 
         threading.Thread(target=check_version).start()
+        threading.Thread(target=messages).start()
     finally:
         time.sleep(2)

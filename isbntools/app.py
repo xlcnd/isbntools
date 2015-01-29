@@ -1,6 +1,6 @@
 """Define isbntools API and set lib environment."""
 
-__all__ = ('check_version', 'audit',
+__all__ = ('check_version', 'audit', 'messages',
            'ISBNToolsException', 'canonical', 'clean', 'EAN13',
            'doi', 'editions', 'get_canonical_isbn', 'get_isbnlike',
            'info', 'is_isbn10', 'is_isbn13', 'isbn_from_words',
@@ -30,7 +30,7 @@ from ._setconf import registry
 from ._setconf import CONF_PATH, CACHE_FILE
 
 # isbntools
-from .contrib.modules.report import check_version, audit
+from .contrib.modules.report import check_version, audit, messages
 # from .contrib.modules.rename import ren # <-- cannot be imported
 
 from ._exceptions import ISBNToolsException
