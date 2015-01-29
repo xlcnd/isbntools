@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 """Get and display messages."""
 
-import sys
 
-try:
+try:                                                       # pragma: no cover
     from urllib.request import Request
     from urllib.request import urlopen
 except ImportError:
@@ -15,7 +14,7 @@ from ..uxcolors import _colors as colors
 from isbnlib.dev.bouth23 import s
 
 
-def selected(cur, cond, ref):
+def selected(cur, cond, ref):                              # pragma: no cover
     """Evaluate if current version is within the condition."""
     if cond == '>':
         return cur > ref
@@ -43,19 +42,18 @@ def messages():
         display = []
         lines = content.split('\n')
         for line in lines:
-            if not line.strip().strip('\n'):
+            if not line.strip().strip('\n'):               # pragma: no cover
                 continue
             vrs, cnd, msg = line.split('|')
-            ref = tuple([int(c) for c in vrs.split('.')  if vrs])
-            if selected(cur, cnd, ref):
+            ref = tuple([int(c) for c in vrs.split('.') if vrs])
+            if selected(cur, cnd, ref):                    # pragma: no cover
                 display.append(msg)
 
-        if display:
-            print((colors.BOLD + colors.RED))
+        if display:                                        # pragma: no cover
+            print("%s%s%s" % (colors.RED, " Important messages:", colors.BOLD))
             for msg in display:
-                print("=> %s" % msg)
+                print(" => %s" % msg)
             print((colors.RESET))
-    except:
-        pass
-    finally:
-        sys.exit()
+        return 0
+    except:                                                # pragma: no cover
+        return 1
