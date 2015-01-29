@@ -1,23 +1,34 @@
 # -*- coding: utf-8 -*-
-"""Copyright notice and checks updates."""
+"""Get and display messages."""
 
-import re
 import sys
-from isbnlib.dev.bouth23 import s
+
 try:
     from urllib.request import Request
     from urllib.request import urlopen
 except ImportError:
     from urllib2 import Request
     from urllib2 import urlopen
+
 from ..uxcolors import _colors as colors
 
+from isbnlib.dev.bouth23 import s
 
+
+def selected(cur, cond, ref):
+    """Evaluate if current version is within the condition."""
+    if cond == '>':
+        return cur > ref
+    if cond == '=':
+        return cur == ref
+    if cond == '<':
+        return cur < ref
+ 
+        
 def get_messages():
     """Check online if there are messages from isbntools."""
     try:
         from ....__init__ import __version__
-
 
         # Get messages from dev branch
         UA = "isbntools (%s)" % __version__
@@ -27,39 +38,20 @@ def get_messages():
         request = Request(url, headers=headers)
         content = s(urlopen(request).read())
 
-        # Parse messages
+        # Parse, select and print messages
+        cur = tuple([int(c) for c in __version__.split('.')])
+        display = []
+        lines = content.split('\n')
+        for line in lines:
+            vrs, cnd, msg = line.split('|')
+            ref = tuple([int(c) for c in vrs.split('.')])
+            if selected(cur, cnd, ref):
+                display.append(msg)
 
-        # Filter messages
-
-        # Display messages 
-
-        RE_SUPPORT = re.compile(r"__support__\s*=\s*'(.*)'")
-        supported = [iden.strip() for iden
-                     in re.search(RE_SUPPORT, content).group(1).split(',')]
-        if pyversion not in supported:
-            raise
-
-        RE_VERSION = re.compile(r"__version__\s*=\s*'(.*)'")
-        _newversion = re.search(RE_VERSION, content).group(1)
-
-        has_newversion = False
-        try:
-            newversion = tuple(map(int, _newversion.split('.')))
-            version = tuple(map(int, __version__.split('.')))
-            if newversion > version:
-                has_newversion = True
-        except:
-            newversion = None
-            has_newversion = __version__ != _newversion
-
-        if has_newversion and newversion:
+        if display:
             print((colors.BOLD + colors.RED))
-            print((" ** A new version (%s) is available! **" % _newversion))
-            print((colors.BLUE))
-            print((" At command line enter: [sudo] pip install -U isbntools"))
-            print("    or")
-            print((" Download it from %s"
-                   % "https://pypi.python.org/pypi/isbntools"))
+            for msg in display:
+                print(msg)
             print((colors.RESET))
     except:
         pass
