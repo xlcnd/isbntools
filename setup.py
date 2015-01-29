@@ -38,13 +38,12 @@ except ImportError:
     BAD_VERSION = False
 
 if BAD_VERSION:
-    print("Installation aborted! (Version '4.0.1' found).")
     print("I am sorry but, in order to upgrade 'isbntools', you need to:")
     print("1. enter 'sudo pip uninstall -y isbntools' at your terminal")
     print("2. make sure that all files and folders with name 'isbntools' in it")
     print("   have been deleted from your 'site-packages' folder")
     print("THEN you can do a fresh install... thanks.")
-    sys.exit()
+    raise Exception("Installation aborted! (Version '4.0.1' found).")
 
 
 # ENV
