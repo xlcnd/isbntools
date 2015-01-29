@@ -18,6 +18,7 @@ def check_version():
     try:
         from ....__init__ import __version__
 
+        # FILTER
         # dont't upgrade if this version of python is not supported anymore
         import platform
         implementation = platform.python_implementation()

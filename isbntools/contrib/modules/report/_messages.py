@@ -18,21 +18,20 @@ def get_messages():
     try:
         from ....__init__ import __version__
 
-        # dont't upgrade if this version of python is not supported anymore
-        import platform
-        implementation = platform.python_implementation()
-        if implementation != "PyPy":
-            pyversion = "py{0}{1}".format(sys.version_info.major,
-                                          sys.version_info.minor)
-        else:
-            pyversion = "pypy"
 
+        # Get messages from dev branch
         UA = "isbntools (%s)" % __version__
         headers = {'User-Agent': UA, 'Pragma': 'no-cache'}
         url = "https://raw.githubusercontent.com/xlcnd/"\
-              "isbntools/master/MESSAGES.txt"
+              "isbntools/dev/MESSAGES.csv"
         request = Request(url, headers=headers)
         content = s(urlopen(request).read())
+
+        # Parse messages
+
+        # Filter messages
+
+        # Display messages 
 
         RE_SUPPORT = re.compile(r"__support__\s*=\s*'(.*)'")
         supported = [iden.strip() for iden
