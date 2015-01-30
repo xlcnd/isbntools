@@ -5,7 +5,7 @@
 try:                                                       # pragma: no cover
     from urllib.request import Request
     from urllib.request import urlopen
-except ImportError:
+except ImportError:                                        # pragma: no cover
     from urllib2 import Request
     from urllib2 import urlopen
 
