@@ -18,4 +18,4 @@ def main(isbn=None):
         for ib in editions(isbn):
             print(ib)
     except:
-        usage()
+        return usage()

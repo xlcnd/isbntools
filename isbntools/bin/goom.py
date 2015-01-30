@@ -37,6 +37,7 @@ def main(args=None):
         fmt = fmt if fmt else 'labels'
         for r in goom(words):
             sprint((fmtbib(fmt, r)))
+            print('')
     except:
         fmts.remove('labels')
         ofmts = '|'.join(fmts)
