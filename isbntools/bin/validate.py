@@ -8,11 +8,12 @@ from isbntools.app import get_canonical_isbn
 
 def usage():
     print('Usage: isbn_validate ISBN')
-    sys.exit(1)
+    return 1
 
 
-def main():
+def main(isbn=None):
     try:
-        print((get_canonical_isbn(sys.argv[1])))
+        isbn = sys.argv[1] if not isbn else isbn[1]
+        print((get_canonical_isbn(isbn)))
     except:
-        usage()
+        return usage()

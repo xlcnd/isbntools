@@ -8,12 +8,14 @@ from isbntools.app import mask
 
 def usage():
     print('Usage: isbn_mask ISBN')
+    return 1
 
 
-def main():
+def main(isbn=None):
     try:
-        output = mask(sys.argv[1])
+        isbn = sys.argv[1] if not isbn else isbn[1]
+        output = mask(isbn)
         if output:
             print(output)
     except:
-        usage()
+        return usage()

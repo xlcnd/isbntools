@@ -17,29 +17,19 @@ logging.basicConfig(level=logging.CRITICAL)
 
 def usage(ofmts="labels"):
     sys.stderr.write('Usage: isbn_goom "words" [%s] \n' % ofmts)
-    sys.exit(1)
+    return 1
 
 
-def parse_args(args):
-    fmt = None
-    words = args[0]
-    if len(args) == 1:
-        return (words, fmt)
-    del args[0]
-    for f in fmts:
-        if f in args:
-            fmt = f
-            args.remove(f)
-            break
-    return (words, fmt)
-
-
-def main():
+def main(args=None):
     sys.excepthook = quiet_errors
     try:
-        words, fmt = parse_args(sys.argv[1:])
-        if not words:
+        args = sys.argv if not args else args
+        if len(args) > 2:
+            words, fmt = (args[1], args[2])
+        elif len(args) == 1:
             raise
+        else:
+            words, fmt = (args[1], None)
         if fmt:
             match = get_close_matches(fmt, fmts)
             if len(match) == 1:
@@ -50,4 +40,4 @@ def main():
     except:
         fmts.remove('labels')
         ofmts = '|'.join(fmts)
-        usage(ofmts)
+        return usage(ofmts)

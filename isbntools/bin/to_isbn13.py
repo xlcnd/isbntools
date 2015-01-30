@@ -8,11 +8,12 @@ from isbntools.app import to_isbn13
 
 def usage():
     print('Usage: to_isbn13 ISBN10')
-    sys.exit(1)
+    return 1
 
 
-def main():
+def main(isbn=None):
     try:
-        print(to_isbn13(sys.argv[1]))
+        isbn = sys.argv[1] if not isbn else isbn[1]
+        print(to_isbn13(isbn))
     except:
-        usage()
+        return usage()

@@ -20,7 +20,7 @@ def usage(wservs="wcat|goob|...", ofmts="labels"):
     sys.stderr.write('Usage: isbn_meta ISBN [%s] [%s] [apikey]\n  '
                      '...  or try with '
                      'another service in list!\n' % (wservs, ofmts))
-    sys.exit(1)
+    return 1
 
 
 def parse_args(args):
@@ -70,4 +70,4 @@ def main(args=None):
         available = '|'.join(providers)
         fmts.remove('labels')
         ofmts = '|'.join(fmts)
-        usage(available, ofmts)
+        return usage(available, ofmts)

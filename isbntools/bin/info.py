@@ -8,11 +8,12 @@ from isbntools.app import info
 
 def usage():
     print('Usage: isbn_info ISBN')
-    sys.exit(1)
+    return 1
 
 
-def main():
+def main(isbn=None):
     try:
-        print((info(sys.argv[1])))
+        isbn = sys.argv[1] if not isbn else isbn[1]
+        print((info(isbn)))
     except:
-        usage()
+        return usage()

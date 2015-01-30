@@ -8,12 +8,14 @@ from isbntools.app import editions, quiet_errors
 
 def usage():
     print('Usage: isbn_editions ISBN')
+    return 1
 
 
-def main():
+def main(isbn=None):
     sys.excepthook = quiet_errors
     try:
-        for ib in editions(sys.argv[1]):
+        isbn = sys.argv[1] if not isbn else isbn[1]
+        for ib in editions(isbn):
             print(ib)
     except:
         usage()

@@ -8,11 +8,13 @@ from isbntools.app import quiet_errors, EAN13
 
 def usage():
     print('Usage: isbn_EAN13 ISBN')
+    return 1
 
 
-def main():
+def main(isbn=None):
     sys.excepthook = quiet_errors
     try:
-        print(EAN13(sys.argv[1]))
+        isbn = sys.argv[1] if not isbn else isbn[1]
+        print(EAN13(isbn))
     except:
         usage()

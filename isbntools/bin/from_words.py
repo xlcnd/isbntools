@@ -7,11 +7,17 @@ import sys
 from isbntools.app import isbn_from_words, quiet_errors
 
 
-def main():
+def usage(args):
+    print(("Usage: %s 'AUTHOR TITLE'" % args[0]))
+    return 1
+
+
+def main(args=None):
     sys.excepthook = quiet_errors
-
-    if len(sys.argv) != 2:
-        print(("Usage: %s 'AUTHOR TITLE'" % sys.argv[0]))
-        sys.exit(1)
-
-    print((isbn_from_words(sys.argv[1])))
+    try:
+        args = sys.argv if not args else args
+    except:
+        return usage(args)
+    if len(args) < 2:
+        return usage(args)
+    print((isbn_from_words(args[1])))

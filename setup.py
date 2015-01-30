@@ -124,6 +124,7 @@ setup(
                             'isbn_validate=isbntools.bin.validate:main',
                             'isbn_stdin_validate=isbntools.bin.stdin_validate:stdin_validate',
                             'isbntools=isbntools.bin.version:main',
+                            'isbn_repl=isbntools.bin.repl:main',
                            ]},
     data_files=data_files,
     install_requires=['isbnlib>=3.4.4'],

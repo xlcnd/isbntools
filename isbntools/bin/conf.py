@@ -46,14 +46,13 @@ def usage():
                      'delcache                         deletes the metadata cache\n'
                      'cachepath                        show the path of the cache\n'
                      )
-    sys.exit(1)
+    return 1
 
 
 def main(args=None):
     sys.excepthook = quiet_errors
     try:
         args = sys.argv if not args else args
-        print(args)
         nargv = len(args)
         if nargv > 4 or nargv == 1:
             raise
