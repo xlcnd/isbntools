@@ -14,16 +14,12 @@ def usage():
     print('Usage: isbn_doi2tex DOI')
     sys.exit(1)
 
-try:
-    doi = sys.argv[1]
-except:
-    usage()
 
-
-def main():
+def main(doi=None):
     sys.excepthook = quiet_errors
     config.setsocketstimeout(TO)
     try:
+        doi = sys.argv[1] if not args else args
         data = doi2tex(doi)
         if data:
             print(data)

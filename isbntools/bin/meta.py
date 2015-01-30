@@ -48,10 +48,11 @@ def parse_args(args):
     return (isbn, service, fmt, api)
 
 
-def main():
+def main(args=None):
     sys.excepthook = quiet_errors
     try:
-        isbn, service, fmt, apikey = parse_args(sys.argv[1:])
+        args = sys.argv[1:] if not args else args[1:]
+        isbn, service, fmt, apikey = parse_args(args)
         if not isbn:
             raise
         service = service if service else 'default'

@@ -49,16 +49,18 @@ def usage():
     sys.exit(1)
 
 
-def main():
+def main(args=None):
     sys.excepthook = quiet_errors
     try:
-        nargv = len(sys.argv)
+        args = sys.argv if not args else args
+        print(args)
+        nargv = len(args)
         if nargv > 4 or nargv == 1:
             raise
-        cmd = get_close_matches(sys.argv[1], list(VERBS.keys()))[0]
+        cmd = get_close_matches(args[1], list(VERBS.keys()))[0]
         if nargv == 2:
             VERBS[cmd]()
         elif nargv > 2:
-            VERBS[cmd](*sys.argv[2:])
+            VERBS[cmd](*args[2:])
     except:
         usage()

@@ -10,9 +10,10 @@ def usage():
     print('Usage: isbn_doi ISBN')
 
 
-def main():
+def main(args=None):
     sys.excepthook = quiet_errors
     try:
-        print(doi(sys.argv[1]))
+        args = sys.argv[1:] if not args else args
+        print(doi(args))
     except:
         usage()
