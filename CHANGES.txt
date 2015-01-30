@@ -61,4 +61,4 @@ v3.3.8, 2014-07-13 -- Prepare for 'isbnlib'.
 v3.3.9, 2015-01-15 -- Fix bug #75 and acept 'x' in ISBNs.
 v4.0.1, 2015-01-27 -- Big code split! 'isbntools' uses 'isbnlib' for the core code.
 v4.0.2, 2015-01-28 -- Fix bug #77. 
-v4.0.3, 2015-02-28 -- TENTATIVE 
+v4.0.3, 2015-02-28 -- TENTATIVE Add a REPL.
