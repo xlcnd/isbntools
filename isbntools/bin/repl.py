@@ -6,8 +6,8 @@
 """REPL for isbn."""
 
 import cmd
-import shlex
 import os
+import shlex
 
 from . import (conf, doi, doitotex, EAN13, editions, from_words, goom,
                info, mask, meta, to_isbn10, to_isbn13, validate, version)
@@ -254,9 +254,9 @@ class ISBNRepl(cmd.Cmd):
         "Run a shell command"
         if not line:
             return
-        output = os.popen(line).read()
-        if output.strip('\n'):
-            print(output.strip('\n'))
+        output = os.popen(line).read().strip('\n')
+        if output:
+            print(output)
 
 
 def main():
