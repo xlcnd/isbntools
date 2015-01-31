@@ -6,8 +6,9 @@
 """REPL for isbn."""
 
 import cmd
-import os
 import shlex
+
+from subprocess import Popen, PIPE
 
 from . import (conf, doi, doitotex, EAN13, editions, from_words, goom,
                info, mask, meta, to_isbn10, to_isbn13, validate, version)
@@ -239,14 +240,12 @@ class ISBNRepl(cmd.Cmd):
 
     def do_BIBFORMATS(self, line):
         """Print the list of available bibliographic formats."""
-        fmts.remove('labels')
         for f in sorted(fmts):
             print(f)
 
     def do_PROVIDERS(self, line):
         """Print the list of available providers."""
         providers = list(registry.services.keys())
-        providers.remove('default')
         for p in sorted(providers):
             print(p)
 
@@ -254,9 +253,21 @@ class ISBNRepl(cmd.Cmd):
         "Run a shell command"
         if not line:
             return
-        output = os.popen(line).read().strip('\n')
-        if output:
-            print(output)
+        sp = Popen(line, 
+                   shell=True, 
+                   stdin=PIPE, 
+                   stdout=PIPE, 
+                   stderr=PIPE, 
+                   close_fds=True
+                   )
+        (fo, fe) = (sp.stdout, sp.stderr)
+        out = fo.read().strip('\n')
+        err = fe.read().strip('\n')
+        if out:
+            print(out)
+            return
+        if err:
+            print(err.replace('isbn_', ''))
 
 
 def main():
