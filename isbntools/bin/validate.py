@@ -14,6 +14,8 @@ def usage():
 def main(isbn=None):
     try:
         isbn = sys.argv[1] if not isbn else isbn[1]
-        print((get_canonical_isbn(isbn)))
+        out = get_canonical_isbn(isbn)
+        if out:
+            print(out)
     except:
         return usage()
