@@ -23,29 +23,6 @@ from setuptools import setup, find_packages
 from isbntools import __version__
 
 
-# CHECK SUPPORT
-
-SUPPORTED = ((2, 6), (2, 7), (3, 3), (3, 4))
-if tuple(int(x) for x in sys.version[:3].split('.')) not in SUPPORTED:
-    raise Exception('isbntools %s  requires Python 2.6+ or 3.3+.' %
-                    __version__)
-
-# don't install if the installed version is 4.0.1
-try:
-    from isbntools.app import version  # <-- signature for 4.0.1
-    BAD_VERSION = True
-except ImportError:
-    BAD_VERSION = False
-
-if BAD_VERSION:
-    print("I am sorry but, in order to upgrade 'isbntools', you need to:")
-    print("1. enter 'sudo pip uninstall -y isbntools' at your terminal")
-    print("2. make sure that all files and folders with name 'isbntools' in it")
-    print("   have been deleted from your 'site-packages' folder")
-    print("THEN you can do a fresh install... thanks.")
-    raise Exception("Installation aborted! (Version '4.0.1' found).")
-
-
 # ENV
 
 ARGVS = sys.argv
@@ -55,6 +32,14 @@ INSTALL = any((m in ARGVS for m in ('install', 'develop'))) or PIP
 WINDOWS = os.name == 'nt'
 VIRTUAL = True if hasattr(sys, 'real_prefix') else False
 SECONDRUN = INSTALL and not FIRSTRUN
+
+
+# CHECK SUPPORT
+if INSTALL and FIRSTRUN:
+    SUPPORTED = ((2, 6), (2, 7), (3, 3), (3, 4))
+    if tuple(int(x) for x in sys.version[:3].split('.')) not in SUPPORTED:
+        raise Exception('isbntools %s  requires Python 2.6+ or 3.3+.' %
+                        __version__)
 
 
 # DEFS
