@@ -39,7 +39,7 @@ def usage(wservs="wcat|goob|..."):
         '    Author names are separated with commas, (\',\').\n  '
         '    Default pattern is \"'
         '{firstAuthorLastName}{year}_{title}_{isbn}\".\n\n')
-    sys.exit(1)
+    return 1
 
 
 def parse_args(args):
@@ -108,8 +108,9 @@ def main():
     sys.excepthook = quiet_errors
     success = ren(sys.argv[1:]) if len(sys.argv) > 1 else False
     if success:
-        sys.exit(0)
+        return
     providers = list(registry.services.keys())
-    providers.remove('default')
+    if 'default' in providers:
+        providers.remove('default')
     available = '|'.join(providers)
     usage(available)
