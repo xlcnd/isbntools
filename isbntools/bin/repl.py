@@ -60,6 +60,8 @@ class ISBNRepl(cmd.Cmd):
                 return
             if comand == 'audit':
                 comand = 'isbntools'
+            elif comand.startswith('to_isbn'):
+                pass
             else:
                 comand = 'isbn_' + comand
             self.do_shell('%s %s' % (comand, line))
