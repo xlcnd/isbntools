@@ -23,16 +23,24 @@ class ISBNRepl(cmd.Cmd):
 
     """REPL main class."""
 
-    # TODO refactor the boilerplate!
+    # TODO refactor this boilerplate! Make a cli module.
 
     prompt = '%sisbn>%s ' % (BOLD, RESET)
     intro = r'''
     Welcome to the %sisbntools %s%s REPL.
-    ** For help enter 'help' or '?'
-    ** To exit enter 'exit' :)
-    ** To run a shell command enter '!<yourshellcmnd>'
+    ** For help type 'help' or '?'
+    ** To exit type 'exit' :)
+    ** To run a shell command, type '!<yourshellcmnd>'
     ''' % (BOLD, __version__, RESET)
     doc_header = 'Commands available (type ?<command> to get help):'
+
+    # Base Classe Overwrites:
+
+    def emptyline(self):
+        """Do nothing on empty input line."""
+        pass
+
+    # Helpers:
 
     def _formatters(self, text):
         if not text:
@@ -79,6 +87,8 @@ class ISBNRepl(cmd.Cmd):
         else:
             completions = [p for p in providers if p.startswith(text)]
         return completions
+
+    # Commands:
 
     def do_audit(self, line):
         """audit"""
