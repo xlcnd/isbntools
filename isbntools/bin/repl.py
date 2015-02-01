@@ -80,7 +80,7 @@ class ISBNRepl(cmd.Cmd):
 
     def do_audit(self, line):
         """audit"""
-        version.main()
+        version.main(wait=3)
 
     def do_conf(self, line):
         """conf [COMMAND] [OPTIONS]"""

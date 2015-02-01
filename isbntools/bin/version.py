@@ -7,7 +7,7 @@ from isbntools import __version__
 from isbntools.contrib.modules.uxcolors import _colors as colors
 
 
-def main():
+def main(wait=2):
     NOTICE = """
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Lesser General Public License as published by
@@ -31,13 +31,11 @@ def main():
     print(" License LGPL v3")
     print((NOTICE))
 
-
     # make audit
     from isbntools.app import audit
     print((colors.BOLD))
     audit()
     print((colors.RESET))
-
 
     # conf file
     from isbntools.conf import conf_file
@@ -47,13 +45,11 @@ def main():
         print("  %s%s%s" % (colors.BOLD, conf_file, colors.RESET))
         print("")
 
-
     # lib version
     from isbntools.app import libversion
     print(" And 'isbntools' is using:")
     print("  'isbnlib' version %s%s%s" % (colors.BOLD, libversion, colors.RESET))
     print("")
-
 
     # check for updates and messages
     try:
@@ -63,4 +59,4 @@ def main():
         threading.Thread(target=check_version).start()
         threading.Thread(target=messages).start()
     finally:
-        time.sleep(2)
+        time.sleep(wait)
