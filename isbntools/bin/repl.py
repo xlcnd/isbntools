@@ -117,7 +117,8 @@ class ISBNRepl(cmd.Cmd):
               'regmod     OPTION   VALUE        sets options for modules\n'
               'setopt     OPTION   VALUE        sets options in MISC section\n'
               'delcache                         deletes the metadata cache\n'
-              'cachepath                        show the path of the cache'
+              'cachepath                        show the path of the cache\n'
+              'dumpcache                        write the cache to sys.stdout'
               )
 
     def do_doi(self, line):

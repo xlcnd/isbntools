@@ -7,6 +7,10 @@ import sys
 
 from difflib import get_close_matches
 
+from isbnlib.dev.helpers import ShelveCache
+
+from isbntools._lab import sprint
+
 from isbntools.app import quiet_errors, CONF_PATH, CACHE_FILE
 from isbntools.conf import (reg_plugin, reg_apikey, mk_conf,
                             print_conf, reg_mod, reg_myopt)
@@ -26,10 +30,21 @@ def cachepath():
         pass
 
 
+def dumpcache():
+    try:
+        path_cache = os.path.join(CONF_PATH, CACHE_FILE)
+        sc = ShelveCache(path_cache)
+        for k in list(sc.keys()):
+            sprint(repr(sc[k]))
+    except:
+        pass
+
+
 VERBS = {'show': print_conf, 'make': mk_conf,
          'setkey': reg_apikey, 'regplugin': reg_plugin,
          'regmod': lambda x, y: reg_mod({x: y}),
-         'setopt': reg_myopt, 'delcache': delcache, 'cachepath': cachepath}
+         'setopt': reg_myopt, 'delcache': delcache, 'cachepath': cachepath,
+         'dumpcache': dumpcache}
 
 
 def usage():
@@ -45,6 +60,7 @@ def usage():
                      'setopt     OPTION   VALUE        sets options in MISC section\n'
                      'delcache                         deletes the metadata cache\n'
                      'cachepath                        show the path of the cache\n'
+                     'dumpcache                        write the cache to sys.stdout\n'
                      )
     return 1
 
