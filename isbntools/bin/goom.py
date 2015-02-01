@@ -39,6 +39,7 @@ def main(args=None):
             sprint((fmtbib(fmt, r)))
             print('')
     except:
-        fmts.remove('labels')
+        if 'labels' in fmts:
+            fmts.remove('labels')
         ofmts = '|'.join(fmts)
         return usage(ofmts)

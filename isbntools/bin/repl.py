@@ -30,8 +30,9 @@ class ISBNRepl(cmd.Cmd):
     Welcome to the %sisbntools %s%s REPL.
     ** For help enter 'help' or '?'
     ** To exit enter 'exit' :)
-    ** To run a shell command enter '!yourshellcmnd'
+    ** To run a shell command enter '!<yourshellcmnd>'
     ''' % (BOLD, __version__, RESET)
+    doc_header = 'Commands available (type ?<command> to get help):'
 
     def _formatters(self, text):
         if not text:
@@ -42,12 +43,13 @@ class ISBNRepl(cmd.Cmd):
 
     def _parse(self, comand, line):
         """Parse line as sys.argv."""
+        # TODO overwrite parseline instead?
         ops = ['<', '>', '>>', '|']
         redirect = any(x in line for x in ops)
         if redirect:
             if '<' in line:
                 print('*** Redirection of input is not supported!')
-                returns
+                return
             if comand == 'audit':
                 comand = 'isbntools'
             else:
@@ -103,7 +105,7 @@ class ISBNRepl(cmd.Cmd):
               'regmod     OPTION   VALUE        sets options for modules\n'
               'setopt     OPTION   VALUE        sets options in MISC section\n'
               'delcache                         deletes the metadata cache\n'
-              'cachepath                        show the path of the cache\n'
+              'cachepath                        show the path of the cache'
               )
 
     def do_doi(self, line):
@@ -208,7 +210,7 @@ class ISBNRepl(cmd.Cmd):
         print('meta ISBN [PROVIDER] [BIBFORMAT] [apikey]\n'
               '=>meta 9780156001311 wcat endnote\n'
               '=>meta 9780156001311\n'
-              '=>meta 9780156001311 tex\n'
+              '=>meta 9780156001311 tex'
               )
 
     def do_to_isbn10(self, line):
@@ -240,12 +242,16 @@ class ISBNRepl(cmd.Cmd):
 
     def do_BIBFORMATS(self, line):
         """Print the list of available bibliographic formats."""
+        if 'labels' in fmts:
+            fmts.remove('labels')
         for f in sorted(fmts):
             print(f)
 
     def do_PROVIDERS(self, line):
         """Print the list of available providers."""
         providers = list(registry.services.keys())
+        if 'default' in providers:
+            providers.remove('default')
         for p in sorted(providers):
             print(p)
 
@@ -253,11 +259,11 @@ class ISBNRepl(cmd.Cmd):
         "Run a shell command"
         if not line:
             return
-        sp = Popen(line, 
-                   shell=True, 
-                   stdin=PIPE, 
-                   stdout=PIPE, 
-                   stderr=PIPE, 
+        sp = Popen(line,
+                   shell=True,
+                   stdin=PIPE,
+                   stdout=PIPE,
+                   stderr=PIPE,
                    close_fds=True
                    )
         (fo, fe) = (sp.stdout, sp.stderr)
