@@ -34,7 +34,7 @@ class ISBNRepl(cmd.Cmd):
     ''' % (BOLD, __version__, RESET)
     doc_header = 'Commands available (type ?<command> to get help):'
 
-    # Base Classe Overwrites:
+    # Base Classe Overrides:
 
     def emptyline(self):
         """Do nothing on empty input line."""
