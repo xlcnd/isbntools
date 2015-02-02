@@ -106,6 +106,7 @@ class ISBNRepl(cmd.Cmd):
             conf.main(args)
 
     def help_conf(self):
+        """Help for conf command."""
         print('conf COMMAND [OPTIONS]\n'
               '\n'
               'COMMAND    OPTIONS               DESCRIPTION\n'
@@ -120,6 +121,8 @@ class ISBNRepl(cmd.Cmd):
               'cachepath                        show the path of the cache\n'
               'dumpcache                        write the cache to sys.stdout'
               )
+
+    # TODO autocomplete conf commands?
 
     def do_doi(self, line):
         """doi ISBN"""
@@ -269,7 +272,7 @@ class ISBNRepl(cmd.Cmd):
             print(p)
 
     def do_shell(self, line):
-        "Run a shell command"
+        "Run a shell command."
         if not line:
             return
         sp = Popen(line,
