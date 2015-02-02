@@ -101,9 +101,13 @@ class ISBNRepl(cmd.Cmd):
         if not line:
             self.help_conf()
             return
-        args = self._parse('conf', line)
-        if args:
-            conf.main(args)
+        try:
+            args = self._parse('conf', line)
+            if args:
+                conf.main(args)
+        except:
+            self.help_conf()
+
 
     def help_conf(self):
         """Help for conf command."""
@@ -258,16 +262,20 @@ class ISBNRepl(cmd.Cmd):
 
     def do_BIBFORMATS(self, line):
         """Print the list of available bibliographic formats."""
-        if 'labels' in fmts:
+        try:
             fmts.remove('labels')
+        except:
+            pass
         for f in sorted(fmts):
             print(f)
 
     def do_PROVIDERS(self, line):
         """Print the list of available providers."""
         providers = list(registry.services.keys())
-        if 'default' in providers:
+        try:
             providers.remove('default')
+        except:
+            pass
         for p in sorted(providers):
             print(p)
 

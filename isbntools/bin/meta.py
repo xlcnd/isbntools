@@ -66,10 +66,14 @@ def main(args=None):
         sprint((fmtbib(fmt, r)))
     except:
         providers = list(registry.services.keys())
-        if 'default' in providers:
+        try:
             providers.remove('default')
+        except:
+            pass
         available = '|'.join(providers)
-        if 'label' in fmts:
+        try:
             fmts.remove('labels')
+        except:
+            pass
         ofmts = '|'.join(fmts)
         return usage(available, ofmts)
