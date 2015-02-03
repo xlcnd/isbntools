@@ -63,9 +63,9 @@ def setconfpath(confpath):
     config.set_option('CONF_PATH', confpath)
 
 
-# read conf file
+# read/set conf file
 conf = configparser.ConfigParser()
-# read defaults
+# read DEFAULTS (in memory)
 try:                             # pragma: no cover
     conf.read_string(DEFAULTS)            # PY3
 except:                          # pragma: no cover
