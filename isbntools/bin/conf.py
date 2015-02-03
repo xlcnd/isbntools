@@ -17,6 +17,7 @@ from isbntools.conf import (reg_plugin, reg_apikey, mk_conf,
 
 PREFIX = 'isbn_'
 
+
 def delcache():
     try:
         os.remove(os.path.join(CONF_PATH, CACHE_FILE))

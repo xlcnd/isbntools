@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import logging
 import sys
 
 from difflib import get_close_matches
@@ -12,8 +11,6 @@ from isbntools.app import goom, quiet_errors
 from isbntools._lab import sprint
 
 PREFIX = 'isbn_'
-
-logging.basicConfig(level=logging.CRITICAL)
 
 
 def usage(ofmts="labels", prefix=PREFIX):
