@@ -8,7 +8,7 @@ import sys
 try:
     from .__init__ import __version__
     from .app import pkg_path, defaults_conf
-    from ._setconf import conf
+    from ._initapp import conf
 
     pkg_version = __version__
     pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []

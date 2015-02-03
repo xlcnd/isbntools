@@ -22,12 +22,12 @@ from isbnlib import (canonical, clean, doi, editions, get_canonical_isbn,
 from isbnlib import __version__ as libversion
 
 # inject isbntools dependencies on isbnlib
-from . import _setconf         # <-- first import after lib (IMPORTANT)
+from . import _initapp         # <-- first import after lib (IMPORTANT)
 # from isbnlib import config
 # from isbnlib import registry
-from ._setconf import config
-from ._setconf import registry
-from ._setconf import CONF_PATH, CACHE_FILE
+from ._initapp import config
+from ._initapp import registry
+from ._initapp import CONF_PATH, CACHE_FILE
 
 # isbntools
 from .contrib.modules.report import check_version, audit, messages
