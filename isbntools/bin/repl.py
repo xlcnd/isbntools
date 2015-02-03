@@ -18,6 +18,8 @@ from ..contrib.modules.uxcolors import BOLD, RESET
 
 from isbnlib.dev.helpers import fmts
 
+PREFIX = ''
+
 
 class ISBNRepl(cmd.Cmd):
 
@@ -99,32 +101,14 @@ class ISBNRepl(cmd.Cmd):
     def do_conf(self, line):
         """conf [COMMAND] [OPTIONS]"""
         if not line:
-            self.help_conf()
+            conf.usage(prefix=PREFIX)
             return
         try:
             args = self._parse('conf', line)
             if args:
-                conf.main(args)
+                conf.main(args, prefix=PREFIX)
         except:
-            self.help_conf()
-
-
-    def help_conf(self):
-        """Help for conf command."""
-        print('conf COMMAND [OPTIONS]\n'
-              '\n'
-              'COMMAND    OPTIONS               DESCRIPTION\n'
-              '-------    --------------------  ----------------------------\n'
-              'show                             show the conf file\n'
-              'make                             make a conf file\n'
-              'setkey     SERVICE  APIKEY       sets an apikey\n'
-              'regplugin  SERVICE  [DIRECTORY]  registers a service\n'
-              'regmod     OPTION   VALUE        sets options for modules\n'
-              'setopt     OPTION   VALUE        sets options in MISC section\n'
-              'delcache                         deletes the metadata cache\n'
-              'cachepath                        show the path of the cache\n'
-              'dumpcache                        write the cache to sys.stdout'
-              )
+            conf.usage(prefix=PREFIX)
 
     # TODO autocomplete conf commands?
 
@@ -135,7 +119,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('doi', line)
         if args:
-            doi.main(args)
+            doi.main(args, prefix=PREFIX)
 
     def do_doitotex(self, line):
         """doi2tex DOI\n=>doi2tex 10.3998/3336451.0004.203"""
@@ -144,7 +128,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('doitotex', line)
         if args:
-            doitotex.main(args)
+            doitotex.main(args, prefix=PREFIX)
 
     def do_EAN13(self, line):
         """EAN13 ISBN"""
@@ -153,7 +137,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('EAN13', line)
         if args:
-            EAN13.main(args)
+            EAN13.main(args, prefix=PREFIX)
 
     def do_editions(self, line):
         """editions ISBN"""
@@ -162,7 +146,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('editions', line)
         if args:
-            editions.main(args)
+            editions.main(args, prefix=PREFIX)
 
     def do_exit(self, line):
         """Soft exit from REPL."""
@@ -180,7 +164,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('from_words', line)
         if args:
-            from_words.main(args)
+            from_words.main(args, prefix=PREFIX)
 
     def do_goom(self, line):
         """goom 'words' [BIBFORMAT]\n=>goom "eco name rose" refworks"""
@@ -189,7 +173,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('goom', line)
         if args:
-            goom.main(args)
+            goom.main(args, prefix=PREFIX)
 
     def complete_goom(self, text, line, begidx, endidx):
         """Autocomplete formatters."""
@@ -202,7 +186,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('info', line)
         if args:
-            info.main(args)
+            info.main(args, prefix=PREFIX)
 
     def do_mask(self, line):
         """mask ISBN\n=>mask 9780156001311"""
@@ -211,7 +195,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('mask', line)
         if args:
-            mask.main(args)
+            mask.main(args, prefix=PREFIX)
 
     def do_meta(self, line):
         """meta ISBN [PROVIDER] [BIBFORMAT] [apikey]"""
@@ -220,7 +204,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('meta', line)
         if args:
-            meta.main(args)
+            meta.main(args, prefix=PREFIX)
 
     def complete_meta(self, text, line, begidx, endidx):
         """Autocomplete providers."""
@@ -240,7 +224,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('to_isbn10', line)
         if args:
-            to_isbn10.main(args)
+            to_isbn10.main(args, prefix=PREFIX)
 
     def do_to_isbn13(self, line):
         """to_isbn13  ISBN10\n=>to_isbn13 1597499641"""
@@ -249,7 +233,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('to_isbn13', line)
         if args:
-            to_isbn13.main(args)
+            to_isbn13.main(args, prefix=PREFIX)
 
     def do_validate(self, line):
         """validate ISBN\n=>validate 9780156001311"""
@@ -258,7 +242,7 @@ class ISBNRepl(cmd.Cmd):
             return
         args = self._parse('validate', line)
         if args:
-            validate.main(args)
+            validate.main(args, prefix=PREFIX)
 
     def do_BIBFORMATS(self, line):
         """Print the list of available bibliographic formats."""

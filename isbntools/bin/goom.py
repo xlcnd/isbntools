@@ -11,16 +11,17 @@ from isbnlib.dev.helpers import fmtbib, fmts
 from isbntools.app import goom, quiet_errors
 from isbntools._lab import sprint
 
+PREFIX = 'isbn_'
 
 logging.basicConfig(level=logging.CRITICAL)
 
 
-def usage(ofmts="labels"):
-    sys.stderr.write('Usage: isbn_goom "words" [%s] \n' % ofmts)
+def usage(ofmts="labels", prefix=PREFIX):
+    sys.stderr.write('Usage: %sgoom "words" [%s] \n' % (prefix, ofmts))
     return 1
 
 
-def main(args=None):
+def main(args=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
         args = sys.argv if not args else args
@@ -44,4 +45,4 @@ def main(args=None):
         except:
             pass
         ofmts = '|'.join(fmts)
-        return usage(ofmts)
+        return usage(ofmts, prefix)

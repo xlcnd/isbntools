@@ -12,14 +12,15 @@ from isbntools.app import (meta, clean, canonical, get_canonical_isbn,
                            config, registry, quiet_errors)
 from isbntools._lab import sprint
 
+PREFIX = 'isbn_'
 
 logging.basicConfig(level=logging.CRITICAL)
 
 
-def usage(wservs="wcat|goob|...", ofmts="labels"):
-    sys.stderr.write('Usage: isbn_meta ISBN [%s] [%s] [apikey]\n  '
+def usage(prefix, wservs="wcat|goob|...", ofmts="labels"):
+    sys.stderr.write('Usage: %smeta ISBN [%s] [%s] [apikey]\n  '
                      '...  or try with '
-                     'another service in list!\n' % (wservs, ofmts))
+                     'another service in list!\n' % (prefix, wservs, ofmts))
     return 1
 
 
@@ -48,7 +49,7 @@ def parse_args(args):
     return (isbn, service, fmt, api)
 
 
-def main(args=None):
+def main(args=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
         args = sys.argv[1:] if not args else args[1:]
@@ -76,4 +77,4 @@ def main(args=None):
         except:
             pass
         ofmts = '|'.join(fmts)
-        return usage(available, ofmts)
+        return usage(prefix, available, ofmts)

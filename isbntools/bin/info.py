@@ -3,17 +3,19 @@
 
 import sys
 
-from isbntools.app import info
+from isbntools.app import info, quiet_errors
 
+PREFIX = 'isbn_'
 
-def usage():
-    print('Usage: isbn_info ISBN')
+def usage(prefix=PREFIX):
+    print('Usage: %sinfo ISBN' % prefix)
     return 1
 
 
-def main(isbn=None):
+def main(isbn=None, prefix=PREFIX):
+    sys.excepthook = quiet_errors
     try:
         isbn = sys.argv[1] if not isbn else isbn[1]
         print((info(isbn)))
     except:
-        return usage()
+        return usage(prefix)

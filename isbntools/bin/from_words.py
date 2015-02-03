@@ -6,18 +6,19 @@ import sys
 
 from isbntools.app import isbn_from_words, quiet_errors
 
+PREFIX = 'isbn_'
 
-def usage(args):
-    print(("Usage: %s 'AUTHOR TITLE'" % args[0]))
+def usage(args, prefix=PREFIX):
+    print(("Usage: %s%s 'AUTHOR TITLE'" % (prefix, args[0])))
     return 1
 
 
-def main(args=None):
+def main(args=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
         args = sys.argv if not args else args
     except:
-        return usage(args)
+        return usage(args, prefix)
     if len(args) < 2:
-        return usage(args)
+        return usage(args, prefix)
     print((isbn_from_words(args[1])))

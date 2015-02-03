@@ -8,14 +8,15 @@ from isbntools.app import config, doi2tex, quiet_errors
 
 
 TO = 25
+PREFIX = 'isbn_'
 
 
-def usage():
-    print('Usage: isbn_doi2tex DOI')
+def usage(prefix=PREFIX):
+    print('Usage: %sdoi2tex DOI' % prefix)
     return 1
 
 
-def main(doi=None):
+def main(doi=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     config.setsocketstimeout(TO)
     try:
@@ -24,4 +25,4 @@ def main(doi=None):
         if data:
             print(data)
     except:
-        usage()
+        usage(prefix)

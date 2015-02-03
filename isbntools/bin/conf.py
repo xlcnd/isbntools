@@ -15,6 +15,7 @@ from isbntools.app import quiet_errors, CONF_PATH, CACHE_FILE
 from isbntools.conf import (reg_plugin, reg_apikey, mk_conf,
                             print_conf, reg_mod, reg_myopt)
 
+PREFIX = 'isbn_'
 
 def delcache():
     try:
@@ -47,9 +48,9 @@ VERBS = {'show': print_conf, 'make': mk_conf,
          'dumpcache': dumpcache}
 
 
-def usage():
-    sys.stderr.write('Usage: isbn_conf COMMAND OPTIONS\n'
-                     '\n'
+def usage(prefix=PREFIX):
+    sys.stderr.write('Usage: %sconf COMMAND OPTIONS\n' % prefix)
+    sys.stderr.write('\n'
                      'COMMAND    OPTIONS               DESCRIPTION\n'
                      '-------    --------------------  ----------------------------\n'
                      'show                             show the conf file\n'
@@ -65,7 +66,7 @@ def usage():
     return 1
 
 
-def main(args=None):
+def main(args=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
         args = sys.argv if not args else args
@@ -78,4 +79,4 @@ def main(args=None):
         elif nargv > 2:
             VERBS[cmd](*args[2:])
     except:
-        usage()
+        usage(prefix)
