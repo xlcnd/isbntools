@@ -37,9 +37,10 @@ def main(args=None, prefix=PREFIX):
             sprint((fmtbib(fmt, r)))
             print('')
     except:
+        bibf = fmts[:]
         try:
-            fmts.remove('labels')
+            bibf.remove('labels')
         except:
             pass
-        ofmts = '|'.join(fmts)
+        ofmts = '|'.join(sorted(bibf))
         return usage(ofmts, prefix)

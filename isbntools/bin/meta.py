@@ -63,15 +63,16 @@ def main(args=None, prefix=PREFIX):
         r = meta(isbn, service)
         sprint((fmtbib(fmt, r)))
     except:
-        providers = list(registry.services.keys())
+        providers = list(registry.services.keys())[:]
         try:
             providers.remove('default')
         except:
             pass
-        available = '|'.join(providers)
+        available = '|'.join(sorted(providers))
+        bibf = fmts[:]
         try:
-            fmts.remove('labels')
+            bibf.remove('labels')
         except:
             pass
-        ofmts = '|'.join(fmts)
+        ofmts = '|'.join(sorted(bibf))
         return usage(prefix, available, ofmts)

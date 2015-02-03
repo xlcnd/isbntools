@@ -246,16 +246,17 @@ class ISBNRepl(cmd.Cmd):
 
     def do_BIBFORMATS(self, line):
         """Print the list of available bibliographic formats."""
+        bibf = fmts[:]
         try:
-            fmts.remove('labels')
+            bibf.remove('labels')
         except:
             pass
-        for f in sorted(fmts):
+        for f in sorted(bibf):
             print(f)
 
     def do_PROVIDERS(self, line):
         """Print the list of available providers."""
-        providers = list(registry.services.keys())
+        providers = list(registry.services.keys())[:]
         try:
             providers.remove('default')
         except:
