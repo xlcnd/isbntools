@@ -168,9 +168,6 @@ bye
 Many more scripts could be written with the `isbntools` and `isbnlib` library,
 using the methods for extraction, cleaning, validation and standardization of ISBNs.
 
-Many more scripts could be written with the `isbntools` library,
-using the methods for extraction, cleaning, validation and standardization of ISBNs.
-
 Just for fun, suppose I want the *most spoken about* book with certain words in his title.
 For a *quick-and-dirty solution*, enter the following code in a file
 and save it as `isbn_tmsa_book.py`.
