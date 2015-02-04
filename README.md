@@ -238,7 +238,7 @@ $ isbntools
 
 ### Portable Version (Windows and Linux)
 
->**If you are on a Windows system (NOW for Linux too)**,
+>**If you are on a Windows or Linux system**,
 you can download a
 [portable version](http://bit.ly/1i8qatY)
 that **doesn't need python** and gives you
