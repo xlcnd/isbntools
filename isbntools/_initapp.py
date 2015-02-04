@@ -174,10 +174,11 @@ else:
 
 
 # set logger
+fmt = "%(asctime)s;%(levelname)s;%(message)s"
 if CONF_PATH:
     log_path = os.path.join(CONF_PATH, 'isbntools.log')
     debug = config.options.get('DEBUG', 'False')
     level = logging.DEBUG if debug == 'True' else logging.CRITICAL
-    logging.basicConfig(filename=log_path, level=level)
+    logging.basicConfig(filename=log_path, level=level, format=fmt)
 else:
-    logging.basicConfig(level=logging.CRITICAL)
+    logging.basicConfig(level=logging.CRITICAL, format=fmt)
