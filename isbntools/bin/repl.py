@@ -44,7 +44,7 @@ class ISBNRepl(cmd.Cmd):
     # Base Classe Overrides:
 
     def default(self, s):
-        """Override default method."""
+        """Override default method to allow fuzzy commands."""
         try:
             v = s.split(' ')[0]
             match = get_close_matches(v, CMDS)
@@ -84,7 +84,7 @@ class ISBNRepl(cmd.Cmd):
         redirect = any(x in line for x in ops)
         if redirect:
             if '<' in line:
-                print('*** Redirection of input is not supported!')
+                print('*** Input redirection is not supported!')
                 return
             if comand == 'audit':
                 comand = 'isbntools'
@@ -298,7 +298,7 @@ class ISBNRepl(cmd.Cmd):
             print(p)
 
     def do_shell(self, line):
-        "Run a shell command."
+        """Run a shell command."""
         if not line:
             return
         sp = Popen(line,
