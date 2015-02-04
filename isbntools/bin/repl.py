@@ -8,9 +8,10 @@
 import cmd
 import shlex
 
+from difflib import get_close_matches
 from subprocess import Popen, PIPE
 
-from . import (conf, doi, doitotex, EAN13, editions, from_words, goom,
+from . import (conf, doi, doi2tex, EAN13, editions, from_words, goom,
                info, mask, meta, to_isbn10, to_isbn13, validate, version)
 from .. import __version__
 from ..app import registry
@@ -18,8 +19,10 @@ from ..contrib.modules.uxcolors import BOLD, RESET
 
 from isbnlib.dev.helpers import fmts
 
+CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13',
+        'editions', 'goom', 'info', 'mask', 'meta',
+        'PROVIDERS', 'shell', 'validate']
 PREFIX = ''
-
 
 class ISBNRepl(cmd.Cmd):
 
@@ -37,7 +40,29 @@ class ISBNRepl(cmd.Cmd):
     prompt = '%sisbn>%s ' % (BOLD, RESET)
     ruler = '-'
 
+
     # Base Classe Overrides:
+
+    def default(self, s):
+        """Override default method."""
+        try:
+            v = s.split(' ')[0]
+            match = get_close_matches(v, CMDS)
+            verb = None
+            if match:
+                match.sort(key=len)
+                for m in match:
+                    if m.startswith(v):
+                        verb = m
+                        break
+                if not verb:
+                    verb = match[0]
+                s = s.replace(v, verb)
+                return cmd.Cmd.onecmd(self, s)
+            else:
+                return cmd.Cmd.default(self, s)
+        except:
+            return cmd.Cmd.default(self, s)
 
     def emptyline(self):
         """Do nothing on empty input line."""
@@ -129,14 +154,14 @@ class ISBNRepl(cmd.Cmd):
         if args:
             doi.main(args, prefix=PREFIX)
 
-    def do_doitotex(self, line):
+    def do_doi2tex(self, line):
         """doi2tex DOI\n=>doi2tex 10.3998/3336451.0004.203"""
         if not line:
-            print(self.do_doitotex.__doc__)
+            print(self.do_doi2tex.__doc__)
             return
-        args = self._parse('doitotex', line)
+        args = self._parse('doi2tex', line)
         if args:
-            doitotex.main(args, prefix=PREFIX)
+            doi2tex.main(args, prefix=PREFIX)
 
     def do_EAN13(self, line):
         """EAN13 ISBN"""

@@ -95,7 +95,7 @@ setup(
     entry_points={
         'console_scripts': ['isbn_conf=isbntools.bin.conf:main',
                             'isbn_doi=isbntools.bin.doi:main',
-                            'isbn_doi2tex=isbntools.bin.doitotex:main',
+                            'isbn_doi2tex=isbntools.bin.doi2tex:main',
                             'isbn_EAN13=isbntools.bin.EAN13:main',
                             'isbn_editions=isbntools.bin.editions:main',
                             'isbn_from_words=isbntools.bin.from_words:main',
