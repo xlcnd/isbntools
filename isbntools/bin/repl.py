@@ -289,7 +289,7 @@ class ISBNRepl(cmd.Cmd):
 
     def do_PROVIDERS(self, line):
         """Print the list of available providers."""
-        providers = list(registry.services.keys())[:]
+        providers = list(registry.services.keys())
         try:
             providers.remove('default')
         except:
