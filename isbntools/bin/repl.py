@@ -27,14 +27,15 @@ class ISBNRepl(cmd.Cmd):
 
     # TODO refactor this boilerplate! Make a cli module.
 
-    prompt = '%sisbn>%s ' % (BOLD, RESET)
+    doc_header = 'Commands available (type ?<command> to get help):'
     intro = r'''
     Welcome to the %sisbntools %s%s REPL.
     ** For help type 'help' or '?'
     ** To exit type 'exit' :)
-    ** To run a shell command, type '!<yourshellcmnd>'
+    ** To run a shell command, type '!<shellcmnd>'
     ''' % (BOLD, __version__, RESET)
-    doc_header = 'Commands available (type ?<command> to get help):'
+    prompt = '%sisbn>%s ' % (BOLD, RESET)
+    ruler = '-'
 
     # Base Classe Overrides:
 
@@ -110,7 +111,14 @@ class ISBNRepl(cmd.Cmd):
         except:
             conf.usage(prefix=PREFIX)
 
-    # TODO autocomplete conf commands?
+    def complete_conf(self, text, line, begidx, endidx):
+        """Autocomplete conf options."""
+        opts = list(conf.VERBS.keys())
+        if not text:
+            completions = opts
+        else:
+            completions = [o for o in opts if o.startswith(text)]
+        return completions
 
     def do_doi(self, line):
         """doi ISBN"""
