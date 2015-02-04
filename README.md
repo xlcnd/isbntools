@@ -9,6 +9,22 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/chdwjfamexdp97rt?svg=true)](https://ci.appveyor.com/project/xlcnd/isbntools)
 
 
+**WARNING**
+-----------
+
+>**If you are updating from 4.0.1** please:
+
+>Uninstall *isbntools* (`sudo pip uninstall isbntools`)
+  and then **delete** all files `isbntools*` in your `site-packages` directory incuding the folder
+  `isbntools`.
+
+>Then install *isbntools 4.0.2* (`sudo pip install isbntools`).
+
+>**NOTE**: in Windows (or in OSX/Linux for an user install) you shouldn't use `sudo pip ...`, just `pip ...`
+
+
+
+
 Info
 ----
 
@@ -106,6 +122,52 @@ $ isbntools
 ```
 writes version and copyright notice and **checks if there are updates**.
 
+With
+
+```bash
+$ isbn_repl
+```
+you will get a REPL with history, autocompletion, fuzzy options,
+redirection and access to the shell.
+
+Following is a typical session:
+
+```bash
+$ isbn_repl
+
+    Welcome to the isbntools 4.0.3 REPL.
+    ** For help type 'help' or '?'
+    ** To exit type 'exit' :)
+    ** To run a shell command, type '!<shellcmnd>'
+
+isbn> ?
+
+Commands available (type ?<command> to get help):
+=================================================
+BIBFORMATS  PROVIDERS  doi       exit        help  meta       to_isbn13
+EAN13       audit      doitotex  from_words  info  shell      validate
+EOF         conf       editions  goom        mask  to_isbn10
+
+isbn> meta 9780156001311 tex
+@book{9780156001311,
+     title = {The Name Of The Rose},
+    author = {Umberto Eco},
+      isbn = {9780156001311},
+      year = {1994},
+ publisher = {Harcourt Brace}
+}
+isbn> meta 9780156001311 tex >>myreferences.bib
+isbn> !ls
+myreferences.bib
+isbn> exit
+bye
+```
+
+**Within REPL many of the operations are faster.**
+
+Many more scripts could be written with the `isbntools` and `isbnlib` library,
+using the methods for extraction, cleaning, validation and standardization of ISBNs.
+
 Many more scripts could be written with the `isbntools` library,
 using the methods for extraction, cleaning, validation and standardization of ISBNs.
 
@@ -177,11 +239,11 @@ $ isbntools
 ```
 
 
-### Windows (NOW for Linux too!)
+### Portable Version (Windows and Linux)
 
 >**If you are on a Windows system (NOW for Linux too)**,
 you can download a
-[standalone version](http://bit.ly/1i8qatY)
+[portable version](http://bit.ly/1i8qatY)
 that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 
@@ -219,6 +281,10 @@ The file should look like:
 ```bash
 ...
 
+[MISC]
+REN_FORMAT={firstAuthorLastName}{year}_{title}_{isbn}
+DEBUG=False
+
 [SYS]
 SOCKETS_TIMEOUT=15
 THREADS_TIMEOUT=12
@@ -229,8 +295,6 @@ VIAS_MERGE=serial
 ISBNDB_API_KEY=your_api_key_here_or_DELETEME
 
 [PLUGINS]
-isbndb=isbndb.py
-openl=openl.py
 
 ...
 ```

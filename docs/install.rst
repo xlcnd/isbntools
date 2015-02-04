@@ -1,4 +1,17 @@
 
+**WARNING**
+===========
+
+  **If you are updating from 4.0.1** please:
+
+  Uninstall `isbntools` (``sudo pip uninstall isbntools``)
+  and then **delete** all files ``isbntools*`` in your ``site-packages`` directory, including the folder
+  ``isbntools``
+
+  Then install `isbntools 4.0.2` (``sudo pip install isbntools``).
+
+  **NOTE**: in Windows (or in OSX/Linux for an user install) you shouldn't use ``sudo pip ...``, just ``pip ...``
+
 
 Install
 =======
@@ -34,11 +47,11 @@ You should check if the install was successful, by enter:
 
 
 
-Windows (NOW for Linux too!)
-----------------------------
+Portable Version (Windows and Linux)
+------------------------------------
 
 **If you are on a Windows system (NOW for Linux too)**,
-you can download a standalone_ version that **doesn't need python** and gives you
+you can download a portable_ version that **doesn't need python** and gives you
 access to the scripts. However, doesn't support add-ins or customization!
 
 
@@ -65,6 +78,6 @@ access to the scripts. However, doesn't support add-ins or customization!
 
 .. _help: https://github.com/xlcnd/isbntools/issues/8
 
-.. _standalone: http://bit.ly/1i8qatY
+.. _portable: http://bit.ly/1i8qatY
 
 .. _twitter: https://twitter.com/isbntools

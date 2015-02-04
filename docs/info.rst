@@ -4,15 +4,6 @@ Info
 ====
 
 
-
-Typical usage (as library):
-
-.. code-block:: python
-
-    #!/usr/bin/env python
-    import isbntools
-    ...
-
 **For the end user** several scripts are provided to use **from the command line**:
 
 .. code-block:: bash
@@ -124,6 +115,51 @@ filename (e.g. ``isbn_ren 1783559284_book.epub``, ``isbn_ren "*.pdf"``).
     $ isbntools
 
 writes version and copyright notice and **checks if there are updates**.
+
+With
+
+.. code-block:: bash
+
+    $ isbn_repl
+
+you will get a REPL with history, autocompletion, fuzzy options,
+redirection and access to the shell.
+
+Following is a typical session:
+
+.. code-block:: bash
+
+    $ isbn_repl
+
+        Welcome to the isbntools 4.0.3 REPL.
+        ** For help type 'help' or '?'
+        ** To exit type 'exit' :)
+        ** To run a shell command, type '!<shellcmnd>'
+
+    isbn> ?
+
+    Commands available (type ?<command> to get help):
+    =================================================
+    BIBFORMATS  PROVIDERS  doi       exit        help  meta       to_isbn13
+    EAN13       audit      doitotex  from_words  info  shell      validate
+    EOF         conf       editions  goom        mask  to_isbn10
+
+    isbn> meta 9780156001311 tex
+    @book{9780156001311,
+         title = {The Name Of The Rose},
+        author = {Umberto Eco},
+          isbn = {9780156001311},
+          year = {1994},
+     publisher = {Harcourt Brace}
+    }
+    isbn> meta 9780156001311 tex >>myreferences.bib
+    isbn> !ls
+    myreferences.bib
+    isbn> exit
+    bye
+
+
+**Within REPL many of the operations are faster.**
 
 Many more scripts could be written with the ``isbntools`` library,
 using the methods for extraction, cleaning, validation and standardization of ISBNs.
