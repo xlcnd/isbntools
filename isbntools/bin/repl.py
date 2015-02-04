@@ -65,8 +65,8 @@ class ISBNRepl(cmd.Cmd):
             return cmd.Cmd.default(self, s)
 
     def emptyline(self):
-        """Do nothing on empty input line."""
-        pass
+        """Override emptyline method to output help."""
+        return cmd.Cmd.do_help(self, '')
 
     # Helpers:
 
