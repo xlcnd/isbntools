@@ -20,7 +20,7 @@ from ..contrib.modules.uxcolors import BOLD, RESET
 from isbnlib.dev.helpers import fmts
 
 CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13',
-        'editions', 'goom', 'info', 'mask', 'meta',
+        'editions', 'goom', 'info', 'mask', 'meta', 'from_words',
         'PROVIDERS', 'shell', 'validate']
 PREFIX = ''
 
@@ -60,6 +60,9 @@ class ISBNRepl(cmd.Cmd):
                 s = s.replace(v, verb)
                 return cmd.Cmd.onecmd(self, s)
             else:
+                for c in sorted(CMDS):
+                    if c.startswith(v):
+                        return cmd.Cmd.onecmd(self, c)
                 return cmd.Cmd.default(self, s)
         except:
             return cmd.Cmd.default(self, s)
