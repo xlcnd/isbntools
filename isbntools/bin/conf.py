@@ -42,11 +42,19 @@ def dumpcache():
         pass
 
 
+def range_date():
+    try:
+        from isbnlib import RDDATE
+        print(RDDATE[0:6])
+    except:
+        pass
+
+
 VERBS = {'show': print_conf, 'make': mk_conf,
          'setkey': reg_apikey, 'regplugin': reg_plugin,
          'regmod': lambda x, y: reg_mod({x: y}),
          'setopt': reg_myopt, 'delcache': delcache, 'cachepath': cachepath,
-         'dumpcache': dumpcache}
+         'dumpcache': dumpcache, 'rdate': range_date}
 
 
 def usage(prefix=PREFIX):
@@ -63,6 +71,7 @@ def usage(prefix=PREFIX):
                      'delcache                         deletes the metadata cache\n'
                      'cachepath                        show the path of the cache\n'
                      'dumpcache                        write the cache to sys.stdout\n'
+                     'rdate                            show date of the isbn range db\n'
                      )
     return 1
 
