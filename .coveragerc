@@ -15,6 +15,7 @@ omit =
     *fmt*
     *bouth*
     *lab*
+    *app*
     *__init__*
     *__initapp*
     *plugins*
