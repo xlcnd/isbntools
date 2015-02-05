@@ -21,6 +21,7 @@ _build/
 *.vim
 *.log
 *.sh
+*.release
 .coverage
 .metacache
 tasks/
