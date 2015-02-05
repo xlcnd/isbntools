@@ -179,6 +179,8 @@ if CONF_PATH:
     log_path = os.path.join(CONF_PATH, 'isbntools.log')
     debug = config.options.get('DEBUG', 'False')
     level = logging.DEBUG if debug == 'True' else logging.CRITICAL
+    log_file = 'isbntools.DEBUG.log' if debug == 'True' else 'isbntools.log'
+    log_path = os.path.join(CONF_PATH, log_file)
     logging.basicConfig(filename=log_path, level=level, format=fmt)
 else:
     logging.basicConfig(level=logging.CRITICAL, format=fmt)
