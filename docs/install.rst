@@ -34,7 +34,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-4.0.3.tar.gz
+    $ pip install isbntools-4.1.1.tar.gz
 
 (first you have to download the file!)
 
