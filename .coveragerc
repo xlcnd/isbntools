@@ -16,6 +16,7 @@ omit =
     *bouth*
     *lab*
     *__init__*
+    *__initapp*
     *plugins*
     *.conf.py
     *hook.py
