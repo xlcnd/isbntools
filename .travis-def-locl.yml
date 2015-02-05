@@ -1,0 +1,41 @@
+sudo: false
+language: python
+os:
+- linux
+- osx
+branches:
+    except:
+    - gh-pages
+matrix:
+    include:
+    - python: "2.6"
+      env: TOXENV=py26
+    - python: "2.7"
+      env: TOXENV=py27
+    - python: "3.3"
+      env: TOXENV=py33
+    - python: "3.4"
+      env: TOXENV=py34
+    - python: "pypy"
+      env: TOXENV=pypy
+    - python: "2.7"
+      env: TOXENV=checkers
+    - python: "2.7"
+      env: DOC=sphinx
+    allow_failures:
+    - env: TOXENV=pypy
+    - env: TOXENV=checkers
+install:
+- pip install tox
+- if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
+- if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
+- if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
+- if [[ ! -z $TOXENV ]]; then pip install isbnlib; fi
+- if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
+script:
+- if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi
+- if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
+after_success:
+- if [[ $TOXENV == 'py27' ]]; then coveralls; fi
+notifications:
+    email: false
