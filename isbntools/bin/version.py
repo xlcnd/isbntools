@@ -3,6 +3,8 @@
 
 import time
 
+from isbnlib import RDDATE
+
 from isbntools import __version__
 from isbntools.contrib.modules.uxcolors import _colors as colors
 
@@ -48,7 +50,8 @@ def main(wait=2):
     # lib version
     from isbntools.app import libversion
     print(" And 'isbntools' is using:")
-    print("  'isbnlib' version %s%s%s" % (colors.BOLD, libversion, colors.RESET))
+    print("  'isbnlib' version %s%s%s with 'range db' %s%s%s" %
+          (colors.BOLD, libversion, colors.RESET, colors.BOLD, RDDATE[0:8], colors.RESET))
     print("")
 
     # check for updates and messages

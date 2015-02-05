@@ -45,7 +45,7 @@ def dumpcache():
 def range_date():
     try:
         from isbnlib import RDDATE
-        print(RDDATE[0:6])
+        print(RDDATE[0:8])
     except:
         pass
 
