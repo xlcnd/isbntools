@@ -20,7 +20,7 @@ def selected(cur, cond, ref):                              # pragma: no cover
         return cur > ref
     if cond == '=':
         return cur == ref
-    if cond == '<': 
+    if cond == '<':
         return cur < ref
 
 
