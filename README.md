@@ -127,12 +127,12 @@ With
 ```bash
 $ isbn_repl
 ```
-you will get a REPL with history, autocompletion, fuzzy options,
-redirection and access to the shell.
+you will get **a REPL with history, autocompletion, fuzzy options,
+redirection and access to the shell**.
 
 Following is a typical session:
 
-```bash
+```
 $ isbn_repl
 
     Welcome to the isbntools 4.1.1 REPL.

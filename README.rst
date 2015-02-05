@@ -175,8 +175,8 @@ With
 
     $ isbn_repl
 
-you will get a REPL with history, autocompletion, fuzzy options,
-redirection and access to the shell.
+you will get a **REPL with history, autocompletion, fuzzy options,
+redirection and access to the shell**.
 
 Following is a typical session:
 
