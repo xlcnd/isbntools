@@ -127,7 +127,7 @@ redirection and access to the shell.
 
 Following is a typical session:
 
-.. code-block:: bash
+.. code-block::
 
     $ isbn_repl
 
