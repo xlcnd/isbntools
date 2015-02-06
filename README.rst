@@ -26,11 +26,11 @@
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.1.1
-    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.1.1
+.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.1.2
+    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.1.2
     :alt: Coverage
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.1.1
+.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.1.2
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
@@ -188,7 +188,7 @@ Following is a typical session:
 
     $ isbn_repl
 
-        Welcome to the isbntools 4.1.1 REPL.
+        Welcome to the isbntools 4.1.2 REPL.
         ** For help type 'help' or '?'
         ** To exit type 'exit' :)
         ** To run a shell command, type '!<shellcmnd>'
@@ -282,7 +282,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-4.1.1.tar.gz
+    $ pip install isbntools-4.1.2.tar.gz
 
 (first you have to download the file!)
 
