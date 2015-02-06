@@ -127,7 +127,7 @@ redirection and access to the shell.
 
 Following is a typical session:
 
-.. code-block::
+.. code-block:: console
 
     $ isbn_repl
 
@@ -136,7 +136,7 @@ Following is a typical session:
         ** To exit type 'exit' :)
         ** To run a shell command, type '!<shellcmnd>'
 
-    isbn> ?
+    $ isbn> ?
 
     Commands available (type ?<command> to get help):
     =================================================
@@ -144,7 +144,7 @@ Following is a typical session:
     EAN13       audit      doitotex  from_words  info  shell      validate
     EOF         conf       editions  goom        mask  to_isbn10
 
-    isbn> meta 9780156001311 tex
+    $ isbn> meta 9780156001311 tex
     @book{9780156001311,
          title = {The Name Of The Rose},
         author = {Umberto Eco},
@@ -152,10 +152,10 @@ Following is a typical session:
           year = {1994},
      publisher = {Harcourt Brace}
     }
-    isbn> meta 9780156001311 tex >>myreferences.bib
-    isbn> !ls
+    $ isbn> meta 9780156001311 tex >>myreferences.bib
+    $ isbn> !ls
     myreferences.bib
-    isbn> exit
+    $ isbn> exit
     bye
 
 

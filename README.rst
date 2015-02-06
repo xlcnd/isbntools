@@ -63,31 +63,31 @@ get metadata for ISBN strings.
 
 **For the end user** several scripts are provided to use **from the command line**:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ to_isbn10 ISBN13
 
 transforms an ISBN13 number to ISBN10.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ to_isbn13 ISBN10
 
 transforms an ISBN10 number to ISBN13.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_info ISBN
 
 gives you the *group identifier* of the ISBN.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_mask ISBN
 
 *masks* (hyphenate) an ISBN (split it by identifiers).
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [bibtex|msword|endnote|refworks|opf|json] [YOUR_APIKEY_TO_SERVICE]
 
@@ -104,19 +104,19 @@ set preferences in the file ``isbntools.conf`` in your
 ``msword``, ``endnote``, ``refworks``, ``opf`` or ``json`` (BibJSON) bibliographic formats.
 
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_editions ISBN
 
 gives the collection of ISBNs that represent a given book (uses worldcat.org).
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_validate ISBN
 
 validates ISBN10 and ISBN13.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ... | isbn_stdin_validate
 
@@ -128,7 +128,7 @@ to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_stdin_validate``).
     $ pdf2txt.py -m 5 MYEBOOK.pdf | isbn_stdin_validate
 
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_from_words "words from title and author name"
 
@@ -136,28 +136,28 @@ a *fuzzy* script that returns the *most probable* ISBN from a set of words!
 (You can verify the result with ``isbn_meta``)!
 
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_goom "words from title and author name" [bibtex|msword|endnote|refworks|json]
 
 a script that returns from **Google Books multiple references**.
 
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_doi ISBN
 
 returns the doi's ISBN-A code of a given ISBN.
 
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_EAN13 ISBN
 
 returns the EAN13 code of a given ISBN.
 
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_ren FILENAME
 
@@ -167,7 +167,7 @@ filename (e.g. ``isbn_ren 1783559284_book.epub``, ``isbn_ren "*.pdf"``).
     Enter ``isbn_ren`` to see many other options.
 
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbntools
 
@@ -175,7 +175,7 @@ writes version and copyright notice and **checks if there are updates**.
 
 With
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbn_repl
 
@@ -184,7 +184,7 @@ redirection and access to the shell**.
 
 Following is a typical session:
 
-.. code-block::
+.. code-block:: console
 
     $ isbn_repl
 
@@ -193,7 +193,7 @@ Following is a typical session:
         ** To exit type 'exit' :)
         ** To run a shell command, type '!<shellcmnd>'
 
-    isbn> ?
+    $ isbn> ?
 
     Commands available (type ?<command> to get help):
     =================================================
@@ -201,7 +201,7 @@ Following is a typical session:
     EAN13       audit      doitotex  from_words  info  shell      validate
     EOF         conf       editions  goom        mask  to_isbn10
 
-    isbn> meta 9780156001311 tex
+    $ isbn> meta 9780156001311 tex
     @book{9780156001311,
          title = {The Name Of The Rose},
         author = {Umberto Eco},
@@ -209,10 +209,10 @@ Following is a typical session:
           year = {1994},
      publisher = {Harcourt Brace}
     }
-    isbn> meta 9780156001311 tex >>myreferences.bib
-    isbn> !ls
+    $ isbn> meta 9780156001311 tex >>myreferences.bib
+    $ isbn> !ls
     myreferences.bib
-    isbn> exit
+    $ isbn> exit
     bye
 
 
@@ -242,7 +242,7 @@ and save it as ``isbn_tmsa_book.py``.
 
 Then in a command line (in the same directory):
 
-.. code-block:: bash
+.. code-block:: console
 
     $ python isbn_tmsa_book.py 'noise'
 
@@ -268,19 +268,19 @@ From the command line enter (in some cases you have to precede the
 command with ``sudo``):
 
 
-.. code-block:: bash
+.. code-block:: console
 
     $ pip install isbntools
 
 or:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ easy_install isbntools
 
 or:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ pip install isbntools-4.1.2.tar.gz
 
@@ -288,7 +288,7 @@ or:
 
 You should check if the install was successful, by enter:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ isbntools
 
@@ -331,7 +331,7 @@ You can enter API keys and set preferences in the file ``isbntools.conf`` in you
 (**create these, directory and file, if don't exist** [Now just enter ``isbn_conf make``!]).
 The file should look like:
 
-.. code-block:: bash
+.. code-block:: console
 
     ...
 
@@ -361,7 +361,7 @@ The values are self-explanatory!
 The easier way to manipulate these files is by using the script ``isbn_conf``.
 At a terminal enter:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ isbn_conf show
 
