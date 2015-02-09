@@ -123,12 +123,12 @@ def test_get_isbn():
 
 
 def test_renfile():
-    renfile(F11, '9780199571444', 'default', PATT0)
-    assert_equals('Ince2009_A Dictionary Of The Internet_9780199571444.pdf' in cwdfiles("*.pdf"), True)
+    renfile(F11, '9781593271923', 'default', PATT0)
+    assert_equals('Seitz2009_Gray Hat Python_9781593271923.pdf' in cwdfiles("*.pdf"), True)
     create_files([F11])
-    renfile(F11, '9780199571444', 'default', PATT1)
-    assert_equals('2009_A Dictionary Of The Internet_9780199571444.pdf' in cwdfiles("*.pdf"), True)
-    delete_files('*9780199571444*.pdf')
+    renfile(F11, '9781593271923', 'default', PATT1)
+    assert_equals('2009_Gray Hat Python_9781593271923.pdf' in cwdfiles("*.pdf"), True)
+    delete_files('*9781593271923*.pdf')
 
 
 def test_rencwdfiles():
