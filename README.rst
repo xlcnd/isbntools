@@ -34,7 +34,7 @@
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/chdwjfamexdp97rt?svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/chdwjfamexdp97rt/branch/master?svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbntools
     :alt: Windows Built Status
 
