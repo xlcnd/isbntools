@@ -7,10 +7,10 @@
 
 import os
 import sys
-
-from subprocess import Popen, PIPE
+from subprocess import PIPE, Popen
 
 from isbntools.contrib.modules.uxcolors import _colors as colors
+
 
 PY2 = sys.version < '3'
 PKGS = ('isbntools', 'isbnlib')

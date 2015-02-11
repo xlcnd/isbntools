@@ -9,9 +9,9 @@ except ImportError:                                        # pragma: no cover
     from urllib2 import Request
     from urllib2 import urlopen
 
-from ..uxcolors import _colors as colors
-
 from isbnlib.dev.bouth23 import s
+
+from ..uxcolors import _colors as colors
 
 
 def selected(cur, cond, ref):                              # pragma: no cover

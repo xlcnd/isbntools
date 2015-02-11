@@ -15,11 +15,11 @@ pkg_path = _os.path.dirname(_os.path.abspath(__file__))
 defaults_conf = 'DEFAULTS'
 
 # isbnlib hook -- only top level functions
-from isbnlib import (canonical, clean, doi, editions,
-                     info, get_isbnlike, get_canonical_isbn,
-                     isbn_from_words, mask, meta,
-                     to_isbn10, to_isbn13, EAN13, goom, doi2tex, quiet_errors)
 from isbnlib import __version__ as libversion
+from isbnlib import (EAN13, canonical, clean, doi, doi2tex, editions,
+                     get_canonical_isbn, get_isbnlike, goom, info,
+                     isbn_from_words, mask, meta, quiet_errors, to_isbn10,
+                     to_isbn13)
 
 # inject isbntools dependencies on isbnlib <-- first import after lib (IMPORTANT)
 from ._initapp import config, registry, CONF_PATH, CACHE_FILE

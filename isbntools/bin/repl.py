@@ -260,7 +260,7 @@ class ISBNRepl(cmd.Cmd):
               )
 
     def do_to_isbn10(self, line):
-        """to_isbn10  ISBN13\n=>to_isbn10 9780156001311"""
+        """to_isbn10 ISBN13\n=>to_isbn10 9780156001311"""
         if not line:
             print(self.do_to_isbn10.__doc__)
             return
@@ -269,7 +269,7 @@ class ISBNRepl(cmd.Cmd):
             to_isbn10.main(args, prefix=PREFIX)
 
     def do_to_isbn13(self, line):
-        """to_isbn13  ISBN10\n=>to_isbn13 1597499641"""
+        """to_isbn13 ISBN10\n=>to_isbn13 1597499641"""
         if not line:
             print(self.do_to_isbn13.__doc__)
             return
