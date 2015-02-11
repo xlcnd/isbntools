@@ -7,8 +7,8 @@ import sys
 
 try:
     from .__init__ import __version__
-    from .app import pkg_path, defaults_conf
     from ._initapp import conf
+    from .app import pkg_path, defaults_conf
 
     pkg_version = __version__
     pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
@@ -25,7 +25,7 @@ def __write2conf(section, opts):
         conf.add_section(section)
     for k, v in opts.items():
         conf.set(section, k, v)
-    with open(conf_file, 'wb') as f:
+    with open(conf_file, 'w') as f:
         conf.write(f)
 
 
