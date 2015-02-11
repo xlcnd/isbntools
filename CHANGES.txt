@@ -63,4 +63,4 @@ v4.0.1, 2015-01-27 -- Big code split! 'isbntools' uses 'isbnlib' for the core co
 v4.0.2, 2015-01-28 -- Fix bug #77.
 v4.0.3, 2015-02-28 -- (NOT RELEASED) Bump middle version.
 v4.1.1, 2015-02-06 -- Add a REPL, log files and check messages.
-v4.1.2, 2015-02-28 -- TENTATIVE Fix bug #82. 
+v4.1.2, 2015-02-28 -- Fix bug #82. 
