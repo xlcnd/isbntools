@@ -375,7 +375,15 @@ Just enter ``isbn_conf`` for help.
 isbntools.contrib
 =================
 
-To get extra functionality, search_ pypi for packages starting with ``isbntools.contrib``.
+To get extra functionality, search_ pypi for packages starting with ``isbntools.contrib``
+**or** type at a terminal:
+
+.. code-block:: console
+
+    $ pip search isbntools
+
+
+for a nice formated report!
 
 
 
