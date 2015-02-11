@@ -2,22 +2,20 @@
 # flake8: noqa
 # pylint: skip-file
 
+__all__ = ('pkg_version', 'pkg_path', 'pkg_options', 'reg_mod', 'conf_file',
+           'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt')
+
+
 import os
 import sys
 
-try:
-    from .__init__ import __version__
-    from ._initapp import conf
-    from .app import pkg_path, defaults_conf
+from .__init__ import __version__
+from ._initapp import conf
+from .app import pkg_path, defaults_conf
 
-    pkg_version = __version__
-    pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
-    conf_file = conf.files[-1] if conf.files else defaults_conf
-
-    __all__ = ['pkg_version', 'pkg_path', 'pkg_options', 'reg_mod', 'conf_file',
-               'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt']
-except:
-    pass
+pkg_version = __version__
+pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
+conf_file = conf.files[-1] if conf.files else defaults_conf
 
 
 def __write2conf(section, opts):
@@ -70,9 +68,10 @@ def __conf_file():
 
 
 def mk_conf():
+    global conf_file
     if conf_file == defaults_conf or not os.path.exists(__conf_file()):
         __mkpath(__conf_file())
-        with open(__conf_file(), 'wb') as f:
+        with open(__conf_file(), 'w') as f:
             conf.write(f)
             conf_file = f.name
 
