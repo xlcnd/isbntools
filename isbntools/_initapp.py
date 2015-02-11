@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """Read and set config parameters."""
 
-import logging
-import os
-import sys
 try:                                 # pragma: no cover
     import configparser
 except ImportError:                  # pragma: no cover
     import ConfigParser as configparser
+import logging
+import os
 import socket
+import sys
 
 from pkg_resources import iter_entry_points
 

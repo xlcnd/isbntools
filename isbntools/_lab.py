@@ -6,7 +6,6 @@
 import os
 import sys
 
-
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
 EOL = '\r\n' if WINDOWS and not PY2 else '\n'

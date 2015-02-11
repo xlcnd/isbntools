@@ -4,13 +4,13 @@
 # pylint: skip-file
 
 import os
-from nose.tools import assert_equals, assert_raises
-from isbntools.contrib.modules.rename import (checkpattern, newfilename,
-                                              get_isbn,
-                                              renfile, rencwdfiles, 
-                                              cleannewname)
+
+from isbnlib.dev.bouth23 import b, b2u3, u
 from isbnlib.dev.helpers import File, cwdfiles
-from isbnlib.dev.bouth23 import u, b, b2u3
+from isbntools.contrib.modules.rename import (checkpattern, cleannewname,
+                                              get_isbn, newfilename,
+                                              rencwdfiles, renfile)
+from nose.tools import assert_equals, assert_raises
 
 """
 nose tests

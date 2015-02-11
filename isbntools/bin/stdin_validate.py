@@ -4,7 +4,7 @@
 import re
 import sys
 
-from isbntools.app import get_isbnlike, get_canonical_isbn
+from isbntools.app import get_canonical_isbn, get_isbnlike
 
 
 def stdin_validate():

@@ -11,7 +11,7 @@ import sys
 
 from .__init__ import __version__
 from ._initapp import conf
-from .app import pkg_path, defaults_conf
+from .app import defaults_conf, pkg_path
 
 pkg_version = __version__
 pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []

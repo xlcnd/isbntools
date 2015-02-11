@@ -6,7 +6,6 @@ import sys
 
 from isbntools.app import config, doi2tex, quiet_errors
 
-
 TO = 30
 PREFIX = 'isbn_'
 

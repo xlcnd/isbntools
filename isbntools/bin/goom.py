@@ -2,13 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import sys
-
 from difflib import get_close_matches
 
 from isbnlib.dev.helpers import fmtbib, fmts
-
-from isbntools.app import goom, quiet_errors
 from isbntools._lab import sprint
+from isbntools.app import goom, quiet_errors
 
 PREFIX = 'isbn_'
 

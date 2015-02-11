@@ -9,17 +9,16 @@ import cmd
 import shlex
 import sys
 import time
-
 from difflib import get_close_matches
-from subprocess import Popen, PIPE
+from subprocess import PIPE, Popen
 
-from . import (conf, doi, doi2tex, EAN13, editions, from_words, goom,
-               info, mask, meta, to_isbn10, to_isbn13, validate, version)
+from isbnlib.dev.helpers import fmts
+
+from . import (EAN13, conf, doi, doi2tex, editions, from_words, goom, info,
+               mask, meta, to_isbn10, to_isbn13, validate, version)
 from .. import __version__
 from ..app import registry
 from ..contrib.modules.uxcolors import BOLD, RESET
-
-from isbnlib.dev.helpers import fmts
 
 CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13',
         'editions', 'goom', 'info', 'mask', 'meta', 'from_words',

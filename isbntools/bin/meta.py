@@ -2,14 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import sys
-
 from difflib import get_close_matches
 
 from isbnlib.dev.helpers import fmtbib, fmts
-
-from isbntools.app import (meta, clean, canonical, get_canonical_isbn,
-                           config, registry, quiet_errors)
 from isbntools._lab import sprint
+from isbntools.app import (canonical, clean, config, get_canonical_isbn, meta,
+                           quiet_errors, registry)
 
 PREFIX = 'isbn_'
 

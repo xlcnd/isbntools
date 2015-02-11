@@ -3,17 +3,13 @@
 
 import os
 import sys
-
-
 from difflib import get_close_matches
 
 from isbnlib.dev.helpers import ShelveCache
-
 from isbntools._lab import sprint
-
-from isbntools.app import quiet_errors, CONF_PATH, CACHE_FILE
-from isbntools.conf import (reg_plugin, reg_apikey, mk_conf,
-                            print_conf, reg_mod, reg_myopt)
+from isbntools.app import CACHE_FILE, CONF_PATH, quiet_errors
+from isbntools.conf import (mk_conf, print_conf, reg_apikey, reg_mod, reg_myopt,
+                            reg_plugin)
 
 PREFIX = 'isbn_'
 
