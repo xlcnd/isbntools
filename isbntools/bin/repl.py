@@ -7,6 +7,8 @@
 
 import cmd
 import shlex
+import sys
+import time
 
 from difflib import get_close_matches
 from subprocess import Popen, PIPE
@@ -23,6 +25,8 @@ CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13',
         'editions', 'goom', 'info', 'mask', 'meta', 'from_words',
         'PROVIDERS', 'shell', 'validate']
 PREFIX = ''
+PY2 = sys.version < '3'
+
 
 class ISBNRepl(cmd.Cmd):
 
@@ -125,7 +129,9 @@ class ISBNRepl(cmd.Cmd):
 
     def do_audit(self, line):
         """audit"""
-        version.main(wait=3)
+        wait=5
+        version.main(wait)
+        time.sleep(wait)
 
     def do_conf(self, line):
         """conf [COMMAND] [OPTIONS]"""
@@ -312,8 +318,12 @@ class ISBNRepl(cmd.Cmd):
                    close_fds=True
                    )
         (fo, fe) = (sp.stdout, sp.stderr)
-        out = fo.read().strip('\n')
-        err = fe.read().strip('\n')
+        if PY2:
+            out = fo.read().strip(EOL)
+            err = fe.read().strip(EOL)
+        else:
+            out = fo.read().decode("utf-8")
+            err = fe.read().decode("utf-8")
         if out:
             print(out)
             return

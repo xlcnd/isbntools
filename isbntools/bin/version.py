@@ -9,7 +9,7 @@ from isbntools import __version__
 from isbntools.contrib.modules.uxcolors import _colors as colors
 
 
-def main(wait=2):
+def main(wait=5):
     NOTICE = """
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Lesser General Public License as published by
@@ -58,8 +58,10 @@ def main(wait=2):
     try:
         import threading
         from isbntools.app import check_version, messages
+        from isbntools.contrib.modules.report import check_pypi
 
         threading.Thread(target=check_version).start()
         threading.Thread(target=messages).start()
+        threading.Thread(target=check_pypi).start()
     finally:
         time.sleep(wait)
