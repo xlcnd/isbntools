@@ -7,7 +7,7 @@
 [![Graph](https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/.badges/status.png)](https://sourcegraph.com/github.com/xlcnd/isbntools)
 [![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.2.1)](https://coveralls.io/r/xlcnd/isbntools?branch=v4.2.1)
 [![Build Status](https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.2.1)](https://travis-ci.org/xlcnd/isbntools)
-[![Build status](https://ci.appveyor.com/api/projects/status/chdwjfamexdp97rt/branch/master?svg=true)](https://ci.appveyor.com/project/xlcnd/isbntools)
+[![Build status](https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=master&svg=true)](https://ci.appveyor.com/project/xlcnd/isbntools)
 
 
 **WARNING**
