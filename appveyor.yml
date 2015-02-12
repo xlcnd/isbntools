@@ -24,9 +24,14 @@ environment:
       PYTHON_HOME: "C:\\Python33"
       PYTHON_VERSION: "3.3"
       PYTHON_ARCH: "32"
+    - TOXENV: checkers
+      PYTHON_HOME: "C:\\Python27"
+      PYTHON_VERSION: "2.7"
+      PYTHON_ARCH: "32"
 matrix:
   allow_failures:
     - TOXENV: py33
+    - TOXENV: checkers
 init:
   - "ECHO %TOXENV%"
   - ps: "ls C:\\Python*"
