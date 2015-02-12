@@ -1,8 +1,7 @@
 version: '4.2.1.{build}-{branch}'
 branches:
-  only:
+  except:
     - dev
-    - master
 environment:
   matrix:
     - TOXENV: "py27"
@@ -25,13 +24,9 @@ environment:
       PYTHON_HOME: "C:\\Python33"
       PYTHON_VERSION: "3.3"
       PYTHON_ARCH: "32"
-    - TOXENV: checkers
-      PYTHON_HOME: "C:\\Python27"
-      PYTHON_VERSION: "2.7"
-      PYTHON_ARCH: "32"
 matrix:
   allow_failures:
-    - TOXENV: checkers
+    - TOXENV: py33
 init:
   - "ECHO %TOXENV%"
   - ps: "ls C:\\Python*"
