@@ -6,6 +6,7 @@
 """REPL for isbn."""
 
 import cmd
+import os
 import shlex
 import sys
 import time
@@ -25,6 +26,7 @@ CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13',
         'PROVIDERS', 'shell', 'validate']
 PREFIX = ''
 PY2 = sys.version < '3'
+WINDOWS = os.name == 'nt'
 
 
 class ISBNRepl(cmd.Cmd):
@@ -314,7 +316,7 @@ class ISBNRepl(cmd.Cmd):
                    stdin=PIPE,
                    stdout=PIPE,
                    stderr=PIPE,
-                   close_fds=True
+                   close_fds=not WINDOWS
                    )
         (fo, fe) = (sp.stdout, sp.stderr)
         if PY2:
