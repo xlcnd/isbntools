@@ -26,11 +26,11 @@
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.1.3
-    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.1.3
+.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.2.1
+    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.2.1
     :alt: Coverage
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.1.3
+.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.2.1
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
@@ -48,7 +48,7 @@
   and then **delete** all files ``isbntools*`` in your ``site-packages`` directory, including the folder
   ``isbntools``
 
-  Then install `isbntools 4.1.3` (``sudo pip install isbntools``).
+  Then install `isbntools 4.2.1` (``sudo pip install isbntools``).
 
   **NOTE**: in Windows (or in OSX/Linux for an user install) you shouldn't use ``sudo pip ...``, just ``pip ...``
 
@@ -188,7 +188,7 @@ Following is a typical session:
 
     $ isbn_repl
 
-        Welcome to the isbntools 4.1.3 REPL.
+        Welcome to the isbntools 4.2.1 REPL.
         ** For help type 'help' or '?'
         ** To exit type 'exit' :)
         ** To run a shell command, type '!<shellcmnd>'
@@ -282,7 +282,7 @@ or:
 
 .. code-block:: console
 
-    $ pip install isbntools-4.1.3.tar.gz
+    $ pip install isbntools-4.2.1.tar.gz
 
 (first you have to download the file!)
 

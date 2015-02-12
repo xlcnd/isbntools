@@ -8,7 +8,7 @@
   and then **delete** all files ``isbntools*`` in your ``site-packages`` directory, including the folder
   ``isbntools``
 
-  Then install `isbntools 4.1.3` (``sudo pip install isbntools``).
+  Then install `isbntools 4.2.1` (``sudo pip install isbntools``).
 
   **NOTE**: in Windows (or in OSX/Linux for an user install) you shouldn't use ``sudo pip ...``, just ``pip ...``
 
@@ -34,7 +34,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-4.1.3.tar.gz
+    $ pip install isbntools-4.2.1.tar.gz
 
 (first you have to download the file!)
 
