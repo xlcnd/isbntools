@@ -27,6 +27,7 @@ CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13',
 PREFIX = ''
 PY2 = sys.version < '3'
 WINDOWS = os.name == 'nt'
+EOL = '\r\n' if WINDOWS and not PY2 else '\n'
 
 
 class ISBNRepl(cmd.Cmd):

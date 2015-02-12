@@ -30,7 +30,7 @@ def shell(shcmd=None):
                stdin=PIPE,
                stdout=PIPE,
                stderr=PIPE,
-               close_fds=not Windows
+               close_fds=not WINDOWS
                )
     (fo, fe) = (sp.stdout, sp.stderr)
     if PY2:  # pragma: no cover

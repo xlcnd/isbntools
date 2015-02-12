@@ -1,6 +1,7 @@
 version: '4.1.3.{build}'
 branches:
   only:
+    - dev
     - master
 environment:
   matrix:
