@@ -23,6 +23,7 @@ _build/
 *.log
 *.sh
 *.release
+.isort.cfg
 .coverage
 .metacache
 tasks/
