@@ -23,6 +23,7 @@ from ._exceptions import PluginNotLoadedError
 
 # env
 VIRTUAL = True if hasattr(sys, 'real_prefix') else False
+WINDOWS = os.name == 'nt'
 
 # defaults parameters can be overwritten in
 # isbntools.conf at users's $HOME/.isbntools directory (UNIX)
@@ -73,7 +74,7 @@ except:                          # pragma: no cover
 if VIRTUAL:                    # pragma: no cover
     conf.files = conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
 else:
-    if os.name == 'nt':          # pragma: no cover
+    if WINDOWS:                # pragma: no cover
         conf.files = conf.read([
             os.path.join(os.getenv('APPDATA'), 'isbntools/isbntools.conf')
         ])
