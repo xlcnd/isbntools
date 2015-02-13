@@ -16,7 +16,7 @@ PY2 = sys.version < '3'
 PKGS = ('isbntools', 'isbnlib')
 WINDOWS = os.name == 'nt'
 EOL = '\r\n' if WINDOWS and not PY2 else '\n'
-INVIRTUAL = True if hasattr(sys, 'real_prefix') else False
+VIRTUAL = True if hasattr(sys, 'real_prefix') else False
 BOLD = colors.BOLD
 RESET = colors.RESET
 
@@ -40,8 +40,7 @@ def shell(shcmd=None):
        out = fo.read().decode("utf-8")
        err = fe.read().decode("utf-8")
     if out:
-        print(out)
-        return
+        return out
     if err:  # pragma: no cover
         print(err)
         return 1
@@ -49,14 +48,16 @@ def shell(shcmd=None):
 
 def check_pypi(pkgs=PKGS):
     """Check pypi for pkgs starting with pkgs."""
-    if INVIRTUAL or WINDOWS:  # pragma: no cover
+    if VIRTUAL or WINDOWS:  # pragma: no cover
         cmd = 'pip search '
     else:  # pragma: no cover
         cmd = 'sudo pip search '
     try:
-        print(' At %spypi%s, the following packages are available:' % (BOLD, RESET))
-        print('')
-        shell(cmd + ' '.join(pkgs))
+        out = shell(cmd + ' '.join(pkgs))
+        if out:
+            print(' At %spypi%s, the following packages are available:' % (BOLD, RESET))
+            print('')
+            print(out)
         return 0
     except:  # pragma: no cover
         return 1
