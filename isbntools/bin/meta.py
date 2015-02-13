@@ -45,7 +45,7 @@ def parse_args(args):
     return (isbn, service, fmt, api)
 
 
-def main(args=None, prefix=PREFIX, output=sprint):
+def main(args=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
         args = sys.argv[1:] if not args else args[1:]
@@ -60,7 +60,7 @@ def main(args=None, prefix=PREFIX, output=sprint):
             except:
                 pass
         r = meta(isbn, service)
-        output((fmtbib(fmt, r)))
+        sprint((fmtbib(fmt, r)))
     except:
         providers = list(registry.services.keys())[:]
         try:
