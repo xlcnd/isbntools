@@ -21,10 +21,8 @@ from ._exceptions import PluginNotLoadedError
 # <--- NOTE: THIS CODE RUNS ON IMPORT! --->
 
 
-# Helpers
-def in_virtual():
-    """Detect if the program is running inside a python virtual environment."""
-    return True if hasattr(sys, 'real_prefix') else False
+# env
+INVIRTUAL = True if hasattr(sys, 'real_prefix') else False
 
 # defaults parameters can be overwritten in
 # isbntools.conf at users's $HOME/.isbntools directory (UNIX)
@@ -72,7 +70,7 @@ except:                          # pragma: no cover
     import io
     conf.readfp(io.BytesIO(DEFAULTS))     # PY2
 # read user options
-if in_virtual():                 # pragma: no cover
+if INVIRTUAL:                    # pragma: no cover
     conf.files = conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
 else:
     if os.name == 'nt':          # pragma: no cover
@@ -160,7 +158,7 @@ if config.options.get('CACHE', 'UNDEFINED').lower() == 'no':
 else:
     CACHE_FILE = '.metacache'
     if CONF_PATH is None:
-        if in_virtual():
+        if INVIRTUAL:
             CONF_PATH = sys.prefix
         else:
             CONF_PATH = os.path.expanduser('~')
