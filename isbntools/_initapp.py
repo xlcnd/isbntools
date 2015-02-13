@@ -22,7 +22,7 @@ from ._exceptions import PluginNotLoadedError
 
 
 # env
-INVIRTUAL = True if hasattr(sys, 'real_prefix') else False
+VIRTUAL = True if hasattr(sys, 'real_prefix') else False
 
 # defaults parameters can be overwritten in
 # isbntools.conf at users's $HOME/.isbntools directory (UNIX)
@@ -70,7 +70,7 @@ except:                          # pragma: no cover
     import io
     conf.readfp(io.BytesIO(DEFAULTS))     # PY2
 # read user options
-if INVIRTUAL:                    # pragma: no cover
+if VIRTUAL:                    # pragma: no cover
     conf.files = conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
 else:
     if os.name == 'nt':          # pragma: no cover
@@ -158,7 +158,7 @@ if config.options.get('CACHE', 'UNDEFINED').lower() == 'no':
 else:
     CACHE_FILE = '.metacache'
     if CONF_PATH is None:
-        if INVIRTUAL:
+        if VIRTUAL:
             CONF_PATH = sys.prefix
         else:
             CONF_PATH = os.path.expanduser('~')
