@@ -19,8 +19,10 @@
 import os
 import sys
 import pkg_resources
-from setuptools import setup, find_packages
+
+from setuptools import find_packages, setup
 from shutil import copy2 as copyfile
+
 from isbntools import __version__
 
 
