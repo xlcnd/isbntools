@@ -20,7 +20,9 @@ import os
 import sys
 
 import pkg_resources
+
 from shutil import copy2 as copyfile
+
 from setuptools import find_packages, setup
 
 from isbntools import __version__
@@ -170,7 +172,7 @@ setup(
         'Environment :: Console',
         'Topic :: Text Processing :: General',
         'Topic :: Software Development :: Libraries :: Python Modules',
-    ],
+        ],
 )
 
 
