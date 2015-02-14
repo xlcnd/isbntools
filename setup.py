@@ -19,13 +19,14 @@
 import os
 import sys
 
+from shutil import copy2 as copyfile
+
 import pkg_resources
 
-from shutil import copy2 as copyfile
+from isbntools import __version__
 
 from setuptools import find_packages, setup
 
-from isbntools import __version__
 
 
 # ENV
