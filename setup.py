@@ -21,9 +21,9 @@ import sys
 
 from shutil import copy2 as copyfile
 
-import pkg_resources
-
 from isbntools import __version__
+
+import pkg_resources
 
 from setuptools import find_packages, setup
 
