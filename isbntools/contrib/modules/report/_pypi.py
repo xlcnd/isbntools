@@ -54,7 +54,7 @@ def check_pypi(pkgs=PKGS):
         cmd = 'sudo pip search '
     try:
         out = shell(cmd + ' '.join(pkgs))
-        if out:
+        if out:  # pragma: no cover
             print(' At %spypi%s, the following packages are available:' % (BOLD, RESET))
             print('')
             print(out)
