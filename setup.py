@@ -20,6 +20,7 @@ import os
 import sys
 import pkg_resources
 from setuptools import setup, find_packages
+from shutil import copy2 as copyfile
 from isbntools import __version__
 
 
@@ -73,7 +74,41 @@ def data_path():
     return installpath
 
 
+def backup_file(fp):
+    """Append _ORIGINAL or _BACKUP to the file name."""
+    if os.path.isfile(fp):
+        name, ext = os.path.splitext(fp)
+        newfp = name + '_ORIGINAL' + ext
+        if os.path.isfile(newfp):
+            newfp = name + '_BACKUP' + ext
+        return copyfile(fp, newfp)
+    return
+
+
+def backup():
+    if VIRTUAL:
+        places = [os.path.join(sys.prefix, 'isbntools.conf')]
+    else:
+        if WINDOWS:
+            places = [os.path.join(os.getenv('APPDATA'), 'isbntools/isbntools.conf')]
+        else:
+            places = [
+                '/etc/.isbntools/isbntools.conf',
+                '/usr/local/bin/isbntools.conf',
+                '/usr/local/isbntools.conf',
+                os.path.expanduser('~/.isbntools.conf'),
+                os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
+                os.path.expanduser('~/.isbntools/isbntools.conf'),
+            ]
+    for place in reversed(places):
+        if os.path.isfile(place):
+            print('Backup isbntools.conf ...')
+            backup_file(place)
+
+
 # PRE-SETUP
+if INSTALL:
+    backup()
 
 DATAPATH = data_path()
 
