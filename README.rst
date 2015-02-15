@@ -1,14 +1,6 @@
-.. image:: https://pypip.in/d/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: Downloads
-
 .. image:: https://pypip.in/v/isbntools/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: Latest Version
-
-.. image:: https://pypip.in/format/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: Download format
 
 .. image:: https://pypip.in/py_versions/isbntools/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/isbntools/

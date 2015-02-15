@@ -1,6 +1,4 @@
-[![Downloads](https://pypip.in/d/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
 [![Latest Version](https://pypip.in/v/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
-[![Download format](https://pypip.in/format/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
 [![Python Versions](https://pypip.in/py_versions/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
 [![Documentation Status](https://readthedocs.org/projects/isbntools/badge/?version=latest)](http://isbntools.readthedocs.org/en/latest/)
