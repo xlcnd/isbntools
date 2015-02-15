@@ -111,8 +111,11 @@ def backup():
 
 
 # PRE-SETUP
-if INSTALL:
-    backup()
+if SECONDRUN:
+    try:
+        backup()
+    except:
+        print("Warning: previous 'isbntools.conf' found, but backup wasn't done!")  
 
 DATAPATH = data_path()
 
