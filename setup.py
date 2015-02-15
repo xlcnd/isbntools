@@ -115,7 +115,7 @@ if SECONDRUN:
     try:
         backup()
     except:
-        print("Warning: previous 'isbntools.conf' found, but backup wasn't done!")  
+        print("Warning: previous 'isbntools.conf' found but backup wasn't done!")
 
 DATAPATH = data_path()
 
@@ -152,7 +152,7 @@ setup(
                             'isbn_stdin_validate=isbntools.bin.stdin_validate:stdin_validate',
                             'isbntools=isbntools.bin.version:main',
                             'isbn_repl=isbntools.bin.repl:main',
-                           ]},
+                            ]},
     data_files=data_files,
     install_requires=['isbnlib>=3.4.7'],
     license='LGPL v3',
