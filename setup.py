@@ -113,8 +113,8 @@ def backup():
 
 # PRE-SETUP
 
-# pip deletes the original files (even if they have been customized) on FIRSTRUN
-# so, before that, do a backup
+# pip deletes the original files on FIRSTRUN (even if they have been customized!)
+# so, before that, do a backup ...
 if FIRSTRUN:
     try:
         backup()
@@ -122,10 +122,7 @@ if FIRSTRUN:
         print("Warning: previous 'isbntools.conf' found but backup wasn't done!")
 
 DATAPATH = data_path()
-
-data_files = [
-    (DATAPATH, [CONFRES])
-]
+data_files = [(DATAPATH, [CONFRES])]
 
 
 # SETUP
