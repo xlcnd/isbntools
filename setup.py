@@ -175,7 +175,7 @@ setup(
         'Environment :: Console',
         'Topic :: Text Processing :: General',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        ],
+         ],
 )
 
 
