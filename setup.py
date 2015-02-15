@@ -112,7 +112,10 @@ def backup():
 
 
 # PRE-SETUP
-if SECONDRUN:
+
+# pip deletes the original files (even if they have been customized) on FIRSTRUN
+# so, before that, do a backup
+if FIRSTRUN:
     try:
         backup()
     except:
