@@ -3,7 +3,7 @@
 # flake8: noqa
 # pylint: skip-file
 
-"""REPL for isbn."""
+"""Check available packages in pypi."""
 
 import os
 import sys
@@ -55,6 +55,7 @@ def check_pypi(pkgs=PKGS):
     try:
         out = shell(cmd + ' '.join(pkgs))
         if out:  # pragma: no cover
+            print('')
             print(' At %spypi%s, the following packages are available:' % (BOLD, RESET))
             print('')
             print(out)

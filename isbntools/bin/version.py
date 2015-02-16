@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import time
@@ -50,10 +49,13 @@ def main(wait=5):
     from isbntools.app import libversion
     print(" And 'isbntools' is using:")
     print("  'isbnlib' version %s%s%s with 'range db' %s%s%s" %
-          (colors.BOLD, libversion, colors.RESET, colors.BOLD, RDDATE[0:8], colors.RESET))
+          (colors.BOLD, libversion, colors.RESET,
+           colors.BOLD, RDDATE[0:8], colors.RESET))
     print("")
 
-    # check for updates and messages
+    # check for updates, messages and pypi packages
+    print(" Checking %sonline%s services ... %sWAIT%s" %
+          (colors.BOLD, colors.RESET, colors.BOLD, colors.RESET))
     try:
         import threading
         from isbntools.app import check_version, messages
