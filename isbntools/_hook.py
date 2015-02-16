@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
+"""Functions to work with isbntools.conf file."""
 
 __all__ = ('pkg_version', 'pkg_path', 'pkg_options', 'reg_mod', 'conf_file',
            'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt')
@@ -39,7 +40,7 @@ def reg_plugin(name, api_key=None, path=None):
     path = path if path else name + '.py'
     __write2conf('PLUGINS', {name: path})
     if api_key:
-        reg_apikey(name, pi_key)
+        reg_apikey(name, api_key)
 
 
 def __in_virtual():
