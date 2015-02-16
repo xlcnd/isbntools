@@ -31,19 +31,6 @@
     :alt: Windows Built Status
 
 
-**WARNING**
-===========
-
-  **If you are updating from 4.0.1** please:
-
-  Uninstall `isbntools` (``sudo pip uninstall isbntools``)
-  and then **delete** all files ``isbntools*`` in your ``site-packages`` directory, including the folder
-  ``isbntools``
-
-  Then install `isbntools 4.2.1` (``sudo pip install isbntools``).
-
-  **NOTE**: in Windows (or in OSX/Linux for an user install) you shouldn't use ``sudo pip ...``, just ``pip ...``
-
 
 Info
 ====
