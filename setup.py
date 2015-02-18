@@ -111,6 +111,28 @@ def backup():
             backup_file(place)
 
 
+def protect(datapath):
+    """Recovers 'protected' datafiles."""
+    fn = 'isbntools.conf'
+    fp = os.path.join(datapath, fn)
+    fbase, ext = os.path.splitext(fn)
+    backf = fbase + '_BACKUP' + ext
+    backfp = os.path.join(datapath, backf)
+    if os.path.isfile(backfp):
+        fnp = os.path.join(datapath, fn)
+        copyfile(backfp, fnp)
+        print('file %s restored' % fn)
+        return True
+    orif = fbase + '_ORIGINAL' + ext
+    orifp = os.path.join(datapath, orif)
+    if os.path.isfile(orifp):
+        fnp = os.path.join(datapath, fn)
+        copyfile(orifp, fnp)
+        print('file %s restored' % fn)
+        return True
+    return False
+
+
 # PRE-SETUP
 
 # pip deletes the original files on FIRSTRUN (even if they have been customized!)
@@ -192,3 +214,10 @@ if not VIRTUAL and not WINDOWS and SECONDRUN:
         print('changing mode of %s to 666' % conffile)
     except:
         print('Warning: permissions not set for file %s' % conffile)
+
+if SECONDRUN:
+    try:
+        datapath = sys.prefix if VIRTUAL else DATAPATH
+        protect(datapath)
+    except:
+        print("Warning: isbntools.conf wasn't restored.")
