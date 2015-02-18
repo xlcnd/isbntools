@@ -114,7 +114,6 @@ def backup():
 def protect(datapath):
     """Recovers 'protected' datafiles."""
     fn = 'isbntools.conf'
-    fp = os.path.join(datapath, fn)
     fbase, ext = os.path.splitext(fn)
     backf = fbase + '_BACKUP' + ext
     backfp = os.path.join(datapath, backf)
