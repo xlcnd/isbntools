@@ -10,6 +10,10 @@
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
+.. image:: https://pypip.in/d/isbntools/badge.svg?style=flat
+    :target: https://pypi.python.org/pypi/isbntools/
+    :alt: Downloads
+
 .. image:: https://readthedocs.org/projects/isbntools/badge/?version=latest
     :target: http://isbntools.readthedocs.org/en/latest/
     :alt: Documentation Status
@@ -175,9 +179,9 @@ Following is a typical session:
     $ isbn> ?
 
     Commands available (type ?<command> to get help):
-    =================================================
+    -------------------------------------------------
     BIBFORMATS  PROVIDERS  doi       exit        help  meta       to_isbn13
-    EAN13       audit      doitotex  from_words  info  shell      validate
+    EAN13       audit      doi2tex  from_words  info  shell      validate
     EOF         conf       editions  goom        mask  to_isbn10
 
     $ isbn> meta 9780156001311 tex

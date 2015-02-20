@@ -1,6 +1,7 @@
 [![Latest Version](https://pypip.in/v/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
 [![Python Versions](https://pypip.in/py_versions/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
 [![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
+[![Downloads](https://pypip.in/d/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
 [![Documentation Status](https://readthedocs.org/projects/isbntools/badge/?version=latest)](http://isbntools.readthedocs.org/en/latest/)
 [![Graph](https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/.badges/status.png)](https://sourcegraph.com/github.com/xlcnd/isbntools)
 [![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.2.1)](https://coveralls.io/r/xlcnd/isbntools?branch=v4.2.1)
@@ -124,15 +125,15 @@ $ isbn_repl
     ** To exit type 'exit' :)
     ** To run a shell command, type '!<shellcmnd>'
 
-isbn> ?
+$isbn> ?
 
 Commands available (type ?<command> to get help):
-=================================================
+-------------------------------------------------
 BIBFORMATS  PROVIDERS  doi       exit        help  meta       to_isbn13
-EAN13       audit      doitotex  from_words  info  shell      validate
+EAN13       audit      doi2tex  from_words  info  shell      validate
 EOF         conf       editions  goom        mask  to_isbn10
 
-isbn> meta 9780156001311 tex
+$isbn> meta 9780156001311 tex
 @book{9780156001311,
      title = {The Name Of The Rose},
     author = {Umberto Eco},
@@ -140,8 +141,8 @@ isbn> meta 9780156001311 tex
       year = {1994},
  publisher = {Harcourt Brace}
 }
-isbn> meta 9780156001311 tex >>myreferences.bib
-isbn> !ls
+$isbn> meta 9780156001311 tex >>myreferences.bib
+$isbn> !ls
 myreferences.bib
 isbn> exit
 bye
