@@ -130,7 +130,7 @@ $isbn> ?
 Commands available (type ?<command> to get help):
 -------------------------------------------------
 BIBFORMATS  PROVIDERS  doi       exit        help  meta       to_isbn13
-EAN13       audit      doi2tex  from_words  info  shell      validate
+EAN13       audit      doi2tex   from_words  info  shell      validate
 EOF         conf       editions  goom        mask  to_isbn10
 
 $isbn> meta 9780156001311 tex
