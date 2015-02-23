@@ -35,13 +35,16 @@ class ISBNRepl(cmd.Cmd):
 
     # TODO refactor this boilerplate! Make a cli module.
 
+    last_isbn = ''
+    last_isbn_ph = '#'
     doc_header = 'Commands available (type ?<command> to get help):'
     intro = r'''
     Welcome to the %sisbntools %s%s REPL.
     ** For help type 'help' or '?'
     ** To exit type 'exit' :)
     ** To run a shell command, type '!<shellcmnd>'
-    ''' % (BOLD, __version__, RESET)
+    ** Use '%s' in place of the last ISBN
+    ''' % (BOLD, __version__, RESET, last_isbn_ph)
     prompt = '%sisbn>%s ' % (BOLD, RESET)
     ruler = '-'
 
@@ -102,6 +105,11 @@ class ISBNRepl(cmd.Cmd):
                 comand = 'isbn_' + comand
             self.do_shell('%s %s' % (comand, line))
             return
+        if self.last_isbn:
+            line = line.replace(self.last_isbn_ph, self.last_isbn)
+        isbn = canonical_isbn13(line)
+        if isbn:
+            self.last_isbn = isbn
         args = []
         args.append(comand)
         args.extend(shlex.split(line))
