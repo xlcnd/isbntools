@@ -9,6 +9,7 @@ import os
 import shlex
 import sys
 import time
+
 from difflib import get_close_matches
 from subprocess import PIPE, Popen
 
@@ -33,7 +34,7 @@ class ISBNRepl(cmd.Cmd):
 
     """REPL main class."""
 
-    # TODO refactor this boilerplate! Make a cli module.
+    # TODO refactor boilerplate!
 
     last_isbn = ''
     last_isbn_ph = '#'
