@@ -124,16 +124,17 @@ $ isbn_repl
     ** For help type 'help' or '?'
     ** To exit type 'exit' :)
     ** To run a shell command, type '!<shellcmnd>'
+    ** Use '#' in place of the last ISBN
 
-$isbn> ?
+$ isbn> ?
 
 Commands available (type ?<command> to get help):
 -------------------------------------------------
 BIBFORMATS  PROVIDERS  doi       exit        help  meta       to_isbn13
-EAN13       audit      doi2tex   from_words  info  shell      validate
-EOF         conf       editions  goom        mask  to_isbn10
+EAN13       cover      doi2tex   from_words  info  shell      validate
+EOF         desc       editions  goom        mask  to_isbn10  version
 
-$isbn> meta 9780156001311 tex
+$ isbn> meta 9780156001311 tex
 @book{9780156001311,
      title = {The Name Of The Rose},
     author = {Umberto Eco},
@@ -141,10 +142,19 @@ $isbn> meta 9780156001311 tex
       year = {1994},
  publisher = {Harcourt Brace}
 }
-$isbn> meta 9780156001311 tex >>myreferences.bib
-$isbn> !ls
+$ isbn> meta 9780156001311 tex >>myreferences.bib
+$ isbn> !ls
 myreferences.bib
-isbn> exit
+$ isbn> desc #
+It is the year 1327. Franciscans in an Italian abbey are suspected of
+heresy, but Brother William of Baskerville’s investigation is suddenly
+overshadowed by seven bizarre deaths. Translated by William Weaver. A Helen
+and Kurt Wolff Book
+$ isbn> cover #
+See '9780156001311.jpg'
+$ isbn> !ls
+9780156001311.jpg  myreferences.bib
+$ isbn> exit
 bye
 ```
 
