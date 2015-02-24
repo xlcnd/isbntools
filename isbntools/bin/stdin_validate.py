@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Helper function to validate ISBNs from sys.stdin."""
 
