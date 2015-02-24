@@ -15,8 +15,9 @@ from subprocess import PIPE, Popen
 
 from isbnlib.dev.helpers import fmts
 
-from . import (EAN13, conf, doi, doi2tex, editions, from_words, goom, info,
-               mask, meta, to_isbn10, to_isbn13, validate, version)
+from . import (EAN13, conf, cover, desc, doi, doi2tex, editions, 
+               from_words, goom, info, mask, meta, 
+               to_isbn10, to_isbn13, validate, version)
 from .. import __version__
 from ..app import registry
 from ..contrib.modules.uxcolors import BOLD, RESET
@@ -163,6 +164,24 @@ class ISBNRepl(cmd.Cmd):
         else:
             completions = [o for o in opts if o.startswith(text)]
         return completions
+
+    def do_cover(self, line):
+        """cover ISBN"""
+        if not line:
+            print(self.do_cover.__doc__)
+            return
+        args = self._parse('cover', line)
+        if args:
+            cover.main(args, prefix=PREFIX)
+
+    def do_desc(self, line):
+        """desc ISBN"""
+        if not line:
+            print(self.do_desc.__doc__)
+            return
+        args = self._parse('desc', line)
+        if args:
+            desc.main(args, prefix=PREFIX)
 
     def do_doi(self, line):
         """doi ISBN"""
