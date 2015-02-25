@@ -142,6 +142,7 @@ if FIRSTRUN:
     except:
         print("Warning: previous 'isbntools.conf' found but backup wasn't done!")
 
+# define data_files
 DATAPATH = data_path()
 data_files = [(DATAPATH, [CONFRES])]
 
