@@ -15,11 +15,11 @@ from subprocess import PIPE, Popen
 
 from isbnlib.dev.helpers import fmts
 
-from . import (EAN13, conf, cover, desc, doi, doi2tex, editions, 
-               from_words, goom, info, mask, meta, 
+from . import (EAN13, conf, cover, desc, doi, doi2tex, editions,
+               from_words, goom, info, mask, meta,
                to_isbn10, to_isbn13, validate, version)
 from .. import __version__
-from ..app import registry
+from ..app import get_canonical_isbn, registry
 from ..contrib.modules.uxcolors import BOLD, RESET
 
 CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13',
@@ -109,7 +109,7 @@ class ISBNRepl(cmd.Cmd):
             return
         if self.last_isbn:
             line = line.replace(self.last_isbn_ph, self.last_isbn)
-        isbn = canonical_isbn13(line)
+        isbn = get_canonical_isbn(line)
         if isbn:
             self.last_isbn = isbn
         args = []
@@ -193,7 +193,7 @@ class ISBNRepl(cmd.Cmd):
             doi.main(args, prefix=PREFIX)
 
     def do_doi2tex(self, line):
-       """doi2tex DOI\n=>doi2tex 10.3998/3336451.0004.203"""
+        """doi2tex DOI\n=>doi2tex 10.3998/3336451.0004.203"""
         if not line:
             print(self.do_doi2tex.__doc__)
             return
@@ -226,10 +226,11 @@ class ISBNRepl(cmd.Cmd):
 
     def do_EOF(self, line):
         """Hard exit from REPL."""
+        print('bye')
         return True
 
     def do_from_words(self, line):
-       """from_words 'AUTHOR TITLE'\n=>from_words 'eco name rose'"""
+        """from_words 'AUTHOR TITLE'\n=>from_words 'eco name rose'"""
         if not line:
             print(self.do_from_words.__doc__)
             return
@@ -238,7 +239,7 @@ class ISBNRepl(cmd.Cmd):
             from_words.main(args, prefix=PREFIX)
 
     def do_goom(self, line):
-       """goom 'words' [BIBFORMAT]\n=>goom "eco name rose" refworks"""
+        """goom 'words' [BIBFORMAT]\n=>goom "eco name rose" refworks"""
         if not line:
             print(self.do_goom.__doc__)
             return
@@ -251,7 +252,7 @@ class ISBNRepl(cmd.Cmd):
         return self._formatters(text)
 
     def do_info(self, line):
-       """info ISBN\n=>info 9780156001311"""
+        """info ISBN\n=>info 9780156001311"""
         if not line:
             print(self.do_info.__doc__)
             return
@@ -260,7 +261,7 @@ class ISBNRepl(cmd.Cmd):
             info.main(args, prefix=PREFIX)
 
     def do_mask(self, line):
-       """mask ISBN\n=>mask 9780156001311"""
+        """mask ISBN\n=>mask 9780156001311"""
         if not line:
             print(self.do_mask.__doc__)
             return
@@ -289,7 +290,7 @@ class ISBNRepl(cmd.Cmd):
               )
 
     def do_to_isbn10(self, line):
-       """to_isbn10 ISBN13\n=>to_isbn10 9780156001311"""
+        """to_isbn10 ISBN13\n=>to_isbn10 9780156001311"""
         if not line:
             print(self.do_to_isbn10.__doc__)
             return
@@ -298,7 +299,7 @@ class ISBNRepl(cmd.Cmd):
             to_isbn10.main(args, prefix=PREFIX)
 
     def do_to_isbn13(self, line):
-       """to_isbn13 ISBN10\n=>to_isbn13 1597499641"""
+        """to_isbn13 ISBN10\n=>to_isbn13 1597499641"""
         if not line:
             print(self.do_to_isbn13.__doc__)
             return
@@ -307,7 +308,7 @@ class ISBNRepl(cmd.Cmd):
             to_isbn13.main(args, prefix=PREFIX)
 
     def do_validate(self, line):
-       """validate ISBN\n=>validate 9780156001311"""
+        """validate ISBN\n=>validate 9780156001311"""
         if not line:
             print(self.do_validate.__doc__)
             return
