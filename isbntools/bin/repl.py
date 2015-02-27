@@ -92,7 +92,13 @@ class ISBNRepl(cmd.Cmd):
 
     def _parse(self, comand, line):
         """Parse line as sys.argv."""
-        # TODO overwrite parseline instead?
+        # get/set last_isbn
+        if self.last_isbn:
+            line = line.replace(self.last_isbn_ph, self.last_isbn)
+        isbn = get_canonical_isbn(line)
+        if isbn:
+            self.last_isbn = isbn
+        # handle redirecion
         ops = ['<', '>', '>>', '|']
         redirect = any(x in line for x in ops)
         if redirect:
@@ -107,11 +113,7 @@ class ISBNRepl(cmd.Cmd):
                 comand = 'isbn_' + comand
             self.do_shell('%s %s' % (comand, line))
             return
-        if self.last_isbn:
-            line = line.replace(self.last_isbn_ph, self.last_isbn)
-        isbn = get_canonical_isbn(line)
-        if isbn:
-            self.last_isbn = isbn
+        # follow with default parse
         args = []
         args.append(comand)
         args.extend(shlex.split(line))
