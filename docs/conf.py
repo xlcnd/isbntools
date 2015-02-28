@@ -242,7 +242,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'isbntools', u'isbntools Documentation',
-   u'Alexandre Conde', 'isbntools', 'Python tools to manipulate ISBNs',
+   u'Alexandre Conde', 'isbntools', 'Python tools to manipulate ISBNs.',
    'Miscellaneous'),
 ]
 
