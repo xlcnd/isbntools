@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 """Rename file using metadata."""
 
-import sys
-import string
 import logging
+import string
+import sys
 
-from isbnlib.dev.bouth23 import u, b2u3
-from isbnlib.dev.helpers import last_first, cutoff_tokens, File, cwdfiles
+from isbnlib.dev.bouth23 import b2u3, u
+from isbnlib.dev.helpers import File, cutoff_tokens, cwdfiles, last_first
 
-from ....app import config, EAN13, get_isbnlike, meta
-
+from ....app import EAN13, config, get_isbnlike, meta
 
 LOGGER = logging.getLogger(__name__)
 
