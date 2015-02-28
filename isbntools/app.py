@@ -22,7 +22,7 @@ from isbnlib import (EAN13, canonical, clean, doi, doi2tex, editions,
                      isbn_from_words, mask, meta, quiet_errors, to_isbn10,
                      to_isbn13, cover, desc)
 
-# inject isbntools dependencies on isbnlib 
+# inject isbntools dependencies on isbnlib
 # <-- first import after lib (IMPORTANT)
 from ._initapp import config, registry, CONF_PATH, CACHE_FILE
 
