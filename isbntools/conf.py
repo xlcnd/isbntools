@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Edit conf file (mainly for programatic API)."""
 
 from ._hook import (conf_file, mk_conf, pkg_options, pkg_path, pkg_version,

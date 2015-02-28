@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Define isbntools version and support IDs."""
 
 __version__ = '4.2.2'                               # <-- literal IDs

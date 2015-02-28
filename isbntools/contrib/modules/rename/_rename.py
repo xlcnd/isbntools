@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """Rename file using metadata."""
 
 import sys

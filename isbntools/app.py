@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Define isbntools API and set lib environment."""
 
 __all__ = ('check_version', 'audit', 'messages',

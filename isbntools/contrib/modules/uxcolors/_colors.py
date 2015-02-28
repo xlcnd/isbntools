@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 """Define Some ASCII codes for colors on UNIX terminals."""
+
 
 import os
 
