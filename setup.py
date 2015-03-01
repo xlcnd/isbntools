@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# flake8: --ignore=errors=E501
+"""Install file for isbntools."""
+
 """
 isbntools - tools for extracting, cleaning and transforming ISBNs
 Copyright (C) 2014  Alexandre Lima Conde
