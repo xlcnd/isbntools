@@ -142,7 +142,7 @@ class ISBNRepl(cmd.Cmd):
 
     def do_audit(self, line):
         """audit"""
-        wait=5
+        wait=6
         version.main(wait)
         time.sleep(wait)
 
