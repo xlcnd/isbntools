@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# flake8: noqa
-# pylint: skip-file
+
 """Functions to work with isbntools.conf file."""
 
 __all__ = ('pkg_version', 'pkg_path', 'pkg_options', 'reg_mod', 'conf_file',
@@ -18,8 +17,10 @@ pkg_version = __version__
 pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
 conf_file = conf.files[-1] if conf.files else defaults_conf
 
+VIRTUAL = True if hasattr(sys, 'real_prefix') else False
 
-def __write2conf(section, opts):
+
+def _write2conf(section, opts):
     if not conf.has_section(section):
         conf.add_section(section)
     for k, v in opts.items():
@@ -29,25 +30,21 @@ def __write2conf(section, opts):
 
 
 def reg_mod(opts):
-    __write2conf('MODULES', opts)
+    _write2conf('MODULES', opts)
 
 
 def reg_apikey(service, api_key):
-    __write2conf('SERVICES', {service.upper()+'_API_KEY': api_key})
+    _write2conf('SERVICES', {service.upper()+'_API_KEY': api_key})
 
 
 def reg_plugin(name, api_key=None, path=None):
     path = path if path else name + '.py'
-    __write2conf('PLUGINS', {name: path})
+    _write2conf('PLUGINS', {name: path})
     if api_key:
         reg_apikey(name, api_key)
 
 
-def __in_virtual():
-    return True if hasattr(sys, 'real_prefix') else False
-
-
-def __mkpath(path):
+def _mkpath(path):
     directory = os.path.dirname(path)
     filename = os.path.basename(path)
     if directory and not os.path.exists(directory):
@@ -57,11 +54,12 @@ def __mkpath(path):
             f.close()
 
 
-def __conf_file():
-    if __in_virtual():
+def _conf_file():
+    if VIRTUAL:
         installpath = ''
     else:
-        homepath = os.path.expanduser('~') if os.name != 'nt' else os.getenv('APPDATA')
+        homepath = os.path.expanduser('~')\
+            if os.name != 'nt' else os.getenv('APPDATA')
         confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
         installpath = os.path.join(homepath, confdir)
     conffile = 'isbntools.conf'
@@ -70,15 +68,15 @@ def __conf_file():
 
 def mk_conf():
     global conf_file
-    if conf_file == defaults_conf or not os.path.exists(__conf_file()):
-        __mkpath(__conf_file())
-        with open(__conf_file(), 'w') as f:
+    if conf_file == defaults_conf or not os.path.exists(_conf_file()):
+        _mkpath(_conf_file())
+        with open(_conf_file(), 'w') as f:
             conf.write(f)
             conf_file = f.name
 
 
 def reg_myopt(opt, value):
-    __write2conf('MISC', {opt.upper(): value})
+    _write2conf('MISC', {opt.upper(): value})
 
 
 def print_conf():
