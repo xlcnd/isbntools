@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# flake8: --ignore=errors=E501
 """Install file for isbntools."""
 
 """
