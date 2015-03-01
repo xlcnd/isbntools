@@ -34,7 +34,7 @@ def reg_mod(opts):
 
 
 def reg_apikey(service, api_key):
-    _write2conf('SERVICES', {service.upper()+'_API_KEY': api_key})
+    _write2conf('SERVICES', {service.upper() + '_API_KEY': api_key})
 
 
 def reg_plugin(name, api_key=None, path=None):
