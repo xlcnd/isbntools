@@ -2,16 +2,15 @@
 
 """Functions to work with isbntools.conf file."""
 
-__all__ = ('pkg_version', 'pkg_path', 'pkg_options', 'reg_mod', 'conf_file',
-           'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt')
-
-
 import os
 import sys
 
 from .__init__ import __version__
 from ._initapp import conf
 from .app import defaults_conf, pkg_path
+
+__all__ = ('pkg_version', 'pkg_path', 'pkg_options', 'reg_mod', 'conf_file',
+           'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt')
 
 pkg_version = __version__
 pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
