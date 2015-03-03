@@ -23,6 +23,10 @@ from .contrib.modules.report import check_version, audit, messages
 
 from ._exceptions import ISBNToolsException
 
+# ALIAS
+
+# dunders
+
 __all__ = ('check_version', 'audit', 'messages',
            'ISBNToolsException', 'EAN13', 'cover', 'desc',
            'doi', 'editions', 'get_canonical_isbn', 'canonical',
@@ -30,5 +34,3 @@ __all__ = ('check_version', 'audit', 'messages',
            'mask', 'meta', 'to_isbn10', 'to_isbn13', 'goom',
            'libversion', 'config', 'registry', 'doi2tex', 'quiet_errors',
            'CONF_PATH', 'CACHE_FILE')
-
-# ALIAS
