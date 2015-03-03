@@ -24,7 +24,7 @@ NOTICE = """
 """
 
 
-def main(wait=5):
+def main(wait=1):
     """Makes an audit report."""
     print((colors.BOLD))
     print(" isbntools - tools for extracting, cleaning and transforming ISBNs")
@@ -65,8 +65,14 @@ def main(wait=5):
         from isbntools.app import check_version, messages
         from isbntools.contrib.modules.report import check_pypi
 
-        threading.Thread(target=check_version).start()
-        threading.Thread(target=messages).start()
-        threading.Thread(target=check_pypi).start()
+        t1 = threading.Thread(target=check_version)
+        t2 = threading.Thread(target=messages)
+        t3 = threading.Thread(target=check_pypi)
+        t3.start()
+        t1.start()
+        t2.start()
+        t1.join()
+        t2.join()
+        t3.join()
     finally:
         time.sleep(wait)
