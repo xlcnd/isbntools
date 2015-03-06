@@ -11,13 +11,14 @@ from isbnlib import __version__ as libversion
 from isbnlib import (EAN13, canonical, clean, doi, doi2tex, editions,
                      get_canonical_isbn, get_isbnlike, goom, info,
                      isbn_from_words, mask, meta, quiet_errors, to_isbn10,
-                     to_isbn13, cover, desc)
+                     to_isbn13, desc)
 
 # inject isbntools dependencies on isbnlib
 # <-- first import after lib (IMPORTANT)
 from ._initapp import config, registry, CONF_PATH, CACHE_FILE
 
 # isbntools
+from ._cover import cover
 from .contrib.modules.report import check_version, audit, messages
 # from .contrib.modules.rename import ren # <-- cannot be imported
 
