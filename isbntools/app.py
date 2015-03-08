@@ -26,7 +26,7 @@ from ._exceptions import ISBNToolsException
 # dunders
 
 __all__ = ('check_version', 'audit', 'messages',
-           'ISBNToolsException', 'EAN13', 'covertools', 'desc',
+           'ISBNToolsException', 'EAN13', 'cover', 'desc',
            'doi', 'editions', 'get_canonical_isbn', 'canonical',
            'info', 'isbn_from_words', 'get_isbnlike', 'clean',
            'mask', 'meta', 'to_isbn10', 'to_isbn13', 'goom',
@@ -37,7 +37,7 @@ pkg_path = _os.path.dirname(_os.path.abspath(__file__))
 defaults_conf = 'DEFAULTS'
 
 
-def covertools(isbn):
+def cover(isbn):
     cache = registry.covers_cache
     key = isbn
     _, cvr = cache[key] if cache[key] else (None, None)
