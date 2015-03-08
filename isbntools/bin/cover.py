@@ -2,7 +2,7 @@
 
 import sys
 
-from isbntools.app import cover, quiet_errors
+from isbntools.app import covertools, quiet_errors
 
 PREFIX = 'isbn_'
 
@@ -15,6 +15,6 @@ def main(args=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
         args = sys.argv[1] if not args else args[1]
-        print(cover(args))
+        print(covertools(args))
     except:
         usage(prefix)

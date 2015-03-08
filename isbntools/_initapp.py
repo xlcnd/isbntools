@@ -153,7 +153,7 @@ socket.setdefaulttimeout(SOCKETS_TIMEOUT)
 config.setthreadstimeout(THREADS_TIMEOUT)
 
 
-# set cache
+# set metadata cache
 if config.options.get('CACHE', 'UNDEFINED').lower() == 'no':
     registry.set_cache(None)
 else:
@@ -170,6 +170,21 @@ else:
     except:
         # stay with the default in-memory cache
         pass
+
+
+# set covers cache
+if config.options.get('COVERSCACHE', 'UNDEFINED').lower() == 'no':
+    registry.set_covers_cache(None)
+else:
+    CACHE_FOLDER = '.covers'
+    if CONF_PATH is None:
+        if VIRTUAL:
+            CONF_PATH = sys.prefix
+        else:
+            CONF_PATH = os.path.expanduser('~')
+    cache_path = os.path.join(CONF_PATH, CACHE_FOLDER)
+    from isbnlib.dev.helpers import CoversCache
+    registry.set_covers_cache(CoversCache(cache_path))
 
 
 # set logger

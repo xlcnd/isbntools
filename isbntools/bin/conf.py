@@ -6,7 +6,7 @@ from difflib import get_close_matches
 
 from isbnlib.dev.helpers import ShelveCache
 from isbntools._lab import sprint
-from isbntools.app import CACHE_FILE, CONF_PATH, quiet_errors
+from isbntools.app import CACHE_FILE, CONF_PATH, quiet_errors, registry
 from isbntools.conf import (mk_conf, print_conf, reg_apikey, reg_mod,
                             reg_myopt, reg_plugin)
 
@@ -47,6 +47,15 @@ def purgecache():
         pass
 
 
+def lscovers():
+    try:
+        cache = registry.covers_cache
+        for fp in cache.files()[1:]:
+            print(os.path.basename(fp))
+    except:
+        pass
+
+
 def range_date():
     try:
         from isbnlib import RDDATE
@@ -66,6 +75,7 @@ VERBS = {'show': print_conf,
          'dumpcache': dumpcache,
          'purgecache': purgecache,
          'rdate': range_date,
+         'lscovers': lscovers,
         }
 
 
@@ -76,14 +86,15 @@ def usage(prefix=PREFIX):
                      '-------    --------------------  --------------------------------\n'
                      'show                             show the conf file\n'
                      'make                             make a conf file\n'
-                     'setkey     SERVICE  APIKEY       sets an apikey\n'
-                     'regplugin  SERVICE  [DIRECTORY]  registers a service\n'
-                     'regmod     OPTION   VALUE        sets options for modules\n'
-                     'setopt     OPTION   VALUE        sets options in MISC section\n'
+                     'setkey     SERVICE  APIKEY       set an apikey\n'
+                     'regplugin  SERVICE  [DIRECTORY]  register a service\n'
+                     'regmod     OPTION   VALUE        set options for modules\n'
+                     'setopt     OPTION   VALUE        set options in MISC section\n'
                      'delcache                         deletes the metadata cache\n'
                      'cachepath                        show the path of the cache\n'
                      'dumpcache                        write the cache to sys.stdout\n'
                      'purgecache                       delete low yield keys from cache\n'
+                     'lscovers                         list the covers in cache\n'
                      'rdate                            show date of the isbn range db\n'
                      )
     return 1
