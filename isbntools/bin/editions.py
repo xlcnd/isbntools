@@ -15,7 +15,7 @@ def main(isbn=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
         isbn = sys.argv[1] if not isbn else isbn[1]
-        for ib in editions(isbn):
+        for ib in editions(isbn, service='any'):
             print(ib)
     except:
         return usage(prefix)
