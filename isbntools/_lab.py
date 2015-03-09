@@ -55,7 +55,10 @@ if WINDOWS:
 
 
 def sprint(content, filep=None, mode='w'):
-    """Smart print function so that redirection works and Win console is utf8."""
+    """Smart print function.
+
+    So that redirection works and Win console works with utf-8.
+    """
     s = content + EOL
     buf = s.encode("utf-8")
     if filep:
