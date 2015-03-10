@@ -202,4 +202,4 @@ else:
 
 # setup Windows console
 if WINDOWS:
-    setup_msconsole()
+    set_msconsolefont('Lucida Console')

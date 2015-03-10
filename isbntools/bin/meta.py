@@ -58,9 +58,9 @@ def main(args=None, prefix=PREFIX):
             except:
                 pass
         r = meta(isbn, service)
-        flag = uprint((fmtbib(fmt, r)))
+        uprint((fmtbib(fmt, r)))
     except:
-        if flag:
+        if args:
             return
         providers = list(registry.services.keys())[:]
         try:

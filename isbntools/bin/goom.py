@@ -31,10 +31,10 @@ def main(args=None, prefix=PREFIX):
                 fmt = match[0]
         fmt = fmt if fmt else 'labels'
         for r in goom(words):
-            flag = uprint((fmtbib(fmt, r)))
+            uprint((fmtbib(fmt, r)))
             print('')
     except:
-        if flag:
+        if args:
             return
         bibf = fmts[:]
         try:

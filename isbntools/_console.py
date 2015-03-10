@@ -18,24 +18,6 @@ PY3 = not PY2
 EOL = '\r\n' if WINDOWS else '\n'
 
 
-def set_mscp65001():
-    try:
-        if sys.stdout.encoding == 'cp65001':
-            return
-    except:
-        return
-    try:
-        # change code page
-        # use pywin32 if installed
-        import win32console
-        win32console.SetConsoleOutputCP(65001)
-        win32console.SetConsoleCP(65001)
-    except:
-        # fallback
-        import subprocess
-        subprocess.call("chcp 65001 > %TMP%\\xxx", shell = True)
-
-
 def set_msconsolefont(fontname="Lucida Console"):
     """stackoverflow.com/questions/3592673/change-console-font-in-windows"""
     import ctypes
@@ -66,13 +48,6 @@ def set_msconsolefont(fontname="Lucida Console"):
     handle = ctypes.windll.kernel32.GetStdHandle(STD_OUTPUT_HANDLE)
     ctypes.windll.kernel32.SetCurrentConsoleFontEx(
         handle, ctypes.c_long(False), ctypes.pointer(font))
-
-
-def setup_msconsole():
-    if WINDOWS:
-        set_msconsolefont('Lucida Console')
-        #set_mscp65001()
-
 
 
 def uprint(content, filep=None, mode='w'):
