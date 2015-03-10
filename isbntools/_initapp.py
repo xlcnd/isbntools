@@ -201,4 +201,5 @@ else:
     logging.basicConfig(level=logging.CRITICAL, format=fmt)
 
 # setup Windows console
-setup_msconsole()
+if WINDOWS:
+    setup_msconsole()

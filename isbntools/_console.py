@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""isbntools sprint file.
+"""isbntools console & uprint file.
 
 This is a 'just good enough' fix for UTF-8 printing and redirection.
 On Windows, some characters (cyrillic, chinese, ...) are missing
@@ -14,7 +14,6 @@ import sys
 
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
-PY3 = not PY2
 EOL = '\r\n' if WINDOWS else '\n'
 
 
@@ -70,9 +69,11 @@ def set_msconsolefont(fontname="Lucida Console"):
 
 def setup_msconsole():
     if WINDOWS:
-        if PY3:
-            set_mscp65001()
         set_msconsolefont('Lucida Console')
+        if PY2:
+            return
+        set_mscp65001()
+        
 
 
 def uprint(content, filep=None, mode='w'):
@@ -82,7 +83,7 @@ def uprint(content, filep=None, mode='w'):
     if filep:
         stdout = sys.stdout
         sys.stdout = open(filep, mode)
-    if PY3:
+    if not PY2:
         sys.stdout.buffer.write(buf)
     if PY2:
         sys.stdout.write(buf)
