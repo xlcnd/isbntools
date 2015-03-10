@@ -8,7 +8,7 @@ PREFIX = 'isbn_'
 
 
 def usage(prefix=PREFIX):
-    print('Usage: %scover ISBN' % prefix)
+    print('Usage: %sdesc ISBN' % prefix)
     return 1
 
 
