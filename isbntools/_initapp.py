@@ -16,6 +16,7 @@ from isbnlib import config
 from isbnlib import registry
 
 from ._exceptions import PluginNotLoadedError
+from ._console import setup_msconsole
 
 
 # <--- NOTE: THIS CODE RUNS ON IMPORT! --->
@@ -198,3 +199,6 @@ if CONF_PATH:
     logging.basicConfig(filename=log_path, level=level, format=fmt)
 else:
     logging.basicConfig(level=logging.CRITICAL, format=fmt)
+
+# setup Windows console
+setup_msconsole()

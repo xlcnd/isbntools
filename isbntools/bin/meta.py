@@ -6,7 +6,7 @@ from difflib import get_close_matches
 from isbnlib.dev.helpers import fmtbib, fmts
 
 from ..app import (canonical, clean, config, get_canonical_isbn, meta,
-                   quiet_errors, registry, sprint)
+                   quiet_errors, registry, uprint)
 
 PREFIX = 'isbn_'
 
@@ -58,7 +58,7 @@ def main(args=None, prefix=PREFIX):
             except:
                 pass
         r = meta(isbn, service)
-        sprint((fmtbib(fmt, r)))
+        uprint((fmtbib(fmt, r)))
     except:
         providers = list(registry.services.keys())[:]
         try:

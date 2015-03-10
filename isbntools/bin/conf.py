@@ -6,7 +6,7 @@ from difflib import get_close_matches
 
 from isbnlib.dev.helpers import ShelveCache
 
-from ..app import CACHE_FILE, CONF_PATH, quiet_errors, registry, sprint
+from ..app import CACHE_FILE, CONF_PATH, quiet_errors, registry, uprint
 from ..conf import (mk_conf, print_conf, reg_apikey, reg_mod,
                     reg_myopt, reg_plugin)
 
@@ -32,7 +32,7 @@ def dumpcache():
         path_cache = os.path.join(CONF_PATH, CACHE_FILE)
         sc = ShelveCache(path_cache)
         for k in list(sc.keys()):
-            sprint(repr(sc[k]))
+            uprint(repr(sc[k]))
     except:
         pass
 

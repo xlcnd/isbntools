@@ -20,7 +20,7 @@ from .contrib.modules.report import check_version, audit, messages
 # from .contrib.modules.rename import ren # <-- cannot be imported
 
 from ._exceptions import ISBNToolsException
-from ._lab import sprint
+from ._console import uprint
 
 # ALIAS
 
@@ -32,7 +32,7 @@ __all__ = ('check_version', 'audit', 'messages',
            'info', 'isbn_from_words', 'get_isbnlike', 'clean',
            'mask', 'meta', 'to_isbn10', 'to_isbn13', 'goom',
            'libversion', 'config', 'registry', 'doi2tex', 'quiet_errors',
-           'CONF_PATH', 'CACHE_FILE', 'sprint')
+           'CONF_PATH', 'CACHE_FILE', 'uprint')
 
 pkg_path = _os.path.dirname(_os.path.abspath(__file__))
 defaults_conf = 'DEFAULTS'

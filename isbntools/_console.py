@@ -68,8 +68,14 @@ def set_msconsolefont(fontname="Lucida Console"):
         handle, ctypes.c_long(False), ctypes.pointer(font))
 
 
-def sprint(content, filep=None, mode='w'):
-    """Smart print function."""
+def setup_msconsole():
+    if WINDOWS:
+        set_mscp65001()
+        set_msconsolefont('Lucida Console')
+
+
+def uprint(content, filep=None, mode='w'):
+    """Unicode print function."""
     s = content + EOL
     buf = s.encode("utf-8")
     if filep:
@@ -81,8 +87,3 @@ def sprint(content, filep=None, mode='w'):
         sys.stdout.write(buf)
     if filep:
         sys.stdout = stdout
-
-
-if WINDOWS:
-    set_mscp65001()
-    set_msconsolefont('Lucida Console')

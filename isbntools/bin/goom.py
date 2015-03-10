@@ -5,7 +5,7 @@ from difflib import get_close_matches
 
 from isbnlib.dev.helpers import fmtbib, fmts
 
-from ..app import goom, quiet_errors, sprint
+from ..app import goom, quiet_errors, uprint
 
 PREFIX = 'isbn_'
 
@@ -31,7 +31,7 @@ def main(args=None, prefix=PREFIX):
                 fmt = match[0]
         fmt = fmt if fmt else 'labels'
         for r in goom(words):
-            sprint((fmtbib(fmt, r)))
+            uprint((fmtbib(fmt, r)))
             print('')
     except:
         bibf = fmts[:]
