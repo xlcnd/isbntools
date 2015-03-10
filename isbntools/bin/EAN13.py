@@ -2,7 +2,7 @@
 
 import sys
 
-from isbntools.app import EAN13, quiet_errors
+from ..app import EAN13, quiet_errors
 
 PREFIX = 'isbn_'
 

@@ -2,7 +2,7 @@
 
 import sys
 
-from isbntools.app import get_canonical_isbn, quiet_errors
+from ..app import get_canonical_isbn, quiet_errors
 
 PREFIX = ''
 

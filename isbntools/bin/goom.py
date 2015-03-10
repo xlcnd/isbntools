@@ -5,7 +5,7 @@ from difflib import get_close_matches
 
 from isbnlib.dev.helpers import fmtbib, fmts, sprint
 
-from isbntools.app import goom, quiet_errors
+from ..app import goom, quiet_errors
 
 PREFIX = 'isbn_'
 

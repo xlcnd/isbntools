@@ -5,10 +5,10 @@ import logging
 import sys
 from difflib import get_close_matches
 
-from isbntools.app import (canonical, clean, config, get_canonical_isbn,
-                           quiet_errors, registry)
-from isbntools.contrib.modules.rename import (checkpattern, get_isbn,
-                                              rencwdfiles, renfile)
+from ..app import (canonical, clean, config, get_canonical_isbn,
+                   quiet_errors, registry)
+from ..contrib.modules.rename import (checkpattern, get_isbn,
+                                      rencwdfiles, renfile)
 
 FORMAT = '%(message)s'
 logging.basicConfig(level=logging.INFO, format=FORMAT)

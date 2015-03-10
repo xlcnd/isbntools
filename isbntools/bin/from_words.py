@@ -3,7 +3,7 @@
 
 import sys
 
-from isbntools.app import isbn_from_words, quiet_errors
+from ..app import isbn_from_words, quiet_errors
 
 PREFIX = 'isbn_'
 

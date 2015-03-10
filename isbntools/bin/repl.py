@@ -8,7 +8,6 @@ import cmd
 import os
 import shlex
 import sys
-import time
 
 from difflib import get_close_matches
 from subprocess import PIPE, Popen
@@ -288,6 +287,7 @@ class ISBNRepl(cmd.Cmd):
               '=>meta 9780156001311 wcat endnote\n'
               '=>meta 9780156001311\n'
               '=>meta 9780156001311 tex'
+              '=>meta # opf'
               )
 
     def do_to_isbn10(self, line):

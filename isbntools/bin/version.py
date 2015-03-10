@@ -4,8 +4,8 @@ import time
 
 from isbnlib import RDDATE
 
-from isbntools import __version__
-from isbntools.contrib.modules.uxcolors import _colors as colors
+from .. import __version__
+from ..contrib.modules.uxcolors import _colors as colors
 
 
 NOTICE = """
