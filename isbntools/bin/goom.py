@@ -3,8 +3,7 @@
 import sys
 from difflib import get_close_matches
 
-from isbnlib.dev.helpers import fmtbib, fmts
-from isbntools._lab import sprint
+from isbnlib.dev.helpers import fmtbib, fmts, sprint
 from isbntools.app import goom, quiet_errors
 
 PREFIX = 'isbn_'

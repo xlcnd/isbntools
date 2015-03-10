@@ -3,9 +3,8 @@
 import sys
 from difflib import get_close_matches
 
-from isbnlib.dev.helpers import fmtbib, fmts
+from isbnlib.dev.helpers import fmtbib, fmts, sprint
 
-from isbntools._lab import sprint
 from isbntools.app import (canonical, clean, config, get_canonical_isbn, meta,
                            quiet_errors, registry)
 
