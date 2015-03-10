@@ -58,8 +58,10 @@ def main(args=None, prefix=PREFIX):
             except:
                 pass
         r = meta(isbn, service)
-        uprint((fmtbib(fmt, r)))
+        flag = uprint((fmtbib(fmt, r)))
     except:
+        if flag:
+            return
         providers = list(registry.services.keys())[:]
         try:
             providers.remove('default')

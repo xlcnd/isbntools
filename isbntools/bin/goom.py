@@ -31,9 +31,11 @@ def main(args=None, prefix=PREFIX):
                 fmt = match[0]
         fmt = fmt if fmt else 'labels'
         for r in goom(words):
-            uprint((fmtbib(fmt, r)))
+            flag = uprint((fmtbib(fmt, r)))
             print('')
     except:
+        if flag:
+            return
         bibf = fmts[:]
         try:
             bibf.remove('labels')

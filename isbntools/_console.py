@@ -14,6 +14,7 @@ import sys
 
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
+PY3 = not PY2
 EOL = '\r\n' if WINDOWS else '\n'
 
 
@@ -70,10 +71,8 @@ def set_msconsolefont(fontname="Lucida Console"):
 def setup_msconsole():
     if WINDOWS:
         set_msconsolefont('Lucida Console')
-        if PY2:
-            return
-        set_mscp65001()
-        
+        #set_mscp65001()
+
 
 
 def uprint(content, filep=None, mode='w'):
@@ -83,9 +82,10 @@ def uprint(content, filep=None, mode='w'):
     if filep:
         stdout = sys.stdout
         sys.stdout = open(filep, mode)
-    if not PY2:
+    if PY3:
         sys.stdout.buffer.write(buf)
     if PY2:
         sys.stdout.write(buf)
     if filep:
         sys.stdout = stdout
+    return True
