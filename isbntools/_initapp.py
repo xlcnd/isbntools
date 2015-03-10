@@ -16,7 +16,7 @@ from isbnlib import config
 from isbnlib import registry
 
 from ._exceptions import PluginNotLoadedError
-from ._console import setup_msconsole
+from ._console import set_msconsolefont
 
 
 # <--- NOTE: THIS CODE RUNS ON IMPORT! --->
