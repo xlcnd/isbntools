@@ -286,7 +286,7 @@ class ISBNRepl(cmd.Cmd):
         print('meta ISBN [PROVIDER] [BIBFORMAT] [apikey]\n'
               '=>meta 9780156001311 wcat endnote\n'
               '=>meta 9780156001311\n'
-              '=>meta 9780156001311 tex'
+              '=>meta 9780156001311 tex\n'
               '=>meta # opf'
               )
 
