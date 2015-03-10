@@ -2,7 +2,7 @@
 """isbntools sprint file.
 
 This is a 'just good enough' fix for UTF-8 printing and redirection.
-On Windows, some characters (cyrillic, chinese, ...) are missing 
+On Windows, some characters (cyrillic, chinese, ...) are missing
 in console, however if you redirect to a file they will shown!
 Its OK on Linux and OSX.
 """
@@ -23,7 +23,7 @@ def set_mscp65001():
         if sys.stdout.encoding == 'cp65001':
             return
     except:
-        pass
+        return
     try:
         # change code page
         # use pywin32 if installed
