@@ -6,6 +6,7 @@ from ..app import doi, quiet_errors
 
 PREFIX = 'isbn_'
 
+
 def usage(prefix=PREFIX):
     print('Usage: %sdoi ISBN' % prefix)
     return 1

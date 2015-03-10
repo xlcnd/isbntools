@@ -6,6 +6,7 @@ from ..app import get_canonical_isbn, quiet_errors
 
 PREFIX = ''
 
+
 def usage(prefix=PREFIX):
     print('Usage: %svalidate ISBN' % prefix)
     return 1

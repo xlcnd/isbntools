@@ -6,6 +6,7 @@ from ..app import editions, quiet_errors
 
 PREFIX = 'isbn_'
 
+
 def usage(prefix=PREFIX):
     print('Usage: %seditions ISBN' % prefix)
     return 1

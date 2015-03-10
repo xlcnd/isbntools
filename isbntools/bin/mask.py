@@ -6,6 +6,7 @@ from ..app import mask, quiet_errors
 
 PREFIX = 'isbn_'
 
+
 def usage(prefix=PREFIX):
     print('Usage: %smask ISBN' % prefix)
     return 1

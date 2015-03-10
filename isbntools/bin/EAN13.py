@@ -6,6 +6,7 @@ from ..app import EAN13, quiet_errors
 
 PREFIX = 'isbn_'
 
+
 def usage(prefix=PREFIX):
     print('Usage: %sEAN13 ISBN' % prefix)
     return 1

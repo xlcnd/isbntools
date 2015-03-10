@@ -7,6 +7,7 @@ from ..app import isbn_from_words, quiet_errors
 
 PREFIX = 'isbn_'
 
+
 def usage(args, prefix=PREFIX):
     print(("Usage: %s%s 'AUTHOR TITLE'" % (prefix, args[0])))
     return 1
