@@ -3,9 +3,9 @@
 import sys
 from difflib import get_close_matches
 
-from isbnlib.dev.helpers import fmtbib, fmts, sprint
+from isbnlib.dev.helpers import fmtbib, fmts
 
-from ..app import goom, quiet_errors
+from ..app import goom, quiet_errors, sprint
 
 PREFIX = 'isbn_'
 

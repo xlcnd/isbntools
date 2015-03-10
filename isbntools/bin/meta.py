@@ -3,10 +3,10 @@
 import sys
 from difflib import get_close_matches
 
-from isbnlib.dev.helpers import fmtbib, fmts, sprint
+from isbnlib.dev.helpers import fmtbib, fmts
 
 from ..app import (canonical, clean, config, get_canonical_isbn, meta,
-                   quiet_errors, registry)
+                   quiet_errors, registry, sprint)
 
 PREFIX = 'isbn_'
 

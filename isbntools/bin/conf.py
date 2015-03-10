@@ -5,9 +5,8 @@ import sys
 from difflib import get_close_matches
 
 from isbnlib.dev.helpers import ShelveCache
-from isbnlib.dev.helpers import sprint
 
-from ..app import CACHE_FILE, CONF_PATH, quiet_errors, registry
+from ..app import CACHE_FILE, CONF_PATH, quiet_errors, registry, sprint
 from ..conf import (mk_conf, print_conf, reg_apikey, reg_mod,
                     reg_myopt, reg_plugin)
 
