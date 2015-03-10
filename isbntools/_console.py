@@ -70,7 +70,8 @@ def set_msconsolefont(fontname="Lucida Console"):
 
 def setup_msconsole():
     if WINDOWS:
-        set_mscp65001()
+        if PY3:
+            set_mscp65001()
         set_msconsolefont('Lucida Console')
 
 
