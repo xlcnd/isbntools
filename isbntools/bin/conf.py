@@ -51,6 +51,8 @@ def lscovers():
     try:
         cache = registry.covers_cache
         for fp in cache.files()[1:]:
+            if 'index' in fp:
+                continue
             print(os.path.basename(fp))
     except:
         pass
