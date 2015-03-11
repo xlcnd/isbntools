@@ -8,6 +8,8 @@ Its OK on Linux and OSX.
 """
 # flake8: noqa
 
+
+
 import os
 import sys
 
@@ -15,10 +17,21 @@ import sys
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
 PY3 = not PY2
-EOL = '\r\n' if WINDOWS else '\n'
+EOL = '\r\n' if WINDOWS and PY3 else '\n'
+DEFAULT_CODEPAGE = sys.stdout.encoding if WINDOWS else None
 
 
-def set_msconsolefont(fontname="Lucida Console"):
+def set_codepage(cp):
+    try:
+        if sys.stdout.encoding == 'cp65001':
+            return
+    except:
+        pass
+    import subprocess
+    subprocess.call("chcp " + cp[2:] + " > %TMP%\\xxx", shell = True)
+
+
+def set_cmdfont(fontname="Lucida Console"):
     """stackoverflow.com/questions/3592673/change-console-font-in-windows"""
     import ctypes
 
@@ -50,8 +63,20 @@ def set_msconsolefont(fontname="Lucida Console"):
         handle, ctypes.c_long(False), ctypes.pointer(font))
 
 
+def set_msconsole():
+    if sys.stdout.encoding != 'cp65001':
+        # set_codepage('cp65001')
+        set_cmdfont('Lucida Console')
+
+
+def reset_msconsole():
+    set_codepage(DEFAULT_CODEPAGE)
+
+
 def uprint(content, filep=None, mode='w'):
     """Unicode print function."""
+    if WINDOWS:
+        set_codepage('cp65001')
     s = content + EOL
     buf = s.encode("utf-8")
     if filep:
@@ -63,4 +88,6 @@ def uprint(content, filep=None, mode='w'):
         sys.stdout.write(buf)
     if filep:
         sys.stdout = stdout
+    if WINDOWS:
+        reset_msconsole()
     return True

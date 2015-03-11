@@ -16,7 +16,6 @@ from isbnlib import config
 from isbnlib import registry
 
 from ._exceptions import PluginNotLoadedError
-from ._console import set_msconsolefont
 
 
 # <--- NOTE: THIS CODE RUNS ON IMPORT! --->
@@ -200,6 +199,8 @@ if CONF_PATH:
 else:
     logging.basicConfig(level=logging.CRITICAL, format=fmt)
 
+
 # setup Windows console
 if WINDOWS:
-    set_msconsolefont('Lucida Console')
+    from ._console import set_msconsole
+    set_msconsole()
