@@ -27,11 +27,39 @@ def set_codepage(cp):
             return
     except:
         pass
-    import subprocess
-    subprocess.call("chcp " + cp[2:] + " > %TMP%\\xxx", shell = True)
+    # (1) pywin32
+    # import win32console
+    # win32console.SetConsoleOutputCP(65001)
+    # win32console.SetConsoleCP(65001)
+
+    # (2) command line
+    # import subprocess
+    # subprocess.call("chcp " + cp[2:] + " > %TMP%\\xxx", shell = True)
+
+    # (3) ctypes
+    from ctypes import windll
+
+    KERNEL32 = windll.kernel32
+
+    # default_cp = KERNEL32.GetConsoleCP()
+    # default_output_cp = KERNEL32.GetConsoleOutputCP()
+
+    rc1 = KERNEL32.SetConsoleCP(cp)
+    rc2 = KERNEL32.SetConsoleOutputCP(cp)
+    return rc1 + rc2 == 0
 
 
-def set_cmdfont(fontname="Lucida Console"):
+def register_cp65001():
+    import codecs
+    try:
+        codecs.lookup('cp65001')
+        return False
+    except LookupError:
+        codecs.register(
+            lambda cp: cp == 'cp65001' and codecs.lookup('utf-8') or None)
+        return True
+
+def set_consolefont(fontname="Lucida Console"):
     """stackoverflow.com/questions/3592673/change-console-font-in-windows"""
     import ctypes
 
@@ -64,9 +92,10 @@ def set_cmdfont(fontname="Lucida Console"):
 
 
 def set_msconsole():
+    register_cp65001()
     if sys.stdout.encoding != 'cp65001':
-        # set_codepage('cp65001')
-        set_cmdfont('Lucida Console')
+        set_codepage('cp65001')
+    set_consolefont('Lucida Console')
 
 
 def reset_msconsole():
