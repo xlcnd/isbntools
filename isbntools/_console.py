@@ -4,10 +4,11 @@
 This is a 'just good enough' fix for UTF-8 printing and redirection.
 On Windows, some characters (cyrillic, chinese, ...) are missing
 in console, however if you redirect to a file they will shown!
-Its OK on Linux and OSX.
+However, in PY3 you have to enter in the command line 'chcp 65001'
+before you call the program!
+Its OK on modern Linux and OSX.
 """
 # flake8: noqa
-
 
 
 import os
@@ -27,6 +28,7 @@ def set_codepage(cp):
             return
     except:
         pass
+
     # (1) pywin32
     # import win32console
     # win32console.SetConsoleOutputCP(65001)
@@ -34,18 +36,17 @@ def set_codepage(cp):
 
     # (2) command line
     # import subprocess
-    # subprocess.call("chcp " + cp[2:] + " > %TMP%\\xxx", shell = True)
+    # subprocess.call("chcp %i" % cp + " > %TMP%\\xxx", shell = True)
 
     # (3) ctypes
     from ctypes import windll
-
     KERNEL32 = windll.kernel32
 
     # default_cp = KERNEL32.GetConsoleCP()
     # default_output_cp = KERNEL32.GetConsoleOutputCP()
 
-    rc1 = KERNEL32.SetConsoleCP(cp)
-    rc2 = KERNEL32.SetConsoleOutputCP(cp)
+    rc1 = KERNEL32.SetConsoleCP("cp%i" % cp)
+    rc2 = KERNEL32.SetConsoleOutputCP("cp%i" % cp)
     return rc1 + rc2 == 0
 
 
@@ -56,11 +57,12 @@ def register_cp65001():
         return False
     except LookupError:
         codecs.register(
-            lambda cp: cp == 'cp65001' and codecs.lookup('utf-8') or None)
+            lambda name: name == 'cp65001' and codecs.lookup('utf-8') or None)
         return True
 
+
 def set_consolefont(fontname="Lucida Console"):
-    """stackoverflow.com/questions/3592673/change-console-font-in-windows"""
+    """See stackoverflow question 3592673."""
     import ctypes
 
     LF_FACESIZE = 32
@@ -92,31 +94,37 @@ def set_consolefont(fontname="Lucida Console"):
 
 
 def set_msconsole():
+    set_consolefont('Lucida Console')
     register_cp65001()
     if sys.stdout.encoding != 'cp65001':
-        set_codepage('cp65001')
-    set_consolefont('Lucida Console')
+        set_codepage(65001)
+    if WINDOWS and PY3 and sys.stdout.encoding not in ('cp65001', 'cp1252'):
+        print('')
+        print("    WARNING: your system is not prepared for Unicode.")
+        print("    Enter 'chcp 65001' in a 'cmd' prompt before 'isbntools'.")
+        print("    ** You are using " + sys.stdout.encoding)
 
 
 def reset_msconsole():
-    set_codepage(DEFAULT_CODEPAGE)
+    set_codepage(int(DEFAULT_CODEPAGE[2:]))
 
 
 def uprint(content, filep=None, mode='w'):
     """Unicode print function."""
-    if WINDOWS:
-        set_codepage('cp65001')
-    s = content + EOL
-    buf = s.encode("utf-8")
     if filep:
         stdout = sys.stdout
         sys.stdout = open(filep, mode)
+
+    s = content + EOL
+    buf = s.encode("utf-8")
+    if WINDOWS:
+        set_codepage(65001)
     if PY3:
         sys.stdout.buffer.write(buf)
     if PY2:
         sys.stdout.write(buf)
-    if filep:
-        sys.stdout = stdout
     if WINDOWS:
         reset_msconsole()
-    return True
+
+    if filep:
+        sys.stdout = stdout
