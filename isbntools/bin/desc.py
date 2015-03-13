@@ -18,6 +18,7 @@ def main(args=None, prefix=PREFIX):
         args = sys.argv[1] if not args else args[1]
         uprint(desc(args))
     except:
-        if args:
-            return
         usage(prefix)
+    if args or not prefix:
+        return
+    # close_app()
