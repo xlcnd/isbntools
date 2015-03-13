@@ -4,8 +4,17 @@
 This is a 'just good enough' fix for UTF-8 printing and redirection.
 On Windows, some characters (cyrillic, chinese, ...) are missing
 in console (even if you have the right font), only on non-cyrillic's
-systems, however if you redirect to a file, they will shown!
-On modern Linux and OSX, it works well.
+systems. However, if you redirect to a file, they will shown!
+On modern Linux and OSX it works well.
+
+Usage:
+Call 'set_msconsole()' at the begin of your program and then use
+'uprint(content, filep=None, mode='w')' for printing unicode
+
+Remarks:
+'content' should be something like u'...' not 'bytes unicode'!
+'filep='myfile.txt' will print to file 'myfile.txt'
+'mode' has the same options as file's 'open(fp, mode)'
 """
 # flake8: noqa
 
@@ -89,7 +98,7 @@ def set_msconsole():
     if not sys.stdout.isatty():
         return
     register_cp65001()
-    for font in ('Lucida Console', 'Consolas'):
+    for font in ('DejaVu LGC Sans Mono', 'Lucida Console', 'Consolas'):
         try:
             set_consolefont(font)
             break
