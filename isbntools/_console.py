@@ -3,8 +3,8 @@
 
 This is a 'just good enough' fix for UTF-8 printing and redirection.
 On Windows, some characters (cyrillic, chinese, ...) are missing
-in console (even if you have the right font), only on non-cyrillic's
-systems. However, if you redirect to a file, they will shown!
+in console (only on non-cyrillic's systems), even if you have the 
+right font. However, if you redirect to a file, they will shown!
 On modern Linux and OSX it works well.
 
 Usage:
@@ -12,9 +12,11 @@ Call 'set_msconsole()' at the begin of your program and then use
 'uprint(content, filep=None, mode='w')' for printing unicode
 
 Remarks:
-'content' should be something like u'...' not 'bytes unicode'!
-'filep='myfile.txt' will print to file 'myfile.txt'
-'mode' has the same options as file's 'open(fp, mode)'
+ . 'content' should be something like u'...' not 'bytes unicode'!
+ . 'filep="myfile.txt"' will print to file 'myfile.txt'
+ . 'mode' has the same options as file's 'open(fp, mode)'
+ . for PY2, codepage is changed automatically, but for PY3
+   the user MUST change it manually (by enter 'chcp 65001')! 
 """
 # flake8: noqa
 
@@ -78,13 +80,12 @@ def register_cp65001():
 
 def set_codepage(cp):
     """Set msconsole's codepage"""
-    # This is THE trick to 'convince' PY2 and PY3 to accept 'cp65001'
-    from ctypes import windll
-    KERNEL32 = windll.kernel32
-    KERNEL32.SetConsoleCP("cp%i" % cp)
-    KERNEL32.SetConsoleOutputCP("cp%i" % cp)
+    # for PY2 this method always works
+    # (only change if needed to avoid echo messages)
+    if sys.stdout.encoding == 'cp%i' % cp:
+        return
     import subprocess
-    subprocess.call("chcp %i " % cp + " > %TMP%\\xxx", shell = True)
+    subprocess.call("chcp %i" % cp + " > %TMP%\\xxx", shell = True)
 
 
 def reset_codepage():
@@ -98,13 +99,19 @@ def set_msconsole():
     if not sys.stdout.isatty():
         return
     register_cp65001()
-    for font in ('DejaVu LGC Sans Mono', 'Lucida Console', 'Consolas'):
+    for font in ('Lucida Console', 'Consolas'):
         try:
             set_consolefont(font)
             break
         except:
             continue
-
+    if WINDOWS and PY3 and sys.stdout.encoding not in ('cp65001', 'cp1252'):
+        print('')
+        print("    WARNING: your system is not prepared for Unicode.")
+        print("    Enter 'chcp 65001' in a 'cmd' prompt before 'isbntools'.")
+        print("    ** You are using codepage " + sys.stdout.encoding)
+        print('')
+        
 
 def uprint(content, filep=None, mode='w'):
     """Unicode print function."""
@@ -113,7 +120,7 @@ def uprint(content, filep=None, mode='w'):
         sys.stdout = open(filep, mode)
     s = content + EOL
     buf = s.encode("utf-8")
-    if WINDOWS and sys.stdout.isatty():
+    if WINDOWS and PY2 and sys.stdout.isatty():
         set_codepage(65001)
     try:
         if PY3:
@@ -125,7 +132,7 @@ def uprint(content, filep=None, mode='w'):
             pass
         else:
             raise e
-    if WINDOWS and sys.stdout.isatty():
+    if WINDOWS and PY2 and sys.stdout.isatty():
         reset_codepage()
     if filep:
         sys.stdout = stdout
