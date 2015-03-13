@@ -34,8 +34,6 @@ def main(args=None, prefix=PREFIX):
             uprint((fmtbib(fmt, r)))
             print('')
     except:
-        if args or not prefix:
-            return
         bibf = fmts[:]
         try:
             bibf.remove('labels')

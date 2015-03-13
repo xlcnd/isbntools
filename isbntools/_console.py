@@ -3,9 +3,9 @@
 
 This is a 'just good enough' fix for UTF-8 printing and redirection.
 On Windows, some characters (cyrillic, chinese, ...) are missing
-in console, however if you redirect to a file they will shown!
-However, in PY3 you have to enter, in the command line, 'chcp 65001'
-before you call the program! Its OK on modern Linux and OSX.
+in console (even if you have the right font), only on non-cyrillic's
+systems, however if you redirect to a file, they will shown!
+On modern Linux and OSX, it works well.
 """
 # flake8: noqa
 
@@ -68,21 +68,19 @@ def register_cp65001():
 
 
 def set_codepage(cp):
-    try:
-        if sys.stdout.encoding == 'cp65001':
-            return
-    except:
-        pass
+    """Set msconsole's codepage"""
+    # This is THE trick to 'convince' PY2 and PY3 to accept 'cp65001'
     from ctypes import windll
     KERNEL32 = windll.kernel32
-    rc1 = KERNEL32.SetConsoleCP("cp%i" % cp)
-    rc2 = KERNEL32.SetConsoleOutputCP("cp%i" % cp)
-    return rc1 + rc2 == 0
+    KERNEL32.SetConsoleCP("cp%i" % cp)
+    KERNEL32.SetConsoleOutputCP("cp%i" % cp)
+    import subprocess
+    subprocess.call("chcp %i " % cp + " > %TMP%\\xxx", shell = True)
 
 
 def reset_codepage():
     """Reset codepage."""
-    return set_codepage(DEFAULT_CODEPAGE[2:]) if DEFAULT_CODEPAGE else None
+    return set_codepage(int(DEFAULT_CODEPAGE[2:])) if DEFAULT_CODEPAGE else None
 
 
 def set_msconsole():
@@ -90,13 +88,13 @@ def set_msconsole():
     # check if sys.stdout is attached to a terminal
     if not sys.stdout.isatty():
         return
-    set_consolefont('Lucida Console')
     register_cp65001()
-    if WINDOWS and PY3 and sys.stdout.encoding not in ('cp65001', 'cp1252'):
-        print('')
-        print("    WARNING: your system is not prepared for Unicode.")
-        print("    Enter 'chcp 65001' in a 'cmd' prompt before 'isbntools'.")
-        print("    ** You are using codepage " + sys.stdout.encoding)
+    for font in ('Lucida Console', 'Consolas'):
+        try:
+            set_consolefont(font)
+            break
+        except:
+            continue
 
 
 def uprint(content, filep=None, mode='w'):
@@ -108,10 +106,16 @@ def uprint(content, filep=None, mode='w'):
     buf = s.encode("utf-8")
     if WINDOWS and sys.stdout.isatty():
         set_codepage(65001)
-    if PY3:
-        sys.stdout.buffer.write(buf)
-    if PY2:
-        sys.stdout.write(buf)
+    try:
+        if PY3:
+            sys.stdout.buffer.write(buf)
+        if PY2:
+            sys.stdout.write(buf)
+    except Exception as e:
+        if type(e) == IOError:
+            pass
+        else:
+            raise e
     if WINDOWS and sys.stdout.isatty():
         reset_codepage()
     if filep:

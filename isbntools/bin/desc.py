@@ -19,6 +19,3 @@ def main(args=None, prefix=PREFIX):
         uprint(desc(args))
     except:
         usage(prefix)
-    if args or not prefix:
-        return
-    # close_app()

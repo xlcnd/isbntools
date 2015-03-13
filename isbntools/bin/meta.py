@@ -60,8 +60,6 @@ def main(args=None, prefix=PREFIX):
         r = meta(isbn, service)
         uprint((fmtbib(fmt, r)))
     except:
-        if args or not prefix:
-            return
         providers = list(registry.services.keys())[:]
         try:
             providers.remove('default')
