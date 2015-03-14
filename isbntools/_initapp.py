@@ -126,7 +126,12 @@ if conf.has_section('PLUGINS'):  # pragma: no cover
             if plugin:
                 registry.add_service(o.lower(), plugin.query)
         except:
-            raise PluginNotLoadedError(v)
+            # See issue #85!
+            if v in ('isbndb.py', 'openl.py'):
+                print("*** WARNING: plugin {} is now in the core! Check {}."
+                      .format(v, 'isbntools.conf'))
+            else:
+                raise PluginNotLoadedError(v)
 
 
 # get plugins from entry_points
