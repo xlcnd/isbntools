@@ -141,7 +141,7 @@ class ISBNRepl(cmd.Cmd):
 
     def do_audit(self, line):
         """audit"""
-        wait=0
+        wait = 0
         version.main(wait)
 
     def do_conf(self, line):
