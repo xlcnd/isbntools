@@ -21,9 +21,11 @@ Remarks:
 # flake8: noqa
 
 
+import logging
 import os
 import sys
 
+LOGGER = logging.getLogger(__name__)
 
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
@@ -32,6 +34,7 @@ EOL = '\r\n' if WINDOWS and PY3 else '\n'
 try:
     DEFAULT_CODEPAGE = sys.stdout.encoding if WINDOWS else None
 except:
+    LOGGER.debug('sys.stdout not properly reset.')
     sys.stdout = sys.__stdout__
 
 
@@ -106,7 +109,9 @@ def set_msconsole():
             break
         except:
             continue
+    
     if WINDOWS and PY3 and sys.stdout.encoding not in ('cp65001', 'cp1252'):
+        LOGGER.debug('sys.stdout.encoding is %s', sys.stdout.encoding)
         print('')
         print("    WARNING: your system is not prepared for Unicode.")
         print("    Enter 'chcp 65001' in a 'cmd' prompt before 'isbntools'.")
