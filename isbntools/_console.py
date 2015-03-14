@@ -76,7 +76,7 @@ def register_cp65001():
         return False
     except LookupError:
         codecs.register(
-            lambda name: name == 'cp65001' and codecs.lookup('utf-8') or None)
+            lambda name: codecs.lookup('utf-8') if name == 'cp65001' else None)
         return True
 
 

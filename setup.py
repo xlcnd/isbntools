@@ -181,7 +181,7 @@ setup(
                             'isbn_desc=isbntools.bin.desc:main',
                             ]},
     data_files=data_files,
-    install_requires=['isbnlib>=3.5.2'],
+    install_requires=['isbnlib>=3.5.2, <3.6.1'],
     license='LGPL v3',
     description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
     long_description=open('README.rst').read(),
