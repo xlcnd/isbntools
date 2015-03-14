@@ -26,7 +26,6 @@ import os
 import sys
 
 LOGGER = logging.getLogger(__name__)
-
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
 PY3 = not PY2
@@ -109,7 +108,7 @@ def set_msconsole():
             break
         except:
             continue
-    
+
     if WINDOWS and PY3 and sys.stdout.encoding not in ('cp65001', 'cp1252'):
         LOGGER.debug('sys.stdout.encoding is %s', sys.stdout.encoding)
         print('')
