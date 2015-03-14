@@ -12,5 +12,6 @@ nose tests
 
 
 def test_check_pypi():
+    """Test the call to pypi"""
     errcode = check_pypi() or 0
     assert errcode == 0

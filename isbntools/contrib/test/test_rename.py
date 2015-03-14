@@ -69,6 +69,7 @@ def teardown_module():
 
 
 def test_checkpattern():
+    """Test the validation of placeholders"""
     assert_equals(checkpattern(
                   '{authorsLastNames}_{year}_{title}_{isbn}.pdf'), True)
     assert_equals(checkpattern('mypattern.pdf'), False)
@@ -80,6 +81,7 @@ def test_checkpattern():
 
 
 def test_newfilename():
+    """Test new filename generation"""
     metadata = {'Title': 'A Dictionary Of The Internet',
                 'Authors': ['Darrel Ince', 'Oxford University Press'],
                 'Publisher': 'Oxford University Press',
@@ -111,10 +113,12 @@ def test_newfilename():
 
 
 def test_cleannewname():
+    """Test the cleanning of new filename"""
     assert_equals(cleannewname(' this, is a newname., _'), 'this, is a newname')
 
 
 def test_get_isbn():
+    """Test isbn extraction from file names"""
     assert_equals(get_isbn('The Internet_9780199571444.epub'), '9780199571444')
     assert_equals(get_isbn('海明威2007_Lao ren yu hai_9787500117018.pdf'), '9787500117018')
     assert_equals(get_isbn('ebook 0826497527 isbn.pdf'), '9780826497529')
@@ -122,6 +126,7 @@ def test_get_isbn():
 
 
 def test_renfile():
+    """Test the renaming of a file"""
     renfile(F11, '9781593271923', 'default', PATT0)
     assert_equals('Seitz2009_Gray Hat Python_9781593271923.pdf' in cwdfiles("*.pdf"), True)
     create_files([F11])
@@ -131,6 +136,7 @@ def test_renfile():
 
 
 def test_rencwdfiles():
+    """Test the renaming of files in current directory"""
     delete_files('*deleteme*.pdf')
     rencwdfiles("*.pdf", 'default', PATT0)
     pdfs = cwdfiles("*.pdf")

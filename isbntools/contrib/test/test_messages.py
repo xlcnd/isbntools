@@ -13,5 +13,6 @@ nose tests
 
 
 def test_messages():
+    """Test the call to messages.csv and processing"""
     errcode = messages() or 0
     assert errcode == 0

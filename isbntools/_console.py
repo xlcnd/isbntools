@@ -3,7 +3,7 @@
 
 This is a 'just good enough' fix for UTF-8 printing and redirection.
 On Windows, some characters (cyrillic, chinese, ...) are missing
-in console (only on non-cyrillic's systems), even if you have the 
+in console (only on latin's systems), even if you have the
 right font. However, if you redirect to a file, they will shown!
 On modern Linux and OSX it works well.
 
@@ -16,7 +16,7 @@ Remarks:
  . 'filep="myfile.txt"' will print to file 'myfile.txt'
  . 'mode' has the same options as file's 'open(fp, mode)'
  . for PY2, codepage is changed automatically, but for PY3
-   the user MUST change it manually (by enter 'chcp 65001')! 
+   the user MUST change it manually (by enter 'chcp 65001')!
 """
 # flake8: noqa
 
@@ -90,7 +90,8 @@ def set_codepage(cp):
 
 def reset_codepage():
     """Reset codepage."""
-    return set_codepage(int(DEFAULT_CODEPAGE[2:])) if DEFAULT_CODEPAGE else None
+    return set_codepage(int(DEFAULT_CODEPAGE[2:]))\
+       if DEFAULT_CODEPAGE else None
 
 
 def set_msconsole():
@@ -111,7 +112,7 @@ def set_msconsole():
         print("    Enter 'chcp 65001' in a 'cmd' prompt before 'isbntools'.")
         print("    ** You are using codepage " + sys.stdout.encoding)
         print('')
-        
+
 
 def uprint(content, filep=None, mode='w'):
     """Unicode print function."""
@@ -127,11 +128,8 @@ def uprint(content, filep=None, mode='w'):
             sys.stdout.buffer.write(buf)
         if PY2:
             sys.stdout.write(buf)
-    except Exception as e:
-        if type(e) == IOError:
-            pass
-        else:
-            raise e
+    except IOError:
+        pass
     if WINDOWS and PY2 and sys.stdout.isatty():
         reset_codepage()
     if filep:
