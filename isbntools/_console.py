@@ -33,7 +33,7 @@ EOL = '\r\n' if WINDOWS and PY3 else '\n'
 try:
     DEFAULT_CODEPAGE = sys.stdout.encoding if WINDOWS else None
 except:
-    LOGGER.debug('sys.stdout not properly reset.')
+    LOGGER.critical('sys.stdout not properly reset.')
     sys.stdout = sys.__stdout__
 
 
@@ -70,6 +70,7 @@ def set_consolefont(fontname="Lucida Console"):
 
 
 def register_cp65001():
+    """Register cp65001 so that PY2 knowns about it."""
     import codecs
     try:
         codecs.lookup('cp65001')
@@ -81,9 +82,9 @@ def register_cp65001():
 
 
 def set_codepage(cp):
-    """Set msconsole's codepage"""
+    """Set msconsole's codepage."""
     # for PY2 this method always works
-    # (only change if needed to avoid echo messages)
+    # (only change if needed, to avoid echo messages)
     if sys.stdout.encoding == 'cp%i' % cp:
         return
     import subprocess
