@@ -72,7 +72,8 @@ except:                          # pragma: no cover
     conf.readfp(io.BytesIO(DEFAULTS))     # PY2
 # read user options
 if VIRTUAL:                    # pragma: no cover
-    conf.files = conf.read([os.path.join(sys.prefix, 'isbntools.conf')])
+    conf.files = conf.read(
+        [os.path.join(sys.prefix, 'isbntools/isbntools.conf')])
 else:
     if WINDOWS:                # pragma: no cover
         conf.files = conf.read([
@@ -157,17 +158,18 @@ socket.setdefaulttimeout(SOCKETS_TIMEOUT)
 # THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
 config.setthreadstimeout(THREADS_TIMEOUT)
 
+# set CONF_PATH
+if CONF_PATH is None:
+    if VIRTUAL:
+        CONF_PATH = os.path.join(sys.prefix, 'isbntools')
+    else:
+        CONF_PATH = os.path.expanduser('~/isbntools')
 
 # set metadata cache
 if config.options.get('CACHE', 'UNDEFINED').lower() == 'no':
     registry.set_cache(None)
 else:
     CACHE_FILE = '.metacache'
-    if CONF_PATH is None:
-        if VIRTUAL:
-            CONF_PATH = sys.prefix
-        else:
-            CONF_PATH = os.path.expanduser('~')
     cache_path = os.path.join(CONF_PATH, CACHE_FILE)
     from isbnlib.dev.helpers import ShelveCache
     try:
@@ -182,11 +184,6 @@ if config.options.get('COVERSCACHE', 'UNDEFINED').lower() == 'no':
     registry.set_covers_cache(None)
 else:
     CACHE_FOLDER = '.covers'
-    if CONF_PATH is None:
-        if VIRTUAL:
-            CONF_PATH = sys.prefix
-        else:
-            CONF_PATH = os.path.expanduser('~')
     cache_path = os.path.join(CONF_PATH, CACHE_FOLDER)
     from isbnlib.dev.helpers import CoversCache
     registry.set_covers_cache(CoversCache(cache_path))
