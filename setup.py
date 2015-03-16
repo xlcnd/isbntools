@@ -2,7 +2,7 @@
 """Install file for isbntools."""
 
 """
-isbntools - tools for extracting, cleaning and transforming ISBNs
+isbntools - extract, transform and metadata for ISBNs
 Copyright (C) 2014  Alexandre Lima Conde
 
 This program is free software: you can redistribute it and/or modify
@@ -52,7 +52,7 @@ if INSTALL and FIRSTRUN:
 
 # DEFS
 
-CONFDIR = '.isbntools' if not WINDOWS else 'isbntools'
+CONFDIR = '.isbntools' if not WINDOWS and not VIRTUAL else 'isbntools'
 CONFFILE = 'isbntools.conf'
 CONFRES = pkg_resources.resource_filename('isbntools', CONFFILE)
 
@@ -60,6 +60,8 @@ CONFRES = pkg_resources.resource_filename('isbntools', CONFFILE)
 # HELPERS
 
 def uxchown(fp):
+    if WINDOWS:
+        return
     from pwd import getpwnam, getpwuid
     from grp import getgrnam, getgrgid
     uid = getpwnam(os.getenv("SUDO_USER", getpwuid(os.getuid()).pw_name)).pw_uid
@@ -69,7 +71,7 @@ def uxchown(fp):
 
 def data_path():
     if VIRTUAL:
-        installpath = ''
+        installpath = CONFDIR
     else:
         user = '~%s' % os.getenv("SUDO_USER", '')
         homepath = os.path.expanduser(user) if not WINDOWS else os.getenv('APPDATA')
@@ -94,7 +96,7 @@ def backup_file(fp):
 
 def backup():
     if VIRTUAL:
-        places = [os.path.join(sys.prefix, 'isbntools.conf')]
+        places = [os.path.join(sys.prefix, CONFDIR + '/isbntools.conf')]
     else:
         if WINDOWS:
             places = [os.path.join(os.getenv('APPDATA'), 'isbntools/isbntools.conf')]
@@ -221,7 +223,7 @@ if not VIRTUAL and not WINDOWS and SECONDRUN:
 
 if SECONDRUN:
     try:
-        datapath = sys.prefix if VIRTUAL else DATAPATH
+        datapath = os.path.join(sys.prefix, CONFDIR) if VIRTUAL else DATAPATH
         protect(datapath)
     except:
         print("Warning: isbntools.conf wasn't restored.")
