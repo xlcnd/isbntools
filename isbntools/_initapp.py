@@ -73,12 +73,15 @@ except:                          # pragma: no cover
 # read user options
 if VIRTUAL:                    # pragma: no cover
     conf.files = conf.read(
-        [os.path.join(sys.prefix, 'isbntools/isbntools.conf')])
+        [os.path.join(sys.prefix,
+         os.path.join('isbntools', 'isbntools.conf'))
+         ])
 else:
     if WINDOWS:                # pragma: no cover
-        conf.files = conf.read([
-            os.path.join(os.getenv('APPDATA'), 'isbntools/isbntools.conf')
-        ])
+        conf.files = conf.read(
+            [os.path.join(os.getenv('APPDATA'),
+                          os.path.join('isbntools', 'isbntools.conf'))
+             ])
     else:                        # pragma: no cover
         conf.files = conf.read([
             '/etc/.isbntools/isbntools.conf',
