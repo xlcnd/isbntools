@@ -14,7 +14,7 @@ from subprocess import PIPE, Popen
 
 from isbnlib.dev.helpers import fmts
 
-from . import (EAN13, conf, cover, desc, doi, doi2tex, editions,
+from . import (EAN13, confc, cover, desc, doi, doi2tex, editions,
                from_words, goom, info, mask, meta,
                to_isbn10, to_isbn13, validate, version)
 from .. import __version__
@@ -147,18 +147,18 @@ class ISBNRepl(cmd.Cmd):
     def do_conf(self, line):
         """conf [COMMAND] [OPTIONS]"""
         if not line:
-            conf.usage(prefix=PREFIX)
+            confc.usage(prefix=PREFIX)
             return
         try:
             args = self._parse('conf', line)
             if args:
-                conf.main(args, prefix=PREFIX)
+                confc.main(args, prefix=PREFIX)
         except:
-            conf.usage(prefix=PREFIX)
+            confc.usage(prefix=PREFIX)
 
     def complete_conf(self, text, line, begidx, endidx):
         """Autocomplete conf options."""
-        opts = list(conf.VERBS.keys())
+        opts = list(confc.VERBS.keys())
         if not text:
             completions = opts
         else:

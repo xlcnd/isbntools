@@ -162,7 +162,7 @@ setup(
     download_url='https://github.com/xlcnd/isbntools/archive/v4.2.3.zip',
     packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
     entry_points={
-        'console_scripts': ['isbn_conf=isbntools.bin.conf:main',
+        'console_scripts': ['isbn_conf=isbntools.bin.confc:main',
                             'isbn_doi=isbntools.bin.doi:main',
                             'isbn_doi2tex=isbntools.bin.doi2tex:main',
                             'isbn_EAN13=isbntools.bin.EAN13:main',
