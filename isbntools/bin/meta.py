@@ -48,8 +48,10 @@ def do_pipe():
     """Read isbn from pipe."""
     if sys.stdin.isatty():
         return
-    args = sys.argv[1:]
-    _, service, fmt, apikey = parse_args(args)
+    service, fmt, apikey = (None, None, None)
+    if len(sys.argv) > 1:
+        args = sys.argv[1:]
+        _, service, fmt, apikey = parse_args(args)
     service = service if service else 'default'
     fmt = fmt if fmt else 'labels'
     if apikey:
@@ -84,8 +86,7 @@ def do_terminal(args=None):
 def main(args=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
-        isterminal = sys.stdin.isatty()
-        return do_terminal(args) if isterminal else do_pipe()
+        return do_terminal(args) if sys.stdin.isatty() else do_pipe()
     except:
         providers = list(registry.services.keys())[:]
         try:
