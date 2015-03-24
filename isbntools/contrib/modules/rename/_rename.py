@@ -2,6 +2,7 @@
 """Rename file using metadata."""
 
 import logging
+import re
 import string
 import sys
 
@@ -51,14 +52,19 @@ def get_isbn(filename):
     eans = [EAN13(isbnlike) for isbnlike in isbnlikes] if isbnlikes else None
     isbn = eans[0] if eans else None
     if not isbn:            # pragma: no cover
+        LOGGER.warning('No ISBN found in name of file %s', filename)
         sys.stderr.write('no ISBN found in name of file %s \n' % filename)
         return
     return isbn
 
 
 def cleannewname(newname):
-    """Strip '.,_!? ' from newname."""
-    return newname.strip('.,_!? ')
+    """Clean and Strip '._!? ' from newname."""
+    regex1 = re.compile(r'[!?/\\]')
+    regex2 = re.compile('\s\s+')
+    newname = regex1.sub(' ', newname)
+    newname = regex2.sub(' ', newname)
+    return newname.strip('_., ')
 
 
 def newfilename(metadata, pattern=PATTERN):
@@ -102,10 +108,12 @@ def renfile(filename, isbn, service, pattern=PATTERN):
     service = service if service else 'default'
     metadata = meta(isbn, service)
     if not metadata:        # pragma: no cover
+        LOGGER.warning('No metadata for %s', filename)
         sys.stderr.write('No metadata for %s\n' % filename)
         return
     newname = newfilename(metadata, pattern)
     if not newname:         # pragma: no cover
+        LOGGER.warning('%s NOT renamed!', filename)
         sys.stderr.write('%s NOT renamed \n' % filename)
         return
     oldfile = File(filename)
