@@ -15,6 +15,10 @@ def stdin_validate():
     Usage:
     cat ISBNs| isbn_stdin_validate
     """
+    # check if pipe
+    if sys.stdin.isatty():
+        print('Usage:\n   cat ISBNs| isbn_stdin_validate')
+        return 1
     for line in sys.stdin:
         line = line.strip()
         buf = re.sub(r"\[|\]|'|-", "", repr(get_isbnlike(line)))
@@ -28,3 +32,4 @@ def stdin_validate():
             buf = get_canonical_isbn(buf)
             if buf:
                 print(buf)
+    return 0
