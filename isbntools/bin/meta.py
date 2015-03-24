@@ -23,9 +23,10 @@ def parse_args(args):
     api = None
     fmt = None
     isbn = get_canonical_isbn(canonical(clean(args[0])))
-    if len(args) == 1 or not isbn:
+    if len(args) == 1:
         return (isbn, service, fmt, api)
-    del args[0]
+    if isbn:
+        del args[0]
     providers = list(registry.services.keys())
     for a in args:
         match = get_close_matches(a, fmts)
@@ -43,22 +44,48 @@ def parse_args(args):
     return (isbn, service, fmt, api)
 
 
+def do_pipe():
+    """Read isbn from pipe."""
+    if sys.stdin.isatty():
+        return
+    args = sys.argv[1:]
+    _, service, fmt, apikey = parse_args(args)
+    service = service if service else 'default'
+    fmt = fmt if fmt else 'labels'
+    if apikey:
+        try:
+            config.add_apikey(service, apikey)
+        except:
+            pass
+    for line in sys.stdin:
+        line = line.strip()
+        uprint((fmtbib(fmt, meta(line, service))))
+    return 0
+
+
+def do_terminal(args=None):
+    """Read isbn from terminal."""
+    args = sys.argv[1:] if not args else args[1:]
+    isbn, service, fmt, apikey = parse_args(args)
+    if not isbn:
+        raise
+    service = service if service else 'default'
+    fmt = fmt if fmt else 'labels'
+    if apikey:
+        try:
+            config.add_apikey(service, apikey)
+        except:
+            pass
+    r = meta(isbn, service)
+    uprint((fmtbib(fmt, r)))
+    return 0
+
+
 def main(args=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
-        args = sys.argv[1:] if not args else args[1:]
-        isbn, service, fmt, apikey = parse_args(args)
-        if not isbn:
-            raise
-        service = service if service else 'default'
-        fmt = fmt if fmt else 'labels'
-        if apikey:
-            try:
-                config.add_apikey(service, apikey)
-            except:
-                pass
-        r = meta(isbn, service)
-        uprint((fmtbib(fmt, r)))
+        isterminal = sys.stdin.isatty()
+        return do_terminal(args) if isterminal else do_pipe()
     except:
         providers = list(registry.services.keys())[:]
         try:
