@@ -101,14 +101,14 @@ validates ISBN10 and ISBN13.
 
 .. code-block:: console
 
-    $ ... | isbn_stdin_validate
+    $ ... | isbn_validate
 
-to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_stdin_validate``).
+to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_validate``).
 
     **TIP** Suppose you want to extract the ISBN of a pdf eboook (MYEBOOK.pdf).
     Install pdfminer_ and then enter in a command line::
 
-    $ pdf2txt.py -m 5 MYEBOOK.pdf | isbn_stdin_validate
+    $ pdf2txt.py -m 5 MYEBOOK.pdf | isbn_validate
 
 
 .. code-block:: console
