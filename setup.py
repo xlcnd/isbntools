@@ -176,7 +176,7 @@ setup(
                             'to_isbn10=isbntools.bin.to_isbn10:main',
                             'to_isbn13=isbntools.bin.to_isbn13:main',
                             'isbn_validate=isbntools.bin.validate:main',
-                            'isbn_stdin_validate=isbntools.bin.stdin_validate:stdin_validate',
+                            'isbn_stdin_validate=isbntools.bin.validate:do_pipe',
                             'isbntools=isbntools.bin.version:main',
                             'isbn_repl=isbntools.bin.repl:main',
                             'isbn_cover=isbntools.bin.cover:main',
