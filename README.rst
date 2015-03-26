@@ -181,9 +181,9 @@ Following is a typical session:
 
     Commands available (type ?<command> to get help):
     -------------------------------------------------
-    BIBFORMATS  PROVIDERS  doi       exit        help  meta       to_isbn13
-    EAN13       cover      doi2tex   from_words  info  shell      validate 
-    EOF         desc       editions  goom        mask  to_isbn10  version
+    BIBFORMATS  audit  desc     editions    goom  mask   to_isbn10
+    EAN13       conf   doi      exit        help  meta   to_isbn13
+    PROVIDERS   cover  doi2tex  from_words  info  shell  validate
 
     $ isbn> meta 9780156001311 tex
     @book{9780156001311,
