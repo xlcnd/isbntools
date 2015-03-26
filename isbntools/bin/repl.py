@@ -48,9 +48,20 @@ class ISBNRepl(cmd.Cmd):
     ''' % (BOLD, __version__, RESET, last_isbn_ph)
     prompt = '%sisbn>%s ' % (BOLD, RESET)
     ruler = '-'
+    undoc_header = None  # <-- important
 
 
     # Base Classe Overrides:
+
+    def print_topics(self, header, cmds, cmdlen, maxcol):
+        """Override 'print_topics' so that you can exclude EOF."""
+        if header:
+            if cmds:
+                self.stdout.write("%s\n"%str(header))
+                if self.ruler:
+                    self.stdout.write("%s\n"%str(self.ruler * len(header)))
+                self.columnize(cmds, maxcol-1)
+                self.stdout.write("\n")
 
     def default(self, s):
         """Override default method to allow fuzzy commands."""
@@ -225,7 +236,6 @@ class ISBNRepl(cmd.Cmd):
         return True
 
     def do_EOF(self, line):
-        """Hard exit from REPL."""
         print('bye')
         return True
 
