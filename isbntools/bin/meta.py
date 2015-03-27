@@ -23,7 +23,7 @@ def parse_args(args):
     api = None
     fmt = None
     isbn = get_canonical_isbn(canonical(clean(args[0])))
-    if len(args) == 1:
+    if len(args) == 1 and isbn:
         return (isbn, service, fmt, api)
     if isbn:
         del args[0]
