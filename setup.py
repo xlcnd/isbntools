@@ -155,11 +155,11 @@ data_files = [(DATAPATH, [CONFRES])]
 
 setup(
     name='isbntools',
-    version='4.2.3',
+    version='4.2.4',
     author='xlcnd',
     author_email='xlcnd@outlook.com',
     url='https://github.com/xlcnd/isbntools',
-    download_url='https://github.com/xlcnd/isbntools/archive/v4.2.3.zip',
+    download_url='https://github.com/xlcnd/isbntools/archive/v4.2.4.zip',
     packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
     entry_points={
         'console_scripts': ['isbn_conf=isbntools.bin.confc:main',
@@ -185,7 +185,7 @@ setup(
     data_files=data_files,
     install_requires=['isbnlib>=3.5.3, <3.6.1'],
     license='LGPL v3',
-    description='Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number).',
+    description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
     keywords='ISBN, validate, transform, hyphenate, metadata, World Catalogue, Google Books, Open Library, isbndb.com, BibTeX, EndNote, RefWorks, MSWord, BibJSON, ISBN-A, doi',
     classifiers=[
