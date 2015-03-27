@@ -86,6 +86,10 @@ set preferences in the file ``isbntools.conf`` in your
 ``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``,
 ``msword``, ``endnote``, ``refworks``, ``opf`` or ``json`` (BibJSON) bibliographic formats.
 
+    **NOTE** 
+    You can apply this command to many ISBNs by using *posix pipes* 
+    (e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
+
 
 .. code-block:: console
 
@@ -103,7 +107,7 @@ validates ISBN10 and ISBN13.
 
     $ ... | isbn_validate
 
-to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_validate``).
+to use with *posix pipes* (e.g. ``cat FILE_WITH_ISBNs | isbn_validate`` in OSX or Linux).
 
     **TIP** Suppose you want to extract the ISBN of a pdf eboook (MYEBOOK.pdf).
     Install pdfminer_ and then enter in a command line::

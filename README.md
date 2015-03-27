@@ -56,6 +56,11 @@ The output can be formatted as `bibtex`, `msword`,  `endnote`, `refworks`, `opf`
 `json` (BibJSON) bibliographic formats.
 
 
+>**NOTE**
+>You can apply this command to many ISBNs by using *posix pipes* 
+>(e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
+
+
 ```bash
 $ isbn_editions ISBN
 ```
@@ -69,7 +74,7 @@ validates ISBN10 and ISBN13.
 ```bash
 $ ... | isbn_validate
 ```
-to use with *pipes* (e.g. `cat FILE_WITH_ISBNs | isbn_validate`).
+to use with *pipes* (e.g. `cat FILE_WITH_ISBNs | isbn_validate` in OSX or Linux).
 
 ```bash
 $ isbn_from_words "words from title and author name"
