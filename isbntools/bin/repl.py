@@ -335,7 +335,7 @@ class ISBNRepl(cmd.Cmd):
             bibf.remove('labels')
         except:
             pass
-        self.columnize(sorted(bibf), self.maxcol-1)
+        self.columnize(sorted(bibf), self.maxcol - 1)
         # self.stdout.write("\n")
 
     def do_PROVIDERS(self, line):
@@ -345,7 +345,7 @@ class ISBNRepl(cmd.Cmd):
             providers.remove('default')
         except:
             pass
-        self.columnize(sorted(providers), self.maxcol-1)
+        self.columnize(sorted(providers), self.maxcol - 1)
         # self.stdout.write("\n")
 
     def do_shell(self, line):
