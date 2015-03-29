@@ -49,6 +49,7 @@ class ISBNRepl(cmd.Cmd):
     prompt = '%sisbn>%s ' % (BOLD, RESET)
     ruler = '-'
     undoc_header = None  # <-- important
+    maxcol = 80
 
 
     # Base Classe Overrides:
@@ -334,8 +335,8 @@ class ISBNRepl(cmd.Cmd):
             bibf.remove('labels')
         except:
             pass
-        for f in sorted(bibf):
-            print(f)
+        self.columnize(sorted(bibf), self.maxcol-1)
+        # self.stdout.write("\n")
 
     def do_PROVIDERS(self, line):
         """Print the list of available providers."""
@@ -344,8 +345,8 @@ class ISBNRepl(cmd.Cmd):
             providers.remove('default')
         except:
             pass
-        for p in sorted(providers):
-            print(p)
+        self.columnize(sorted(providers), self.maxcol-1)
+        # self.stdout.write("\n")
 
     def do_shell(self, line):
         """Run a shell command."""
