@@ -26,6 +26,7 @@ omit =
     *cache.py
     *exceptions*
     *console*
+    *_columnize*
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
