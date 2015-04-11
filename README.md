@@ -289,7 +289,7 @@ THREADS_TIMEOUT=12
 [SERVICES]
 DEFAULT_SERVICE=merge
 VIAS_MERGE=serial
-ISBNDB_API_KEY=your_api_key_here_or_DELETEME
+ISBNDB_API_KEY=
 
 [PLUGINS]
 
@@ -300,7 +300,7 @@ The values are self-explanatory!
 
 
 > **NOTE** If you are running `isbntools` inside a virtual environment, the
-`isbntools.conf` file will be at the root of the environment.
+`isbntools.conf` file will be inside folder `isbntools` at the root of the environment.
 
 The easier way to manipulate these files is by using the script `isbn_conf`.
 At a terminal enter:
