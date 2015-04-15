@@ -1,7 +1,7 @@
 
 
-Info
-====
+Usage
+=====
 
 
 **For the end user** several scripts are provided to use **from the command line**:
