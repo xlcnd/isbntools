@@ -27,9 +27,9 @@ NOTICE = """
 def main(wait=1):
     """Makes an audit report."""
     print((colors.BOLD))
-    print(" isbntools - tools for extracting, cleaning and transforming ISBNs")
+    print(" isbntools - app and framework for 'all things ISBN'")
     print((colors.RESET))
-    print((" Copyright (C) 2014  Alexandre Lima Conde, Version %s" %
+    print((" Copyright (C) 2015  Alexandre Lima Conde, Version %s" %
           __version__))
     print("")
     print(" License LGPL v3")
