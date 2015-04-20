@@ -1,7 +1,7 @@
 # How to Contribute
 
 `isbntools` has a very small code base, so it is a good project to begin your
-adventure in open-source... and it is an app, a lib and a framework at the same
+adventure in open-source... and it is an app and a framework at the same
 time, so you will find plenty of opportunities to contribute.
 
 > **NOTE**: By contributing you agree with the [license terms](LICENSE-LGPL.txt)
