@@ -18,7 +18,7 @@ from . import (EAN13, confc, cover, desc, doi, doi2tex, editions,
                from_words, goom, info, mask, meta,
                to_isbn10, to_isbn13, validate, version)
 from .. import __version__
-from ..app import get_canonical_isbn, registry
+from ..app import CONF_PATH, get_canonical_isbn, registry
 from ..contrib.modules.uxcolors import BOLD, RESET
 
 CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13',
@@ -34,7 +34,7 @@ class ISBNRepl(cmd.Cmd):
 
     """REPL main class."""
 
-    # TODO refactor boilerplate!
+    # TODO refactor boilerplate, write a 'dispatcher'!
 
     last_isbn = ''
     last_isbn_ph = '#'
@@ -53,6 +53,28 @@ class ISBNRepl(cmd.Cmd):
 
 
     # Base Classe Overrides:
+
+    # def preloop(self):
+    #     """Hook method executed once when the cmdloop() method is called."""
+    #     try:
+    #         import readline
+    #         history_file = os.path.join(CONF_PATH, '.isbntools_history')
+    #         if not os.path.exists(history_file):
+    #             with open(history_file, 'w') as f:
+    #                 f.write('')
+    #         readline.read_history_file(history_file)
+    #     except ImportError:
+    #         pass
+    #
+    # def postloop(self):
+    #     """Hook method executed once when the cmdloop() method is about to
+    #     return."""
+    #     try:
+    #         import readline
+    #         history_file = os.path.join(CONF_PATH, '.isbntools_history')
+    #         readline.write_history_file(history_file)
+    #     except ImportError:
+    #         pass
 
     def print_topics(self, header, cmds, cmdlen, maxcol):
         """Override 'print_topics' so that you can exclude EOF."""
@@ -336,7 +358,6 @@ class ISBNRepl(cmd.Cmd):
         except:
             pass
         self.columnize(sorted(bibf), self.maxcol - 1)
-        # self.stdout.write("\n")
 
     def do_PROVIDERS(self, line):
         """Print the list of available providers."""
@@ -346,7 +367,6 @@ class ISBNRepl(cmd.Cmd):
         except:
             pass
         self.columnize(sorted(providers), self.maxcol - 1)
-        # self.stdout.write("\n")
 
     def do_shell(self, line):
         """Run a shell command."""
