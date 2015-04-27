@@ -20,7 +20,8 @@ time, so you will find plenty of opportunities to contribute.
 4. `pip install -r requirements-dev.txt` (at your local directory).
 5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
    and be OS independent** It is easier if you start to write in python 3 and then
-   adapt for python 2) (you will find [Travis](http://bit.ly/travis-isbntools) very handy for
+   adapt for python 2, see [python-future.org](http://python-future.org/))
+   (you will find [Travis](http://bit.ly/travis-isbntools) very handy for
    testing with this requirement!)
 6. Write tests for your code using `nose` and put then in the directory `isbntools/test`
 7. Pass **all tests** and with **coverage > 90%**.
