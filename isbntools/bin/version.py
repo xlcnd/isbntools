@@ -24,7 +24,7 @@ NOTICE = """
 """
 
 
-def main(wait=1):
+def main():
     """Makes an audit report."""
     print((colors.BOLD))
     print(" isbntools - app and framework for 'all things ISBN'")

@@ -16,7 +16,7 @@ from isbnlib import (EAN13, canonical, clean, doi, doi2tex, editions,
 from ._initapp import config, registry, CONF_PATH, CACHE_FILE
 
 # isbntools
-from .contrib.modules.report import check_version, audit, messages
+from .contrib.modules.report import audit
 # from .contrib.modules.rename import ren # <-- cannot be imported
 
 from ._exceptions import ISBNToolsException
@@ -26,7 +26,7 @@ from ._console import uprint
 
 # dunders
 
-__all__ = ('check_version', 'audit', 'messages',
+__all__ = ('audit',
            'ISBNToolsException', 'EAN13', 'cover', 'desc',
            'doi', 'editions', 'get_canonical_isbn', 'canonical',
            'info', 'isbn_from_words', 'get_isbnlike', 'clean',
