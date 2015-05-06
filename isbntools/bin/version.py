@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import time
-
 from isbnlib import RDDATE
 
 from .. import __version__
