@@ -4,7 +4,7 @@
 
 import os
 
-from isbnlib.dev.bouth23 import b, b2u3, u
+from isbnlib.dev._bouth23 import b, b2u3, u
 from isbnlib.dev.helpers import File, cwdfiles
 from isbntools.contrib.modules.rename import (checkpattern, cleannewname,
                                               get_isbn, newfilename,

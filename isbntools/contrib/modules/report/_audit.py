@@ -16,9 +16,6 @@ def audit():
     if cmds:  # pragma: no cover
         print(' The following isbn commands are available on your system:')
         print('')
-        # for c in sorted(cmds):
-        #     print("   {cmd}".format(cmd=c))
-        # print('')
         columnize(sorted(cmds))
         errcode = 0
 
@@ -27,9 +24,6 @@ def audit():
     if plug:  # pragma: no cover
         print(' The following isbntools plugins are available on your system:')
         print('')
-        # for p in sorted(plug):
-        #     print("   {plugin}".format(plugin=p))
-        # print('')
         columnize(sorted(plug))
         errcode = 1 if errcode == 1 else 0
 

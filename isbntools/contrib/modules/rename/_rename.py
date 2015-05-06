@@ -6,7 +6,7 @@ import re
 import string
 import sys
 
-from isbnlib.dev.bouth23 import b2u3, u
+from isbnlib.dev._bouth23 import b2u3, u
 from isbnlib.dev.helpers import File, cutoff_tokens, cwdfiles, last_first
 
 from ....app import EAN13, config, get_isbnlike, meta
