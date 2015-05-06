@@ -57,22 +57,11 @@ def main(wait=1):
            colors.BOLD, RDDATE[0:8], colors.RESET))
     print("")
 
-    # check for updates, messages and pypi packages
+    # check for updates and pypi packages
     print(" Checking %sonline%s services ... %sWAIT%s" %
           (colors.BOLD, colors.RESET, colors.BOLD, colors.RESET))
     try:
-        import threading
-        from isbntools.app import check_version, messages
         from isbntools.contrib.modules.report import check_pypi
-
-        t1 = threading.Thread(target=check_version)
-        t2 = threading.Thread(target=messages)
-        t3 = threading.Thread(target=check_pypi)
-        t3.start()
-        t1.start()
-        t2.start()
-        t1.join()
-        t2.join()
-        t3.join()
-    finally:
-        time.sleep(wait)
+        check_pypi()
+    except:
+        pass

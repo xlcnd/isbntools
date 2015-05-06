@@ -8,7 +8,7 @@ from ._columnize import columnize
 
 
 def audit():
-    """Perform an audit and report on installed scripts and plugins."""
+    """Report on installed scripts and plugins."""
     errcode = 1
 
     cmds = [entry.name for entry in iter_entry_points(group='console_scripts')
