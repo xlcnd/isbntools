@@ -1,18 +1,3 @@
-.. image:: https://pypip.in/v/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/py_versions/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: Python Versions
-
-.. image:: https://pypip.in/license/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: License
-
-.. image:: https://pypip.in/d/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: Downloads
 
 .. image:: https://readthedocs.org/projects/isbntools/badge/?version=latest
     :target: http://isbntools.readthedocs.org/en/latest/

@@ -1,7 +1,3 @@
-[![Latest Version](https://pypip.in/v/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
-[![Python Versions](https://pypip.in/py_versions/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
-[![License](https://pypip.in/license/isbntools/badge.png)](https://pypi.python.org/pypi/isbntools/)
-[![Downloads](https://pypip.in/d/isbntools/badge.svg?style=flat)](https://pypi.python.org/pypi/isbntools/)
 [![Documentation Status](https://readthedocs.org/projects/isbntools/badge/?version=latest)](http://isbntools.readthedocs.org/en/latest/)
 [![Graph](https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/.badges/status.png)](https://sourcegraph.com/github.com/xlcnd/isbntools)
 [![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.2.5)](https://coveralls.io/r/xlcnd/isbntools?branch=v4.2.5)
