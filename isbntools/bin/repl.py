@@ -54,28 +54,6 @@ class ISBNRepl(cmd.Cmd):
 
     # Base Classe Overrides:
 
-    # def preloop(self):
-    #     """Hook method executed once when the cmdloop() method is called."""
-    #     try:
-    #         import readline
-    #         history_file = os.path.join(CONF_PATH, '.isbntools_history')
-    #         if not os.path.exists(history_file):
-    #             with open(history_file, 'w') as f:
-    #                 f.write('')
-    #         readline.read_history_file(history_file)
-    #     except ImportError:
-    #         pass
-    #
-    # def postloop(self):
-    #     """Hook method executed once when the cmdloop() method is about to
-    #     return."""
-    #     try:
-    #         import readline
-    #         history_file = os.path.join(CONF_PATH, '.isbntools_history')
-    #         readline.write_history_file(history_file)
-    #     except ImportError:
-    #         pass
-
     def print_topics(self, header, cmds, cmdlen, maxcol):
         """Override 'print_topics' so that you can exclude EOF."""
         if header:
