@@ -55,12 +55,12 @@ class ISBNRepl(cmd.Cmd):
     # Base Classe Overrides:
 
     def print_topics(self, header, cmds, cmdlen, maxcol):
-        """Override 'print_topics' so that you can exclude EOF."""
+        """Override 'print_topics' so that you can exclude EOF and shell."""
         if header:
             if cmds:
-                self.stdout.write("%s\n"%str(header))
+                self.stdout.write("%s\n" % str(header))
                 if self.ruler:
-                    self.stdout.write("%s\n"%str(self.ruler * len(header)))
+                    self.stdout.write("%s\n" % str(self.ruler * len(header)))
                 self.columnize(cmds, maxcol-1)
                 self.stdout.write("\n")
 
@@ -346,7 +346,6 @@ class ISBNRepl(cmd.Cmd):
         self.columnize(sorted(providers), self.maxcol - 1)
 
     def do_shell(self, line):
-        """Run a shell command."""
         if not line:
             return
         sp = Popen(line,
