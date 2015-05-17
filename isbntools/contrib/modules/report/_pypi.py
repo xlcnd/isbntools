@@ -41,7 +41,6 @@ def shell(shcmd=None):
     if out:
         return out
     if err:  # pragma: no cover
-        print(err)
         return 1
 
 
