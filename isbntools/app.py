@@ -39,6 +39,7 @@ defaults_conf = 'DEFAULTS'
 
 
 def cover(isbn):
+    """Driver function to get the cover of a book."""
     cache = registry.covers_cache
     key = isbn
     _, cvr = cache[key] if cache[key] else (None, None)
