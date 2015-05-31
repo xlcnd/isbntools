@@ -275,23 +275,6 @@ You should check if the install was successful, by enter:
     $ isbntools
 
 
-Portable Version (Windows and Linux)
-------------------------------------
-
-If you are on a Windows or Linux system,
-you can download a portable_ version that **doesn't need python** and gives you
-access to the scripts. However, doesn't support add-ins or customization!
-
-
-
-    **Instructions**:
-
-    1. unzip the file and put the file ``isbn.exe`` in a folder.
-    2. go to that folder and open a command line.
-    3. run ``isbn help`` to get further instructions.
-
-
-
 For Devs
 ========
 
@@ -412,8 +395,6 @@ More documentation at Read the Docs_.
 .. _read: http://isbntools.readthedocs.org/en/latest/devs.html
 
 .. _guidelines: http://bit.ly/1jcxq8W
-
-.. _portable: http://bit.ly/1i8qatY
 
 .. _twitter: https://twitter.com/isbntools
 
