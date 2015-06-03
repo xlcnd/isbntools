@@ -4,9 +4,9 @@ os:
 - linux
 - osx
 branches:
-    except:
-    - gh-pages
-    - master
+    only:
+    - v4.2.5
+    - none
 matrix:
     include:
     - python: "2.7"
