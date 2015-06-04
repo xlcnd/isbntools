@@ -69,4 +69,4 @@ v4.2.1, 2015-02-27 -- Fix bug #84, add 'cover' and 'desc' features.
 v4.2.2, 2015-03-16 -- ThingISBN service for editions and CoversCache, fix bug #85.
 v4.2.3, 2015-03-27 -- Pipe mode for isbn_meta.
 v4.2.4, 2015-04-10 -- Use columnize in repl and use new isbnlib.
-v4.2.5, 2015-04-10 -- Small miscellaneous improvements.
+v4.2.5, 2015-06-04 -- Small miscellaneous improvements.
