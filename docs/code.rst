@@ -34,7 +34,7 @@ Status
     :target: https://pypi.python.org/pypi/isbntools/
     :alt: License
 
-.. image:: https://sourcegraph.com/api/repos/github.com/xlcnd/isbntools/badges/status.svg
+.. image:: https://img.shields.io/badge/Sourcegraph-Status-blue.svg
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
