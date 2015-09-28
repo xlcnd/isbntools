@@ -53,7 +53,7 @@ The output can be formatted as `bibtex`, `msword`,  `endnote`, `refworks`, `opf`
 
 
 >**NOTE**
->You can apply this command to many ISBNs by using *posix pipes* 
+>You can apply this command to many ISBNs by using *posix pipes*
 >(e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
 
 
@@ -301,7 +301,7 @@ isbntools.contrib
 
 To get extra functionality,
 [search pypi](https://pypi.python.org/pypi?%3Aaction=search&term=isbntools.contrib&submit=search)
-for packages starting with ``isbntools.contrib`` **or** type at a terminal:
+for packages starting with `isbntools.contrib` **or** type at a terminal:
 
 ```bash
 $ pip search isbntools
