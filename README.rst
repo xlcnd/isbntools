@@ -71,8 +71,8 @@ set preferences in the file ``isbntools.conf`` in your
 ``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``,
 ``msword``, ``endnote``, ``refworks``, ``opf`` or ``json`` (BibJSON) bibliographic formats.
 
-    **NOTE** 
-    You can apply this command to many ISBNs by using *posix pipes* 
+    **NOTE**
+    You can apply this command to many ISBNs by using *posix pipes*
     (e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
 
 
@@ -193,7 +193,7 @@ Following is a typical session:
     $ isbn> cover #
     See '9780156001311.jpg'
     $ isbn> !ls
-    9780156001311.jpg  myreferences.bib    
+    9780156001311.jpg  myreferences.bib
     $ isbn> exit
     bye
 
