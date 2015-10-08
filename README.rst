@@ -268,11 +268,21 @@ or:
 
 (first you have to download the file!)
 
+
+For *arch linux*, you can install it using your distribution package
+manager:
+
+.. code-block:: bash
+
+    $ pacman -S python-isbntools
+
+
 You should check if the install was successful, by enter:
 
 .. code-block:: console
 
     $ isbntools
+
 
 
 For Devs
