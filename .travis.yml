@@ -1,8 +1,5 @@
 sudo: true
 language: python
-os:
-- linux
-- osx
 branches:
     only:
     - v4.2.6
@@ -19,12 +16,20 @@ matrix:
       env: TOXENV=pypy
     - python: "2.6"
       env: TOXENV=py26
+    - python: "3.5"
+      env: TOXENV=py35
+    - python: "pypy"
+      env: TOXENV=pypy
+    - python: "pypy3"
+      env: TOXENV=pypy3
     - python: "2.7"
       env: TOXENV=checkers
     - python: "2.7"
       env: DOC=sphinx
     allow_failures:
+    - env: TOXENV=py35
     - env: TOXENV=pypy
+    - env: TOXENV=pypy3
     - env: TOXENV=checkers
 install:
 - pip install tox
