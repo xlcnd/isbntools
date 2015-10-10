@@ -44,7 +44,7 @@ SECONDRUN = INSTALL and not FIRSTRUN
 
 # CHECK SUPPORT
 if INSTALL and FIRSTRUN:
-    SUPPORTED = ((2, 6), (2, 7), (3, 3), (3, 4))
+    SUPPORTED = ((2, 6), (2, 7), (3, 2), (3, 3), (3, 4), (3, 5))
     if tuple(int(x) for x in sys.version[:3].split('.')) not in SUPPORTED:
         raise Exception('isbntools %s  requires Python 2.6+ or 3.3+.' %
                         __version__)
