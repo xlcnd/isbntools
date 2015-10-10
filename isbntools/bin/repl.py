@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-
 """REPL for isbn."""
 
 import cmd
@@ -14,16 +13,15 @@ from subprocess import PIPE, Popen
 
 from isbnlib.dev.helpers import fmts
 
-from . import (EAN13, confc, cover, desc, doi, doi2tex, editions,
-               from_words, goom, info, mask, meta,
-               to_isbn10, to_isbn13, validate, version)
+from . import (EAN13, confc, cover, desc, doi, doi2tex, editions, from_words,
+               goom, info, mask, meta, to_isbn10, to_isbn13, validate, version)
 from .. import __version__
 from ..app import CONF_PATH, get_canonical_isbn, registry
 from ..contrib.modules.uxcolors import BOLD, RESET
 
-CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13',
-        'editions', 'goom', 'info', 'mask', 'meta', 'from_words',
-        'PROVIDERS', 'shell', 'validate']
+CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13', 'editions',
+        'goom', 'info', 'mask', 'meta', 'from_words', 'PROVIDERS', 'shell',
+        'validate']
 PREFIX = ''
 PY2 = sys.version < '3'
 WINDOWS = os.name == 'nt'
@@ -31,7 +29,6 @@ EOL = '\r\n' if WINDOWS and not PY2 else '\n'
 
 
 class ISBNRepl(cmd.Cmd):
-
     """REPL main class."""
 
     # TODO refactor boilerplate, write a 'dispatcher'!
@@ -48,9 +45,8 @@ class ISBNRepl(cmd.Cmd):
     ''' % (BOLD, __version__, RESET, last_isbn_ph)
     prompt = '%sisbn>%s ' % (BOLD, RESET)
     ruler = '-'
-    undoc_header = None  # <-- important
+    undoc_header = None  # <-- IMPORTANT
     maxcol = 80
-
 
     # Base Classe Overrides:
 
@@ -61,7 +57,7 @@ class ISBNRepl(cmd.Cmd):
                 self.stdout.write("%s\n" % str(header))
                 if self.ruler:
                     self.stdout.write("%s\n" % str(self.ruler * len(header)))
-                self.columnize(cmds, maxcol-1)
+                self.columnize(cmds, maxcol - 1)
                 self.stdout.write("\n")
 
     def default(self, s):
@@ -297,8 +293,7 @@ class ISBNRepl(cmd.Cmd):
               '=>meta 9780156001311 wcat endnote\n'
               '=>meta 9780156001311\n'
               '=>meta 9780156001311 tex\n'
-              '=>meta # opf'
-              )
+              '=>meta # opf')
 
     def do_to_isbn10(self, line):
         """to_isbn10 ISBN13\n=>to_isbn10 9780156001311"""
@@ -353,8 +348,7 @@ class ISBNRepl(cmd.Cmd):
                    stdin=PIPE,
                    stdout=PIPE,
                    stderr=PIPE,
-                   close_fds=not WINDOWS
-                   )
+                   close_fds=not WINDOWS)
         (fo, fe) = (sp.stdout, sp.stderr)
         if PY2:
             out = fo.read().strip(EOL)
