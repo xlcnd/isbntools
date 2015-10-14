@@ -9,7 +9,7 @@ import sys
 from isbnlib.dev._bouth23 import b2u3, u
 from isbnlib.dev.helpers import File, cutoff_tokens, cwdfiles, last_first
 
-from ....app import EAN13, config, get_isbnlike, meta
+from ....app import ean13, config, get_isbnlike, meta
 
 LOGGER = logging.getLogger(__name__)
 
@@ -49,7 +49,7 @@ PATTERN = PATTERN if checkpattern(PATTERN) else DEFAULT_PATT
 def get_isbn(filename):
     """Extract the ISBN from file's name."""
     isbnlikes = get_isbnlike(filename, level='normal')
-    eans = [EAN13(isbnlike) for isbnlike in isbnlikes] if isbnlikes else None
+    eans = [ean13(isbnlike) for isbnlike in isbnlikes] if isbnlikes else None
     isbn = eans[0] if eans else None
     if not isbn:            # pragma: no cover
         LOGGER.warning('No ISBN found in name of file %s', filename)

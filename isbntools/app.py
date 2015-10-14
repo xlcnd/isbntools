@@ -6,7 +6,7 @@ from shutil import copyfile
 
 # isbnlib hook -- only top level functions
 from isbnlib import __version__ as libversion
-from isbnlib import (EAN13, canonical, clean, doi, doi2tex, editions,
+from isbnlib import (ean13, canonical, clean, doi, doi2tex, editions,
                      get_canonical_isbn, get_isbnlike, goom, info,
                      isbn_from_words, mask, meta, quiet_errors, to_isbn10,
                      to_isbn13, desc, cover as libcover)
@@ -26,13 +26,12 @@ from ._console import uprint
 
 # dunders
 
-__all__ = ('audit',
-           'ISBNToolsException', 'EAN13', 'cover', 'desc',
-           'doi', 'editions', 'get_canonical_isbn', 'canonical',
-           'info', 'isbn_from_words', 'get_isbnlike', 'clean',
-           'mask', 'meta', 'to_isbn10', 'to_isbn13', 'goom',
-           'libversion', 'config', 'registry', 'doi2tex', 'quiet_errors',
-           'CONF_PATH', 'CACHE_FILE', 'uprint')
+__all__ = ('audit', 'ISBNToolsException', 'ean13', 'cover', 'desc', 'doi',
+           'editions', 'get_canonical_isbn', 'canonical', 'info',
+           'isbn_from_words', 'get_isbnlike', 'clean', 'mask', 'meta',
+           'to_isbn10', 'to_isbn13', 'goom', 'libversion', 'config',
+           'registry', 'doi2tex', 'quiet_errors', 'CONF_PATH', 'CACHE_FILE',
+           'uprint')
 
 pkg_path = _os.path.dirname(_os.path.abspath(__file__))
 defaults_conf = 'DEFAULTS'

@@ -96,7 +96,7 @@ returns the doi's ISBN-A code of a given ISBN.
 
 .. code-block:: bash
 
-    $ isbn_EAN13 ISBN
+    $ isbn_ean13 ISBN
 
 returns the EAN13 code of a given ISBN.
 
@@ -142,7 +142,7 @@ Following is a typical session:
     Commands available (type ?<command> to get help):
     -------------------------------------------------
     BIBFORMATS  audit  desc     editions    goom  mask   to_isbn10
-    EAN13       conf   doi      exit        help  meta   to_isbn13
+    ean13       conf   doi      exit        help  meta   to_isbn13
     PROVIDERS   cover  doi2tex  from_words  info  shell  validate
 
     $ isbn> meta 9780156001311 tex

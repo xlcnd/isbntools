@@ -2,7 +2,7 @@
 
 import sys
 
-from ..app import EAN13, quiet_errors
+from ..app import ean13, quiet_errors
 
 PREFIX = 'isbn_'
 
@@ -16,6 +16,6 @@ def main(isbn=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
         isbn = sys.argv[1] if not isbn else isbn[1]
-        print(EAN13(isbn))
+        print(ean13(isbn))
     except:
         usage(prefix)

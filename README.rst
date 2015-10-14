@@ -124,7 +124,7 @@ returns the doi's ISBN-A code of a given ISBN.
 
 .. code-block:: console
 
-    $ isbn_EAN13 ISBN
+    $ isbn_ean13 ISBN
 
 returns the EAN13 code of a given ISBN.
 

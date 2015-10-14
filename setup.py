@@ -165,7 +165,7 @@ setup(
         'console_scripts': ['isbn_conf=isbntools.bin.confc:main',
                             'isbn_doi=isbntools.bin.doi:main',
                             'isbn_doi2tex=isbntools.bin.doi2tex:main',
-                            'isbn_EAN13=isbntools.bin.EAN13:main',
+                            'isbn_ean13=isbntools.bin.ean13:main',
                             'isbn_editions=isbntools.bin.editions:main',
                             'isbn_from_words=isbntools.bin.from_words:main',
                             'isbn_goom=isbntools.bin.goom:main',

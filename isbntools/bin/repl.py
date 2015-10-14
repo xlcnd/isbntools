@@ -13,13 +13,13 @@ from subprocess import PIPE, Popen
 
 from isbnlib.dev.helpers import fmts
 
-from . import (EAN13, confc, cover, desc, doi, doi2tex, editions, from_words,
+from . import (ean13, confc, cover, desc, doi, doi2tex, editions, from_words,
                goom, info, mask, meta, to_isbn10, to_isbn13, validate, version)
 from .. import __version__
 from ..app import CONF_PATH, get_canonical_isbn, registry
 from ..contrib.modules.uxcolors import BOLD, RESET
 
-CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'EAN13', 'editions',
+CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'ean13', 'editions',
         'goom', 'info', 'mask', 'meta', 'from_words', 'PROVIDERS', 'shell',
         'validate']
 PREFIX = ''
@@ -208,14 +208,14 @@ class ISBNRepl(cmd.Cmd):
         if args:
             doi2tex.main(args, prefix=PREFIX)
 
-    def do_EAN13(self, line):
-        """EAN13 ISBN"""
+    def do_ean13(self, line):
+        """ean13 ISBN"""
         if not line:
-            print(self.do_EAN13.__doc__)
+            print(self.do_ean13.__doc__)
             return
-        args = self._parse('EAN13', line)
+        args = self._parse('ean13', line)
         if args:
-            EAN13.main(args, prefix=PREFIX)
+            ean13.main(args, prefix=PREFIX)
 
     def do_editions(self, line):
         """editions ISBN"""
