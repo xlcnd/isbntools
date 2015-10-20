@@ -9,7 +9,7 @@ import sys
 from isbnlib.dev._bouth23 import b2u3, u
 from isbnlib.dev.helpers import File, cutoff_tokens, cwdfiles, last_first
 
-from ....app import ean13, config, get_isbnlike, meta
+from ....app import config, ean13, get_isbnlike, meta
 
 LOGGER = logging.getLogger(__name__)
 
@@ -51,7 +51,7 @@ def get_isbn(filename):
     isbnlikes = get_isbnlike(filename, level='normal')
     eans = [ean13(isbnlike) for isbnlike in isbnlikes] if isbnlikes else None
     isbn = eans[0] if eans else None
-    if not isbn:            # pragma: no cover
+    if not isbn:  # pragma: no cover
         LOGGER.warning('No ISBN found in name of file %s', filename)
         sys.stderr.write('no ISBN found in name of file %s \n' % filename)
         return
@@ -107,12 +107,12 @@ def renfile(filename, isbn, service, pattern=PATTERN):
     """Rename file with associate ISBN."""
     service = service if service else 'default'
     metadata = meta(isbn, service)
-    if not metadata:        # pragma: no cover
+    if not metadata:  # pragma: no cover
         LOGGER.warning('No metadata for %s', filename)
         sys.stderr.write('No metadata for %s\n' % filename)
         return
     newname = newfilename(metadata, pattern)
-    if not newname:         # pragma: no cover
+    if not newname:  # pragma: no cover
         LOGGER.warning('%s NOT renamed!', filename)
         sys.stderr.write('%s NOT renamed \n' % filename)
         return
@@ -124,13 +124,13 @@ def renfile(filename, isbn, service, pattern=PATTERN):
         return True
     success = oldfile.baserename(newbasename)
     if success:
-        try:                # pragma: no cover
+        try:  # pragma: no cover
             sys.stdout.write('%s renamed to %s \n' %
                              (oldbasename, oldfile.basename))
-        except:             # pragma: no cover
+        except:  # pragma: no cover
             pass
         return True
-    return                  # pragma: no cover
+    return  # pragma: no cover
 
 
 def rencwdfiles(fnpatt="*", service='default', pattern=PATTERN):
