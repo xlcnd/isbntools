@@ -60,7 +60,7 @@ The output can be formatted as `bibtex`, `msword`,  `endnote`, `refworks`, `opf`
 ```bash
 $ isbn_editions ISBN
 ```
-gives the collection of ISBNs that represent a given book (uses worldcat.org).
+gives the collection of ISBNs that represent a given book (uses *Open Library* and *LibraryThing*).
 
 ```bash
 $ isbn_validate ISBN

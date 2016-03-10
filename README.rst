@@ -80,7 +80,7 @@ set preferences in the file ``isbntools.conf`` in your
 
     $ isbn_editions ISBN
 
-gives the collection of ISBNs that represent a given book (uses worldcat.org).
+gives the collection of ISBNs that represent a given book (uses **Open Library** and **LibraryThing**).
 
 .. code-block:: console
 
