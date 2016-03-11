@@ -7,15 +7,15 @@
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.svg?branch=v4.2.7
-    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.2.7
+.. image:: https://coveralls.io/repos/xlcnd/isbntools/badge.svg?branch=v4.2.8
+    :target: https://coveralls.io/r/xlcnd/isbntools?branch=v4.2.8
     :alt: Coverage
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.2.7
+.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.2.8
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.2.7&svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.2.8&svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbntools
     :alt: Windows Built Status
 
@@ -160,7 +160,7 @@ Following is a typical session:
 
     $ isbn_repl
 
-        Welcome to the isbntools 4.2.7 REPL.
+        Welcome to the isbntools 4.2.8 REPL.
         ** For help type 'help' or '?'
         ** To exit type 'exit' :)
         ** To run a shell command, type '!<shellcmnd>'
@@ -264,7 +264,7 @@ or:
 
 .. code-block:: console
 
-    $ pip install isbntools-4.2.7.tar.gz
+    $ pip install isbntools-4.2.8.tar.gz
 
 (first you have to download the file!)
 
