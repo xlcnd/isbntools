@@ -268,9 +268,19 @@ or:
 
 (first you have to download the file!)
 
-
-For *arch linux*, you can install it using your distribution package
+If you use linux systems, you can install using your distribution package
 manager:
+
+debian/ubuntu systems
+
+.. code-block:: bash
+
+    $ sudo apt-get install python-isbntools
+
+Note
+    For python 3, install package ``python3-isbntools``.
+
+For *arch linux*, 
 
 .. code-block:: bash
 
