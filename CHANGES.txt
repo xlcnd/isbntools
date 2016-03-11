@@ -71,4 +71,4 @@ v4.2.3, 2015-03-27 -- Pipe mode for isbn_meta.
 v4.2.4, 2015-04-10 -- Use columnize in repl and use new isbnlib.
 v4.2.5, 2015-06-04 -- Small miscellaneous improvements.
 v4.2.6, 2015-11-23 -- Support for py35 and pypy3.
-v4.2.7, 2015-11-23 -- Update to isbnlib-3.5.8.
+v4.2.7, 2016-03-11 -- Update to isbnlib-3.5.8.
