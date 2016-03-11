@@ -232,7 +232,7 @@ debian/ubuntu systems
 $ sudo apt-get install python-isbntools
 ```
 
->*Note:* for python 3, install package `python3-isbntools`.
+>**Note:** for python 3, install package `python3-isbntools`.
 
 
 For *arch linux*, 
