@@ -256,7 +256,7 @@ probably you will better served with [isbnlib](http://bit.ly/ISBNlib),
 it implements the basic functionality
 of `isbntools` without end user scripts and configuration files!
 
-If you thing that that is not enough,
+If you think that that is not enough,
 please read at least [this page of the documentation](http://isbntools.readthedocs.org/en/latest/devs.html).
 
 If you would like to contribute to the project please read the [guidelines](http://bit.ly/1jcxq8W).
