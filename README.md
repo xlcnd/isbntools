@@ -3,6 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.2.8)](https://coveralls.io/r/xlcnd/isbntools?branch=v4.2.8)
 [![Build Status](https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.2.8)](https://travis-ci.org/xlcnd/isbntools)
 [![Build status](https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.2.8&svg=true)](https://ci.appveyor.com/project/xlcnd/isbntools)
+[![Conda](https://anaconda.org/auto/isbntools/badges/installer/conda.svg)](https://conda.anaconda.org/auto)
 
 
 

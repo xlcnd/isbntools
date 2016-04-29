@@ -50,6 +50,9 @@ Status
     :target: https://ci.appveyor.com/project/xlcnd/isbntools
     :alt: Windows Built Status
 
+.. image:: https://anaconda.org/auto/isbntools/badges/installer/conda.svg   
+    :target: https://conda.anaconda.org/auto
+    :alt: Anaconda Installer
 
 -------------------------------------------------------------------------------------------------------
 
