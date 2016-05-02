@@ -31,13 +31,6 @@ You should check if the install was successful, by enter:
 
     $ isbntools
 
-And finally, if you use Anaconda: 
-
-.. image:: https://anaconda.org/auto/isbntools/badges/installer/conda.svg   
-    :target: https://conda.anaconda.org/auto
-    :alt: Anaconda Installer
-
-
 
 
 .. _github: https://github.com/xlcnd/isbntools/issues
