@@ -9,7 +9,7 @@ from ..app import (canonical, clean, config, get_canonical_isbn, meta,
 PREFIX = 'isbn_'
 
 fmtbib = lambda x, y: registry.bibformatters[x](y)
-fmts = list(registry.services.keys())
+fmts = list(registry.bibformatters.keys())
 
 
 def usage(prefix, wservs="wcat|goob|...", ofmts="labels"):
