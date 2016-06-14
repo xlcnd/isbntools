@@ -25,7 +25,7 @@ PY2 = sys.version < '3'
 WINDOWS = os.name == 'nt'
 EOL = '\r\n' if WINDOWS and not PY2 else '\n'
 
-fmts = registry.BIB_FORMATS
+fmts = list(registry.services.keys())
 
 
 class ISBNRepl(cmd.Cmd):
