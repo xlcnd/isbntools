@@ -11,8 +11,6 @@ import sys
 from difflib import get_close_matches
 from subprocess import PIPE, Popen
 
-from isbnlib.dev.helpers import fmts
-
 from . import (ean13, confc, cover, desc, doi, doi2tex, editions, from_words,
                goom, info, mask, meta, to_isbn10, to_isbn13, validate, version)
 from .. import __version__
@@ -26,6 +24,8 @@ PREFIX = ''
 PY2 = sys.version < '3'
 WINDOWS = os.name == 'nt'
 EOL = '\r\n' if WINDOWS and not PY2 else '\n'
+
+fmts = registry.BIB_FORMATS
 
 
 class ISBNRepl(cmd.Cmd):
