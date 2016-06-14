@@ -3,8 +3,6 @@
 import sys
 from difflib import get_close_matches
 
-# from isbnlib.dev.helpers import fmtbib, fmts
-
 from ..app import (canonical, clean, config, get_canonical_isbn, meta,
                    quiet_errors, registry, uprint)
 
@@ -15,6 +13,7 @@ fmts = registry.BIB_FORMATS
 
 
 def usage(prefix, wservs="wcat|goob|...", ofmts="labels"):
+    """Usage message."""
     sys.stderr.write('Usage: %smeta ISBN [%s] [%s] [apikey]\n  '
                      '...  or try with '
                      'another service in list!\n' % (prefix, wservs, ofmts))
@@ -22,6 +21,7 @@ def usage(prefix, wservs="wcat|goob|...", ofmts="labels"):
 
 
 def parse_args(args):
+    """Parse args from command line."""
     service = None
     api = None
     fmt = None
@@ -87,6 +87,7 @@ def do_terminal(args=None):
 
 
 def main(args=None, prefix=PREFIX):
+    """Metadata for a given ISBN."""
     sys.excepthook = quiet_errors
     try:
         return do_terminal(args) if sys.stdin.isatty() else do_pipe()
