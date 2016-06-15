@@ -162,8 +162,8 @@ Following is a typical session:
     overshadowed by seven bizarre deaths. Translated by William Weaver. A Helen
     and Kurt Wolff Book
     $ isbn> cover #
-         thumbnail:  http://books.google.pt/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1&source=gbs_api
-    smallThumbnail:  http://books.google.pt/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5&source=gbs_api
+         thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
+    smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
     $ isbn> !ls
     9780156001311.jpg  myreferences.bib    
     $ isbn> exit
