@@ -48,30 +48,6 @@ def purgecache():
         pass
 
 
-def lscovers():
-    try:
-        cache = registry.covers_cache
-        for fp in cache.files():
-            if 'index' in fp:
-                continue
-            print(os.path.basename(fp))
-    except:
-        pass
-
-
-def cpcovers():
-    try:
-        cache = registry.covers_cache
-        os.mkdir('covers')
-        for key in cache.keys():
-            _, pth = cache[key]
-            target = os.path.join('covers', os.path.basename(pth))
-            copyfile(pth, target)
-        print("Images copied to 'covers' folder.")
-    except:
-        pass
-
-
 def range_date():
     try:
         from isbnlib import RDDATE
@@ -91,8 +67,6 @@ VERBS = {'show': print_conf,
          'dumpcache': dumpcache,
          'purgecache': purgecache,
          'rdate': range_date,
-         'lscovers': lscovers,
-         'cpcovers': cpcovers,
          }
 
 
@@ -111,8 +85,6 @@ def usage(prefix=PREFIX):
                      'cachepath                        show the path of the cache\n'
                      'dumpcache                        write the cache to sys.stdout\n'
                      'purgecache                       delete low yield keys from cache\n'
-                     'lscovers                         list the covers in cache\n'
-                     'cpcovers                         copy covers in cache to a folder\n'
                      'rdate                            show date of the isbn range db\n'
                      )
     return 1
