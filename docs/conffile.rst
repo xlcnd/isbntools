@@ -24,8 +24,6 @@ The file should look like:
     VIAS_MERGE=serial
     ISBNDB_API_KEY=
 
-    [PLUGINS]
-
 
 The values are self-explanatory!
 

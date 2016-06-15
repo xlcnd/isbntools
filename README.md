@@ -289,8 +289,6 @@ DEFAULT_SERVICE=merge
 VIAS_MERGE=serial
 ISBNDB_API_KEY=
 
-[PLUGINS]
-
 ...
 ```
 
