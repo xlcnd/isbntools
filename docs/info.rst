@@ -163,9 +163,7 @@ Following is a typical session:
     and Kurt Wolff Book
     $ isbn> cover #
          thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
-    smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
-    $ isbn> !ls
-    myreferences.bib    
+    smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5   
     $ isbn> exit
     bye
 
