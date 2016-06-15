@@ -153,7 +153,8 @@ heresy, but Brother William of Baskerville’s investigation is suddenly
 overshadowed by seven bizarre deaths. Translated by William Weaver. A Helen
 and Kurt Wolff Book
 $ isbn> cover #
-See '9780156001311.jpg'
+     thumbnail:  http://books.google.pt/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1&source=gbs_api
+smallThumbnail:  http://books.google.pt/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5&source=gbs_api
 $ isbn> !ls
 9780156001311.jpg  myreferences.bib
 $ isbn> exit

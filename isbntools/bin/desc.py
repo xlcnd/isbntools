@@ -21,6 +21,6 @@ def main(args=None, prefix=PREFIX):
         content = desc(args)
         content = fill(content, width=75) if content else None
         if content:
-            uprint()
+            uprint(content)
     except:
         usage(prefix)

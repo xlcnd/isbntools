@@ -137,15 +137,6 @@ else:
         # stay with the default in-memory cache
         pass
 
-# set covers cache
-if config.options.get('COVERSCACHE', 'UNDEFINED').lower() == 'no':
-    registry.set_covers_cache(None)
-else:
-    CACHE_FOLDER = '.covers'
-    cache_path = os.path.join(CONF_PATH, CACHE_FOLDER)
-    from isbnlib.dev.helpers import CoversCache
-    registry.set_covers_cache(CoversCache(cache_path))
-
 # set logger
 fmt = "%(asctime)s;%(levelname)s;%(message)s"
 if CONF_PATH:

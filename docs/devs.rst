@@ -72,34 +72,8 @@ very easy to integrate your classes with the rest of the lib.
 Plugins
 -------
 
-One easy way to do that, is to write a new metadata provider that will work as a **plugin**.
-(You can use as source a web service, a database, ... ). We just had to follow these steps:
-
-1. Write a python file with a short name, let us say ``goodr.py``. You can
-   follow as models wcat_ or isbndb_, but the only **mandatory** requirement is
-   that it **must** have a function called ``query``, with signature
-   ``query(isbn)``, and that **must** return records in a standard form (like ``wcat`` for
-   example). One way to garantee that, is by *returning* with ``return
-   stdmeta(records)``. You can **download a template for a plugin** here_.
-
-2. Create a new section called ``[PLUGINS]`` in ``isbntools.conf`` and, for the
-   example above, enter a new line like this ``goodr=/full/path/to/directory/of/py/file``.
-   **In alternative**, you can use *setuptools's entry points* and enter in your
-   ``setup.py`` file something like this::
-
-       entry_points = {
-            'isbntools.plugin': ['goodr=mypackage.goodr:query'],
-                       },
-       install_requires=["isbntools>=3.3.6"],
-
-3. If your plugin uses a service with an API key (e.g. qWeRTY), you must enter a new line in
-   the ``[SERVICES]`` section like this ``GOODR_API_KEY=qWeRTY``.
-
-Now you could use ``isbn_meta 9780321534965 goodr`` to get the metadata of ``9780321534965``.
-
-If you think that your *service* could be useful to other persons, publish it to *pypi* using the
-name ``isbntools.contrib.yourservice`` or clone the ``isbntools`` repository on GitHub_ and
-make a pull request [help_]!
+The support for pluggins **was dropped** from ``isbntools``, however continues to support modules! 
+The reason is that ``isbnlib`` now supports plugins for metadata and new formatters. 
 
 
 Merge Metadata
@@ -114,7 +88,6 @@ It gives priority to ``wcat`` but overwrites the ``Authors`` field with the valu
 Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
 by default (faster for fast Internet connections).
 You can change that, by setting ``VIAS_MERGE=parallel`` or ``VIAS_MERGE=multi`` (see note below).
-You can write your own *merging scheme* by creating a new provider (see_ ``merge`` for an example).
 
     **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
 
@@ -148,15 +121,7 @@ as examples on how to use the library and as debugger tools for your implementat
 You can browse the code at GitHub_.
 
 
-.. _wcat: https://github.com/xlcnd/isbntools/blob/master/isbntools/_wcat.py
 
-.. _isbndb: https://github.com/xlcnd/isbntools/blob/master/isbntools/_isbndb.py
-
-.. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/_merge.py
-
-.. _here: https://github.com/xlcnd/isbntools/raw/dev/PLUGIN.zip
-
-.. _help: http://bit.ly/1jcxq8W
 
 .. _GitHub: http://bit.ly/1oTm5ze
 

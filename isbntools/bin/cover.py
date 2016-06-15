@@ -17,7 +17,7 @@ def main(args=None, prefix=PREFIX):
     try:
         args = sys.argv[1] if not args else args[1]
         lnks = cover(args)
-        if lnks:
-            print(lnks)
+        for k, v in lnks.items():
+            print("%s:  %s" % (k, v))
     except:
         usage(prefix)
