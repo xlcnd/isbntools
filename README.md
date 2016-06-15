@@ -156,7 +156,7 @@ $ isbn> cover #
      thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
 smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
 $ isbn> !ls
-9780156001311.jpg  myreferences.bib
+myreferences.bib
 $ isbn> exit
 bye
 ```
