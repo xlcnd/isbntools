@@ -16,6 +16,8 @@ def main(args=None, prefix=PREFIX):
     sys.excepthook = quiet_errors
     try:
         args = sys.argv[1] if not args else args[1]
-        print(cover(args))
+        lnks = cover(args)
+        if lnks:
+            print(lnks)
     except:
         usage(prefix)
