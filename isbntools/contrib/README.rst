@@ -32,7 +32,7 @@ You have three possibilities:
 
    
   **NOTE**
-  For new metadata providers and new formatters use ``isbnlib``plugins.
+  For new metadata providers and new formatters use **isbnlib plugins**.
 
 
 
