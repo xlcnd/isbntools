@@ -25,8 +25,8 @@ You have three possibilities:
 
 
 3. If the functionality of your module is exposed by a script, put that script inside the folder ``apps``
-   and use `entry_points` 'console_scripts' (take a look at setup_). The name of the script must be something
-   like ``isbn_myscript`` (prefixed by 'isbn\_'). 
+   and use *entry_points* 'console_scripts' (take a look at setup_). The (entry_points) name of the script 
+   must be something like ``isbn_myscript`` (prefixed by 'isbn\_'). 
 
 
 .. _initapp: https://github.com/xlcnd/isbntools/blob/dev/isbntools/_initapp.py
