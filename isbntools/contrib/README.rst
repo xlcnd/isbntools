@@ -12,8 +12,8 @@ You have three possibilities:
    with **no** external dependencies. If approved will be installed with the main package. 
    **You don't have to write the install script**!  
 
-2. Write your code using the namespace ``isbntools.contrib`` as prefix and call your package 
-   ``isbntools.contrib.yourpackagename``, then upload it to **pypi**. You will have to write the
+2. Write your code using the namespace ``isbntools.contrib.modules`` as prefix and call your package 
+   ``isbntools.contrib.modules.yourpackagename``, then upload it to **pypi**. You will have to write the
    install script.
 
    Note that to hook up your code you *usually* need to register it in the ``isbntools.conf`` file. 
@@ -25,7 +25,8 @@ You have three possibilities:
 
 
 3. If the functionality of your module is exposed by a script, put that script inside the folder ``apps``
-   and use `entry_points` 'console_scripts' (take a look at setup_).
+   and use `entry_points` 'console_scripts' (take a look at setup_). The name of the script must be something
+   like ``isbn_myscript`` (prefixed by 'isbn_'). 
 
 
 .. _initapp: https://github.com/xlcnd/isbntools/blob/dev/isbntools/_initapp.py
