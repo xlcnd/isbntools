@@ -18,8 +18,7 @@ You have three possibilities:
 
    Note that to hook up your code you *usually* need to register it in the ``isbntools.conf`` file. 
    This is **not** a system file, but is usually in the home directory of the user (or at the root
-   of the virtual environmnent). Take a look at the initapp_ file and at 
-   the methods of ``isbntools.conf`` for editing the conf file (see_).
+   of the virtual environmnent). Use the methods of ``isbntools.conf`` for editing the conf file (see_).
 
    The package datafolder_ could be useful too.
 
