@@ -8,8 +8,7 @@ from shutil import copyfile
 from isbnlib.dev.helpers import ShelveCache
 
 from ..app import CACHE_FILE, CONF_PATH, quiet_errors, registry, uprint
-from ..conf import (mk_conf, print_conf, reg_apikey, reg_mod,
-                    reg_myopt, reg_plugin)
+from ..conf import mk_conf, print_conf, reg_apikey, reg_mod, reg_myopt
 
 PREFIX = 'isbn_'
 
@@ -65,26 +64,25 @@ VERBS = {'show': print_conf,
          'cachepath': cachepath,
          'dumpcache': dumpcache,
          'purgecache': purgecache,
-         'rdate': range_date,
-         }
+         'rdate': range_date, }
 
 
 def usage(prefix=PREFIX):
     sys.stderr.write('Usage: %sconf COMMAND OPTIONS\n' % prefix)
-    sys.stderr.write('\n'
-                     'COMMAND    OPTIONS               DESCRIPTION\n'
-                     '-------    --------------------  --------------------------------\n'
-                     'show                             show the conf file\n'
-                     'make                             make a conf file\n'
-                     'setkey     SERVICE  APIKEY       set an apikey\n'
-                     'regmod     OPTION   VALUE        set options for modules\n'
-                     'setopt     OPTION   VALUE        set options in MISC section\n'
-                     'delcache                         deletes the metadata cache\n'
-                     'cachepath                        show the path of the cache\n'
-                     'dumpcache                        write the cache to sys.stdout\n'
-                     'purgecache                       delete low yield keys from cache\n'
-                     'rdate                            show date of the isbn range db\n'
-                     )
+    sys.stderr.write(
+        '\n'
+        'COMMAND    OPTIONS               DESCRIPTION\n'
+        '-------    --------------------  --------------------------------\n'
+        'show                             show the conf file\n'
+        'make                             make a conf file\n'
+        'setkey     SERVICE  APIKEY       set an apikey\n'
+        'regmod     OPTION   VALUE        set options for modules\n'
+        'setopt     OPTION   VALUE        set options in MISC section\n'
+        'delcache                         deletes the metadata cache\n'
+        'cachepath                        show the path of the cache\n'
+        'dumpcache                        write the cache to sys.stdout\n'
+        'purgecache                       delete low yield keys from cache\n'
+        'rdate                            show date of the isbn range db\n')
     return 1
 
 
