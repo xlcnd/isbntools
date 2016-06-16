@@ -28,7 +28,7 @@ You have three possibilities:
    and use `entry_points` 'console_scripts' (again, take a look at setup_).
 
 
-.. _setup: https://github.com/xlcnd/isbntools/blob/dev/setup.py
+.. _setup: https://github.com/xlcnd/isbntools/blob/dev/setup.py#L164
 
 .. _see: https://github.com/xlcnd/isbntools/blob/dev/isbntools/_conf.py
 
