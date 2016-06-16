@@ -30,6 +30,13 @@ You have three possibilities:
    must be something like ``isbn_myscript`` (prefixed by 'isbn\_'). 
 
 
+   
+  **NOTE**
+  For new metadata providers and new formatters use ``isbnlib``plugins.
+
+
+
+
 .. _initapp: https://github.com/xlcnd/isbntools/blob/dev/isbntools/_initapp.py
 
 .. _setup: https://github.com/xlcnd/isbntools/blob/dev/setup.py#L164
