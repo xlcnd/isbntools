@@ -1,5 +1,6 @@
-The ``contrib`` directory contains plugins (metadata service providers) and 
-modules (anything that is not a plugin),
+The ``contrib`` directory contains modules (extra functionality, except new 
+metadata providers and formatters) and 
+apps (console scripts),
 which are not part of the core functionality of ``isbntools``.
 
 This is the prefered place to put *your* contributions to the project.
@@ -24,7 +25,7 @@ You have three possibilities:
    The package datafolder_ could be useful too.
 
 
-3. If the functionality of your module is exposed by a script, put that script inside the folder ``apps``
+3. If the functionality of your module is exposed by a console script, put that script inside the folder ``apps``
    and use *entry_points* 'console_scripts' (take a look at setup_). The (entry_points) name of the script 
    must be something like ``isbn_myscript`` (prefixed by 'isbn\_'). 
 
