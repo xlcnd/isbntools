@@ -7,7 +7,6 @@ except ImportError:  # pragma: no cover
     import ConfigParser as configparser
 import logging
 import os
-import socket
 import sys
 
 from pkg_resources import iter_entry_points
@@ -112,7 +111,7 @@ if conf.has_section('MODULES'):  # pragma: no cover
 # socket timeout is not exposed at urllib2 level so I had to import the
 # module and set a default value for all the sockets (timeout in seconds)
 # however this should be done at top level due to strong side effects...
-socket.setdefaulttimeout(SOCKETS_TIMEOUT)
+config.setthreadstimeout(SOCKETS_TIMEOUT)
 
 # THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
 config.setthreadstimeout(THREADS_TIMEOUT)
