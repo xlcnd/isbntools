@@ -59,7 +59,6 @@ def range_date():
 VERBS = {'show': print_conf,
          'make': mk_conf,
          'setkey': reg_apikey,
-         'regplugin': reg_plugin,
          'regmod': lambda x, y: reg_mod({x: y}),
          'setopt': reg_myopt,
          'delcache': delcache,
@@ -78,7 +77,6 @@ def usage(prefix=PREFIX):
                      'show                             show the conf file\n'
                      'make                             make a conf file\n'
                      'setkey     SERVICE  APIKEY       set an apikey\n'
-                     'regplugin  SERVICE  [DIRECTORY]  register a service\n'
                      'regmod     OPTION   VALUE        set options for modules\n'
                      'setopt     OPTION   VALUE        set options in MISC section\n'
                      'delcache                         deletes the metadata cache\n'

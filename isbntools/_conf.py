@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """Functions to work with isbntools.conf file."""
 
 import os
@@ -10,7 +9,7 @@ from ._initapp import conf
 from .app import defaults_conf, pkg_path
 
 __all__ = ('pkg_version', 'pkg_path', 'pkg_options', 'reg_mod', 'conf_file',
-           'reg_plugin', 'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt')
+           'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt')
 
 pkg_version = __version__
 pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
@@ -34,13 +33,6 @@ def reg_mod(opts):
 
 def reg_apikey(service, api_key):
     _write2conf('SERVICES', {service.upper() + '_API_KEY': api_key})
-
-
-def reg_plugin(name, api_key=None, path=None):
-    path = path if path else name + '.py'
-    _write2conf('PLUGINS', {name: path})
-    if api_key:
-        reg_apikey(name, api_key)
 
 
 def _mkpath(path):
