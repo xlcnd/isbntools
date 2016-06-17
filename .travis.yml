@@ -2,6 +2,7 @@ sudo: false
 language: python
 branches:
     only:
+    - dev
     - v4.3.1
 matrix:
     include:
@@ -33,10 +34,10 @@ install:
 - if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
 - if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
 - if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
-- if [[ ! -z $TOXENV ]]; then pip install isbnlib; fi
+#- if [[ ! -z $TOXENV ]]; then pip install isbnlib; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 script:
-- if [[ ! -z $TOXENV ]]; then tox -e $TOXENV; fi
+- if [[ ! -z $TOXENV ]]; then tox -e $TOXENV -c tox-dev.ini; fi
 - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 after_success:
 - if [[ $TOXENV == 'py27' ]]; then coveralls; fi
