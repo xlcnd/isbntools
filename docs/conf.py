@@ -45,14 +45,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'isbntools'
-copyright = u'2015, Alexandre Conde'
+copyright = u'2016, Alexandre Conde'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '4.2'
+version = '4.3'
 # The full version, including alpha/beta/rc tags.
 release = '4.3.3'
 
