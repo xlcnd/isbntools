@@ -34,7 +34,7 @@ SOCKETS_TIMEOUT=12
 THREADS_TIMEOUT=11
 [SERVICES]
 DEFAULT_SERVICE=merge
-VIAS_MERGE=serial
+VIAS_MERGE=parallel
 [MODULES]
 """
 
@@ -52,6 +52,7 @@ def setconfpath(confpath):
     CONF_PATH = confpath
     config.set_option('CONF_PATH', confpath)
 
+
 # read/set conf file
 conf = configparser.ConfigParser()
 # read DEFAULTS (in memory)
@@ -62,13 +63,16 @@ except:  # pragma: no cover
     conf.readfp(io.BytesIO(DEFAULTS))  # PY2
 # read user options
 if VIRTUAL:  # pragma: no cover
-    conf.files = conf.read([os.path.join(
-        sys.prefix, os.path.join('isbntools', 'isbntools.conf'))])
+    conf.files = conf.read([
+        os.path.join(sys.prefix, os.path.join('isbntools', 'isbntools.conf'))
+    ])
 else:
     if WINDOWS:  # pragma: no cover
-        conf.files = conf.read([os.path.join(
-            os.getenv('APPDATA'),
-            os.path.join('isbntools', 'isbntools.conf'))])
+        conf.files = conf.read([
+            os.path.join(
+                os.getenv('APPDATA'),
+                os.path.join('isbntools', 'isbntools.conf'))
+        ])
     else:  # pragma: no cover
         conf.files = conf.read([
             '/etc/.isbntools/isbntools.conf',

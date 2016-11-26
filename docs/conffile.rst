@@ -21,7 +21,7 @@ The file should look like:
 
     [SERVICES]
     DEFAULT_SERVICE=merge
-    VIAS_MERGE=serial
+    VIAS_MERGE=parallel
     ISBNDB_API_KEY=
 
 
