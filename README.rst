@@ -188,7 +188,7 @@ Following is a typical session:
     myreferences.bib
     $ isbn> desc #
     It is the year 1327. Franciscans in an Italian abbey are suspected of
-    heresy, but Brother William of Baskerville’s investigation is suddenly
+    heresy, but Brother William of Baskerville's investigation is suddenly
     overshadowed by seven bizarre deaths. Translated by William Weaver. A Helen
     and Kurt Wolff Book
     $ isbn> cover #
