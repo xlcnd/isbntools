@@ -280,7 +280,7 @@ debian/ubuntu systems
 Note
     For python 3, install package ``python3-isbntools``.
 
-For *arch linux*, 
+For *arch linux*,
 
 .. code-block:: bash
 
