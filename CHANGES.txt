@@ -75,4 +75,4 @@ v4.2.7, 2016-03-11 -- Update to isbnlib-3.5.8.
 v4.2.8, 2016-06-11 -- Update to isbnlib-3.5.9 and take advantage of isbnlib's addins (NOT RELEASED).
 v4.3.1, 2016-06-21 -- Update to isbnlib-3.6.1 and take advantage of isbnlib's addins.
 v4.3.2, 2016-11-14 -- Update to isbnlib-3.6.4.
-v4.3.3, 2016-11-14 -- Fix bug #90.
+v4.3.3, 2016-12-08 -- Fix bug #90.
