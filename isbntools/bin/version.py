@@ -5,7 +5,6 @@ from isbnlib import RDDATE
 from .. import __version__
 from ..contrib.modules.uxcolors import _colors as colors
 
-
 NOTICE = """
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU Lesser General Public License as published by
@@ -27,8 +26,8 @@ def main():
     print((colors.BOLD))
     print(" isbntools - app and framework for 'all things ISBN'")
     print((colors.RESET))
-    print((" Copyright (C) 2015  Alexandre Lima Conde, Version %s" %
-          __version__))
+    print((" Copyright (C) 2016  Alexandre Lima Conde, Version %s" %
+           __version__))
     print("")
     print(" License LGPL v3")
     print((NOTICE))
@@ -51,8 +50,8 @@ def main():
     from isbntools.app import libversion
     print(" And 'isbntools' is using:")
     print("  'isbnlib' version %s%s%s with 'range db' %s%s%s" %
-          (colors.BOLD, libversion, colors.RESET,
-           colors.BOLD, RDDATE[0:8], colors.RESET))
+          (colors.BOLD, libversion, colors.RESET, colors.BOLD, RDDATE[0:8],
+           colors.RESET))
     print("")
 
     # check for updates and pypi packages
