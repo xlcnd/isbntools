@@ -19,7 +19,11 @@ from ._exceptions import PluginNotLoadedError
 # <--- NOTE: THIS CODE RUNS ON IMPORT! --->
 
 # env
+PY2 = sys.version < '3'
+PY3 = not PY2
 VIRTUAL = True if hasattr(sys, 'real_prefix') else False
+if not VIRTUAL and PY3:
+    VIRTUAL = sys.real_prefix != sys.base_prefix
 WINDOWS = os.name == 'nt'
 
 # defaults parameters can be overwritten in
