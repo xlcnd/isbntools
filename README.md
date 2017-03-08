@@ -224,22 +224,11 @@ $ pip install isbntools-4.3.4.tar.gz
 ```
 but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-4.3.4.tar.gz) the file!
 
-If you use linux systems, you can install using your distribution package manager:
 
-debian/ubuntu systems
+If you use linux systems, you can install using your distribution package
+manager (packages `python-isbntools` and `python3-isbntools`), however 
+usually these packages are **very old and don't work well anymore**!
 
-```bash
-$ sudo apt-get install python-isbntools
-```
-
->**Note:** for python 3, install package `python3-isbntools`.
-
-
-For *arch linux*,
-
-```bash
-$ pacman -S python-isbntools
-```
 
 You should check if the install was successful, by enter:
 

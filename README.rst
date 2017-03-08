@@ -269,29 +269,8 @@ or:
 (first you have to download the file!)
 
 If you use linux systems, you can install using your distribution package
-manager:
-
-debian/ubuntu systems
-
-.. code-block:: bash
-
-    $ sudo apt-get install python-isbntools
-
-Note
-    For python 3, install package ``python3-isbntools``.
-
-For *arch linux*,
-
-.. code-block:: bash
-
-    $ pacman -S python-isbntools
-
-
-You should check if the install was successful, by enter:
-
-.. code-block:: console
-
-    $ isbntools
+manager (packages ``python-isbntools`` and ``python3-isbntools``), however 
+usually these packages are **very old and don't work well anymore**!
 
 
 
