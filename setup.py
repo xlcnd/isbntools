@@ -41,7 +41,7 @@ WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
 PY3 = not PY2
 VIRTUAL = True if hasattr(sys, 'real_prefix') else False
-if not VIRTUAL and PY3:
+if VIRTUAL and PY3:
     VIRTUAL = sys.real_prefix != sys.base_prefix
 SECONDRUN = INSTALL and not FIRSTRUN
 
