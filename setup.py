@@ -42,8 +42,8 @@ PY2 = sys.version < '3'
 PY3 = not PY2
 VIRTUAL = True if hasattr(sys, 'real_prefix') else False
 VENV = True if hasattr(sys, 'sys.base_prefix') else False
-if not VIRTUAL and VENV and PY3:
-    VIRTUAL = sys.prefix != sys.base_prefix
+if not VIRTUAL and VENV and PY3:  # pragma: no cover
+    VIRTUAL = sys.prefix != sys.base_prefix   # inside pyvenv environement?
 SECONDRUN = INSTALL and not FIRSTRUN
 
 
