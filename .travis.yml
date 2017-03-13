@@ -25,13 +25,13 @@ matrix:
     - python: "2.7"
       env: DOC=sphinx
     - python: "3.5"
-      env: TOXENV=dev
+      env: ENV=dev
     allow_failures:
     - env: TOXENV=py35
     - env: TOXENV=pypy
     - env: TOXENV=pypy3
     - env: TOXENV=checkers
-    - env: TOXENV=dev
+    - env: ENV=dev
 install:
 - pip install tox
 - if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
@@ -39,8 +39,8 @@ install:
 - if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 script:
-- if [[ $TOXENV == 'dev' ]]; then tox -e $TOXENV -c tox-dev.ini; fi
 - if [[ ! -z $TOXENV ]]; then tox -e $TOXENV -c tox.ini; fi
+- if [[ $ENV == 'dev' ]]; then tox -e py35 -c tox-dev.ini; fi
 - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 after_success:
 - if [[ $TOXENV == 'py27' ]]; then coveralls; fi
