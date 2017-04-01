@@ -304,7 +304,7 @@ The file should look like:
     DEBUG=False
 
     [SYS]
-    SOCKETS_TIMEOUT=15
+    URLOPEN_TIMEOUT=10
     THREADS_TIMEOUT=12
 
     [SERVICES]

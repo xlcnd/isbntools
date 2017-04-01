@@ -35,8 +35,8 @@ DEFAULTS = r"""
 REN_FORMAT={firstAuthorLastName}{year}_{title}_{isbn}
 DEBUG=False
 [SYS]
-SOCKETS_TIMEOUT=12
-THREADS_TIMEOUT=11
+URLOPEN_TIMEOUT=10
+THREADS_TIMEOUT=12
 [SERVICES]
 DEFAULT_SERVICE=merge
 VIAS_MERGE=parallel
@@ -44,7 +44,7 @@ VIAS_MERGE=parallel
 """
 
 # get defaults
-SOCKETS_TIMEOUT = float(config.SOCKETS_TIMEOUT)
+URLOPEN_TIMEOUT = float(config.URLOPEN_TIMEOUT)
 THREADS_TIMEOUT = float(config.THREADS_TIMEOUT)
 
 # set conf path
@@ -95,7 +95,7 @@ except:
 # set options
 if conf.has_section('SYS'):
     # get user defined values for timeouts
-    SOCKETS_TIMEOUT = float(conf.get('SYS', 'SOCKETS_TIMEOUT'))
+    URLOPEN_TIMEOUT = float(conf.get('SYS', 'URLOPEN_TIMEOUT'))
     THREADS_TIMEOUT = float(conf.get('SYS', 'THREADS_TIMEOUT'))
 
 if conf.has_section('SERVICES'):
@@ -117,12 +117,10 @@ if conf.has_section('MODULES'):  # pragma: no cover
     for o, v in conf.items('MODULES'):
         config.set_option(o.upper(), v)
 
-# socket timeout is not exposed at urllib2 level so I had to import the
-# module and set a default value for all the sockets (timeout in seconds)
-# however this should be done at top level due to strong side effects...
-config.setthreadstimeout(SOCKETS_TIMEOUT)
+# URLOPEN_TIMEOUT is used by webservice.py
+config.seturlopentimeout(URLOPEN_TIMEOUT)
 
-# THREADS_TIMEOUT is a parameter used downstream by Thread calls (see vias.py)
+# THREADS_TIMEOUT is used by vias.py
 config.setthreadstimeout(THREADS_TIMEOUT)
 
 # set CONF_PATH

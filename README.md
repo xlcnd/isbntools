@@ -268,7 +268,7 @@ REN_FORMAT={firstAuthorLastName}{year}_{title}_{isbn}
 DEBUG=False
 
 [SYS]
-SOCKETS_TIMEOUT=15
+URLOPEN_TIMEOUT=10
 THREADS_TIMEOUT=12
 
 [SERVICES]
