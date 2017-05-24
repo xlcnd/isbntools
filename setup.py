@@ -83,8 +83,12 @@ def data_path():
         installpath = os.path.join(homepath, CONFDIR)
         if not os.path.exists(installpath) and INSTALL:
             print('making data dir %s' % installpath)
-            os.mkdir(installpath)
-            uxchown(installpath)
+            try:
+                os.mkdir(installpath)
+                uxchown(installpath)
+            except:
+                print("Warning: %s not properly setuped!" % installpath)
+                return
     return installpath
 
 
@@ -153,7 +157,7 @@ if FIRSTRUN:
 
 # define data_files
 DATAPATH = data_path()
-data_files = [(DATAPATH, [CONFRES])]
+data_files = [(DATAPATH, [CONFRES])] if DATAPATH else []
 
 
 # SETUP
