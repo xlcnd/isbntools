@@ -133,13 +133,12 @@ def test_renfile():
     """Test the renaming of a file"""
     renfile(F11, '9781593271923', 'default', PATT0)
     assert_equals(
-        'Seitz2009_Gray Hat Python Python Programming For Hackers And Reverse Engineers_9781593271923.pdf'
-        in cwdfiles("*.pdf"), True)
+        'Seitz2009_Gray Hat Python_9781593271923.pdf' in cwdfiles("*.pdf"),
+        True)
     create_files([F11])
     renfile(F11, '9781593271923', 'default', PATT1)
     assert_equals(
-        '2009_Gray Hat Python Python Programming For Hackers And Reverse Engineers_9781593271923.pdf'
-        in cwdfiles("*.pdf"), True)
+        '2009_Gray Hat Python_9781593271923.pdf' in cwdfiles("*.pdf"), True)
     delete_files('*9781593271923*.pdf')
 
 

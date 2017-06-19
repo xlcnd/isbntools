@@ -192,7 +192,7 @@ setup(
                             'isbn_desc=isbntools.bin.desc:main',
                             ]},
     data_files=data_files,
-    install_requires=['isbnlib>=3.7.1, <3.8.1'],
+    install_requires=['isbnlib>=3.7.2, <3.8.1'],
     license='LGPL v3',
     description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
