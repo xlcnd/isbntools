@@ -26,7 +26,7 @@ matrix:
       env: TOXENV=checkers
     - python: "2.7"
       env: DOC=sphinx
-    - python: "3.5"
+    - python: "3.6"
       env: ENV=dev
     allow_failures:
     - env: TOXENV=py35
