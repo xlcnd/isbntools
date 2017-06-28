@@ -14,25 +14,6 @@ Search/Browse the code at github_
 Status
 ------
 
-.. image:: https://pypip.in/d/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: Downloads
-
-.. image:: https://pypip.in/v/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/format/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: Download format
-
-.. image:: https://pypip.in/py_versions/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: Python Versions
-
-.. image:: https://pypip.in/license/isbntools/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/isbntools/
-    :alt: License
 
 .. image:: https://img.shields.io/badge/Sourcegraph-Status-blue.svg
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
@@ -50,9 +31,6 @@ Status
     :target: https://ci.appveyor.com/project/xlcnd/isbntools
     :alt: Windows Built Status
 
-.. image:: https://anaconda.org/auto/isbntools/badges/installer/conda.svg   
-    :target: https://conda.anaconda.org/auto
-    :alt: Anaconda Installer
 
 -------------------------------------------------------------------------------------------------------
 
