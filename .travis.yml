@@ -2,7 +2,7 @@ sudo: false
 language: python
 branches:
     only:
-    - v4.3.6
+    - v4.3.7
 matrix:
     include:
     - python: "2.7"

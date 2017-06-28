@@ -1,8 +1,8 @@
 [![Documentation Status](https://readthedocs.org/projects/isbntools/badge/?version=latest)](http://isbntools.readthedocs.org/en/latest/)
 [![Graph](https://img.shields.io/badge/Sourcegraph-Status-blue.svg)](https://sourcegraph.com/github.com/xlcnd/isbntools)
-[![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.3.6)](https://coveralls.io/r/xlcnd/isbntools?branch=v4.3.6)
-[![Build Status](https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.3.6)](https://travis-ci.org/xlcnd/isbntools)
-[![Build status](https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.3.6&svg=true)](https://ci.appveyor.com/project/xlcnd/isbntools)
+[![Coverage Status](https://coveralls.io/repos/xlcnd/isbntools/badge.png?branch=v4.3.7)](https://coveralls.io/r/xlcnd/isbntools?branch=v4.3.7)
+[![Build Status](https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.3.7)](https://travis-ci.org/xlcnd/isbntools)
+[![Build status](https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.3.7&svg=true)](https://ci.appveyor.com/project/xlcnd/isbntools)
 
 
 
@@ -122,7 +122,7 @@ Following is a typical session:
 ```
 $ isbn_repl
 
-    Welcome to the isbntools 4.3.6 REPL.
+    Welcome to the isbntools 4.3.7 REPL.
     ** For help type 'help' or '?'
     ** To exit type 'exit' :)
     ** To run a shell command, type '!<shellcmnd>'
@@ -220,9 +220,9 @@ $ easy_install isbntools
 this installs from [pypi](https://pypi.python.org/pypi/isbntools) too, or (to install locally in *Linux* or *Mac OS X*):
 
 ```bash
-$ pip install isbntools-4.3.6.tar.gz
+$ pip install isbntools-4.3.7.tar.gz
 ```
-but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-4.3.6.tar.gz) the file!
+but first you have to [download](https://pypi.python.org/packages/source/i/isbntools/isbntools-4.3.7.tar.gz) the file!
 
 
 If you use linux systems, you can install using your distribution package
