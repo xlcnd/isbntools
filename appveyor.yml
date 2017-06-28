@@ -37,7 +37,7 @@ environment:
       PYTHON_ARCH: "64"
 matrix:
   allow_failures:
-    - TOXENV: py33
+    - TOXENV: "py33"
 init:
   - "ECHO %TOXENV%"
   - ps: "ls C:\\Python*"
