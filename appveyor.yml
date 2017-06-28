@@ -1,8 +1,11 @@
 version: '4.3.6.{build}-{branch}'
+build: off
 branches:
   only:
     - dev
     - /v4.3.6/
+cache:
+  - '%LOCALAPPDATA%\pip\Cache'
 environment:
   matrix:
     - TOXENV: "py27"
@@ -49,4 +52,6 @@ install:
   - "%PYTHON_HOME%\\Scripts\\pip.exe install -r requirements-test.txt"
 test_script:
   - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
-build: off
+on_failure:
+  - ps: dir "env:"
+  - ps: get-content .tox\*\log\*
