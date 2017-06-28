@@ -38,6 +38,8 @@ environment:
 matrix:
   allow_failures:
     - TOXENV: "py33"
+    - TOXENV: "py35"
+    - TOXENV: "py36"
 init:
   - "ECHO %TOXENV%"
   - ps: "ls C:\\Python*"
@@ -46,5 +48,5 @@ install:
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%\\Scripts\\pip.exe install -r requirements-test.txt"
 test_script:
-  - "%PYTHON_HOME%\\Scripts\\tox"
+  - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
 build: off
