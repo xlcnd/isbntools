@@ -59,8 +59,8 @@ if INSTALL and FIRSTRUN:
 
 CONFDIR = '.isbntools' if not WINDOWS and not VIRTUAL else 'isbntools'
 CONFFILE = 'isbntools.conf'
-# CONFRES = pkg_resources.resource_filename('isbntools', CONFFILE)
-CONFRES = 'isbntools/' + CONFFILE
+CONFRES = pkg_resources.resource_filename('isbntools', CONFFILE)
+#CONFRES = 'isbntools/' + CONFFILE
 
 
 # HELPERS
