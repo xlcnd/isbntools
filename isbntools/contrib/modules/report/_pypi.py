@@ -26,13 +26,12 @@ def shell(shcmd=None):
     """Run a shell command."""
     if not shcmd:  # pragma: no cover
         return
-    sp = Popen(
-        shcmd,
-        shell=True,
-        stdin=PIPE,
-        stdout=PIPE,
-        stderr=PIPE,
-        close_fds=not WINDOWS)
+    sp = Popen(shcmd,
+               shell=True,
+               stdin=PIPE,
+               stdout=PIPE,
+               stderr=PIPE,
+               close_fds=not WINDOWS)
     (fo, fe) = (sp.stdout, sp.stderr)
     if PY2:  # pragma: no cover
         out = fo.read().strip(EOL)
@@ -55,6 +54,10 @@ def check_pypi(pkgs=PKGS):
     try:
         out = shell(cmd + ' '.join(pkgs))
         if out == '1':  # pragma: no cover
+            print('')
+            print(
+                ' At %spypi%s, the "search" service is not available. Try later!'
+                % (BOLD, RESET))
             return 1
         if out:  # pragma: no cover
             print('')
