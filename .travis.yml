@@ -29,7 +29,8 @@ matrix:
     - python: "3.6"
       env: ENV=dev
     allow_failures:
-    - env: TOXENV=py35
+    - env: TOXENV=py26
+    - env: TOXENV=py33
     - env: TOXENV=py36
     - env: TOXENV=pypy
     - env: TOXENV=pypy3
