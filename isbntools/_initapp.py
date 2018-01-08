@@ -83,6 +83,7 @@ else:
             '/etc/.isbntools/isbntools.conf',
             '/usr/local/bin/isbntools.conf',
             '/usr/local/isbntools.conf',
+            os.path.expanduser('~/isbntools/isbntools.conf'),  # OS X
             os.path.expanduser('~/.isbntools.conf'),
             os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
             os.path.expanduser('~/.isbntools/isbntools.conf'),
