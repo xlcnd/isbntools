@@ -2,7 +2,7 @@ sudo: false
 language: python
 branches:
     only:
-    - v4.3.9
+    - v4.3.10
 #os:
 #  - linux
 #  - osx

@@ -19,15 +19,15 @@ Status
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=v4.3.9
-    :target: https://coveralls.io/github/xlcnd/isbntools?branch=v4.3.9
+.. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=v4.3.10
+    :target: https://coveralls.io/github/xlcnd/isbntools?branch=v4.3.10
     :alt: Coverage
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.3.9
+.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.3.10
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.3.9&svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.3.10&svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbntools
     :alt: Windows Built Status
 

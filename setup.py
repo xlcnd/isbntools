@@ -162,11 +162,11 @@ data_files = [(DATAPATH, [CONFRES])] if DATAPATH else []
 
 setup(
     name='isbntools',
-    version='4.3.9',
+    version='4.3.10',
     author='xlcnd',
     author_email='xlcnd@outlook.com',
     url='https://github.com/xlcnd/isbntools',
-    download_url='https://github.com/xlcnd/isbntools/archive/v4.3.9.zip',
+    download_url='https://github.com/xlcnd/isbntools/archive/v4.3.10.zip',
     packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
     entry_points={
         'console_scripts': ['isbn_conf=isbntools.bin.confc:main',
