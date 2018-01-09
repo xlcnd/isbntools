@@ -81,4 +81,4 @@ v4.3.5, 2017-06-19 -- Update to isbnlib-3.7.2.
 v4.3.6, 2017-06-28 -- Fix bug #91.
 v4.3.7, 2017-08-18 -- Fix bug #92.
 v4.3.8, 2018-01-08 -- Update to isbnlib-3.7.3 and fix pyvenv on py35+.
-v4.3.9, 2018-01-08 -- Fix pyvenv.
+v4.3.9, 2018-01-09 -- Fix pyvenv.
