@@ -43,7 +43,7 @@ matrix:
     - env: ENV=dev
 install:
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew install python3; fi
-- pip install tox
+- pip3 install tox
 - if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
 - if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
 - if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
