@@ -40,12 +40,7 @@ INSTALL = any((m in ARGVS for m in ('install', 'develop'))) or PIP
 WINDOWS = os.name == 'nt'
 PY2 = sys.version < '3'
 PY3 = not PY2
-VIRTUAL = True if hasattr(sys, 'real_prefix') else False
-#VIRTUAL = True if hasattr(sys, 'real_prefix') else False
-VIRTUAL = (getattr(sys, 'base_prefix', sys.prefix) != sys.prefix or hasattr(sys, 'real_prefix'))
-#VENV = True if hasattr(sys, 'sys.base_prefix') else False
-#if not VIRTUAL and VENV and PY3:  # pragma: no cover
-#    VIRTUAL = sys.prefix != sys.base_prefix  # inside pyvenv environement?
+VIRTUAL = getattr(sys, 'base_prefix', sys.prefix) != sys.prefix or hasattr(sys, 'real_prefix')
 SECONDRUN = INSTALL and not FIRSTRUN
 
 

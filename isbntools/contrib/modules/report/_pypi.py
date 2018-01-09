@@ -14,11 +14,7 @@ PKGS = ('isbntools', 'isbnlib')
 WINDOWS = os.name == 'nt'
 EOL = '\r\n' if WINDOWS and not PY2 else '\n'
 PY3 = not PY2
-#VIRTUAL = True if hasattr(sys, 'real_prefix') else False
-VIRTUAL = (getattr(sys, 'base_prefix', sys.prefix) != sys.prefix or hasattr(sys, 'real_prefix'))
-#VENV = True if hasattr(sys, 'sys.base_prefix') else False
-#if not VIRTUAL and VENV and PY3:  # pragma: no cover
-#    VIRTUAL = sys.prefix != sys.base_prefix  # inside pyvenv environement?
+VIRTUAL = getattr(sys, 'base_prefix', sys.prefix) != sys.prefix or hasattr(sys, 'real_prefix')
 BOLD = colors.BOLD
 RESET = colors.RESET
 
