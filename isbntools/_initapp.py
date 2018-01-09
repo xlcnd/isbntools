@@ -21,10 +21,12 @@ from ._exceptions import PluginNotLoadedError
 # env
 PY2 = sys.version < '3'
 PY3 = not PY2
-VIRTUAL = True if hasattr(sys, 'real_prefix') else False
-VENV = True if hasattr(sys, 'sys.base_prefix') else False
-if not VIRTUAL and VENV and PY3:  # pragma: no cover
-    VIRTUAL = sys.prefix != sys.base_prefix  # inside pyvenv environement?
+#VIRTUAL = True if hasattr(sys, 'real_prefix') else False
+VIRTUAL = (getattr(sys, 'base_prefix', sys.prefix) != sys.prefix
+           or hasattr(sys, 'real_prefix'))
+#VENV = True if hasattr(sys, 'sys.base_prefix') else False
+#if not VIRTUAL and VENV and PY3:  # pragma: no cover
+#    VIRTUAL = sys.prefix != sys.base_prefix  # inside pyvenv environement?
 WINDOWS = os.name == 'nt'
 
 # defaults parameters can be overwritten in
