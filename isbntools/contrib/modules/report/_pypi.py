@@ -52,7 +52,7 @@ def check_pypi(pkgs=PKGS):
         cmd = 'sudo pip search '
     try:
         out = shell(cmd + ' '.join(pkgs))
-        if out == '1' + EOL:  # pragma: no cover
+        if out.strip() == '1':  # pragma: no cover
             print('')
             print(
                 ' At %spypi%s, the "search" service is not available. Try later!'
