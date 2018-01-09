@@ -9,8 +9,8 @@ branches:
 #  - osx
 matrix:
     include:
-    - python: "2.7"
-      env: TOXENV=py27
+#    - python: "2.7"
+#      env: TOXENV=py27
 #    - python: "3.4"
 #      env: TOXENV=py34
 #    - python: "3.3"
@@ -42,6 +42,7 @@ matrix:
     - env: TOXENV=checkers
     - env: ENV=dev
 install:
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew install python3; fi
 - pip install tox
 - if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
 - if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
