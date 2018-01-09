@@ -14,7 +14,8 @@ PKGS = ('isbntools', 'isbnlib')
 WINDOWS = os.name == 'nt'
 EOL = '\r\n' if WINDOWS and not PY2 else '\n'
 PY3 = not PY2
-VIRTUAL = getattr(sys, 'base_prefix', sys.prefix) != sys.prefix or hasattr(sys, 'real_prefix')
+VIRTUAL = getattr(sys, 'base_prefix', sys.prefix) != sys.prefix \
+   or hasattr(sys, 'real_prefix')
 BOLD = colors.BOLD
 RESET = colors.RESET
 
