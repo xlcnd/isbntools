@@ -81,7 +81,6 @@ else:
             '/etc/.isbntools/isbntools.conf',
             '/usr/local/bin/isbntools.conf',
             '/usr/local/isbntools.conf',
-            os.path.expanduser('~/isbntools/isbntools.conf'),  # OS X
             os.path.expanduser('~/.isbntools.conf'),
             os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
             os.path.expanduser('~/.isbntools/isbntools.conf'),
@@ -127,7 +126,7 @@ if CONF_PATH is None:
     if VIRTUAL:
         CONF_PATH = os.path.join(sys.prefix, 'isbntools')
     else:
-        CONF_PATH = os.path.expanduser('~/isbntools')
+        CONF_PATH = os.path.expanduser('~/.isbntools')
 
 # set metadata cache
 if config.options.get('CACHE', 'UNDEFINED').lower() == 'no':
