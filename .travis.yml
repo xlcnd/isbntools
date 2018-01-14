@@ -12,28 +12,28 @@ matrix:
     - os: osx
       language: generic
       env: TOXENV=py36
-    - python: "2.7"
-      env: TOXENV=py27
-    - python: "3.6"
-      env: TOXENV=py36
-    - python: "3.5"
-      env: TOXENV=py35
-    - python: "3.4"
-      env: TOXENV=py34
-    - python: "3.3"
-      env: TOXENV=py33
-    - python: "2.6"
-      env: TOXENV=py26
-    - python: "pypy"
-      env: TOXENV=pypy
-    - python: "pypy3"
-      env: TOXENV=pypy3
-    - python: "2.7"
-      env: TOXENV=checkers
-    - python: "2.7"
-      env: DOC=sphinx
-    - python: "3.6"
-      env: ENV=dev
+#    - python: "2.7"
+#      env: TOXENV=py27
+#    - python: "3.6"
+#      env: TOXENV=py36
+#    - python: "3.5"
+#      env: TOXENV=py35
+#    - python: "3.4"
+#      env: TOXENV=py34
+#    - python: "3.3"
+#      env: TOXENV=py33
+#    - python: "2.6"
+#      env: TOXENV=py26
+#    - python: "pypy"
+#      env: TOXENV=pypy
+#    - python: "pypy3"
+#      env: TOXENV=pypy3
+#    - python: "2.7"
+#      env: TOXENV=checkers
+#    - python: "2.7"
+#      env: DOC=sphinx
+#    - python: "3.6"
+#      env: ENV=dev
     allow_failures:
     - env: TOXENV=py26
     - env: TOXENV=py33
@@ -51,6 +51,7 @@ install:
 - if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 script:
+- if [[ $TRAVIS_OS_NAME == 'osx' ]] && [[ $TOXENV == 'py36' ]]; then python3 setup.py install && isbn_conf cachepath; fi
 - if [[ ! -z $TOXENV ]]; then tox -e $TOXENV -c tox.ini; fi
 - if [[ $ENV == 'dev' ]]; then tox -e py36 -c tox-dev.ini; fi
 - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
