@@ -115,6 +115,7 @@ def backup():
                 os.path.expanduser('~/.isbntools.conf'),
                 os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
                 os.path.expanduser('~/.isbntools/isbntools.conf'),
+                os.path.expanduser('~/isbntools/isbntools.conf'),
             ]
     for place in reversed(places):
         if os.path.isfile(place):
