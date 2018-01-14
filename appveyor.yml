@@ -50,7 +50,7 @@ install:
   - "%PYTHON_HOME%\\Scripts\\pip.exe install -r requirements-test.txt"
 test_script:
   - "%TOXPYTHON% setup.py install"
-  - "isbn_conf cachepath"
+  - "%PYTHON_HOME%\\Scripts\\isbn_conf.exe cachepath"
   - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
 on_failure:
   - ps: dir "env:"
