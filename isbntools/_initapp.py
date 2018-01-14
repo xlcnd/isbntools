@@ -126,7 +126,8 @@ if CONF_PATH is None:
     if VIRTUAL:
         CONF_PATH = os.path.join(sys.prefix, 'isbntools')
     else:
-        CONF_PATH = os.path.expanduser('~/.isbntools')
+        CONF_PATH = os.path.join(os.getenv('APPDATA'), 'isbntools') \
+                    if WINDOWS else os.path.expanduser('~/.isbntools')
 
 # set metadata cache
 if config.options.get('CACHE', 'UNDEFINED').lower() == 'no':
