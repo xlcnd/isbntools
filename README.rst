@@ -336,21 +336,6 @@ Just enter ``isbn_conf`` for help.
 
 
 
-isbntools.contrib
-=================
-
-To get extra functionality, search_ pypi for packages starting with ``isbntools.contrib``
-**or** type at a terminal:
-
-.. code-block:: console
-
-    $ pip search isbntools
-
-
-for a nice formated report!
-
-
-
 Known Issues
 ============
 
@@ -398,8 +383,6 @@ More documentation at Read the Docs_.
 .. _pdfminer: https://pypi.python.org/pypi/pdfminer
 
 .. _isbnlib: http://bit.ly/ISBNlib
-
-.. _search: https://pypi.python.org/pypi?%3Aaction=search&term=isbntools.contrib&submit=search
 
 .. _Docs: http://bit.ly/1l0W4In
 
