@@ -20,7 +20,6 @@ Remarks:
 """
 # flake8: noqa
 
-
 import logging
 import os
 import sys
@@ -48,12 +47,11 @@ def set_consolefont(fontname="Lucida Console"):
         _fields_ = [("X", ctypes.c_short), ("Y", ctypes.c_short)]
 
     class CONSOLE_FONT_INFOEX(ctypes.Structure):
-        _fields_ = [("cbSize", ctypes.c_ulong),
-                    ("nFont", ctypes.c_ulong),
-                    ("dwFontSize", COORD),
-                    ("FontFamily", ctypes.c_uint),
-                    ("FontWeight", ctypes.c_uint),
-                    ("FaceName", ctypes.c_wchar * LF_FACESIZE)]
+        _fields_ = [("cbSize", ctypes.c_ulong), ("nFont", ctypes.c_ulong),
+                    ("dwFontSize", COORD), ("FontFamily", ctypes.c_uint),
+                    ("FontWeight",
+                     ctypes.c_uint), ("FaceName",
+                                      ctypes.c_wchar * LF_FACESIZE)]
 
     font = CONSOLE_FONT_INFOEX()
     font.cbSize = ctypes.sizeof(CONSOLE_FONT_INFOEX)
@@ -65,8 +63,9 @@ def set_consolefont(fontname="Lucida Console"):
     font.FaceName = fontname
 
     handle = ctypes.windll.kernel32.GetStdHandle(STD_OUTPUT_HANDLE)
-    ctypes.windll.kernel32.SetCurrentConsoleFontEx(
-        handle, ctypes.c_long(False), ctypes.pointer(font))
+    ctypes.windll.kernel32.SetCurrentConsoleFontEx(handle,
+                                                   ctypes.c_long(False),
+                                                   ctypes.pointer(font))
 
 
 def register_cp65001():
@@ -88,7 +87,7 @@ def set_codepage(cp):
     if sys.stdout.encoding == 'cp%i' % cp:
         return
     import subprocess
-    subprocess.call("chcp %i" % cp + " > %TMP%\\xxx", shell = True)
+    subprocess.call("chcp %i" % cp + " > %TMP%\\xxx", shell=True)
 
 
 def reset_codepage():

@@ -2,7 +2,6 @@
 
 
 class ISBNToolsException(Exception):
-
     """Base class for isbntools exceptions.
 
     This exception should not be raised directly,
@@ -14,11 +13,10 @@ class ISBNToolsException(Exception):
     """
 
     def __str__(self):
-        return getattr(self, 'message', '')      # pragma: no cover
+        return getattr(self, 'message', '')  # pragma: no cover
 
 
 class PluginNotLoadedError(ISBNToolsException):  # pragma: no cover
-
     """Exception raised when the plugin's loader doesn't load the plugin."""
 
     def __init__(self, path):
