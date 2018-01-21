@@ -47,9 +47,9 @@ SECONDRUN = INSTALL and not FIRSTRUN
 
 # CHECK SUPPORT
 if INSTALL and FIRSTRUN:
-    SUPPORTED = ((2, 6), (2, 7), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6))
+    SUPPORTED = ((2, 7), (3, 4), (3, 5), (3, 6))
     if tuple(int(x) for x in sys.version[:3].split('.')) not in SUPPORTED:
-        raise Exception('isbntools %s  requires Python 2.6+ or 3.3+.' %
+        raise Exception('isbntools %s  requires Python 2.7+ or 3.4+.' %
                         __version__)
 
 
@@ -196,14 +196,12 @@ setup(
     license='LGPL v3',
     description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
-    keywords='ISBN, validate, transform, hyphenate, metadata, World Catalogue, Google Books, Open Library, isbndb.com, BibTeX, EndNote, RefWorks, MSWord, BibJSON, ISBN-A, doi',
+    keywords='ISBN metadata World_Catalogue Google_Books Open_Library isbndb.com BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
@@ -215,7 +213,9 @@ setup(
         'Environment :: Console',
         'Topic :: Text Processing :: General',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        ],
+    ],
+    tests_require=['nose', 'coverage'],
+    test_suite='nose.collector',
 )
 
 
