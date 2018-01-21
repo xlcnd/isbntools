@@ -18,7 +18,7 @@ time, so you will find plenty of opportunities to contribute.
 3. **Fork** the repository on GitHub and **clone it locally**
    ([help](https://help.github.com/articles/fork-a-repo)).
 4. `pip install -r requirements-dev.txt` (at your local directory).
-5. Do your code... (**remember the code must run on python 2.6, 2.7, 3.3, 3.4, pypy
+5. Do your code... (**remember the code must run on python 2.7, 3.4, 3.5, 3.6
    and be OS independent** It is easier if you start to write in python 3 and then
    adapt for python 2, see [python-future.org](http://python-future.org/))
    (you will find [Travis](http://bit.ly/travis-isbntools) very handy for
