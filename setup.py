@@ -196,7 +196,7 @@ setup(
     license='LGPL v3',
     description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
-    keywords='ISBN metadata World_Catalogue Google_Books Open_Library isbndb.com BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
+    keywords='ISBN metadata World_Catalogue Google_Books Open_Library BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',

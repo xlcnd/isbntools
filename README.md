@@ -37,15 +37,13 @@ $ isbn_mask ISBN
 *masks* (hyphenate) an ISBN (split it by identifiers).
 
 ```bash
-$ isbn_meta ISBN [wcat|goob|openl|isbndb|merge] [bibtex|...] [YOUR_APIKEY_TO_SERVICE]
+$ isbn_meta ISBN [wcat|goob|openl|merge] [bibtex|...] [YOUR_APIKEY_TO_SERVICE]
 ```
 gives you the main metadata associated with the ISBN, `wcat` uses **worldcat.org**
 (**no key is needed**), `goob` uses the **Google Books service** (**no key is needed**),
-`isbndb` uses the **isbndb.com** service (**an api key is needed**),
 `openl` uses the **OpenLibrary.org** api (**no key is needed**), `merge` uses
 a merged record of `wcat` and `goob` records (**no key is needed**) and
 **is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`).
-You can get an API key for the *isbndb.com service* [here](http://isbndb.com/api/v2/docs).
 You can enter API keys and set preferences in the file `isbntools.conf` in your
 `$HOME\.isbntools` directory (UNIX). For Windows, you should look at
 `%APPDATA%/isbntools/isbntools.conf`.
@@ -274,7 +272,6 @@ THREADS_TIMEOUT=12
 [SERVICES]
 DEFAULT_SERVICE=merge
 VIAS_MERGE=parallel
-ISBNDB_API_KEY=
 
 ...
 ```
