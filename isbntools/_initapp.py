@@ -9,12 +9,8 @@ import logging
 import os
 import sys
 
-from pkg_resources import iter_entry_points
-
 from isbnlib import config
 from isbnlib import registry
-
-from ._exceptions import PluginNotLoadedError
 
 # <--- NOTE: THIS CODE RUNS ON IMPORT! --->
 
@@ -49,6 +45,7 @@ THREADS_TIMEOUT = float(config.THREADS_TIMEOUT)
 CONF_PATH = None
 
 
+# pylint: disable=global-statement
 def setconfpath(confpath):
     """Set the directory of the conf file."""
     global CONF_PATH
@@ -63,6 +60,7 @@ try:  # pragma: no cover
     conf.read_string(DEFAULTS)  # PY3
 except:  # pragma: no cover
     import io
+    # pylint: disable=deprecated-method
     conf.readfp(io.BytesIO(DEFAULTS))  # PY2
 # read user options
 if VIRTUAL:  # pragma: no cover
