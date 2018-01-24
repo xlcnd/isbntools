@@ -84,4 +84,4 @@ v4.3.8, 2018-01-08 -- Update to isbnlib-3.7.3 and fix pyvenv on py35+.
 v4.3.9, 2018-01-09 -- Fix pyvenv.
 v4.3.10, 2018-01-14 -- Fix bug #93.
 v4.3.11, 2018-01-14 -- Fix conf path on windows.
-v4.3.12, 2018-01-14 -- BREAK: Use isbnlib-3.8.x versions.
+v4.3.12, 2018-01-24 -- BREAK: Use isbnlib-3.8.x versions.
