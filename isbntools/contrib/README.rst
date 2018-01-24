@@ -9,7 +9,7 @@ You have three possibilities:
 
 1. Write your code in a folder inside ``modules`` and submit 
    a pull request to the project (dev branch). Your code must be pure python, and run in 
-   py26, py27, py33, py34, py35, pypy and pypy3,
+   py27, py34, py35, py36,
    with **no** external dependencies. If approved will be installed with the main package. 
    **You don't have to write the install script**!  
 
