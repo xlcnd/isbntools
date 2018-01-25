@@ -42,7 +42,7 @@ a merged record of ``wcat`` and ``goob`` records (**no key is needed**) and
 You can enter API keys and
 set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
-``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``,
+``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON),
 ``msword``, ``endnote``, ``refworks``, ``opf`` or ``json`` (BibJSON) bibliographic formats.
 
 
@@ -81,7 +81,7 @@ a *fuzzy* script that returns the *most probable* ISBN from a set of words!
 
 .. code-block:: bash
 
-    $ isbn_goom "words from title and author name" [bibtex|opf|msword|endnote|refworks|json]
+    $ isbn_goom "words from title and author name" [bibtex|csl|opf|msword|endnote|refworks|json]
 
 a script that returns from **Google Books multiple references**.
 
