@@ -33,6 +33,7 @@ def main(args=None, prefix=PREFIX):
         for r in goom(words):
             uprint((fmtbib(fmt, r)))
             print('')
+        return 0
     except:
         bibf = fmts[:]
         try:

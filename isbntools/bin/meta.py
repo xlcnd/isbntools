@@ -50,7 +50,7 @@ def parse_args(args):
 def do_pipe():
     """Read isbn from pipe."""
     if sys.stdin.isatty():
-        return
+        return 1
     service, fmt, apikey = (None, None, None)
     if len(sys.argv) > 1:
         args = sys.argv[1:]

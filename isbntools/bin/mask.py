@@ -20,4 +20,4 @@ def main(isbn=None, prefix=PREFIX):
         if output:
             print(output)
     except:
-        return usage(prefix)
+        usage(prefix)

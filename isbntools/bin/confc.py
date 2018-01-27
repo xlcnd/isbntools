@@ -3,11 +3,10 @@
 import os
 import sys
 from difflib import get_close_matches
-from shutil import copyfile
 
 from isbnlib.dev.helpers import ShelveCache
 
-from ..app import CACHE_FILE, CONF_PATH, quiet_errors, registry, uprint
+from ..app import CACHE_FILE, CONF_PATH, quiet_errors, uprint
 from ..conf import mk_conf, print_conf, reg_apikey, reg_mod, reg_myopt
 
 PREFIX = 'isbn_'

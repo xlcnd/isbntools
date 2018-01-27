@@ -18,4 +18,4 @@ def main(isbn=None, prefix=PREFIX):
         isbn = sys.argv[1] if not isbn else isbn[1]
         print((info(isbn)))
     except:
-        return usage(prefix)
+        usage(prefix)
