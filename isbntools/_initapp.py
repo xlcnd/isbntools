@@ -12,8 +12,6 @@ import sys
 from isbnlib import config
 from isbnlib import registry
 
-# <--- NOTE: THIS CODE RUNS ON IMPORT! --->
-
 # env
 PY2 = sys.version < '3'
 PY3 = not PY2
