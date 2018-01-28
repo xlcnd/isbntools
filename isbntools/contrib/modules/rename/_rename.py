@@ -80,7 +80,7 @@ def newfilename(metadata, pattern=PATTERN):
         'publisher': metadata['Publisher'],
         'title': metadata['Title'],
         'language': metadata['Language'],
-        'isbn': metadata['ISBN-13']
+        'isbn': metadata['ISBN-13'],
     }
 
     if d['title'] == u('UNKNOWN') or d['isbn'] == u('UNKNOWN'):
@@ -90,8 +90,9 @@ def newfilename(metadata, pattern=PATTERN):
     cutoff = min(len(d['title']), CUTOFF)
     d['title'] = ' '.join(cutoff_tokens(d['title'].split(' '), cutoff))
 
-    authorslastnames = [last_first(authorname)['last']
-                        for authorname in metadata['Authors']]
+    authorslastnames = [
+        last_first(authorname)['last'] for authorname in metadata['Authors']
+    ]
     d['authorsLastNames'] = ','.join(authorslastnames)
     d['firstAuthorLastName'] = authorslastnames[0]
 
@@ -110,12 +111,12 @@ def renfile(filename, isbn, service, pattern=PATTERN):
     if not metadata:  # pragma: no cover
         LOGGER.warning('No metadata for %s', filename)
         sys.stderr.write('No metadata for %s\n' % filename)
-        return
+        return None
     newname = newfilename(metadata, pattern)
     if not newname:  # pragma: no cover
         LOGGER.warning('%s NOT renamed!', filename)
         sys.stderr.write('%s NOT renamed \n' % filename)
-        return
+        return None
     oldfile = File(filename)
     ext = oldfile.ext
     newbasename = b2u3(newname + ext)
@@ -125,8 +126,8 @@ def renfile(filename, isbn, service, pattern=PATTERN):
     success = oldfile.baserename(newbasename)
     if success:
         try:  # pragma: no cover
-            sys.stdout.write('%s renamed to %s \n' %
-                             (oldbasename, oldfile.basename))
+            sys.stdout.write('%s renamed to %s \n' % (oldbasename,
+                                                      oldfile.basename))
         except:  # pragma: no cover
             pass
         return True
