@@ -17,9 +17,11 @@ from .. import __version__
 from ..app import CONF_PATH, get_canonical_isbn, registry
 from ..contrib.modules.uxcolors import BOLD, RESET
 
-CMDS = ['audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'ean13', 'editions',
-        'goom', 'info', 'mask', 'meta', 'from_words', 'PROVIDERS', 'shell',
-        'validate']
+CMDS = [
+    'audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'ean13', 'editions',
+    'goom', 'info', 'mask', 'meta', 'from_words', 'PROVIDERS', 'shell',
+    'validate'
+]
 PREFIX = ''
 PY2 = sys.version < '3'
 WINDOWS = os.name == 'nt'
@@ -327,6 +329,7 @@ class ISBNRepl(cmd.Cmd):
         bibf = fmts[:]
         try:
             bibf.remove('labels')
+            bibf.remove('default')
         except:
             pass
         self.columnize(sorted(bibf), self.maxcol - 1)
@@ -343,12 +346,13 @@ class ISBNRepl(cmd.Cmd):
     def do_shell(self, line):
         if not line:
             return
-        sp = Popen(line,
-                   shell=True,
-                   stdin=PIPE,
-                   stdout=PIPE,
-                   stderr=PIPE,
-                   close_fds=not WINDOWS)
+        sp = Popen(
+            line,
+            shell=True,
+            stdin=PIPE,
+            stdout=PIPE,
+            stderr=PIPE,
+            close_fds=not WINDOWS)
         (fo, fe) = (sp.stdout, sp.stderr)
         if PY2:
             out = fo.read().strip(EOL)
