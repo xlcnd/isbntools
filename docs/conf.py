@@ -45,7 +45,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'isbntools'
-copyright = u'2016, Alexandre Conde'
+copyright = u'2014-2018, Alexandre Conde'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
