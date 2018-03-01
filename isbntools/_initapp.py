@@ -131,7 +131,7 @@ if config.options.get('CACHE', 'UNDEFINED').lower() == 'no':
 else:
     CACHE_FILE = '.metacache'
     cache_path = os.path.join(CONF_PATH, CACHE_FILE)
-    from isbnlib.dev.helpers import ShelveCache
+    from ._shelvecache import ShelveCache
     try:
         registry.set_cache(ShelveCache(cache_path))
     except:
