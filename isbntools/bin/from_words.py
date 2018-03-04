@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
-
 import sys
 
 from ..app import isbn_from_words, quiet_errors
 
 PREFIX = 'isbn_'
+PY2 = sys.version < '3'
 
 
-def usage(args, prefix=PREFIX):
-    print(("Usage: %s%s 'AUTHOR TITLE'" % (prefix, args[0])))
+def usage(prefix=PREFIX):
+    print(("Usage: %sfrom_words 'AUTHOR TITLE'" % prefix))
     return 1
 
 
@@ -18,7 +18,16 @@ def main(args=None, prefix=PREFIX):
     try:
         args = sys.argv if not args else args
     except:
-        return usage(args, prefix)
+        return usage(prefix)
     if len(args) < 2:
-        return usage(args, prefix)
-    print((isbn_from_words(args[1])))
+        return usage(prefix)
+    try:
+        if PY2:
+            words = args[1].decode(sys.stdin.encoding)
+            words = words.encode('UTF-8')
+        else:
+            words = args[1]
+        print(isbn_from_words(words))
+        return 0
+    except:
+        return usage(prefix)
