@@ -9,7 +9,7 @@ PY2 = sys.version < '3'
 
 
 def usage(prefix=PREFIX):
-    print(("Usage: %sfrom_words 'AUTHOR TITLE'" % prefix))
+    print("Usage: %sfrom_words 'AUTHOR TITLE'" % prefix)
     return 1
 
 
@@ -26,6 +26,7 @@ def main(args=None, prefix=PREFIX):
             words = args[1].decode(sys.stdin.encoding)
             words = words.encode('UTF-8')
         else:
+            # FIXME https://bugs.python.org/issue8776
             words = args[1]
         print(isbn_from_words(words))
         return 0
