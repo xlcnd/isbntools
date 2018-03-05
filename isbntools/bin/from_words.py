@@ -21,6 +21,7 @@ def main(args=None, prefix=PREFIX):
         return usage(prefix)
     if len(args) < 2:
         return usage(prefix)
+
     try:
         if PY2:
             words = args[1].decode(sys.stdin.encoding)
