@@ -27,7 +27,7 @@ def main(args=None, prefix=PREFIX):
             words = args[1].decode(sys.stdin.encoding)
             words = words.encode('UTF-8')
         else:
-            # FIXME https://bugs.python.org/issue8776
+            # FIXME see: isbnlib.dev.webservice
             words = args[1]
         print(isbn_from_words(words))
         return 0
