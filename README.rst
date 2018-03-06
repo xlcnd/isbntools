@@ -7,11 +7,11 @@
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.3.14
+.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.3.15
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.3.14&svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.3.15&svg=true
     :target: https://ci.appveyor.com/project/xlcnd/isbntools
     :alt: Windows Built Status
 
@@ -156,7 +156,7 @@ Following is a typical session:
 
     $ isbn_repl
 
-        Welcome to the isbntools 4.3.14 REPL.
+        Welcome to the isbntools 4.3.15 REPL.
         ** For help type 'help' or '?'
         ** To exit type 'exit' :)
         ** To run a shell command, type '!<shellcmnd>'
@@ -259,7 +259,7 @@ or:
 
 .. code-block:: console
 
-    $ pip install isbntools-4.3.14.tar.gz
+    $ pip install isbntools-4.3.15.tar.gz
 
 (first you have to download the file!)
 
