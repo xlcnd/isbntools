@@ -26,8 +26,8 @@ def main():
     print((colors.BOLD))
     print(" isbntools - app and framework for 'all things ISBN'")
     print((colors.RESET))
-    print((
-        " Copyright (C) 2018  Alexandre Lima Conde, Version %s" % __version__))
+    print((" Copyright (C) 2014-2018  Alexandre Lima Conde, Version %s" %
+           __version__))
     print("")
     print(" License LGPL v3")
     print((NOTICE))
