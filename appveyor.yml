@@ -2,7 +2,6 @@ version: '4.3.14.{build}-{branch}'
 build: off
 branches:
   only:
-    - dev
     - /v4.3.14/
 cache:
   - '%LOCALAPPDATA%\pip\Cache'
