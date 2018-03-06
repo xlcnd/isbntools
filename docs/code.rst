@@ -19,10 +19,6 @@ Status
     :target: https://sourcegraph.com/github.com/xlcnd/isbntools
     :alt: Graph
 
-.. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=v4.3.14
-    :target: https://coveralls.io/github/xlcnd/isbntools?branch=v4.3.14
-    :alt: Coverage
-
 .. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.3.14
     :target: https://travis-ci.org/xlcnd/isbntools
     :alt: Built Status
