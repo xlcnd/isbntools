@@ -1,4 +1,5 @@
 [![Documentation Status](https://readthedocs.org/projects/isbntools/badge/?version=latest)](http://isbntools.readthedocs.org/en/latest/)
+[![Coverage Status](https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=v4.3.15)](https://coveralls.io/github/xlcnd/isbntools?branch=v4.3.15)
 [![Graph](https://img.shields.io/badge/Sourcegraph-Status-blue.svg)](https://sourcegraph.com/github.com/xlcnd/isbntools)
 [![Build Status](https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.3.15)](https://travis-ci.org/xlcnd/isbntools)
 [![Build status](https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.3.15&svg=true)](https://ci.appveyor.com/project/xlcnd/isbntools)
