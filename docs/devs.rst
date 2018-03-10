@@ -72,8 +72,8 @@ very easy to integrate your classes with the rest of the lib.
 Plugins
 -------
 
-The support for pluggins **was dropped** from ``isbntools``, however continues to support modules! 
-The reason is that ``isbnlib`` now supports plugins for metadata and new formatters. 
+The support for pluggins **was dropped** from ``isbntools``, however continues to support modules!
+The reason is that ``isbnlib`` now supports plugins for metadata and new formatters.
 
 
 Merge Metadata

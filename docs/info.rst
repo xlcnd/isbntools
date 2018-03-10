@@ -141,7 +141,7 @@ Following is a typical session:
     Commands available (type ?<command> to get help):
     -------------------------------------------------
     BIBFORMATS  conf   doi      editions    goom  mask       to_isbn13
-    PROVIDERS   cover  doi2tex  exit        help  meta       validate 
+    PROVIDERS   cover  doi2tex  exit        help  meta       validate
     audit       desc   ean13    from_words  info  to_isbn10
 
     $ isbn> meta 9780156001311 tex
@@ -162,7 +162,7 @@ Following is a typical session:
     and Kurt Wolff Book
     $ isbn> cover #
          thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
-    smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5   
+    smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
     $ isbn> exit
     bye
 
