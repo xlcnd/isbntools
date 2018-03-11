@@ -75,7 +75,7 @@ set preferences in the file ``isbntools.conf`` in your
     You can apply this command to many ISBNs by using *posix pipes*
     (e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
 
-    You can add more sources for metadata by installing `isbnlib` plugins: isbnlib-bnf_,
+    You can add more sources for metadata by installing ``isbnlib`` plugins: isbnlib-bnf_,
     isbnlib-porbase_, isbnlib-loc_, ... (check pypi_ for available plugins).
 
 
