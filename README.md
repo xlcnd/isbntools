@@ -161,6 +161,8 @@ and Kurt Wolff Book
 $ isbn> cover #
      thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
 smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
+$ isbn> PROVIDERS
+bnf  goob  loc  merge  openl  porbase  wcat
 $ isbn> exit
 bye
 ```
