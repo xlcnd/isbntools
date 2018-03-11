@@ -55,6 +55,13 @@ The output can be formatted as `bibtex`, `csl` (CSL-JSON), `msword`,  `endnote`,
 >You can apply this command to many ISBNs by using *posix pipes*
 >(e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
 
+>You can add more sources for metadata by installing `isbnlib` plugins:
+>[isbnlib-bnf](https://pypi.python.org/pypi/isbnlib-bnf),
+>[isbnlib-porbase](https://pypi.python.org/pypi/isbnlib-porbase),
+>[isbnlib-loc](https://pypi.python.org/pypi/isbnlib-loc), ... 
+>(check [pypi](https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib_&submit=search) for available plugins).
+
+
 
 ```bash
 $ isbn_editions ISBN

@@ -75,6 +75,9 @@ set preferences in the file ``isbntools.conf`` in your
     You can apply this command to many ISBNs by using *posix pipes*
     (e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
 
+    You can add more sources for metadata by installing `isbnlib` plugins: isbnlib-bnf_,
+    isbnlib-porbase_, isbnlib-loc_, ... (check pypi_ for available plugins).
+
 
 .. code-block:: console
 
@@ -171,7 +174,7 @@ Following is a typical session:
     Commands available (type ?<command> to get help):
     -------------------------------------------------
     BIBFORMATS  conf   doi      editions    goom  mask       to_isbn13
-    PROVIDERS   cover  doi2tex  exit        help  meta       validate 
+    PROVIDERS   cover  doi2tex  exit        help  meta       validate
     audit       desc   ean13    from_words  info  to_isbn10
 
     $ isbn> meta 9780156001311 tex
@@ -268,7 +271,7 @@ or:
 (first you have to download the file!)
 
 If you use linux systems, you can install using your distribution package
-manager (packages ``python-isbntools`` and ``python3-isbntools``), however 
+manager (packages ``python-isbntools`` and ``python3-isbntools``), however
 usually these packages are **very old and don't work well anymore**!
 
 
@@ -383,3 +386,11 @@ More documentation at Read the Docs_.
 .. _Docs: http://bit.ly/1l0W4In
 
 .. _stackoverflow: http://stackoverflow.com/questions/tagged/isbntools
+
+.. _isbnlib-bnf: https://pypi.python.org/pypi/isbnlib-bnf
+
+.. _isbnlib-loc: https://pypi.python.org/pypi/isbnlib-loc
+
+.. _isbnlib-porbase: https://pypi.python.org/pypi/isbnlib-porbase
+
+.. _pypi: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib_&submit=search
