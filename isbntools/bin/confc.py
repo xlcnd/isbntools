@@ -4,10 +4,9 @@ import os
 import sys
 from difflib import get_close_matches
 
-from isbnlib.dev.helpers import ShelveCache
-
 from ..app import CACHE_FILE, CONF_PATH, quiet_errors, uprint
 from ..conf import mk_conf, print_conf, reg_apikey, reg_mod, reg_myopt
+from .._shelvecache import ShelveCache
 
 PREFIX = 'isbn_'
 
