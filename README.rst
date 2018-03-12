@@ -224,7 +224,7 @@ and save it as ``isbn_tmsa_book.py``.
     print("")
     print("... and the book is:")
     print("")
-    print((meta(isbn)))
+    print(registry.bibformatters['labels'](meta(isbn)))
 
 Then in a command line (in the same directory):
 
@@ -239,9 +239,12 @@ In my case I get::
 
     ... and the book is:
 
-    {'Publisher': u'Penguin Books', 'Language': u'eng', 'Title': u'White noise',
-    'Year': u'2009', 'ISBN-13': u'9780143105985', 'Authors': u'Don DeLillo ;
-    introduction by Richard Powers.'}
+    Type:      BOOK
+    Title:     White Noise
+    Author:    Don DeLillo
+    ISBN:      9780670803736
+    Year:      1985
+    Publisher: Viking
 
 
 Have fun!
