@@ -53,6 +53,7 @@ def setconfpath(confpath):
 
 # read/set conf file
 conf = configparser.ConfigParser()
+
 # read DEFAULTS (in memory)
 try:  # pragma: no cover
     conf.read_string(DEFAULTS)  # PY3
@@ -60,6 +61,7 @@ except:  # pragma: no cover
     import io
     # pylint: disable=deprecated-method
     conf.readfp(io.BytesIO(DEFAULTS))  # PY2
+
 # read user options
 if VIRTUAL:  # pragma: no cover
     conf.files = conf.read([
