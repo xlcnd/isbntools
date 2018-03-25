@@ -46,5 +46,3 @@ You should check if the install was successful, by enter:
 .. _see: https://github.com/xlcnd/isbntools/blob/master/isbntools/dev/merge.py
 
 .. _help: https://github.com/xlcnd/isbntools/issues/8
-
-.. _twitter: https://twitter.com/isbntools

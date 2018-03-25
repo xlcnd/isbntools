@@ -361,9 +361,8 @@ Known Issues
    feature, just enter ``isbn_conf setopt cache no``. If by any reason you need
    to clear the cache, just enter ``isbn_conf delcache``.
 
-Any issue that you would like to report, (if you are a developer) please do it at github_
-or at stackoverflow_ with tag **isbntools**,
-(if you are an end user) at twitter_.
+Any issue that you would like to report, please do it at github_
+or at stackoverflow_ with tag **isbntools**.
 
 
 --------------------------------
@@ -381,8 +380,6 @@ More documentation at Read the Docs_.
 .. _read: http://isbntools.readthedocs.org/en/latest/devs.html
 
 .. _guidelines: http://bit.ly/1jcxq8W
-
-.. _twitter: https://twitter.com/isbntools
 
 .. _pdfminer: https://pypi.python.org/pypi/pdfminer
 
