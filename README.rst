@@ -315,7 +315,7 @@ The file should look like:
     THREADS_TIMEOUT=12
 
     [SERVICES]
-    DEFAULT_SERVICE=merge
+    DEFAULT_SERVICE=goob
     VIAS_MERGE=parallel
 
     ...

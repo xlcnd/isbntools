@@ -192,11 +192,11 @@ setup(
                             'isbn_desc=isbntools.bin.desc:main',
                             ]},
     data_files=data_files,
-    install_requires=['isbnlib>=3.8.4,<3.9.0'],
+    install_requires=['isbnlib>=3.9.1,<3.10.0'],
     license='LGPL v3',
     description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
-    keywords='ISBN metadata World_Catalogue Google_Books Open_Library BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
+    keywords='ISBN metadata Google_Books Open_Library BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
