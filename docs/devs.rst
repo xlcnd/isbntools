@@ -76,22 +76,6 @@ The support for pluggins **was dropped** from ``isbntools``, however continues t
 The reason is that ``isbnlib`` now supports plugins for metadata and new formatters.
 
 
-Merge Metadata
---------------
-
-The original quality of metadata, at the several services, is not very good!
-If you need high quality metadata in your app, the only solution is to use
-*polling & merge* of several providers **and** a **lot** of cleaning and standardization
-for fields like ``Authors`` and ``Publisher``.
-A *simple merge* provider is now the default in ``isbn_meta`` (and ``isbntools.meta``).
-It gives priority to ``wcat`` but overwrites the ``Authors`` field with the value from ``goob``.
-Uses the ``merge`` method of ``Metadata`` and *serial* calls to services
-by default (faster for fast Internet connections).
-You can change that, by setting ``VIAS_MERGE=parallel`` or ``VIAS_MERGE=multi`` (see note below).
-
-    **Take Note**: These classes are optimized for one-calls to services and not for batch calls.
-
-
 Just an ISBN lib!
 -----------------
 
