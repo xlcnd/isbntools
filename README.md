@@ -39,11 +39,9 @@ $ isbn_mask ISBN
 ```bash
 $ isbn_meta ISBN [wcat|goob|openl|merge] [bibtex|...] [YOUR_APIKEY_TO_SERVICE]
 ```
-gives you the main metadata associated with the ISBN, `wcat` uses **worldcat.org**
-(**no key is needed**), `goob` uses the **Google Books service** (**no key is needed**),
-`openl` uses the **OpenLibrary.org** api (**no key is needed**), `merge` uses
-a merged record of `wcat` and `goob` records (**no key is needed**) and
-**is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`).
+gives you the main metadata associated with the ISBN, `goob` uses the **Google Books service** (**no key is needed**)
+**is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`),
+`openl` uses the **OpenLibrary.org** api (**no key is needed**).
 You can enter API keys and set preferences in the file `isbntools.conf` in your
 `$HOME\.isbntools` directory (UNIX). For Windows, you should look at
 `%APPDATA%/isbntools/isbntools.conf`.
@@ -162,7 +160,7 @@ $ isbn> cover #
      thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
 smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
 $ isbn> PROVIDERS
-bnf  goob  loc  merge  openl  porbase  wcat
+bnf  goob  loc  openl  porbase
 $ isbn> exit
 bye
 ```
@@ -283,7 +281,7 @@ URLOPEN_TIMEOUT=10
 THREADS_TIMEOUT=12
 
 [SERVICES]
-DEFAULT_SERVICE=merge
+DEFAULT_SERVICE=goob
 VIAS_MERGE=parallel
 
 ...
