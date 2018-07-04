@@ -39,9 +39,6 @@ namespace ``isbnlib.dev``, namely:
   ``vias.multi`` to use several cores. The default is ``vias.serial``, but
   you can change that in the conf file.
 
-* ``bouth23`` a small module to make it possible the code to run in
-  **bouth** python 2 and python 3.
-
 
 The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
 
