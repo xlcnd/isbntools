@@ -14,7 +14,7 @@ FORMAT = '%(message)s'
 logging.basicConfig(level=logging.INFO, format=FORMAT)
 
 
-def usage(wservs="wcat|goob|..."):
+def usage(wservs="goob|openl|..."):
     """Write usage message."""
     sys.stderr.write('Usage: \n\nisbn_ren [ISBN] [%s] '
                      '[apikey] [pattern] filename\n  ' % (wservs))

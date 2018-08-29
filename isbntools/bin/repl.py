@@ -292,7 +292,7 @@ class ISBNRepl(cmd.Cmd):
 
     def help_meta(self):
         print('meta ISBN [PROVIDER] [BIBFORMAT] [apikey]\n'
-              '=>meta 9780156001311 wcat endnote\n'
+              '=>meta 9780156001311 openl endnote\n'
               '=>meta 9780156001311\n'
               '=>meta 9780156001311 tex\n'
               '=>meta # opf')

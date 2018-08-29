@@ -12,7 +12,7 @@ fmtbib = lambda x, y: registry.bibformatters[x](y)
 fmts = list(registry.bibformatters.keys())
 
 
-def usage(prefix, wservs="wcat|goob|...", ofmts="labels"):
+def usage(prefix, wservs="goob|openl|...", ofmts="labels"):
     """Usage message."""
     sys.stderr.write('Usage: %smeta ISBN [%s] [%s] [apikey]\n  '
                      '...  or try with '
