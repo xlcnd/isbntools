@@ -120,7 +120,7 @@ config.seturlopentimeout(URLOPEN_TIMEOUT)
 config.setthreadstimeout(THREADS_TIMEOUT)
 
 # set CONF_PATH
-if CONF_PATH is None:
+if not CONF_PATH:
     if VIRTUAL:
         CONF_PATH = os.path.join(sys.prefix, 'isbntools')
     else:
