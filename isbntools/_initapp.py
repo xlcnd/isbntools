@@ -64,6 +64,12 @@ except:  # pragma: no cover
 
 # read user options
 if VIRTUAL:  # pragma: no cover
+    # check if confdir exists
+    confdir = os.path.join(sys.prefix, 'isbntools')
+    try:
+        os.mkdir(confdir)
+    except:
+        pass
     conf.files = conf.read([
         os.path.join(sys.prefix, os.path.join('isbntools', 'isbntools.conf'))
     ])
