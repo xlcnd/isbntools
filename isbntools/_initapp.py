@@ -64,12 +64,6 @@ except:  # pragma: no cover
 
 # read user options
 if VIRTUAL:  # pragma: no cover
-    # check if confdir exists
-    confdir = os.path.join(sys.prefix, 'isbntools')
-    try:
-        os.mkdir(confdir)
-    except:
-        pass
     conf.files = conf.read([
         os.path.join(sys.prefix, os.path.join('isbntools', 'isbntools.conf'))
     ])
@@ -89,7 +83,7 @@ else:
             os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
             os.path.expanduser('~/.isbntools/isbntools.conf'),
         ])
-try:
+try:  # pragma: no cover
     setconfpath(os.path.dirname(conf.files[0]))
 except:
     pass
@@ -132,6 +126,11 @@ if CONF_PATH is None:
     else:
         CONF_PATH = os.path.join(os.getenv('APPDATA'), 'isbntools') \
                     if WINDOWS else os.path.expanduser('~/.isbntools')
+    # make the folder if it doesn't exist (see issue #101)!
+    try:  # pragma: no cover
+        os.mkdir(CONF_PATH)
+    except:
+        pass
 
 # set metadata cache
 if config.options.get('CACHE', 'UNDEFINED').lower() == 'no':
