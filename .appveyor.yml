@@ -1,8 +1,8 @@
-version: '4.3.17.{build}-{branch}'
+version: '4.3.18.{build}-{branch}'
 build: off
 branches:
   only:
-    - /v4.3.17/
+    - /v4.3.18/
 cache:
   - '%LOCALAPPDATA%\pip\Cache'
 environment:
