@@ -37,7 +37,7 @@ $ isbn_mask ISBN
 *masks* (hyphenate) an ISBN (split it by identifiers).
 
 ```bash
-$ isbn_meta ISBN [wcat|goob|openl|merge] [bibtex|...] [YOUR_APIKEY_TO_SERVICE]
+$ isbn_meta ISBN [goob|openl|merge] [bibtex|...] [YOUR_APIKEY_TO_SERVICE]
 ```
 gives you the main metadata associated with the ISBN, `goob` uses the **Google Books service** (**no key is needed**)
 **is the default option** (you only have to enter, e.g. `isbn_meta 9780321534965`),
@@ -56,7 +56,8 @@ The output can be formatted as `bibtex`, `csl` (CSL-JSON), `msword`,  `endnote`,
 >You can add more sources for metadata by installing `isbnlib` plugins:
 >[isbnlib-bnf](https://pypi.python.org/pypi/isbnlib-bnf),
 >[isbnlib-porbase](https://pypi.python.org/pypi/isbnlib-porbase),
->[isbnlib-loc](https://pypi.python.org/pypi/isbnlib-loc), ... 
+>[isbnlib-loc](https://pypi.python.org/pypi/isbnlib-loc), 
+>[isbnlib-mcues](https://pypi.org/project/isbnlib-mcues), ... 
 >(check [pypi](https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib_&submit=search) for available plugins).
 
 
@@ -160,7 +161,7 @@ $ isbn> cover #
      thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
 smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
 $ isbn> PROVIDERS
-bnf  goob  loc  openl  porbase
+bnf  goob  loc  mcues  openl  porbase
 $ isbn> exit
 bye
 ```
