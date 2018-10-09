@@ -31,7 +31,8 @@ __all__ = ('audit', 'ISBNToolsException', 'ean13', 'cover', 'desc', 'doi',
            'isbn_from_words', 'get_isbnlike', 'clean', 'mask', 'meta',
            'to_isbn10', 'to_isbn13', 'goom', 'libversion', 'config',
            'registry', 'doi2tex', 'quiet_errors', 'CONF_PATH', 'CACHE_FILE',
-           'uprint')
+           'uprint', 'providers')
 
+# env
 pkg_path = _os.path.dirname(_os.path.abspath(__file__))
 defaults_conf = 'DEFAULTS'
