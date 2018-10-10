@@ -49,7 +49,8 @@ The output can be formatted as `bibtex`, `csl` (CSL-JSON), `msword`,  `endnote`,
 `json` (BibJSON) bibliographic formats.
 
 
->**NOTE**
+>**NOTES**
+
 >You can apply this command to many ISBNs by using *posix pipes*
 >(e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
 
