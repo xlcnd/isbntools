@@ -78,7 +78,7 @@ set preferences in the file ``isbntools.conf`` in your
     (e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
 
     You can add more sources for metadata by installing ``isbnlib`` plugins: isbnlib-bnf_,
-    isbnlib-porbase_, isbnlib-loc_, isbnlib-mcues_ ... (check pypi_ for available plugins).
+    isbnlib-porbase_, isbnlib-loc_, isbnlib-mcues_, isbnlib-dnb_, ... (check pypi_ for available plugins).
 
 
 .. code-block:: console
@@ -199,7 +199,7 @@ Following is a typical session:
          thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
     smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
     $ isbn> PROVIDERS
-    bnf  goob  loc  mcues  openl  porbase
+    bnf  dnb  goob  loc  mcues  openl  porbase
     $ isbn> exit
     bye
 
@@ -398,6 +398,8 @@ More documentation at Read the Docs_.
 .. _isbnlib-porbase: https://pypi.python.org/pypi/isbnlib-porbase
 
 .. _isbnlib-mcues: https://pypi.org/project/isbnlib-mcues/
+
+.. _isbnlib-dnb: https://pypi.org/project/isbnlib-dnb/
 
 .. _pypi: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib_&submit=search
 
