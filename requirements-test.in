@@ -1,5 +1,5 @@
 coverage
 flake8
-isbnlib>=3.8.4,<3.9.0
+isbnlib
 nose
 tox

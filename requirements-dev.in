@@ -4,7 +4,7 @@ flake8-bugbear
 flake8-commas
 flake8-docstrings
 flake8-import-order
-isbnlib>=3.8.4,<3.9.0
+isbnlib
 isort
 nose
 pep8-naming
