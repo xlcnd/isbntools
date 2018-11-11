@@ -195,7 +195,8 @@ setup(
     install_requires=['isbnlib>=3.9.1,<3.10.0'],
     license='LGPL v3',
     description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     keywords='ISBN metadata Google_Books Open_Library BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
     classifiers=[
         'Programming Language :: Python',

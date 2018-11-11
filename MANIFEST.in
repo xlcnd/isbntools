@@ -3,3 +3,4 @@ include *.md
 include *.rst
 recursive-include isbntools *.conf
 recursive-include isbntools *.rst
+recursive-include isbntools *.md
