@@ -1,1 +1,1 @@
-isbnlib
+isbnlib>=3.9.1,<3.10.0

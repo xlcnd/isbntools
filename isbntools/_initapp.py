@@ -80,8 +80,8 @@ else:
             '/usr/local/bin/isbntools.conf',
             '/usr/local/isbntools.conf',
             os.path.expanduser('~/.isbntools.conf'),
-            os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
-            os.path.expanduser('~/.config/.isbntools/isbntools.conf'),
+            os.path.expanduser('~/.local/isbntools/isbntools.conf'),
+            os.path.expanduser('~/.config/isbntools/isbntools.conf'),
             os.path.expanduser('~/.isbntools/isbntools.conf'),
         ])
 try:  # pragma: no cover

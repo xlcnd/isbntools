@@ -4,7 +4,7 @@
 
 """
 isbntools - extract, transform and metadata for ISBNs
-Copyright (C) 2014-2018  Alexandre Lima Conde
+Copyright (C) 2014-2019  Alexandre Lima Conde
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
 
+from datetime import datetime as dt
 from shutil import copy2 as copyfile
 
 from isbntools import __version__
@@ -31,6 +32,50 @@ from isbntools import __version__
 
 from setuptools import find_packages, setup
 
+
+# PROJ
+PROJECT_NAME = 'isbntools'
+PROJECT_PACKAGE_NAME = 'isbntools'
+PROJECT_LICENSE = 'LGPL v3'
+PROJECT_LICENSE_URL = 'https://github.com/xlcnd/isbntools/blob/dev/LICENSE'
+PROJECT_AUTHOR = 'Alexandre Lima Conde'
+PROJECT_COPYRIGHT = ' 2014-{}, {}'.format(dt.now().year, PROJECT_AUTHOR)
+PROJECT_URL = 'https://github.com/xlcnd/isbntools'
+PROJECT_EMAIL = 'xlcnd@outlook.com'
+PROJECT_VERSION = __version__
+
+PROJECT_GITHUB_USERNAME = 'xlcnd'
+PROJECT_GITHUB_REPOSITORY = 'isbntools'
+
+GITHUB_PATH = '{}/{}'.format(PROJECT_GITHUB_USERNAME,
+                             PROJECT_GITHUB_REPOSITORY)
+GITHUB_URL = 'https://github.com/{}'.format(GITHUB_PATH)
+
+DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, "v" + PROJECT_VERSION)
+PROJECT_URLS = {
+    'Bug Reports': '{}/issues'.format(GITHUB_URL),
+    'Dev Docs': 'https://isbntools.readthedocs.io/en/latest/devs.html',
+    'Forum': 'https://stackoverflow.com/questions/tagged/isbntools',
+    'License': PROJECT_LICENSE_URL,
+}
+
+PYPI_URL = 'https://pypi.org/project/{}/'.format(PROJECT_PACKAGE_NAME)
+PYPI_CLASSIFIERS = [
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
+    'Operating System :: OS Independent',
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: End Users/Desktop',
+    'Topic :: Text Processing :: General',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+]
 
 # ENV
 
@@ -114,9 +159,9 @@ def backup():
                 '/usr/local/bin/isbntools.conf',
                 '/usr/local/isbntools.conf',
                 os.path.expanduser('~/.isbntools.conf'),
-                os.path.expanduser('~/.local/.isbntools/isbntools.conf'),
+                os.path.expanduser('~/.local/isbntools/isbntools.conf'),
+                os.path.expanduser('~/.config/isbntools/isbntools.conf'),
                 os.path.expanduser('~/.isbntools/isbntools.conf'),
-                os.path.expanduser('~/isbntools/isbntools.conf'),
             ]
     for place in reversed(places):
         if os.path.isfile(place):
@@ -163,12 +208,14 @@ data_files = [(DATAPATH, [CONFRES])] if DATAPATH else []
 # SETUP
 
 setup(
-    name='isbntools',
-    version='4.3.18',
-    author='xlcnd',
-    author_email='xlcnd@outlook.com',
-    url='https://github.com/xlcnd/isbntools',
-    download_url='https://github.com/xlcnd/isbntools/archive/v4.3.18.zip',
+    name=PROJECT_PACKAGE_NAME,
+    version=PROJECT_VERSION,
+    url=PROJECT_URL,
+    download_url=DOWNLOAD_URL,
+    project_urls=PROJECT_URLS,
+    author=PROJECT_AUTHOR,
+    author_email=PROJECT_EMAIL,
+    license=PROJECT_LICENSE,
     packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
     entry_points={
         'console_scripts': ['isbn_conf=isbntools.bin.confc:main',
@@ -192,30 +239,11 @@ setup(
                             'isbn_desc=isbntools.bin.desc:main',
                             ]},
     data_files=data_files,
-    install_requires=['isbnlib>=3.9.1,<3.10.0'],
-    license='LGPL v3',
+    install_requires=['isbnlib>=3.9.4,<3.10.0'],
     description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
-    long_description=open('README.md').read(),
-    long_description_content_type='text/markdown',
+    long_description=open('README.rst').read(),
     keywords='ISBN metadata Google_Books Open_Library BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
-    classifiers=[
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
-        'Operating System :: OS Independent',
-        'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: Developers',
-        'Intended Audience :: End Users/Desktop',
-        'Environment :: Console',
-        'Topic :: Text Processing :: General',
-        'Topic :: Software Development :: Libraries :: Python Modules',
-    ],
+    classifiers=PYPI_CLASSIFIERS,
     tests_require=['nose', 'coverage'],
     test_suite='nose.collector',
 )
