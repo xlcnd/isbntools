@@ -13,4 +13,4 @@ nose tests
 def test_audit():
     """Test if the audit report runs without errors"""
     errcode = audit()
-    #assert errcode == 0
+    assert errcode == 0
