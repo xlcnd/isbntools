@@ -21,7 +21,7 @@ or:
 
 .. code-block:: bash
 
-    $ pip install isbntools-4.3.18.tar.gz
+    $ pip install isbntools-4.3.19.tar.gz
 
 (first you have to download the file!)
 
