@@ -41,7 +41,9 @@ filelock==3.0.10 \
 flake8==3.6.0 \
     --hash=sha256:6a35f5b8761f45c5513e3405f110a86bea57982c3b75b766ce7b65217abe1670 \
     --hash=sha256:c01f8a3963b3571a8e6bd7a4063359aff90749e160778e03817cd9b71c9e07d2
-isbnlib>=3.9.4,<3.10.0
+isbnlib==3.9.4 \
+    --hash=sha256:4e30c3457442dcf0bf3518c686d0f81a34e6cbd628c6ef349907f37e0d5fcc19 \
+    --hash=sha256:7d39bc53df6b3e2f837b859b5aebcb3b1cc89ec041ad49abeeb1ad7efaa8d25f
 mccabe==0.6.1 \
     --hash=sha256:9ff7c6cc443f8c51994b34a667bbcf45afd6d945be7477b52e97516fd17c53ac \
     --hash=sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42 \

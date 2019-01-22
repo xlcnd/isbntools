@@ -61,7 +61,7 @@ def get_isbn(filename):
 def cleannewname(newname):
     """Clean and Strip '._!? ' from newname."""
     regex1 = re.compile(r'[!?/\\]')
-    regex2 = re.compile('\s\s+')
+    regex2 = re.compile(r'\s\s+')
     newname = regex1.sub(' ', newname)
     newname = regex2.sub(' ', newname)
     return newname.strip('_., ')

@@ -158,7 +158,9 @@ flake8-polyfill==1.0.2 \
 flake8==3.6.0 \
     --hash=sha256:6a35f5b8761f45c5513e3405f110a86bea57982c3b75b766ce7b65217abe1670 \
     --hash=sha256:c01f8a3963b3571a8e6bd7a4063359aff90749e160778e03817cd9b71c9e07d2
-isbnlibisbnlib>=3.9.4,<3.10.0
+isbnlib==3.9.4 \
+    --hash=sha256:4e30c3457442dcf0bf3518c686d0f81a34e6cbd628c6ef349907f37e0d5fcc19 \
+    --hash=sha256:7d39bc53df6b3e2f837b859b5aebcb3b1cc89ec041ad49abeeb1ad7efaa8d25f
 isort==4.3.4 \
     --hash=sha256:1153601da39a25b14ddc54955dbbacbb6b2d19135386699e2ad58517953b34af \
     --hash=sha256:b9c40e9750f3d77e6e4d441d8b0266cf555e7cdabdcff33c4fd06366ca761ef8 \
