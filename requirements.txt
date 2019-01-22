@@ -1,3 +1,1 @@
-isbnlib==3.9.4 \
-    --hash=sha256:4e30c3457442dcf0bf3518c686d0f81a34e6cbd628c6ef349907f37e0d5fcc19 \
-    --hash=sha256:7d39bc53df6b3e2f837b859b5aebcb3b1cc89ec041ad49abeeb1ad7efaa8d25f
+isbnlib>=3.9.4,<3.10.0
