@@ -2,6 +2,7 @@ version: '4.3.18.{build}-{branch}'
 build: off
 branches:
   only:
+    - dev   
     - /v4.3.18/
 cache:
   - '%LOCALAPPDATA%\pip\Cache'
@@ -43,10 +44,12 @@ install:
   - ps: (new-object net.webclient).DownloadFile('https://bootstrap.pypa.io/get-pip.py', 'C:/get-pip.py')
   - "%TOXPYTHON% C:/get-pip.py"
   - "%PYTHON_HOME%\\Scripts\\pip.exe install -r requirements-test.txt"
+  - "%TOXPYTHON% -m pip install tox"
 test_script:
   - "%TOXPYTHON% setup.py install"
-  - "%PYTHON_HOME%\\Scripts\\isbn_conf.exe cachepath"
-  - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
+#  - "%PYTHON_HOME%\\Scripts\\isbn_conf.exe cachepath"
+#  - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
+  - "%TOXPYTHON% -m tox -e %TOXENV%"
 on_failure:
   - ps: dir "env:"
-  - ps: get-content .tox\*\log\*
+#  - ps: get-content .tox\*\log\*
