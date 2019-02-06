@@ -12,7 +12,7 @@ adventure in open-source.
 1. Make sure you have a [GitHub account](https://github.com/signup/free)
 2. Submit a ticket for your issue or idea (**ONE ticket for each issue or idea**)
    ([help](https://www.youtube.com/watch?v=TJlYiMp8FuY)),
-   on https://github.com/xlcnd/isbnlib/issues,
+   on https://github.com/xlcnd/isbntools/issues,
    (if possible wait for some feedback before any serious commitment... :)
 3. **Fork** the repository on GitHub and **clone it locally**
    ([help](https://help.github.com/articles/fork-a-repo)).
@@ -21,7 +21,7 @@ adventure in open-source.
    and be OS independent** It is easier if you start to write in python 3 and then
    adapt for python 2) (you will find [Travis](https://travis-ci.org/xlcnd/isbntools) very handy for
    testing with this requirement!)
-6. Write tests for your code using `nose` and put then in the directory `isbnlib/test`
+6. Write tests for your code using `nose` and put then in the directory `isbntools/test`
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage in [Coveralls](https://coveralls.io/r/xlcnd/isbntools) or locally with the command
    `nosetests --with-coverage --cover-package=isbntools`.
@@ -32,7 +32,7 @@ adventure in open-source.
    **VERY IMPORTANT:** Don't put in the same pull request unrelated changes in the code, 
    make one pull request for each set of related changes!
 
-> **NOTE**: *Travis*, *coverage*, *flake8* and  *pylint*, have already
+> **NOTE**: *Travis*, *coverage*, *flake8* and *pylint*, have already
 configuration files adapted to the project.
 
 ## Style
