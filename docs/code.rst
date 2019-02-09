@@ -31,6 +31,10 @@ Status
     :target: https://ci.appveyor.com/project/xlcnd/isbntools
     :alt: Windows Built Status
 
+.. image:: https://img.shields.io/pypi/dm/isbntools.svg?style=flat
+    :target: https://pypi.org/project/isbntools/
+    :alt: PYPI Downloads
+
 
 -------------------------------------------------------------------------------------------------------
 
