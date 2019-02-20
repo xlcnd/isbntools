@@ -19,8 +19,6 @@ matrix:
       env: TOXENV=py36
     - python: "3.5"
       env: TOXENV=py35
-    - python: "3.4"
-      env: TOXENV=py34
     - python: "2.7"
       env: TOXENV=checkers
     - python: "2.7"
@@ -28,7 +26,6 @@ matrix:
     - python: "3.6"
       env: ENV=dev
     allow_failures:
-    - env: TOXENV=py34
     - env: TOXENV=checkers
     - env: ENV=dev
 install:

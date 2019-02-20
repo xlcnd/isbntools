@@ -65,7 +65,6 @@ PYPI_CLASSIFIERS = [
     'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
@@ -94,7 +93,7 @@ SECONDRUN = INSTALL and not FIRSTRUN
 if INSTALL and FIRSTRUN:
     SUPPORTED = ((2, 7), (3, 4), (3, 5), (3, 6), (3, 7))
     if tuple(int(x) for x in sys.version[:3].split('.')) not in SUPPORTED:
-        raise Exception('isbntools %s  requires Python 2.7+ or 3.4+.' %
+        raise Exception('isbntools %s  requires Python 2.7+ or 3.5+.' %
                         __version__)
 
 

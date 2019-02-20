@@ -15,12 +15,6 @@ or:
 
 .. code-block:: bash
 
-    $ easy_install isbntools
-
-or:
-
-.. code-block:: bash
-
     $ pip install isbntools-4.3.19.tar.gz
 
 (first you have to download the file!)
