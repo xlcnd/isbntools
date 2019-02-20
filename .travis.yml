@@ -12,7 +12,7 @@ matrix:
     include:
     - os: osx
       language: generic
-      env: TOXENV=py37
+      env: TOXENV=py36
     - python: "2.7"
       env: TOXENV=py27
     - python: "3.6"
@@ -32,12 +32,12 @@ matrix:
     - env: TOXENV=checkers
     - env: ENV=dev
 install:
-- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew upgrade python; fi
+#- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew upgrade python; fi
 - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
 - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
 - if [[ $TOXENV == 'checkers' ]]; then pip install flake8; fi
 - if [[ $TOXENV == 'checkers' ]]; then pip install pep8-naming; fi
-- if [[ $TOXENV == 'py27' ]]; then pip install coveralls; fi
+- if [[ $TOXENV == 'py35' ]]; then pip install coveralls; fi
 - if [[ $DOC == 'sphinx' ]]; then pip install sphinx; fi
 script:
 - if [[ $TRAVIS_OS_NAME == 'osx' ]] && [[ $TOXENV == 'py37' ]]; then python3 setup.py install && isbn_conf cachepath; fi
@@ -45,7 +45,7 @@ script:
 - if [[ $ENV == 'dev' ]]; then tox -e py36 -c tox-dev.ini; fi
 - if [[ $DOC == 'sphinx' ]]; then cd docs; sphinx-build -n -b html -d _build/.doctrees . _build/html; fi
 after_success:
-- if [[ $TOXENV == 'py27' ]]; then coveralls; fi
+- if [[ $TOXENV == 'py35' ]]; then coveralls; fi
 notifications:
   email:
     on_success: never
