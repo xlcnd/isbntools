@@ -28,10 +28,12 @@ def _write2conf(section, opts):
 
 
 def reg_mod(opts):
+    """Add options to MODULES section in conf file."""
     _write2conf('MODULES', opts)
 
 
 def reg_apikey(service, api_key):
+    """Add service keys to SERVICES section."""
     _write2conf('SERVICES', {service.upper() + '_API_KEY': api_key})
 
 
@@ -58,6 +60,7 @@ def _conf_file():
 
 
 def mk_conf():
+    """Create con file."""
     global conf_file
     if conf_file == defaults_conf or not os.path.exists(_conf_file()):
         _mkpath(_conf_file())
@@ -67,10 +70,12 @@ def mk_conf():
 
 
 def reg_myopt(opt, value):
+    """Add custom option to MISC section."""
     _write2conf('MISC', {opt.upper(): value})
 
 
 def print_conf():
+    """Print conf file."""
     if conf_file == defaults_conf:
         print("NO conf file! Using default builtins.")
         return

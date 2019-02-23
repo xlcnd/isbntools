@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Define basic class exceptions."""
 
 
 class ISBNToolsException(Exception):

@@ -31,6 +31,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 """
 
 # TODO rewrite using context managers!
@@ -56,9 +57,9 @@ class ShelveCache(object):
                 self._keys = list(s.keys())
                 if len(self._keys) > self.MAXLEN:
                     self.purge()
-            except:
+            except Exception:
                 pass
-        except:
+        except Exception:
             s = self._sh.open(self.filepath, 'n')
             self._keys = []
         finally:
@@ -89,7 +90,7 @@ class ShelveCache(object):
             s[key] = {'value': value, 'hits': 0, 'timestamp': timestamp()}
             self._keys.append(key)
             status = True
-        except:
+        except Exception:
             status = False
         finally:
             s.close()
@@ -137,13 +138,13 @@ class ShelveCache(object):
             s = self._sh.open(self.filepath)
             ts = s[key]['timestamp'] if s[key] else None
             if not ts:
-                return
+                return None
             fmt = '%Y-%m-%d %H:%M:%S'
             return datetime.datetime.fromtimestamp(ts).strftime(fmt)
         except ValueError:
             s = self._sh.open(self.filepath, 'n')
             self._keys = []
-            return
+            return None
         finally:
             s.close()
 
@@ -158,7 +159,7 @@ class ShelveCache(object):
         except ValueError:
             s = self._sh.open(self.filepath, 'n')
             self._keys = []
-            return
+            return None
         finally:
             s.close()
 
