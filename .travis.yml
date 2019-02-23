@@ -19,7 +19,7 @@ matrix:
       env: TOXENV=py36
     - python: "3.5"
       env: TOXENV=py35
-    - python: "2.7"
+    - python: "3.6"
       env: TOXENV=checkers
     - python: "3.5"
       env: DOC=sphinx
