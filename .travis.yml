@@ -24,6 +24,8 @@ matrix:
     - python: "3.5"
       env: DOC=sphinx
     - python: "3.6"
+      env: TOXENV=plugins
+    - python: "3.6"
       env: ENV=dev
     - python: "nightly"
       env: TOXENV=nightly
