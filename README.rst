@@ -350,7 +350,7 @@ Known Issues
 ============
 
 1. The ``meta`` method and the ``isbn_meta`` script sometimes give a wrong result
-   (this is due to errors on the chosen service), in alternative you could
+   (this is due to errors on the chosen service), in alternative you should
    try one of the others services.
 
 2. The ``isbntools`` works internally with unicode, however this doesn't
