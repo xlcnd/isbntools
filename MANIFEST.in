@@ -4,4 +4,3 @@ include *.rst
 recursive-include isbntools *.conf
 recursive-include isbntools *.rst
 recursive-include isbntools *.md
-include LICENSE
