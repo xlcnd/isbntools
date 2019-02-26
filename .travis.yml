@@ -29,6 +29,8 @@ matrix:
       env: ENV=dev
     - python: "nightly"
       env: TOXENV=nightly
+    - python: "3.6"
+      env: TOXENV=speed
     allow_failures:
     - env: TOXENV=nightly
     - env: ENV=dev
