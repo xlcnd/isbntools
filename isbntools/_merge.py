@@ -10,12 +10,22 @@ from isbnlib.dev import Metadata, vias
 # TODO register new service 'merge' on import
 
 
-def query(isbn, processor=None):
+def query(isbn, processor={}):
     """Query function for the 'merge provider' (waterfall model)."""
     if not processor:
         processor = config.options.get('VIAS_MERGE', processor).lower()
         if not processor:     # pragma: no cover
             processor = 'serial'
+
+    qoclc = registry.services.get('oclc', None)
+    qgoob = registry.services.get('goob', None)
+    # TODO logger warning: no required service!!!
+    if not qoclc and qgoob:
+       return qgoob(isbn)
+    if qoclc and not qgoob:
+       return qoclc(isbn)
+    if not qoclc or not qgoob:
+       return {}
 
     named_tasks = (('oclc', qoclc), ('goob', qgoob))
     if processor == 'parallel':
@@ -29,9 +39,9 @@ def query(isbn, processor=None):
     rg = results.get('goob')
 
     if not ro and not rg:
-        return None
+        return {}
 
-    md = Metadata(ro) if ro else None
+    md = Metadata(ro) if ro else {}
 
     if md and rg:
         # Try to complete Authors, Publisher and Language from Google
@@ -40,4 +50,4 @@ def query(isbn, processor=None):
     if not md and rg:       # pragma: no cover
         md = Metadata(rg)
         return md.value
-    return md.value if not rg and ro else None  # pragma: no cover
+    return md.value if not rg and ro else {}  # pragma: no cover
