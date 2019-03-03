@@ -25,17 +25,17 @@ def query(isbn, processor=None):
     elif processor == 'multi':
         results = vias.multi(named_tasks, isbn)
 
-    rw = results.get('oclc')
+    ro = results.get('oclc')
     rg = results.get('goob')
 
-    if not rw and not rg:
+    if not ro and not rg:
         return None
 
-    md = Metadata(rw) if rw else None
+    md = Metadata(ro) if ro else None
 
     if md and rg:
-        # Overwrite with Authors and Language from Google
-        md.merge(rg, overwrite=('Authors'))
+        # Try to complete Authors, Publisher and Language from Google
+        md.merge(rg, overwrite=('Authors', 'Publisher', 'Language'))
         return md.value
     if not md and rg:       # pragma: no cover
         md = Metadata(rg)
