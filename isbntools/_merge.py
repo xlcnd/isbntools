@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 """Provide metadata by merging metadata from other providers."""
 
-from . import config
-from . import goob as qgoob
-from . import oclc as qoclc
 from isbnlib.dev import Metadata, vias
+from .app import config
+from .app import registry
 
 
 # TODO register new service 'merge' on import
 
 
-def query(isbn, processor={}):
+def query(isbn, processor=None):
     """Query function for the 'merge provider' (waterfall model)."""
     if not processor:
         processor = config.options.get('VIAS_MERGE', processor).lower()
@@ -20,12 +19,12 @@ def query(isbn, processor={}):
     qoclc = registry.services.get('oclc', None)
     qgoob = registry.services.get('goob', None)
     # TODO logger warning: no required service!!!
-    if not qoclc and qgoob:
-       return qgoob(isbn)
-    if qoclc and not qgoob:
-       return qoclc(isbn)
+    # if not qoclc and qgoob:
+    #     return qgoob(isbn)
+    # if qoclc and not qgoob:
+    #     return qoclc(isbn)
     if not qoclc or not qgoob:
-       return {}
+        return {}
 
     named_tasks = (('oclc', qoclc), ('goob', qgoob))
     if processor == 'parallel':
