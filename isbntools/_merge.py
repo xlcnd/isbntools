@@ -40,4 +40,4 @@ def query(isbn, processor=None):
     if not md and rg:       # pragma: no cover
         md = Metadata(rg)
         return md.value
-    return md.value if not rg and rw else None  # pragma: no cover
+    return md.value if not rg and ro else None  # pragma: no cover
