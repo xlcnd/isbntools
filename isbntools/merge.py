@@ -2,27 +2,21 @@
 """Provide metadata by merging metadata from other providers."""
 
 from isbnlib.dev import Metadata, vias
-from .app import registry
+from .app import config
 
 
-def query(isbn, processor=None):
+def query(isbn,
+          qserv1,
+          qserv2,
+          overwrite=('Authors', 'Publisher', 'Language'),
+          processor=None):
     """Query function for the 'merge provider' (waterfall model)."""
     if not processor:
         processor = config.options.get('VIAS_MERGE', processor).lower()
-        if not processor:     # pragma: no cover
+        if not processor:  # pragma: no cover
             processor = 'serial'
 
-    qoclc = registry.services.get('oclc', None)
-    qgoob = registry.services.get('goob', None)
-    # TODO logger warning: no required service!!!
-    # if not qoclc and qgoob:
-    #     return qgoob(isbn)
-    # if qoclc and not qgoob:
-    #     return qoclc(isbn)
-    if not qoclc or not qgoob:
-        return {}
-
-    named_tasks = (('oclc', qoclc), ('goob', qgoob))
+    named_tasks = (('serv1', qserv1), ('serv2', qserv2))
     if processor == 'parallel':
         results = vias.parallel(named_tasks, isbn)
     elif processor == 'serial':
@@ -30,19 +24,19 @@ def query(isbn, processor=None):
     elif processor == 'multi':
         results = vias.multi(named_tasks, isbn)
 
-    ro = results.get('oclc')
-    rg = results.get('goob')
+    r1 = results.get('serv1')
+    r2 = results.get('serv2')
 
-    if not ro and not rg:
+    if not r1 and not r2:
         return {}
 
-    md = Metadata(ro) if ro else {}
+    md = Metadata(r1) if r1 else {}
 
-    if md and rg:
-        # Try to complete Authors, Publisher and Language from Google
-        md.merge(rg, overwrite=('Authors', 'Publisher', 'Language'))
+    if md and r2:
+        # Try to complete Authors, Publisher and Language from serv2
+        md.merge(r2, overwrite=overwrite)
         return md.value
-    if not md and rg:       # pragma: no cover
-        md = Metadata(rg)
+    if not md and r2:  # pragma: no cover
+        md = Metadata(r2)
         return md.value
-    return md.value if not rg and ro else {}  # pragma: no cover
+    return md.value if not r2 and r1 else {}  # pragma: no cover
