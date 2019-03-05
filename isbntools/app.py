@@ -2,7 +2,6 @@
 """Define isbntools API and set lib environment."""
 
 import os as _os
-from shutil import copyfile
 
 # isbnlib hook -- only top level functions
 from isbnlib import __version__ as libversion
@@ -31,7 +30,7 @@ __all__ = ('audit', 'ISBNToolsException', 'ean13', 'cover', 'desc', 'doi',
            'isbn_from_words', 'get_isbnlike', 'clean', 'mask', 'meta',
            'to_isbn10', 'to_isbn13', 'goom', 'libversion', 'config',
            'registry', 'doi2tex', 'quiet_errors', 'CONF_PATH', 'CACHE_FILE',
-           'uprint', 'providers')
+           'uprint')
 
 # env
 pkg_path = _os.path.dirname(_os.path.abspath(__file__))

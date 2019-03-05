@@ -2,11 +2,7 @@
 """Provide metadata by merging metadata from other providers."""
 
 from isbnlib.dev import Metadata, vias
-from .app import config
 from .app import registry
-
-
-# TODO register new service 'merge' on import
 
 
 def query(isbn, processor=None):
