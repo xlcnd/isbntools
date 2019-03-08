@@ -36,6 +36,7 @@ CHECKLIST
 TODO
 *release*
 .virtualenv
+.vscode
 *yop*
 Makefile
 ARCHIVE
