@@ -1,8 +1,8 @@
 version: '4.3.20.{build}-{branch}'
-build: off
+build: false
 branches:
-  only: 
-    - dev  
+  only:
+    - dev
     - /v4.3.20/
 cache:
   - '%LOCALAPPDATA%\pip\Cache'
@@ -41,9 +41,9 @@ install:
   - "%TOXPYTHON% -m pip install tox"
 test_script:
   - "%TOXPYTHON% setup.py install"
-#  - "%PYTHON_HOME%\\Scripts\\isbn_conf.exe cachepath"
-#  - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
+  #  - "%PYTHON_HOME%\\Scripts\\isbn_conf.exe cachepath"
+  #  - "%PYTHON_HOME%\\Scripts\\tox -e %TOXENV%"
   - "%TOXPYTHON% -m tox -e %TOXENV%"
 on_failure:
   - ps: dir "env:"
-#  - ps: get-content .tox\*\log\*
+  #  - ps: get-content .tox\*\log\*
