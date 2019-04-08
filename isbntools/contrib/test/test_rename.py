@@ -20,13 +20,13 @@ NEW_BASENAME = 'a-deleteme-PLEASE.pdf'
 
 F1 = '9780321534965.pdf'
 F2 = '9781597499644.pdf'
-F3 = '9781852330729.pdf'
+#F3 = '9781852330729.pdf'
 #F4 = '9787500117018.pdf'
 F5 = '9789727576807.pdf'
 
 F6 = u('Campos2011_Emergências obstétricas_9789727576807.pdf')
 F7 = u('Knuth2008_The Art Of Computer Programming_9780321534965.pdf')
-F8 = u('Man2001_Genetic Algorithms Concepts And Designs_9781852330729.pdf')
+#F8 = u('Man2001_Genetic Algorithms Concepts And Designs_9781852330729.pdf')
 F9 = u(
     "O'Connor2012_Violent Python A Cookbook for Hackers, Forensic Analysts, Penetra_9781597499644.pdf"
 )
@@ -35,9 +35,9 @@ F9 = u(
 F11 = 'myfile.pdf'
 
 #FISBN = [F1, F2, F3, F4, F5]
-FISBN = [F1, F2, F3, F5]
+FISBN = [F1, F2, F5]
 #FFT = [F6, F7, F8, F9, F10]
-FFT = [F6, F7, F8, F9]
+FFT = [F6, F7, F9]
 FILES = FISBN + FFT + [F11]
 
 PATT0 = "{firstAuthorLastName}{year}_{title}_{isbn}"
