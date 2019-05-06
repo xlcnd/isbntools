@@ -66,7 +66,7 @@ class ShelveCache(object):
             s.close()
 
     def __getitem__(self, key):
-        """Read cache."""
+        """Read cache e.g. cache[key]."""
         if key not in self._keys:
             return None
         try:
@@ -82,6 +82,10 @@ class ShelveCache(object):
             return None
         finally:
             s.close()
+
+    def get(self, key):
+        """Read cache e.g. cache.get(key)."""
+        return self.__getitem__(key)
 
     def __setitem__(self, key, value):
         """Write to cache."""
