@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Read and write shelve cache.
+"""Persistent shelve cache.
 
 NOTES
 1. shelve has different incompatible formats in py2 and py3.
@@ -84,7 +84,7 @@ class ShelveCache(object):
             s.close()
 
     def get(self, key):
-        """Read cache e.g. cache.get(key)."""
+        """Read cache with get."""
         return self.__getitem__(key)
 
     def __setitem__(self, key, value):
