@@ -100,6 +100,10 @@ class ShelveCache(object):
             s.close()
         return status
 
+    def set(self, key, value):
+        """Write to cache with set."""
+        return self.__setitem__(key, value)
+
     def __delitem__(self, key):
         """Delete record with key."""
         if key not in self._keys:
