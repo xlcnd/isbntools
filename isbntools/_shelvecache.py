@@ -48,10 +48,12 @@ class ShelveCache(object):
     MAXLEN = 2000
     CUTOFF = 0.5
 
-    def __init__(self, filepath):
+    def __init__(self, filepath, allow_empty=True):
         """Initialize attributes."""
         self._sh = shelve
         self.filepath = filepath
+        self._allow_empty = allow_empty
+        self._allow_empty_default = allow_empty
         try:
             s = self._sh.open(self.filepath)
             try:
@@ -92,17 +94,24 @@ class ShelveCache(object):
         """Write to cache."""
         try:
             s = self._sh.open(self.filepath)
-            s[key] = {'value': value, 'hits': 0, 'timestamp': timestamp()}
-            self._keys.append(key)
-            status = True
+            if value or self._allow_empty:
+                s[key] = {'value': value, 'hits': 0, 'timestamp': timestamp()}
+                self._keys.append(key)
+                status = True
+            else:
+                status = False
+            self._allow_empty = self._allow_empty_default
         except Exception:
+            self._allow_empty = self._allow_empty_default
             status = False
         finally:
             s.close()
         return status
 
-    def set(self, key, value):
+    def set(self, key, value, allow_empty=None):
         """Write to cache with set."""
+        if allow_empty is not None:
+            self._allow_empty = allow_empty
         return self.__setitem__(key, value)
 
     def __delitem__(self, key):

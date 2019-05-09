@@ -238,7 +238,7 @@ setup(
                             'isbn_desc=isbntools.bin.desc:main',
                             ]},
     data_files=data_files,
-    install_requires=['isbnlib>=3.9.4,<3.10.0'],
+    install_requires=['isbnlib>=3.9.8,<3.10.0'],
     description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
     keywords='ISBN metadata Google_Books Open_Library BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
