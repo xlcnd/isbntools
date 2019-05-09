@@ -31,4 +31,4 @@ def test_shelvecache_editions():
 
 def test_shelvecache_setget():
     """Test 'shelvecache' operations (set/get test)."""
-    assert_equals(len(repr(cache.get("9000000000000test"))) > 2, True)
+    assert_equals(len(repr(cache.get("9000000000000test"))) > 1, True)
