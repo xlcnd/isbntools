@@ -42,3 +42,8 @@ def test_shelvecache_setget():
     assert_equals(cache.get("9000000000000test"), None)
     cache.set("9000000000000test", {}, allow_empty=True)  #  <-- set
     assert_equals(cache.get("9000000000000test"), {})
+
+
+def test_shelvecache_contains():
+    """Test 'shelvecache' operations (contains)."""
+    assert_equals("9780375869020default" in cache, True)
