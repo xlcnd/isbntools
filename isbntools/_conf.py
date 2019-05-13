@@ -49,7 +49,7 @@ def _mkpath(path):
 
 def _conf_file():
     if VIRTUAL:
-        installpath = ''
+        installpath = 'isbntools'
     else:
         homepath = os.path.expanduser('~')\
             if os.name != 'nt' else os.getenv('APPDATA')
