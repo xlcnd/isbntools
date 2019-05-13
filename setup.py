@@ -225,7 +225,6 @@ setup(
                             'isbn_from_words=isbntools.bin.from_words:main',
                             'isbn_goom=isbntools.bin.goom:main',
                             'isbn_info=isbntools.bin.info:main',
-                            'isbn_init=isbntools.bin.init:main',
                             'isbn_mask=isbntools.bin.mask:main',
                             'isbn_meta=isbntools.bin.meta:main',
                             'isbn_ren=isbntools.bin.ren:main',
