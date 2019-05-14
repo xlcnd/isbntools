@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+for file in $@; do
+  [[ -z "$file" ]] && exit 1
+  IDX=$(radon mi $file -s)
+  CMD=$(echo $IDX| cut -d'-' -f2 | grep 'A')
+  if [[ -z $CMD ]]; then
+    echo "MI is too low for $file"
+    exit 1
+  fi
+done

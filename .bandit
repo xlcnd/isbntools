@@ -1,0 +1,3 @@
+[bandit]
+skips: B108
+exclude: ./isbntools/test/, ./isbntools/contrib/test/
