@@ -24,13 +24,9 @@ import os
 import sys
 
 from datetime import datetime as dt
-from shutil import copy2 as copyfile
+from setuptools import find_packages, setup
 
 from isbntools import __version__
-
-#import pkg_resources
-
-from setuptools import find_packages, setup
 
 
 # PROJ
@@ -76,134 +72,6 @@ PYPI_CLASSIFIERS = [
     'Topic :: Software Development :: Libraries :: Python Modules',
 ]
 
-# ENV
-
-ARGVS = sys.argv
-FIRSTRUN = 'egg_info' in ARGVS
-PIP = '-c' in ARGVS
-INSTALL = any((m in ARGVS for m in ('install', 'develop'))) or PIP
-WINDOWS = os.name == 'nt'
-PY2 = sys.version < '3'
-PY3 = not PY2
-VIRTUAL = getattr(sys, 'base_prefix', sys.prefix) != sys.prefix or hasattr(sys, 'real_prefix')
-SECONDRUN = INSTALL and not FIRSTRUN
-
-
-# CHECK SUPPORT
-if INSTALL and FIRSTRUN:
-    SUPPORTED = ((2, 7), (3, 4), (3, 5), (3, 6), (3, 7))
-    if tuple(int(x) for x in sys.version[:3].split('.')) not in SUPPORTED:
-        raise Exception('isbntools %s  requires Python 2.7+ or 3.5+.' %
-                        __version__)
-
-
-# DEFS
-
-CONFDIR = '.isbntools' if not WINDOWS and not VIRTUAL else 'isbntools'
-CONFFILE = 'isbntools.conf'
-#CONFRES = pkg_resources.resource_filename('isbntools', CONFFILE)
-CONFRES = 'isbntools/' + CONFFILE
-
-
-# HELPERS
-
-def uxchown(fp):
-    if WINDOWS:
-        return
-    from pwd import getpwnam, getpwuid
-    from grp import getgrnam, getgrgid
-    uid = getpwnam(os.getenv("SUDO_USER", getpwuid(os.getuid()).pw_name)).pw_uid
-    gid = getgrnam(os.getenv("SUDO_USER", getgrgid(os.getgid()).gr_name)).gr_gid
-    os.chown(fp, uid, gid)
-
-
-def data_path():
-    if VIRTUAL:
-        installpath = CONFDIR
-    else:
-        user = '~%s' % os.getenv("SUDO_USER", '')
-        homepath = os.path.expanduser(user) if not WINDOWS else os.getenv('APPDATA')
-        installpath = os.path.join(homepath, CONFDIR)
-        if not os.path.exists(installpath) and INSTALL:
-            print('making data dir %s' % installpath)
-            try:
-                os.mkdir(installpath)
-                uxchown(installpath)
-            except:
-                print("Warning: %s not properly setuped!" % installpath)
-                return
-    return installpath
-
-
-def backup_file(fp):
-    """Append _ORIGINAL or _BACKUP to the file name."""
-    if os.path.isfile(fp):
-        name, ext = os.path.splitext(fp)
-        newfp = name + '_ORIGINAL' + ext
-        if os.path.isfile(newfp):
-            newfp = name + '_BACKUP' + ext
-        return copyfile(fp, newfp)
-    return
-
-
-def backup():
-    if VIRTUAL:
-        places = [os.path.join(sys.prefix, CONFDIR + '/isbntools.conf')]
-    else:
-        if WINDOWS:
-            places = [os.path.join(os.getenv('APPDATA'), 'isbntools/isbntools.conf')]
-        else:
-            places = [
-                '/etc/.isbntools/isbntools.conf',
-                '/usr/local/bin/isbntools.conf',
-                '/usr/local/isbntools.conf',
-                os.path.expanduser('~/.isbntools.conf'),
-                os.path.expanduser('~/.local/isbntools/isbntools.conf'),
-                os.path.expanduser('~/.config/isbntools/isbntools.conf'),
-                os.path.expanduser('~/.isbntools/isbntools.conf'),
-            ]
-    for place in reversed(places):
-        if os.path.isfile(place):
-            print('Backup isbntools.conf ...')
-            backup_file(place)
-
-
-def protect(datapath):
-    """Recovers 'protected' datafiles."""
-    fn = 'isbntools.conf'
-    fbase, ext = os.path.splitext(fn)
-    backf = fbase + '_BACKUP' + ext
-    backfp = os.path.join(datapath, backf)
-    if os.path.isfile(backfp):
-        fnp = os.path.join(datapath, fn)
-        copyfile(backfp, fnp)
-        print('file %s restored' % fn)
-        return True
-    orif = fbase + '_ORIGINAL' + ext
-    orifp = os.path.join(datapath, orif)
-    if os.path.isfile(orifp):
-        fnp = os.path.join(datapath, fn)
-        copyfile(orifp, fnp)
-        print('file %s restored' % fn)
-        return True
-    return False
-
-
-# PRE-SETUP
-
-# pip deletes the original files on FIRSTRUN (even if they have been customized!)
-# so, before that, do a backup ...
-if FIRSTRUN:
-    try:
-        backup()
-    except:
-        print("Warning: previous 'isbntools.conf' found but backup wasn't done!")
-
-# define data_files
-DATAPATH = data_path()
-data_files = [(DATAPATH, [CONFRES])] if DATAPATH else []
-
-
 # SETUP
 
 setup(
@@ -237,7 +105,7 @@ setup(
                             'isbn_cover=isbntools.bin.cover:main',
                             'isbn_desc=isbntools.bin.desc:main',
                             ]},
-    data_files=data_files,
+    data_files=[('isbntools', ['isbntools/isbntools.conf'])],
     install_requires=['isbnlib>=3.9.8,<3.10.0'],
     description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
@@ -246,24 +114,3 @@ setup(
     tests_require=['nose', 'coverage'],
     test_suite='nose.collector',
 )
-
-
-# POS-SETUP
-
-if not VIRTUAL and not WINDOWS and SECONDRUN:
-    conffile = os.path.join(DATAPATH, CONFFILE)
-    if not os.path.exists(conffile):
-        print("Warning: file %s doesn't exist! Use 'isbn_conf make'" % conffile)
-        sys.exit()
-    try:
-        uxchown(conffile)
-        print('changing mode of %s to 666' % conffile)
-    except:
-        print('Warning: permissions not set for file %s' % conffile)
-
-if SECONDRUN:
-    try:
-        datapath = os.path.join(sys.prefix, CONFDIR) if VIRTUAL else DATAPATH
-        protect(datapath)
-    except:
-        print("Warning: isbntools.conf wasn't restored.")

@@ -2,4 +2,4 @@
 """Define isbntools version and support IDs."""
 
 __version__ = '4.3.20'
-__support__ = 'py27, py34, py35, py36, py37'
+__support__ = 'py27, py35, py36, py37'
