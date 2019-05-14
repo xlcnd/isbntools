@@ -40,3 +40,6 @@ TODO
 *yop*
 Makefile
 ARCHIVE
+.bandit
+.requirements-local
+.pre-commit-config.yaml
