@@ -45,10 +45,9 @@ def shell(shcmd=None):
 
 def check_pypi(pkgs=PKGS):
     """Check pypi for pkgs starting with pkgs."""
-    # TEMPORARY FIX (don't run this in appveyour)
-    if WINDOWS:
+    # (don't run this in appveyour)
+    if os.getenv("APPVEYOR", "") != "":
         return 0
-    ###
     cmd = 'pip search '
     try:
         out = shell(cmd + ' '.join(pkgs))
