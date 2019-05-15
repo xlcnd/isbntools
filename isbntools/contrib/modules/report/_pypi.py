@@ -24,13 +24,12 @@ def shell(shcmd=None):
     """Run a shell command."""
     if not shcmd:  # pragma: no cover
         return
-    sp = Popen(
-        shcmd,
-        shell=True,
-        stdin=PIPE,
-        stdout=PIPE,
-        stderr=PIPE,
-        close_fds=not WINDOWS)
+    sp = Popen(shcmd,
+               shell=True,
+               stdin=PIPE,
+               stdout=PIPE,
+               stderr=PIPE,
+               close_fds=not WINDOWS)
     (fo, fe) = (sp.stdout, sp.stderr)
     if PY2:  # pragma: no cover
         out = fo.read().strip(EOL)
@@ -50,10 +49,7 @@ def check_pypi(pkgs=PKGS):
     if WINDOWS:
         return 0
     ###
-    if VIRTUAL or WINDOWS:  # pragma: no cover
-        cmd = 'pip search '
-    else:  # pragma: no cover
-        cmd = 'sudo pip search '
+    cmd = 'pip search '
     try:
         out = shell(cmd + ' '.join(pkgs))
         if out.strip() == '1':  # pragma: no cover
