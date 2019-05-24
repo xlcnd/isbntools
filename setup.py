@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 """Install file for isbntools."""
-
 """
 isbntools - extract, transform and metadata for ISBNs
 Copyright (C) 2014-2019  Alexandre Lima Conde
@@ -27,7 +26,6 @@ from datetime import datetime as dt
 from setuptools import find_packages, setup
 
 from isbntools import __version__
-
 
 # PROJ
 PROJECT_NAME = 'isbntools'
@@ -85,31 +83,35 @@ setup(
     license=PROJECT_LICENSE,
     packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
     entry_points={
-        'console_scripts': ['isbn_conf=isbntools.bin.confc:main',
-                            'isbn_doi=isbntools.bin.doi:main',
-                            'isbn_doi2tex=isbntools.bin.doi2tex:main',
-                            'isbn_ean13=isbntools.bin.ean13:main',
-                            'isbn_editions=isbntools.bin.editions:main',
-                            'isbn_from_words=isbntools.bin.from_words:main',
-                            'isbn_goom=isbntools.bin.goom:main',
-                            'isbn_info=isbntools.bin.info:main',
-                            'isbn_mask=isbntools.bin.mask:main',
-                            'isbn_meta=isbntools.bin.meta:main',
-                            'isbn_ren=isbntools.bin.ren:main',
-                            'to_isbn10=isbntools.bin.to_isbn10:main',
-                            'to_isbn13=isbntools.bin.to_isbn13:main',
-                            'isbn_validate=isbntools.bin.validate:main',
-                            'isbn_stdin_validate=isbntools.bin.validate:do_pipe',
-                            'isbntools=isbntools.bin.version:main',
-                            'isbn_repl=isbntools.bin.repl:main',
-                            'isbn_cover=isbntools.bin.cover:main',
-                            'isbn_desc=isbntools.bin.desc:main',
-                            ]},
+        'console_scripts': [
+            'isbn_conf=isbntools.bin.confc:main',
+            'isbn_doi=isbntools.bin.doi:main',
+            'isbn_doi2tex=isbntools.bin.doi2tex:main',
+            'isbn_ean13=isbntools.bin.ean13:main',
+            'isbn_editions=isbntools.bin.editions:main',
+            'isbn_from_words=isbntools.bin.from_words:main',
+            'isbn_goom=isbntools.bin.goom:main',
+            'isbn_info=isbntools.bin.info:main',
+            'isbn_mask=isbntools.bin.mask:main',
+            'isbn_meta=isbntools.bin.meta:main',
+            'isbn_ren=isbntools.bin.ren:main',
+            'to_isbn10=isbntools.bin.to_isbn10:main',
+            'to_isbn13=isbntools.bin.to_isbn13:main',
+            'isbn_validate=isbntools.bin.validate:main',
+            'isbn_stdin_validate=isbntools.bin.validate:do_pipe',
+            'isbntools=isbntools.bin.version:main',
+            'isbn_repl=isbntools.bin.repl:main',
+            'isbn_cover=isbntools.bin.cover:main',
+            'isbn_desc=isbntools.bin.desc:main',
+        ]
+    },
     data_files=[('isbntools', ['isbntools/isbntools.conf'])],
     install_requires=['isbnlib>=3.9.8,<3.10.0'],
-    description="app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
+    description=
+    "app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
-    keywords='ISBN metadata Google_Books Open_Library BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
+    keywords=
+    'ISBN metadata Google_Books Open_Library BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
     classifiers=PYPI_CLASSIFIERS,
     tests_require=['nose', 'coverage'],
     test_suite='nose.collector',
