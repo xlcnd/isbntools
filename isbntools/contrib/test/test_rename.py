@@ -6,8 +6,9 @@ import os
 
 from isbnlib.dev._bouth23 import b, b2u3, u
 from isbnlib.dev.helpers import File, cwdfiles
-from isbntools.contrib.modules.rename import (
-    checkpattern, cleannewname, get_isbn, newfilename, rencwdfiles, renfile)
+from isbntools.contrib.modules.rename import (checkpattern, cleannewname,
+                                              get_isbn, newfilename,
+                                              rencwdfiles, renfile)
 from nose.tools import assert_equals, assert_raises
 """
 nose tests
@@ -19,7 +20,7 @@ TESTFILE = './a-deleteme.pdf'
 NEW_BASENAME = 'a-deleteme-PLEASE.pdf'
 
 F1 = '9780321534965.pdf'
-F2 = '9781597499644.pdf'
+F2 = '9780743258074.pdf'
 #F3 = '9781852330729.pdf'
 #F4 = '9787500117018.pdf'
 F5 = '9789727576807.pdf'
@@ -27,9 +28,7 @@ F5 = '9789727576807.pdf'
 F6 = u('Campos2011_Emergências obstétricas_9789727576807.pdf')
 F7 = u('Knuth2008_The Art Of Computer Programming_9780321534965.pdf')
 #F8 = u('Man2001_Genetic Algorithms Concepts And Designs_9781852330729.pdf')
-F9 = u(
-    "O'Connor2012_Violent Python A Cookbook for Hackers, Forensic Analysts, Penetra_9781597499644.pdf"
-)
+F9 = u("Isaacson2004_Benjamin Franklin_9780743258074.pdf")
 #F10 = u('海明威2007_Lao ren yu hai_9787500117018.pdf')
 
 F11 = 'myfile.pdf'
@@ -72,8 +71,8 @@ def teardown_module():
 
 def test_checkpattern():
     """Test the validation of placeholders"""
-    assert_equals(
-        checkpattern('{authorsLastNames}_{year}_{title}_{isbn}.pdf'), True)
+    assert_equals(checkpattern('{authorsLastNames}_{year}_{title}_{isbn}.pdf'),
+                  True)
     assert_equals(checkpattern('mypattern.pdf'), False)
     assert_equals(checkpattern('mypattern{year}'), True)
     assert_equals(
@@ -112,8 +111,8 @@ def test_newfilename():
 
     metadata['Publisher'] = u('')
     assert_equals(
-        newfilename(
-            metadata, pattern='{authorsFullNames}_{publisher}_{language}'),
+        newfilename(metadata,
+                    pattern='{authorsFullNames}_{publisher}_{language}'),
         'Darrel Ince,Oxford University Press_UNKNOWN_eng')
     metadata['Title'] = u('')
     assert_equals(newfilename(metadata), None)
@@ -121,8 +120,8 @@ def test_newfilename():
 
 def test_cleannewname():
     """Test the cleanning of new filename"""
-    assert_equals(
-        cleannewname(' this, is a newname., _'), 'this, is a newname')
+    assert_equals(cleannewname(' this, is a newname., _'),
+                  'this, is a newname')
 
 
 def test_get_isbn():
