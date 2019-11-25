@@ -131,7 +131,6 @@ def renfile(filename, isbn, service, pattern=PATTERN):
                              (oldbasename, oldfile.basename))
         except Exception as e:  # pragma: no cover
             LOGGER.info('Error when writing for stdout: %s', e)
-            pass
         return True
     return None  # pragma: no cover
 
