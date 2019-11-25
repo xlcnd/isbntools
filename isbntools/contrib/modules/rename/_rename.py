@@ -86,7 +86,8 @@ def newfilename(metadata, pattern=PATTERN):
     if d['title'] == u('UNKNOWN') or d['isbn'] == u('UNKNOWN'):
         LOGGER.critical('Not enough metadata')
         return None
-    d['title'] = cleannewname(d['title'])
+    # Drop subtitle from title (if available)
+    d['title'] = cleannewname(d['title']).split(' - ')[0]
     cutoff = min(len(d['title']), CUTOFF)
     d['title'] = ' '.join(cutoff_tokens(d['title'].split(' '), cutoff))
 
@@ -126,9 +127,10 @@ def renfile(filename, isbn, service, pattern=PATTERN):
     success = oldfile.baserename(newbasename)
     if success:
         try:  # pragma: no cover
-            sys.stdout.write(
-                '%s renamed to %s \n' % (oldbasename, oldfile.basename))
-        except Exception:  # pragma: no cover
+            sys.stdout.write('%s renamed to %s \n' %
+                             (oldbasename, oldfile.basename))
+        except Exception as e:  # pragma: no cover
+            LOGGER.info('Error when writing for stdout: %s', e)
             pass
         return True
     return None  # pragma: no cover
