@@ -28,11 +28,6 @@
     :alt: PYPI Downloads
 
 
-Warning
-=======
-
-    The service xISBN was decommissioned (see issue 98_)!
-
 
 Info
 ====
@@ -404,5 +399,3 @@ More documentation at Read the Docs_.
 .. _isbnlib-dnb: https://pypi.org/project/isbnlib-dnb/
 
 .. _pypi: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib_&submit=search
-
-.. _98: https://github.com/xlcnd/isbntools/issues/98
