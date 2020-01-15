@@ -64,5 +64,5 @@ def check_pypi(pkgs=PKGS):
             print('')
             print(out)
         return 0
-    except:  # pragma: no cover
+    except Exception:  # pragma: no cover
         return 1
