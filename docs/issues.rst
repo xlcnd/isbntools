@@ -42,4 +42,4 @@ or at stackoverflow_ with tag **isbntools**.
 
 .. _standalone: http://bit.ly/1i8qatY
 
-.. _stackoverflow: http://stackoverflow.com/questions/tagged/isbntools
+.. _stackoverflow: https://stackoverflow.com/search?tab=newest&q=isbntools

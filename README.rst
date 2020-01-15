@@ -386,7 +386,7 @@ More documentation at Read the Docs_.
 
 .. _Docs: http://bit.ly/1l0W4In
 
-.. _stackoverflow: http://stackoverflow.com/questions/tagged/isbntools
+.. _stackoverflow: https://stackoverflow.com/search?tab=newest&q=isbntools
 
 .. _isbnlib-bnf: https://pypi.python.org/pypi/isbnlib-bnf
 
