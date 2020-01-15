@@ -3,8 +3,8 @@ build: false
 branches:
   only:
     - /v4.3.21/
-    - dev
-    - master
+#    - dev
+#    - master
 cache:
   - '%LOCALAPPDATA%\pip\Cache'
 environment:
