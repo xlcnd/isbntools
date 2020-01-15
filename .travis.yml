@@ -3,8 +3,8 @@ language: python
 branches:
   only:
     - v4.3.22
-#    - dev
-#    - master
+    - dev
+    - master
 # os:
 #   - linux
 #   - osx
