@@ -19,6 +19,7 @@ def speed_initapp():
     assert millis < 200
     isbntools._initapp.CONF_PATH
 
+
 def speed_app():
     """Test import speed of 'app'."""
     t = time.process_time()
@@ -28,7 +29,6 @@ def speed_app():
     print('(app)         {} milliseconds <  10 milliseconds'.format(millis))
     assert millis < 10
     isbntools.app.defaults_conf
-
 
 
 speed_initapp()
