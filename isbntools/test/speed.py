@@ -15,8 +15,9 @@ def speed_initapp():
     import isbntools._initapp
     elapsed_time = time.process_time() - t
     millis = int(elapsed_time * 1000)
-    print("(_initapp)  {} milliseconds < 200 milliseconds".format(millis))
+    print('(_initapp)  {} milliseconds < 200 milliseconds'.format(millis))
     assert millis < 200
+    isbntools._initapp.CONF_PATH
 
 def speed_app():
     """Test import speed of 'app'."""
@@ -24,8 +25,9 @@ def speed_app():
     import isbntools.app
     elapsed_time = time.process_time() - t
     millis = int(elapsed_time * 1000)
-    print("(app)         {} milliseconds <  10 milliseconds".format(millis))
+    print('(app)         {} milliseconds <  10 milliseconds'.format(millis))
     assert millis < 10
+    isbntools.app.defaults_conf
 
 
 
