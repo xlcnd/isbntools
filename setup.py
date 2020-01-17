@@ -18,9 +18,6 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-import os
-import sys
-
 from datetime import datetime as dt
 from setuptools import find_packages, setup
 
@@ -44,7 +41,7 @@ GITHUB_PATH = '{}/{}'.format(PROJECT_GITHUB_USERNAME,
                              PROJECT_GITHUB_REPOSITORY)
 GITHUB_URL = 'https://github.com/{}'.format(GITHUB_PATH)
 
-DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, "v" + PROJECT_VERSION)
+DOWNLOAD_URL = '{}/archive/{}.zip'.format(GITHUB_URL, 'v' + PROJECT_VERSION)
 PROJECT_URLS = {
     'Bug Reports': '{}/issues'.format(GITHUB_URL),
     'Dev Docs': 'https://isbntools.readthedocs.io/en/latest/devs.html',
@@ -80,7 +77,7 @@ setup(
     author=PROJECT_AUTHOR,
     author_email=PROJECT_EMAIL,
     license=PROJECT_LICENSE,
-    packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
+    packages=find_packages(exclude=['*.test', '*.test.*', 'test.*', 'test']),
     entry_points={
         'console_scripts': [
             'isbn_conf=isbntools.bin.confc:main',
@@ -105,7 +102,7 @@ setup(
         ]
     },
     data_files=[('isbntools', ['isbntools/isbntools.conf'])],
-    install_requires=['isbnlib>=3.9.10,<3.10.0'],
+    install_requires=['isbnlib>=3.9.10,<3.11.0'],
     description=
     "app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
