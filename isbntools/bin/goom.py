@@ -10,7 +10,7 @@ from ..app import goom, quiet_errors, uprint
 PREFIX = 'isbn_'
 
 
-def usage(ofmts="labels", prefix=PREFIX):
+def usage(ofmts='labels', prefix=PREFIX):
     sys.stderr.write('Usage: %sgoom "words" [%s] \n' % (prefix, ofmts))
     return 1
 

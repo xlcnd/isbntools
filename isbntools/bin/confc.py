@@ -48,21 +48,24 @@ def purgecache():
 def range_date():
     try:
         from isbnlib import RDDATE
+
         print(RDDATE[0:8])
     except:
         pass
 
 
-VERBS = {'show': print_conf,
-         'make': mk_conf,
-         'setkey': reg_apikey,
-         'regmod': lambda x, y: reg_mod({x: y}),
-         'setopt': reg_myopt,
-         'delcache': delcache,
-         'cachepath': cachepath,
-         'dumpcache': dumpcache,
-         'purgecache': purgecache,
-         'rdate': range_date, }
+VERBS = {
+    'show': print_conf,
+    'make': mk_conf,
+    'setkey': reg_apikey,
+    'regmod': lambda x, y: reg_mod({x: y}),
+    'setopt': reg_myopt,
+    'delcache': delcache,
+    'cachepath': cachepath,
+    'dumpcache': dumpcache,
+    'purgecache': purgecache,
+    'rdate': range_date,
+}
 
 
 def usage(prefix=PREFIX):

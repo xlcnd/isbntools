@@ -36,7 +36,7 @@ except:
     sys.stdout = sys.__stdout__
 
 
-def set_consolefont(fontname="Lucida Console"):
+def set_consolefont(fontname='Lucida Console'):
     """See stackoverflow question 3592673."""
     import ctypes
 
@@ -44,13 +44,17 @@ def set_consolefont(fontname="Lucida Console"):
     STD_OUTPUT_HANDLE = -11
 
     class COORD(ctypes.Structure):
-        _fields_ = [("X", ctypes.c_short), ("Y", ctypes.c_short)]
+        _fields_ = [('X', ctypes.c_short), ('Y', ctypes.c_short)]
 
     class CONSOLE_FONT_INFOEX(ctypes.Structure):
-        _fields_ = [("cbSize", ctypes.c_ulong), ("nFont", ctypes.c_ulong),
-                    ("dwFontSize", COORD), ("FontFamily", ctypes.c_uint),
-                    ("FontWeight", ctypes.c_uint),
-                    ("FaceName", ctypes.c_wchar * LF_FACESIZE)]
+        _fields_ = [
+            ('cbSize', ctypes.c_ulong),
+            ('nFont', ctypes.c_ulong),
+            ('dwFontSize', COORD),
+            ('FontFamily', ctypes.c_uint),
+            ('FontWeight', ctypes.c_uint),
+            ('FaceName', ctypes.c_wchar * LF_FACESIZE),
+        ]
 
     font = CONSOLE_FONT_INFOEX()
     font.cbSize = ctypes.sizeof(CONSOLE_FONT_INFOEX)
@@ -70,12 +74,13 @@ def set_consolefont(fontname="Lucida Console"):
 def register_cp65001():
     """Register cp65001 so that PY2 knowns about it."""
     import codecs
+
     try:
         codecs.lookup('cp65001')
         return False
     except LookupError:
-        codecs.register(
-            lambda name: codecs.lookup('utf-8') if name == 'cp65001' else None)
+        codecs.register(lambda name: codecs.lookup('utf-8')
+                        if name == 'cp65001' else None)
         return True
 
 
@@ -86,13 +91,14 @@ def set_codepage(cp):
     if sys.stdout.encoding == 'cp%i' % cp:
         return
     import subprocess
-    subprocess.call("chcp %i" % cp + " > %TMP%\\xxx", shell=True)
+
+    subprocess.call('chcp %i' % cp + ' > %TMP%\\xxx', shell=True)
 
 
 def reset_codepage():
     """Reset codepage."""
-    return set_codepage(int(DEFAULT_CODEPAGE[2:]))\
-       if DEFAULT_CODEPAGE else None
+    return set_codepage(int(
+        DEFAULT_CODEPAGE[2:])) if DEFAULT_CODEPAGE else None
 
 
 def set_msconsole():
@@ -111,9 +117,9 @@ def set_msconsole():
     if WINDOWS and PY3 and sys.stdout.encoding not in ('cp65001', 'cp1252'):
         LOGGER.debug('sys.stdout.encoding is %s', sys.stdout.encoding)
         print('')
-        print("    WARNING: your system is not prepared for Unicode.")
+        print('    WARNING: your system is not prepared for Unicode.')
         print("    Enter 'chcp 65001' in a 'cmd' prompt before 'isbntools'.")
-        print("    ** You are using codepage " + sys.stdout.encoding)
+        print('    ** You are using codepage ' + sys.stdout.encoding)
         print('')
 
 
@@ -123,7 +129,7 @@ def uprint(content, filep=None, mode='w'):
         stdout = sys.stdout
         sys.stdout = open(filep, mode)
     s = content + EOL
-    buf = s.encode("utf-8")
+    buf = s.encode('utf-8')
     if WINDOWS and PY2 and sys.stdout.isatty():
         set_codepage(65001)
     try:

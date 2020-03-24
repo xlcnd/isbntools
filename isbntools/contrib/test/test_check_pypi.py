@@ -2,13 +2,9 @@
 # flake8: noqa
 # pylint: skip-file
 
+"""nose tests for 'check pypi'."""
 
 from isbntools.contrib.modules.report import check_pypi
-
-
-"""
-nose tests
-"""
 
 
 def test_check_pypi():

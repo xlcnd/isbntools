@@ -20,9 +20,16 @@ CUTOFF = 65
 
 def checkpattern(pattern):
     """Check the validity of pattern for renaming a file."""
-    placeholders = ('{authorsFullNames}', '{authorsLastNames}',
-                    '{firstAuthorLastName}', '{year}', '{publisher}',
-                    '{title}', '{isbn}', '{language}')
+    placeholders = (
+        '{authorsFullNames}',
+        '{authorsLastNames}',
+        '{firstAuthorLastName}',
+        '{year}',
+        '{publisher}',
+        '{title}',
+        '{isbn}',
+        '{language}',
+    )
     tocheck = pattern[:]
 
     placeholderfound = False
@@ -135,7 +142,7 @@ def renfile(filename, isbn, service, pattern=PATTERN):
     return None  # pragma: no cover
 
 
-def rencwdfiles(fnpatt="*", service='default', pattern=PATTERN):
+def rencwdfiles(fnpatt='*', service='default', pattern=PATTERN):
     """Rename cwd files with a ISBN in their filenames and within fnpatt."""
     files = [(get_isbn(f), f) for f in cwdfiles(fnpatt) if get_isbn(f)]
     for isbn, f in files:

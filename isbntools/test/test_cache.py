@@ -23,17 +23,23 @@ def teardown_module():
 def test_shelvecache_meta():
     """Test 'shelvecache' operations (set/get meta)."""
     print(cache.keys())
-    assert_equals(len(repr(cache.get("query('9780375869020', 'default'){}"))) > 100, True)
-    assert_equals(len(repr(cache.get("query('9780375869020', 'default'){}"))),
-                  len(repr(cache["query('9780375869020', 'default'){}"])))
+    assert_equals(
+        len(repr(cache.get("query('9780375869020', 'default'){}"))) > 100,
+        True)
+    assert_equals(
+        len(repr(cache.get("query('9780375869020', 'default'){}"))),
+        len(repr(cache["query('9780375869020', 'default'){}"])),
+    )
 
 
 def test_shelvecache_editions():
     """Test 'shelvecache' operations (set/get editions)."""
     # TEMPORARILY FIXME
     # assert_equals(len(repr(cache.get("ed9780375869020merge"))) > 12, True)
-    assert_equals(len(repr(cache.get("get_editions('9780375869020', 'merge'){}"))),
-                  len(repr(cache["get_editions('9780375869020', 'merge'){}"])))
+    assert_equals(
+        len(repr(cache.get("get_editions('9780375869020', 'merge'){}"))),
+        len(repr(cache["get_editions('9780375869020', 'merge'){}"])),
+    )
 
 
 def test_shelvecache_setget():

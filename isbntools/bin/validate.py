@@ -24,7 +24,7 @@ def do_pipe():
         return 1
     for line in sys.stdin:
         line = line.strip()
-        buf = re.sub(r"\[|\]|'|-", "", repr(get_isbnlike(line)))
+        buf = re.sub(r"\[|\]|'|-", '', repr(get_isbnlike(line)))
         buf = buf.strip()
         if ',' in buf:
             for b in buf.split(','):

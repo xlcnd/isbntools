@@ -14,8 +14,8 @@ PKGS = ('isbntools', 'isbnlib')
 WINDOWS = os.name == 'nt'
 EOL = '\r\n' if WINDOWS and not PY2 else '\n'
 PY3 = not PY2
-VIRTUAL = getattr(sys, 'base_prefix', sys.prefix) != sys.prefix \
-   or hasattr(sys, 'real_prefix')
+VIRTUAL = getattr(sys, 'base_prefix', sys.prefix) != sys.prefix or hasattr(
+    sys, 'real_prefix')
 BOLD = colors.BOLD
 RESET = colors.RESET
 
@@ -35,8 +35,8 @@ def shell(shcmd=None):
         out = fo.read().strip(EOL)
         err = fe.read().strip(EOL)
     else:  # pragma: no cover
-        out = fo.read().decode("utf-8")
-        err = fe.read().decode("utf-8")
+        out = fo.read().decode('utf-8')
+        err = fe.read().decode('utf-8')
     if out:
         return out
     if err:  # pragma: no cover
@@ -46,7 +46,7 @@ def shell(shcmd=None):
 def check_pypi(pkgs=PKGS):
     """Check pypi for pkgs starting with pkgs."""
     # (don't run this in appveyour)
-    if os.getenv("APPVEYOR", "") != "":
+    if os.getenv('APPVEYOR', '') != '':
         return 0
     cmd = 'pip search '
     try:

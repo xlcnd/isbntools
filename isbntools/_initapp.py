@@ -15,8 +15,8 @@ from isbnlib import registry
 # env
 PY2 = sys.version < '3'
 PY3 = not PY2
-VIRTUAL = getattr(sys, 'base_prefix', sys.prefix) != sys.prefix \
-   or hasattr(sys, 'real_prefix')
+VIRTUAL = getattr(sys, 'base_prefix', sys.prefix) != sys.prefix or hasattr(
+    sys, 'real_prefix')
 WINDOWS = os.name == 'nt'
 
 # defaults parameters can be overwritten in
@@ -55,6 +55,7 @@ try:  # pragma: no cover
     conf.read_string(DEFAULTS)  # PY3
 except:  # pragma: no cover
     import io
+
     # pylint: disable=deprecated-method
     conf.readfp(io.BytesIO(DEFAULTS))  # PY2
 
@@ -120,8 +121,8 @@ if not CONF_PATH:
     if VIRTUAL:
         CONF_PATH = os.path.join(sys.prefix, 'isbntools')
     else:
-        CONF_PATH = os.path.join(os.getenv('APPDATA'), 'isbntools') \
-                    if WINDOWS else os.path.expanduser('~/.isbntools')
+        CONF_PATH = (os.path.join(os.getenv('APPDATA'), 'isbntools')
+                     if WINDOWS else os.path.expanduser('~/.isbntools'))
     # make the folder if it doesn't exist (see issue #101)!
     try:  # pragma: no cover
         os.mkdir(CONF_PATH)
@@ -135,6 +136,7 @@ else:
     CACHE_FILE = '.metacache'
     cache_path = os.path.join(CONF_PATH, CACHE_FILE)
     from ._shelvecache import ShelveCache
+
     try:
         registry.set_cache(ShelveCache(cache_path))
     except:
@@ -156,4 +158,5 @@ else:
 # setup Windows console
 if WINDOWS:
     from ._console import set_msconsole
+
     set_msconsole()

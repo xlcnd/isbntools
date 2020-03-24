@@ -11,9 +11,25 @@ import sys
 from difflib import get_close_matches
 from subprocess import PIPE, Popen
 
-from . import (ean13, confc, cover, desc, doi, doi2tex, editions, from_words,
-               goom, info, mask, meta, to_isbn10, to_isbn13, validate,
-               classify, version)
+from . import (
+    ean13,
+    confc,
+    cover,
+    desc,
+    doi,
+    doi2tex,
+    editions,
+    from_words,
+    goom,
+    info,
+    mask,
+    meta,
+    to_isbn10,
+    to_isbn13,
+    validate,
+    classify,
+    version,
+)
 from .. import __version__
 from ..app import get_canonical_isbn, registry
 from ..contrib.modules.uxcolors import BOLD, RESET
@@ -52,13 +68,18 @@ class ISBNRepl(cmd.Cmd):
     last_isbn = ''
     last_isbn_ph = '#'
     doc_header = 'Commands available (type ?<command> to get help):'
-    intro = r'''
+    intro = r"""
     Welcome to the %sisbntools %s%s REPL.
     ** For help type 'help' or '?'
     ** To exit type 'exit' :)
     ** To run a shell command, type '!<shellcmnd>'
     ** Use '%s' in place of the last ISBN
-    ''' % (BOLD, __version__, RESET, last_isbn_ph)
+    """ % (
+        BOLD,
+        __version__,
+        RESET,
+        last_isbn_ph,
+    )
     prompt = '%sisbn>%s ' % (BOLD, RESET)
     ruler = '-'
     undoc_header = None  # <-- IMPORTANT
@@ -369,12 +390,14 @@ class ISBNRepl(cmd.Cmd):
     def do_shell(self, line):
         if not line:
             return
-        sp = Popen(line,
-                   shell=True,
-                   stdin=PIPE,
-                   stdout=PIPE,
-                   stderr=PIPE,
-                   close_fds=not WINDOWS)
+        sp = Popen(
+            line,
+            shell=True,
+            stdin=PIPE,
+            stdout=PIPE,
+            stderr=PIPE,
+            close_fds=not WINDOWS,
+        )
         (fo, fe) = (sp.stdout, sp.stderr)
         if PY2:
             out = fo.read().strip(EOL)

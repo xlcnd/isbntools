@@ -28,39 +28,48 @@ def main():
     print((colors.BOLD))
     print(" isbntools - app and framework for 'all things ISBN'")
     print((colors.RESET))
-    print((" Copyright (C) 2014-2020  Alexandre Lima Conde, Version %s" %
+    print((' Copyright (C) 2014-2020  Alexandre Lima Conde, Version %s' %
            __version__))
-    print("")
-    print(" License LGPL v3")
+    print('')
+    print(' License LGPL v3')
     print((NOTICE))
 
     # make audit
     from isbntools.app import audit
+
     print((colors.BOLD))
     audit()
     print((colors.RESET))
 
     # conf file
     from isbntools.conf import conf_file
+
     if conf_file != 'DEFAULTS':
-        print("")
+        print('')
         print(' Your configuration file is at:')
-        print("  %s%s%s" % (colors.BOLD, conf_file, colors.RESET))
-        print("")
+        print('  %s%s%s' % (colors.BOLD, conf_file, colors.RESET))
+        print('')
 
     # lib version
     from isbntools.app import libversion
+
     print(" And 'isbntools' is using:")
-    print("  'isbnlib' version %s%s%s with 'range db' %s%s%s" %
-          (colors.BOLD, libversion, colors.RESET, colors.BOLD, RDDATE[0:8],
-           colors.RESET))
-    print("")
+    print("  'isbnlib' version %s%s%s with 'range db' %s%s%s" % (
+        colors.BOLD,
+        libversion,
+        colors.RESET,
+        colors.BOLD,
+        RDDATE[0:8],
+        colors.RESET,
+    ))
+    print('')
 
     # check for updates and pypi packages
-    print(" Checking %sonline%s services ... %sWAIT%s" %
+    print(' Checking %sonline%s services ... %sWAIT%s' %
           (colors.BOLD, colors.RESET, colors.BOLD, colors.RESET))
     try:
         from isbntools.contrib.modules.report import check_pypi
+
         check_pypi()
     except:
         pass

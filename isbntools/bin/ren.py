@@ -5,16 +5,14 @@ import logging
 import sys
 from difflib import get_close_matches
 
-from ..app import (canonical, clean, config, get_canonical_isbn,
-                   quiet_errors, registry)
-from ..contrib.modules.rename import (checkpattern, get_isbn,
-                                      rencwdfiles, renfile)
+from ..app import canonical, clean, config, get_canonical_isbn, quiet_errors, registry
+from ..contrib.modules.rename import checkpattern, get_isbn, rencwdfiles, renfile
 
 FORMAT = '%(message)s'
 logging.basicConfig(level=logging.INFO, format=FORMAT)
 
 
-def usage(wservs="goob|openl|..."):
+def usage(wservs='goob|openl|...'):
     """Write usage message."""
     sys.stderr.write('Usage: \n\nisbn_ren [ISBN] [%s] '
                      '[apikey] [pattern] filename\n  ' % (wservs))
@@ -23,7 +21,7 @@ def usage(wservs="goob|openl|..."):
         '    be searched for a valid ISBN and in this case you \n'
         '    can enter a glob pattern like "*.pdf". \n'
         '  - [pattern] must be a string in quotes containing\n  '
-        '    only ASCII letters, digits and \'#\'-_.,() \'\n  '
+        "    only ASCII letters, digits and '#'-_.,() '\n  "
         '    and one or more of the following placeholders:\n  '
         '    - {authorsFullNames}    (full names of the author(s))\n  '
         '    - {authorsLastNames}    (last names of the author(s))\n  '
@@ -33,9 +31,9 @@ def usage(wservs="goob|openl|..."):
         '    - {title}\n  '
         '    - {isbn}(ISBN-13) \n  '
         '    - {language}\n  '
-        '    Author names are separated with commas, (\',\').\n  '
-        '    Default pattern is \"'
-        '{firstAuthorLastName}{year}_{title}_{isbn}\".\n\n')
+        "    Author names are separated with commas, (',').\n  "
+        '    Default pattern is "'
+        '{firstAuthorLastName}{year}_{title}_{isbn}".\n\n')
     return 1
 
 

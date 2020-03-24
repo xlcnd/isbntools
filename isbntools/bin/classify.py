@@ -19,8 +19,8 @@ def main(isbn=None, prefix=PREFIX):
         isbn = sys.argv[1] if not isbn else isbn[1]
         data = classify(isbn)
         if data:
-            print(dumps(data, indent = 4))
+            print(dumps(data, indent=4))
         else:
-            raise Exception("No data")
+            raise Exception('No data')
     except:
         usage(prefix)

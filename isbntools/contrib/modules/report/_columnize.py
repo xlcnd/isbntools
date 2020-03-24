@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Borrowed from Standard Library (cmd.py)."""
 
 import sys
@@ -10,13 +11,12 @@ def columnize(list, displaywidth=80):
     Columns are separated by two spaces (one was not legible enough).
     """
     if not list:
-        sys.stdout.write("<empty>\n")
+        sys.stdout.write('<empty>\n')
         return
-    nonstrings = [i for i in range(len(list))
-                  if not isinstance(list[i], str)]
+    nonstrings = [i for i in range(len(list)) if not isinstance(list[i], str)]
     if nonstrings:
-        raise TypeError("list[i] not a string for i in %s" %
-                        ", ".join(map(str, nonstrings)))
+        raise TypeError('list[i] not a string for i in %s' %
+                        ', '.join(map(str, nonstrings)))
     size = len(list)
     if size == 1:
         sys.stdout.write('%s\n' % str(list[0]))
@@ -49,7 +49,7 @@ def columnize(list, displaywidth=80):
         for col in range(ncols):
             i = row + nrows * col
             if i >= size:
-                x = ""
+                x = ''
             else:
                 x = list[i]
             texts.append(x)
@@ -57,4 +57,4 @@ def columnize(list, displaywidth=80):
             del texts[-1]
         for col in range(len(texts)):
             texts[col] = texts[col].ljust(colwidths[col])
-        sys.stdout.write("%s\n" % str("  ".join(texts)))
+        sys.stdout.write('%s\n' % str('  '.join(texts)))

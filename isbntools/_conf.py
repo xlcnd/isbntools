@@ -8,8 +8,17 @@ from .__init__ import __version__
 from ._initapp import conf
 from .app import defaults_conf, pkg_path
 
-__all__ = ('pkg_version', 'pkg_path', 'pkg_options', 'reg_mod', 'conf_file',
-           'reg_apikey', 'mk_conf', 'print_conf', 'reg_myopt')
+__all__ = (
+    'pkg_version',
+    'pkg_path',
+    'pkg_options',
+    'reg_mod',
+    'conf_file',
+    'reg_apikey',
+    'mk_conf',
+    'print_conf',
+    'reg_myopt',
+)
 
 pkg_version = __version__
 pkg_options = conf.items('MODULES') if conf.has_section('MODULES') else []
@@ -51,8 +60,8 @@ def _conf_file():
     if VIRTUAL:
         installpath = 'isbntools'
     else:
-        homepath = os.path.expanduser('~')\
-            if os.name != 'nt' else os.getenv('APPDATA')
+        homepath = os.path.expanduser('~') if os.name != 'nt' else os.getenv(
+            'APPDATA')
         confdir = '.isbntools' if os.name != 'nt' else 'isbntools'
         installpath = os.path.join(homepath, confdir)
     conffile = 'isbntools.conf'
@@ -77,7 +86,7 @@ def reg_myopt(opt, value):
 def print_conf():
     """Print conf file."""
     if conf_file == defaults_conf:
-        print("NO conf file! Using default builtins.")
+        print('NO conf file! Using default builtins.')
         return
-    print(("conf file at %s:" % conf_file))
+    print(('conf file at %s:' % conf_file))
     conf.write(sys.stdout)
