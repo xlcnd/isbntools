@@ -8,7 +8,7 @@ from isbnlib import __version__ as libversion
 from isbnlib import (ean13, canonical, clean, doi, doi2tex, editions,
                      get_canonical_isbn, get_isbnlike, goom, info,
                      isbn_from_words, mask, meta, quiet_errors, to_isbn10,
-                     to_isbn13, desc, cover)
+                     to_isbn13, desc, cover, classify)
 
 # inject isbntools dependencies on isbnlib
 # <-- first import after lib (IMPORTANT)
@@ -30,7 +30,7 @@ __all__ = ('audit', 'ISBNToolsException', 'ean13', 'cover', 'desc', 'doi',
            'isbn_from_words', 'get_isbnlike', 'clean', 'mask', 'meta',
            'to_isbn10', 'to_isbn13', 'goom', 'libversion', 'config',
            'registry', 'doi2tex', 'quiet_errors', 'CONF_PATH', 'CACHE_FILE',
-           'uprint')
+           'uprint', 'classify')
 
 # env
 pkg_path = _os.path.dirname(_os.path.abspath(__file__))

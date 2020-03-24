@@ -12,15 +12,29 @@ from difflib import get_close_matches
 from subprocess import PIPE, Popen
 
 from . import (ean13, confc, cover, desc, doi, doi2tex, editions, from_words,
-               goom, info, mask, meta, to_isbn10, to_isbn13, validate, version)
+               goom, info, mask, meta, to_isbn10, to_isbn13, validate,
+               classify, version)
 from .. import __version__
-from ..app import CONF_PATH, get_canonical_isbn, registry
+from ..app import get_canonical_isbn, registry
 from ..contrib.modules.uxcolors import BOLD, RESET
 
 CMDS = [
-    'audit', 'BIBFORMATS', 'conf', 'doi', 'doi2tex', 'ean13', 'editions',
-    'goom', 'info', 'mask', 'meta', 'from_words', 'PROVIDERS', 'shell',
-    'validate'
+    'audit',
+    'BIBFORMATS',
+    'conf',
+    'doi',
+    'doi2tex',
+    'ean13',
+    'editions',
+    'goom',
+    'info',
+    'mask',
+    'meta',
+    'from_words',
+    'PROVIDERS',
+    'shell',
+    'validate',
+    'classify',
 ]
 PREFIX = ''
 PY2 = sys.version < '3'
@@ -56,11 +70,11 @@ class ISBNRepl(cmd.Cmd):
         """Override 'print_topics' so that you can exclude EOF and shell."""
         if header:
             if cmds:
-                self.stdout.write("%s\n" % str(header))
+                self.stdout.write('%s\n' % str(header))
                 if self.ruler:
-                    self.stdout.write("%s\n" % str(self.ruler * len(header)))
+                    self.stdout.write('%s\n' % str(self.ruler * len(header)))
                 self.columnize(cmds, maxcol - 1)
-                self.stdout.write("\n")
+                self.stdout.write('\n')
 
     def default(self, s):
         """Override default method to allow fuzzy commands."""
@@ -228,6 +242,15 @@ class ISBNRepl(cmd.Cmd):
         if args:
             editions.main(args, prefix=PREFIX)
 
+    def do_classify(self, line):
+        """classify ISBN"""
+        if not line:
+            print(self.do_classify.__doc__)
+            return
+        args = self._parse('classify', line)
+        if args:
+            classify.main(args, prefix=PREFIX)
+
     def do_exit(self, line):
         """Soft exit from REPL."""
         print('bye')
@@ -346,20 +369,19 @@ class ISBNRepl(cmd.Cmd):
     def do_shell(self, line):
         if not line:
             return
-        sp = Popen(
-            line,
-            shell=True,
-            stdin=PIPE,
-            stdout=PIPE,
-            stderr=PIPE,
-            close_fds=not WINDOWS)
+        sp = Popen(line,
+                   shell=True,
+                   stdin=PIPE,
+                   stdout=PIPE,
+                   stderr=PIPE,
+                   close_fds=not WINDOWS)
         (fo, fe) = (sp.stdout, sp.stderr)
         if PY2:
             out = fo.read().strip(EOL)
             err = fe.read().strip(EOL)
         else:
-            out = fo.read().decode("utf-8")
-            err = fe.read().decode("utf-8")
+            out = fo.read().decode('utf-8')
+            err = fe.read().decode('utf-8')
         if out:
             print(out)
             return
