@@ -35,10 +35,6 @@ VIAS_MERGE=parallel
 [MODULES]
 """
 
-# get defaults
-URLOPEN_TIMEOUT = float(config.URLOPEN_TIMEOUT)
-THREADS_TIMEOUT = float(config.THREADS_TIMEOUT)
-
 # set conf path
 CONF_PATH = None
 
@@ -70,9 +66,8 @@ if VIRTUAL:  # pragma: no cover
 else:
     if WINDOWS:  # pragma: no cover
         conf.files = conf.read([
-            os.path.join(
-                os.getenv('APPDATA'),
-                os.path.join('isbntools', 'isbntools.conf'))
+            os.path.join(os.getenv('APPDATA'),
+                         os.path.join('isbntools', 'isbntools.conf'))
         ])
     else:  # pragma: no cover
         conf.files = conf.read([
@@ -147,7 +142,7 @@ else:
         pass
 
 # set logger
-fmt = "%(asctime)s;%(levelname)s;%(message)s"
+fmt = '%(asctime)s;%(levelname)s;%(message)s'
 if CONF_PATH:
     log_path = os.path.join(CONF_PATH, 'isbntools.log')
     debug = config.options.get('DEBUG', 'False')
