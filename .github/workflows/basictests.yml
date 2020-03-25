@@ -29,5 +29,5 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with nose
       run: |
-        pip install nose coverage
+        pip install nose coverage setuptools
         nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90

@@ -3,7 +3,6 @@
 # pylint: skip-file
 """nose tests for audit module."""
 
-import sys
 
 from isbntools.contrib.modules.report import audit
 
