@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.7, 3.8]
 
     steps:
     - uses: actions/checkout@v2
@@ -27,9 +27,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: "Install dependencies for tox"
+    - name: "Run nose tests"
       run: |
-        pip install nose coverage virtualenv tox tox-gh-actions
-#        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
-    - name: "Run tox targets for ${{ matrix.python-version }}"
-      run: "tox -c tox-github.ini -e py37"
+        pip install nose coverage
+        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
