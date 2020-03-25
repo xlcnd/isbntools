@@ -139,6 +139,13 @@ returns the EAN13 code of a given ISBN.
 
 .. code-block:: console
 
+    $ isbn_classify ISBN
+
+returns the OCLC classifiers of a given ISBN.
+
+
+.. code-block:: console
+
     $ isbn_ren FILENAME
 
 renames (using metadata) files in the **current directory** that have ISBNs in their
@@ -178,9 +185,10 @@ Following is a typical session:
 
     Commands available (type ?<command> to get help):
     -------------------------------------------------
-    BIBFORMATS  conf   doi      editions    goom  mask       to_isbn13
-    PROVIDERS   cover  doi2tex  exit        help  meta       validate
-    audit       desc   ean13    from_words  info  to_isbn10
+    BIBFORMATS  classify  desc     ean13     from_words  info  to_isbn10
+    PROVIDERS   conf      doi      editions  goom        mask  to_isbn13
+    audit       cover     doi2tex  exit      help        meta  validate
+
 
     $ isbn> meta 9780156001311 tex
     @book{9780156001311,
