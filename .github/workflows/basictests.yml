@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.5, 3.6, 3.7, 3.8]
+        python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v2
@@ -32,4 +32,4 @@ jobs:
         pip install nose coverage virtualenv tox tox-gh-actions
 #        nosetests -v --with-coverage --cover-package=isbnlib --cover-min-percentage=90
     - name: "Run tox targets for ${{ matrix.python-version }}"
-      run: "tox -c tox-github.ini"
+      run: "tox -c tox-github.ini -e py37"
