@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
+"""nose tests for audit module."""
 
 import sys
 
 from isbntools.contrib.modules.report import audit
-"""
-nose tests
-"""
 
 
 def test_audit():
