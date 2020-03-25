@@ -34,8 +34,6 @@ def test_shelvecache_meta():
 
 def test_shelvecache_editions():
     """Test 'shelvecache' operations (set/get editions)."""
-    # TEMPORARILY FIXME
-    # assert_equals(len(repr(cache.get("ed9780375869020merge"))) > 12, True)
     assert_equals(
         len(repr(cache.get("get_editions('9780375869020', 'merge'){}"))),
         len(repr(cache["get_editions('9780375869020', 'merge'){}"])),
