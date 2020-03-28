@@ -10,7 +10,6 @@ from isbnlib import (
     canonical,
     clean,
     doi,
-    doi2tex,
     editions,
     get_canonical_isbn,
     get_isbnlike,
@@ -30,6 +29,8 @@ from isbnlib import (
 # inject isbntools dependencies on isbnlib
 # <-- first import after lib (IMPORTANT)
 from ._initapp import config, registry, CONF_PATH, CACHE_FILE
+
+from ._doitotex import doi2tex
 
 # isbntools
 from .contrib.modules.report import audit
