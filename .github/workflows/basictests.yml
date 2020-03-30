@@ -91,3 +91,5 @@ jobs:
       run: |
         pip install nose coverage
         nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=90
+    - name: Test with tox
+        if [ ${{ matrix.python-version}} = 3.7 ]; then pip install tox && tox -e py37; fi
