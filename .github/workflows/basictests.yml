@@ -43,31 +43,6 @@ jobs:
       run: |
         pip install nose coverage
         nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=90
-        python isbntools/bin/meta.py 9780321534965
-        isbn_meta 9780321534965 goob refworks
-        isbn_meta 9789993710561 bibtex
-        isbn_meta 9780321534965 csl
-        isbn_meta 9780156001311 endnote
-        isbn_meta 9780321534965 json
-        isbn_meta 9789993710561 msword
-        isbn_meta 9780672322600 >>xxx
-        to_isbn10 9780826497529
-        to_isbn13 0826497527
-        isbn_mask 5852700010
-        isbn_info 9787500117018
-        isbn_editions 9780156001311
-        isbn_validate 9780321534965
-        isbn_classify 9780425284629
-        isbn_doi 9780321534965
-        isbn_from_words 'old man and sea'
-        isbn_from_words 'Camões Lusíadas'
-        isbn_goom 'python hackers' bibtex
-        isbn_desc 9780156001311
-        isbn_cover 9780156001311
-        isbn_conf show
-        isbn_conf cachepath
-        isbn_conf dumpcache
-        isbn_conf purgecache
 
 
   basic-tests-macos:
@@ -92,31 +67,6 @@ jobs:
       run: |
         pip install nose coverage
         nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=90
-        python isbntools/bin/meta.py 9780321534965
-        isbn_meta 9780321534965 goob refworks
-        isbn_meta 9789993710561 bibtex
-        isbn_meta 9780321534965 csl
-        isbn_meta 9780156001311 endnote
-        isbn_meta 9780321534965 json
-        isbn_meta 9789993710561 msword
-        isbn_meta 9780672322600 >>xxx
-        to_isbn10 9780826497529
-        to_isbn13 0826497527
-        isbn_mask 5852700010
-        isbn_info 9787500117018
-        isbn_editions 9780156001311
-        isbn_validate 9780321534965
-        isbn_classify 9780425284629
-        isbn_doi 9780321534965
-        isbn_from_words 'old man and sea'
-        isbn_from_words 'Camões Lusíadas'
-        isbn_goom 'python hackers' bibtex
-        isbn_desc 9780156001311
-        isbn_cover 9780156001311
-        isbn_conf show
-        isbn_conf cachepath
-        isbn_conf dumpcache
-        isbn_conf purgecache
 
 
   basic-tests-windows:
@@ -141,28 +91,3 @@ jobs:
       run: |
         pip install nose coverage
         nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=90
-        isbn_meta 9780321534965
-        isbn_meta 9780321534965 goob refworks
-        isbn_meta 9789993710561 bibtex
-        isbn_meta 9780321534965 csl
-        isbn_meta 9780156001311 endnote
-        isbn_meta 9780321534965 json
-        isbn_meta 9789993710561 msword
-        isbn_meta 9780672322600 >>xxx
-        to_isbn10 9780826497529
-        to_isbn13 0826497527
-        isbn_mask 5852700010
-        isbn_info 9787500117018
-        isbn_editions 9780156001311
-        isbn_validate 9780321534965
-        isbn_classify 9780425284629
-        isbn_doi 9780321534965
-        isbn_from_words 'old man and sea'
-        isbn_from_words 'Camões Lusíadas'
-        isbn_goom 'python hackers' bibtex
-        isbn_desc 9780156001311
-        isbn_cover 9780156001311
-        isbn_conf show
-        isbn_conf cachepath
-        isbn_conf dumpcache
-        isbn_conf purgecache
