@@ -43,7 +43,7 @@ jobs:
       run: |
         pip install nose coverage
         nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=90
-        isbn_meta 9780321534965
+        python isbntools/bin/meta.py 9780321534965
         isbn_meta 9780321534965 goob refworks
         isbn_meta 9789993710561 bibtex
         isbn_meta 9780321534965 csl
@@ -92,7 +92,7 @@ jobs:
       run: |
         pip install nose coverage
         nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=90
-        isbn_meta 9780321534965
+        python isbntools/bin/meta.py 9780321534965
         isbn_meta 9780321534965 goob refworks
         isbn_meta 9789993710561 bibtex
         isbn_meta 9780321534965 csl
