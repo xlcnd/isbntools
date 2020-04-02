@@ -5,8 +5,8 @@
 
 import os
 
-from isbnlib.dev._bouth23 import b, b2u3, u
-from isbnlib.dev.helpers import File, cwdfiles
+from isbnlib.dev._bouth23 import b2u3, u
+from isbnlib.dev.helpers import cwdfiles
 from isbntools.contrib.modules.rename import (
     checkpattern,
     cleannewname,
@@ -15,7 +15,7 @@ from isbntools.contrib.modules.rename import (
     rencwdfiles,
     renfile,
 )
-from nose.tools import assert_equals, assert_raises
+from nose.tools import assert_equals
 
 
 WINDOWS = os.name == 'nt'
@@ -27,9 +27,10 @@ F1 = '9780321534965.pdf'
 F2 = '9780743258074.pdf'
 # F3 = '9781852330729.pdf'
 # F4 = '9787500117018.pdf'
-F5 = '9789727576807.pdf'
 
+F5 = '9789727576807.pdf'
 F6 = u('Campos2011_Emergências obstétricas_9789727576807.pdf')
+
 F7 = u('Knuth2008_The Art Of Computer Programming_9780321534965.pdf')
 # F8 = u('Man2001_Genetic Algorithms Concepts And Designs_9781852330729.pdf')
 F9 = u('Isaacson2004_Benjamin Franklin_9780743258074.pdf')
@@ -38,9 +39,11 @@ F9 = u('Isaacson2004_Benjamin Franklin_9780743258074.pdf')
 F11 = 'myfile.pdf'
 
 # FISBN = [F1, F2, F3, F4, F5]
-FISBN = [F1, F2, F5]
+# FISBN = [F1, F2, F5]
+FISBN = [F1, F2]
 # FFT = [F6, F7, F8, F9, F10]
-FFT = [F6, F7, F9]
+# FFT = [F6, F7, F9]
+FFT = [F7, F9]
 FILES = FISBN + FFT + [F11]
 
 PATT0 = '{firstAuthorLastName}{year}_{title}_{isbn}'
