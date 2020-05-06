@@ -10,7 +10,6 @@ import os
 import sys
 
 from isbnlib import config
-from isbnlib import registry
 
 # env
 PY2 = sys.version < '3'
@@ -89,8 +88,6 @@ except:
 
 # set options
 if conf.has_section('SYS'):
-    for o, v in conf.items('SYS'):
-        config.set_option(o.upper(), v)
     # get user defined values for timeouts
     URLOPEN_TIMEOUT = float(conf.get('SYS', 'URLOPEN_TIMEOUT'))
     THREADS_TIMEOUT = float(conf.get('SYS', 'THREADS_TIMEOUT'))
@@ -98,6 +95,15 @@ if conf.has_section('SYS'):
     config.seturlopentimeout(URLOPEN_TIMEOUT)
     # THREADS_TIMEOUT is used by vias.py and is a number
     config.setthreadstimeout(THREADS_TIMEOUT)
+    # LOAD_METADATA_PLUGINS
+    LOAD_METADATA_PLUGINS = True if conf.get('SYS', 'LOAD_METADATA_PLUGINS') == 'True' else False
+    config.set_option('LOAD_METADATA_PLUGINS', LOAD_METADATA_PLUGINS)
+    # LOAD_FORMATTER_PLUGINS
+    LOAD_FORMATTER_PLUGINS = True if conf.get('SYS', 'LOAD_FORMATTER_PLUGINS') == 'True' else False
+    config.set_option('LOAD_FORMATTER_PLUGINS', LOAD_FORMATTER_PLUGINS)
+
+# only now we can import registry!
+from isbnlib import registry
 
 if conf.has_section('SERVICES'):
     for o, v in conf.items('SERVICES'):
@@ -132,7 +138,7 @@ if not CONF_PATH:
         pass
 
 # set metadata cache
-if config.options.get('CACHE', 'UNDEFINED').lower() == 'no':
+if config.options.get('CACHE', 'UNDEFINED').lower() == 'none':
     registry.set_cache(None)
 else:
     CACHE_FILE = '.metacache'
