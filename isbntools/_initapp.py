@@ -29,6 +29,8 @@ DEBUG=False
 [SYS]
 URLOPEN_TIMEOUT=10
 THREADS_TIMEOUT=12
+LOAD_METADATA_PLUGINS=True
+LOAD_FORMATTER_PLUGINS=True
 [SERVICES]
 DEFAULT_SERVICE=goob
 VIAS_MERGE=parallel
@@ -87,9 +89,15 @@ except:
 
 # set options
 if conf.has_section('SYS'):
+    for o, v in conf.items('SYS'):
+        config.set_option(o.upper(), v)
     # get user defined values for timeouts
     URLOPEN_TIMEOUT = float(conf.get('SYS', 'URLOPEN_TIMEOUT'))
     THREADS_TIMEOUT = float(conf.get('SYS', 'THREADS_TIMEOUT'))
+    # URLOPEN_TIMEOUT is used by webservice.py and is a number
+    config.seturlopentimeout(URLOPEN_TIMEOUT)
+    # THREADS_TIMEOUT is used by vias.py and is a number
+    config.setthreadstimeout(THREADS_TIMEOUT)
 
 if conf.has_section('SERVICES'):
     for o, v in conf.items('SERVICES'):
@@ -109,12 +117,6 @@ if conf.has_section('MISC'):  # pragma: no cover
 if conf.has_section('MODULES'):  # pragma: no cover
     for o, v in conf.items('MODULES'):
         config.set_option(o.upper(), v)
-
-# URLOPEN_TIMEOUT is used by webservice.py
-config.seturlopentimeout(URLOPEN_TIMEOUT)
-
-# THREADS_TIMEOUT is used by vias.py
-config.setthreadstimeout(THREADS_TIMEOUT)
 
 # set CONF_PATH
 if not CONF_PATH:
