@@ -96,10 +96,12 @@ if conf.has_section('SYS'):
     # THREADS_TIMEOUT is used by vias.py and is a number
     config.setthreadstimeout(THREADS_TIMEOUT)
     # LOAD_METADATA_PLUGINS
-    LOAD_METADATA_PLUGINS = True if conf.get('SYS', 'LOAD_METADATA_PLUGINS') == 'True' else False
+    LOAD_METADATA_PLUGINS = bool(
+        conf.get('SYS', 'LOAD_METADATA_PLUGINS') == 'True')
     config.set_option('LOAD_METADATA_PLUGINS', LOAD_METADATA_PLUGINS)
     # LOAD_FORMATTER_PLUGINS
-    LOAD_FORMATTER_PLUGINS = True if conf.get('SYS', 'LOAD_FORMATTER_PLUGINS') == 'True' else False
+    LOAD_FORMATTER_PLUGINS = bool(
+        conf.get('SYS', 'LOAD_FORMATTER_PLUGINS') == 'True')
     config.set_option('LOAD_FORMATTER_PLUGINS', LOAD_FORMATTER_PLUGINS)
 
 # only now we can import registry!
