@@ -104,7 +104,7 @@ setup(
         ]
     },
     data_files=[('isbntools', ['isbntools/isbntools.conf'])],
-    install_requires=['isbnlib>=3.10.0,<3.11.0'],
+    install_requires=['isbnlib>=3.10.1,<3.11.0'],
     description=
     "app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
