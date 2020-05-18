@@ -210,7 +210,7 @@ Following is a typical session:
          thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
     smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
     $ isbn> PROVIDERS
-    bnf  dnb  goob  loc  mcues  openl  porbase
+    bnf  dnb  goob  loc  mcues  openl  porbase  wiki
     $ isbn> exit
     bye
 
@@ -238,6 +238,7 @@ and save it as ``isbn_tmsa_book.py``.
     print("... and the book is:")
     print("")
     print(registry.bibformatters['labels'](meta(isbn)))
+
 
 Then in a command line (in the same directory):
 
@@ -320,6 +321,8 @@ The file should look like:
     [SYS]
     URLOPEN_TIMEOUT=10
     THREADS_TIMEOUT=12
+    LOAD_METADATA_PLUGINS=True
+    LOAD_FORMATTER_PLUGINS=True
 
     [SERVICES]
     DEFAULT_SERVICE=goob
@@ -334,6 +337,7 @@ The values are self-explanatory!
     **NOTE** If you are running ``isbntools`` inside a virtual environment, the
     ``isbntools.conf`` file will be inside folder ``isbntools``
     at the root of the environment.
+
 
 The easier way to manipulate these files is by using the script ``isbn_conf``.
 At a terminal enter:
