@@ -18,11 +18,12 @@ The file should look like:
     [SYS]
     URLOPEN_TIMEOUT=10
     THREADS_TIMEOUT=12
+    LOAD_METADATA_PLUGINS=True
+    LOAD_FORMATTER_PLUGINS=True
 
     [SERVICES]
     DEFAULT_SERVICE=goob
     VIAS_MERGE=parallel
-    ISBNDB_API_KEY=
 
 
 The values are self-explanatory!

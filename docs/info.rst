@@ -32,7 +32,7 @@ gives you the *group identifier* of the ISBN.
 
 .. code-block:: bash
 
-    $ isbn_meta ISBN [wcat|goob|openl|merge] [bibtex|...] [YOUR_APIKEY_TO_SERVICE]
+    $ isbn_meta ISBN [goob|openl|wiki] [bibtex|...] [YOUR_APIKEY_TO_SERVICE]
 
 gives you the main metadata associated with the ISBN, ``goob`` uses the **Google Books service** (**no key is needed**),
 and **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``),
@@ -41,7 +41,7 @@ You can enter API keys and
 set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
 ``%APPDATA%/isbntools/isbntools.conf``. The output can be formatted as ``bibtex``, ``csl`` (CSL-JSON),
-``msword``, ``endnote``, ``refworks``, ``opf`` or ``json`` (BibJSON) bibliographic formats.
+``msword``, ``endnote``, ``refworks``, ``ris``, ``opf`` or ``json`` (BibJSON) bibliographic formats.
 
 
 .. code-block:: bash
@@ -169,7 +169,7 @@ Following is a typical session:
          thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
     smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
     $ isbn> PROVIDERS
-    bnf  goob  loc  merge  openl  porbase
+    bnf  goob  loc  merge  openl  porbase  wiki
     $ isbn> exit
     bye
 
