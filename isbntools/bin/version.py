@@ -28,7 +28,7 @@ def main():
     print((colors.BOLD))
     print(" isbntools - app and framework for 'all things ISBN'")
     print((colors.RESET))
-    print((' Copyright (C) 2014-2020  Alexandre Lima Conde, Version %s' %
+    print((' Copyright (C) 2014-2021  Alexandre Lima Conde, Version %s' %
            __version__))
     print('')
     print(' License LGPL v3')
@@ -70,7 +70,8 @@ def main():
     try:
         from isbntools.contrib.modules.report import check_pypi
 
-        check_pypi()
+        if check_pypi() == 1:
+            raise
     except:
         print(' %spypi%s services are %sNOT%s available now!' %
               (colors.BOLD, colors.RESET, colors.BOLD, colors.RESET))
