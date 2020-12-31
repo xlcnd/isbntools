@@ -2,7 +2,7 @@
 # flake8: noqa
 """
 isbntools - extract, transform and metadata for ISBNs
-Copyright (C) 2014-2020  Alexandre Lima Conde
+Copyright (C) 2014-2021  Alexandre Lima Conde
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
