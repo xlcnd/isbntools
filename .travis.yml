@@ -2,7 +2,7 @@ sudo: false
 language: python
 branches:
   only:
-    - v4.3.24
+    - v4.3.25
     - dev
     - master
 matrix:
