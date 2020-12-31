@@ -38,7 +38,7 @@ jobs:
     - name: Run nose tests
       run: |
         pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=90
+        nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
         if [ ${{ matrix.python-version }} = 3.7 ]; then pip install tox && tox -e py37; fi
@@ -65,7 +65,7 @@ jobs:
     - name: Run nose tests
       run: |
         pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=90
+        nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
         if [ ${{ matrix.python-version }} = 3.7 ]; then pip install tox && tox -e py37; fi
@@ -92,7 +92,7 @@ jobs:
     - name: Run nose tests
       run: |
         pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=90
+        nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
         pip install tox
