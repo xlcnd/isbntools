@@ -2,7 +2,7 @@
 # flake8: noqa
 """
 isbntools - extract, transform and metadata for ISBNs
-Copyright (C) 2014-2020  Alexandre Lima Conde
+Copyright (C) 2014-2021  Alexandre Lima Conde
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -109,7 +109,7 @@ setup(
     "app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),
     keywords=
-    'ISBN metadata Google_Books Open_Library BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
+    'ISBN metadata Google_Books Open_Library Wikipedia BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
     classifiers=PYPI_CLASSIFIERS,
     tests_require=['nose', 'coverage'],
     test_suite='nose.collector',

@@ -44,3 +44,4 @@ ARCHIVE
 .bandit
 .requirements-local
 .pre-commit-config.yaml
+.changelog*
