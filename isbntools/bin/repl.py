@@ -136,6 +136,8 @@ class ISBNRepl(cmd.Cmd):
 
     def _parse(self, comand, line):
         """Parse line as sys.argv."""
+        # resolve disambiguations (csl, csv)
+        line = line.replace('csl', 'sl').replace('csv', 'sv')
         # get/set last_isbn
         if self.last_isbn:
             line = line.replace(self.last_isbn_ph, self.last_isbn)

@@ -30,6 +30,8 @@ def usage(prefix, wservs='goob|openl|...', ofmts='labels'):
 
 def parse_args(args):
     """Parse args from command line."""
+    # resolve disambiguation csl/csv
+    args = [arg.replace('csl', 'sl').replace('csv', 'sv') for arg in args]
     service = None
     api = None
     fmt = None
