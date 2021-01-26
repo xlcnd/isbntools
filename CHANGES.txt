@@ -98,3 +98,4 @@ v4.3.22, 2020-03-26 -- Add 'classify'.
 v4.3.23, 2020-05-18 -- Add the option to NOT load plugins.
 v4.3.24, 2020-12-31 -- Check pypi services response.
 v4.3.25, 2021-01-26 -- Fix py27 issues and close issue #106.
+v4.3.26, 2021-01-26 -- TENTATIVE

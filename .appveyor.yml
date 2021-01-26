@@ -1,8 +1,8 @@
-version: '4.3.25.{build}-{branch}'
+version: '4.3.26.{build}-{branch}'
 build: false
 branches:
   only:
-    - /v4.3.25/
+    - /v4.3.26/
     - dev
     - master
 cache:
