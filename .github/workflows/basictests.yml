@@ -42,6 +42,7 @@ jobs:
     - name: Test with tox
       run: |
         if [ ${{ matrix.python-version }} = 3.7 ]; then pip install tox && tox -e py37; fi
+        if [ ${{ matrix.python-version }} = 3.8 ]; then pip install tox && tox -e py38; fi
 
 
   basic-tests-macos:
