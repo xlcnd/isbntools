@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# flake6: noqa
+# pylint: skip-file
 """isbntools console & uprint file.
 
 This is a 'just good enough' fix for UTF-8 printing and redirection.
@@ -18,7 +20,6 @@ Remarks:
  . for PY2, codepage is changed automatically, but for PY3
    the user MUST change it manually (by enter 'chcp 65001')!
 """
-# flake8: noqa
 
 import logging
 import os

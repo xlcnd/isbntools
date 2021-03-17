@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# isort:skip_file
 """Define isbntools API and set lib environment."""
 
 import os as _os

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# isort:skip_file
 """Read and set config parameters."""
 
 try:  # pragma: no cover
@@ -105,6 +106,7 @@ if conf.has_section('SYS'):
     config.set_option('LOAD_FORMATTER_PLUGINS', LOAD_FORMATTER_PLUGINS)
 
 # only now we can import registry!
+# pylint: disable=wrong-import-position
 from isbnlib import registry
 
 if conf.has_section('SERVICES'):
