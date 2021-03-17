@@ -1,4 +1,4 @@
 [flake8]
 ignore=D105,D107,N806,I100,I101,I201,N802,C901,E722,E741,S001
-exclude=*/test/*,*/data/*,*/bin/*,*app.py*,*__init__.py*,*_initapp.py*
+exclude=*/test/*,*/data/*,*/bin/*,*app.py*,*__init__.py*,*_initapp.py*,*_console.py
 max-complexity=10
