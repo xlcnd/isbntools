@@ -14,7 +14,7 @@ matrix:
       env: TOXENV=py37
     - python: "3.6"
       env: TOXENV=py36
-    - python: "3.6"
+    - python: "3.7"
       env: TOXENV=checkers
     - python: "3.7"
       env: DOC=sphinx
@@ -30,6 +30,7 @@ matrix:
     - env: TOXENV=nightly
     - env: ENV=dev
     - env: TOXENV=plugins
+    - env: TOXENV=checkers
 install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install tox; fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install tox; fi
