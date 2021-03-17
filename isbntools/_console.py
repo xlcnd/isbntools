@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# flake6: noqa
+# flake8: noqa
 # pylint: skip-file
 """isbntools console & uprint file.
 
