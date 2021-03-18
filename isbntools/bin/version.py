@@ -73,5 +73,5 @@ def main():
         if check_pypi() == 1:
             raise
     except:
-        print(' %spypi%s services are %sNOT%s available now!' %
+        print(' %spypi%s "search" services are %sNOT%s available now!' %
               (colors.BOLD, colors.RESET, colors.BOLD, colors.RESET))
