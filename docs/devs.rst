@@ -10,7 +10,7 @@ In the namespace ``isbntools.app`` you have access to the core methods:
 ``is_isbn10``, ``is_isbn13``, ``to_isbn10``, ``to_isbn13``, ``canonical``,
 ``clean``, ``notisbn``, ``get_isbnlike``, ``get_canonical_isbn``, ``mask``,
 ``meta``, ``info``, ``editions``, and ``isbn_from_words``.
-The exceptions raised by these methods can all be catched using ``ISBNToolsException``.
+The exceptions raised by these methods can all be caught using ``ISBNToolsException``.
 
 You can use advanced features by using the classes and functions exposed in
 namespace ``isbnlib.dev``, namely:
@@ -40,7 +40,7 @@ namespace ``isbnlib.dev``, namely:
   you can change that in the conf file.
 
 
-The exceptions raised by these methods can all be catched using ``ISBNLibDevException``.
+The exceptions raised by these methods can all be caught using ``ISBNLibDevException``.
 
 
 In ``isbnlib.dev.helpers`` you can find several methods, that we found very useful,
@@ -87,7 +87,7 @@ depending on your needs...
 2. If you rely heavily in metadata (or file renaming) and don't want to
    implement caching yourself, then you **need** an ``isbntools.conf`` file in a
    directory were your program could write.  You can use ``isbntools.conf`` to
-   programatically manipulate the conf file.
+   programmatically manipulate the conf file.
 
 3. If you want to vendorize the lib you should take a careful look at
    ``setup.py`` and maybe this package (datafolder_) could help!

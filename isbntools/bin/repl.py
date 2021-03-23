@@ -85,7 +85,7 @@ class ISBNRepl(cmd.Cmd):
     undoc_header = None  # <-- IMPORTANT
     maxcol = 80
 
-    # Base Classe Overrides:
+    # Base Class Overrides:
 
     def print_topics(self, header, cmds, cmdlen, maxcol):
         """Override 'print_topics' so that you can exclude EOF and shell."""
@@ -134,7 +134,7 @@ class ISBNRepl(cmd.Cmd):
             completions = [p for p in fmts if p.startswith(text)]
         return completions
 
-    def _parse(self, comand, line):
+    def _parse(self, command, line):
         """Parse line as sys.argv."""
         # resolve disambiguations (csl, csv)
         line = line.replace('csl', 'sl').replace('csv', 'sv')
@@ -151,17 +151,17 @@ class ISBNRepl(cmd.Cmd):
             if '<' in line:
                 print('*** Input redirection is not supported!')
                 return
-            if comand == 'audit':
-                comand = 'isbntools'
-            elif comand.startswith('to_isbn'):
+            if command == 'audit':
+                command = 'isbntools'
+            elif command.startswith('to_isbn'):
                 pass
             else:
-                comand = 'isbn_' + comand
-            self.do_shell('%s %s' % (comand, line))
+                command = 'isbn_' + command
+            self.do_shell('%s %s' % (command, line))
             return
         # follow with default parse
         args = []
-        args.append(comand)
+        args.append(command)
         args.extend(shlex.split(line))
         return args
 

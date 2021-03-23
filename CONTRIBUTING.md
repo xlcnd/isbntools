@@ -29,7 +29,7 @@ adventure in open-source.
 9. **Push** your local changes to GitHub and make there a **pull request**
    ([help](https://help.github.com/articles/using-pull-requests/))
    **using `dev` as base branch** (by the way, we follow the *fork & pull* model with this small change).
-   **VERY IMPORTANT:** Don't put in the same pull request unrelated changes in the code, 
+   **VERY IMPORTANT:** Don't put in the same pull request unrelated changes in the code,
    make one pull request for each set of related changes!
 
 > **NOTE**: *Travis*, *coverage*, *flake8* and *pylint*, have already
@@ -95,7 +95,7 @@ see them as a learning opportunity. Thanks!
 |                 fork a repo | https://help.github.com/articles/fork-a-repo                            |
 |                pull request | https://help.github.com/articles/using-pull-requests/                   |
 |                     git log | https://www.youtube.com/watch?v=U8GBXvdmHT4                             |
-|       local feature branchs | https://www.youtube.com/watch?v=ImhZj6tpXLE                             |
+|       local feature branches | https://www.youtube.com/watch?v=ImhZj6tpXLE                             |
 |           git & GitHub tips | https://github.com/tiimgreen/github-cheat-sheet                         |
 |                             | http://cbx33.github.io/gitt/intro.html                                  |
 |                             | http://git-scm.com/documentation                                        |

@@ -4,7 +4,7 @@ branch = True
 
 [report]
 # Regexes for directories to exclude from consideration
-omit = 
+omit =
     */test/*
     */bin/*
     */app/*

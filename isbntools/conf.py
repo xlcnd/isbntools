@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Edit conf file (mainly for programatic API)."""
+"""Edit conf file (mainly for programmatic API)."""
 
 from ._conf import (
     conf_file,

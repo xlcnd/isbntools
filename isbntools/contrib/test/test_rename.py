@@ -133,7 +133,7 @@ def test_newfilename():
 
 
 def test_cleannewname():
-    """Test the cleanning of new filename"""
+    """Test the cleaning of new filename"""
     assert_equals(
         cleannewname(' this, is a newname., _'), 'this, is a newname')
 
