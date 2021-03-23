@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import sys
-
 from textwrap import fill
 
 from ..app import desc, quiet_errors, uprint

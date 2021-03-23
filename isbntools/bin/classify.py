@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import sys
-
 from json import dumps
+
 from ..app import classify, quiet_errors
 
 PREFIX = 'isbn_'

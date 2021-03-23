@@ -7,17 +7,20 @@ import cmd
 import os
 import shlex
 import sys
-
 from difflib import get_close_matches
 from subprocess import PIPE, Popen
 
+from .. import __version__
+from ..app import get_canonical_isbn, registry
+from ..contrib.modules.uxcolors import BOLD, RESET
 from . import (
-    ean13,
+    classify,
     confc,
     cover,
     desc,
     doi,
     doi2tex,
+    ean13,
     editions,
     from_words,
     goom,
@@ -27,12 +30,8 @@ from . import (
     to_isbn10,
     to_isbn13,
     validate,
-    classify,
     version,
 )
-from .. import __version__
-from ..app import get_canonical_isbn, registry
-from ..contrib.modules.uxcolors import BOLD, RESET
 
 CMDS = [
     'audit',

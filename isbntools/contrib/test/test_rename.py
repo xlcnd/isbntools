@@ -7,6 +7,8 @@ import os
 
 from isbnlib.dev._bouth23 import b2u3, u
 from isbnlib.dev.helpers import cwdfiles
+from nose.tools import assert_equals
+
 from isbntools.contrib.modules.rename import (
     checkpattern,
     cleannewname,
@@ -15,8 +17,6 @@ from isbntools.contrib.modules.rename import (
     rencwdfiles,
     renfile,
 )
-from nose.tools import assert_equals
-
 
 WINDOWS = os.name == 'nt'
 
