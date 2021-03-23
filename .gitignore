@@ -49,6 +49,7 @@ requirements*.ini
 *pre-commit*
 tasks.py
 pyproject.toml
+requirements*.in
 .requirements-local
 .gitignore
 .gitattributes
