@@ -275,13 +275,6 @@ command with ``sudo``):
 
     $ pip install isbntools
 
-or:
-
-.. code-block:: console
-
-    $ pip install isbntools-4.3.26.tar.gz
-
-(first you have to download the file!)
 
 If you use linux systems, you can install using your distribution package
 manager (packages ``python-isbntools`` and ``python3-isbntools``), however
