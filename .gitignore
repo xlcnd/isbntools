@@ -45,3 +45,4 @@ ARCHIVE
 .requirements-local
 .pre-commit-config.yaml
 .changelog*
+*pre-commit*
