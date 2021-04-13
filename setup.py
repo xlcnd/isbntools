@@ -3,6 +3,7 @@
 """
 isbntools - extract, transform and metadata for ISBNs
 Copyright (C) 2014-2021  Alexandre Lima Conde
+SPDX-License-Identifier: LGPL-3.0-or-later
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -28,7 +29,7 @@ from isbntools import __version__
 PROJECT_NAME = 'isbntools'
 PROJECT_PACKAGE_NAME = 'isbntools'
 PROJECT_LICENSE = 'LGPL v3'
-PROJECT_LICENSE_URL = 'https://github.com/xlcnd/isbntools/blob/dev/LICENSE-LGPL-3.0-only.txt'
+PROJECT_LICENSE_URL = 'https://github.com/xlcnd/isbntools/blob/dev/LICENSE-LGPL-3.0.txt'
 PROJECT_AUTHOR = 'Alexandre Lima Conde'
 PROJECT_COPYRIGHT = ' 2014-{}, {}'.format(dt.now().year, PROJECT_AUTHOR)
 PROJECT_URL = 'https://github.com/xlcnd/isbntools'
