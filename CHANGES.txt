@@ -99,4 +99,4 @@ v4.3.23, 2020-05-18 -- Add the option to NOT load plugins.
 v4.3.24, 2020-12-31 -- Check pypi services response.
 v4.3.25, 2021-01-26 -- Fix py27 issues and close issue #106.
 v4.3.26, 2021-04-13 -- Improved speed with isbnlib-3.10.7.
-v4.3.27, 2021-04-13 -- TENTATIVE
+v4.3.27, 2021-04-13 -- Fix 'deleted imports'.
