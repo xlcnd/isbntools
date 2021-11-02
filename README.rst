@@ -1,23 +1,12 @@
 
-.. image:: https://readthedocs.org/projects/isbntools/badge/?version=latest
-    :target: http://isbntools.readthedocs.org/en/latest/
-    :alt: Documentation Status
 
 .. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=v4.3.28
     :target: https://coveralls.io/github/xlcnd/isbntools?branch=v4.3.28
     :alt: Coverage Status
 
-.. image:: https://img.shields.io/badge/Sourcegraph-Status-blue.svg
-    :target: https://sourcegraph.com/github.com/xlcnd/isbntools
-    :alt: Graph
-
-.. image:: https://travis-ci.org/xlcnd/isbntools.svg?branch=v4.3.28
-    :target: https://travis-ci.org/xlcnd/isbntools
+.. image:: https://github.com/xlcnd/isbntools/workflows/tests/badge.svg
+    :target: https://github.com/xlcnd/isbntools/actions
     :alt: Built Status
-
-.. image:: https://ci.appveyor.com/api/projects/status/github/xlcnd/isbntools?branch=v4.3.28&svg=true
-    :target: https://ci.appveyor.com/project/xlcnd/isbntools
-    :alt: Windows Built Status
 
 .. image:: https://img.shields.io/github/issues/xlcnd/isbntools/bug.svg?label=bugs&style=flat
     :target: https://github.com/xlcnd/isbntools/labels/bug
