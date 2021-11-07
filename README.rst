@@ -1,7 +1,7 @@
 
 
-.. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=v4.3.29
-    :target: https://coveralls.io/github/xlcnd/isbntools?branch=v4.3.29
+.. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=master
+    :target: https://coveralls.io/github/xlcnd/isbntools?branch=master
     :alt: Coverage Status
 
 .. image:: https://github.com/xlcnd/isbntools/workflows/tests/badge.svg
