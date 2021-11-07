@@ -59,6 +59,7 @@ PYPI_CLASSIFIERS = [
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
     'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
     'Operating System :: OS Independent',
     'Development Status :: 5 - Production/Stable',
@@ -104,7 +105,7 @@ setup(
         ]
     },
     data_files=[('isbntools', ['isbntools/isbntools.conf'])],
-    install_requires=['isbnlib>=3.10.7,<3.11.0'],
+    install_requires=['isbnlib>=3.10.9,<3.11.0'],
     description=
     "app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... .",
     long_description=open('README.rst').read(),

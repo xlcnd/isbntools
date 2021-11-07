@@ -200,7 +200,7 @@ Following is a typical session:
          thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
     smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
     $ isbn> PROVIDERS
-    bnf  dnb  goob  kb loc  mcues  openl  porbase  wiki
+    bnf  dnb  goob  kb  loc  mcues  openl  porbase  wiki
     $ isbn> exit
     bye
 

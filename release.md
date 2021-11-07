@@ -2,4 +2,5 @@
 
 ## What's new?
 
-1. TENTATIVE...
+1. Use isbnlib-3.10.9+ to reflect changes in external services.
+2. Update docs.
