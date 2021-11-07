@@ -1,12 +1,11 @@
 
+.. image:: https://github.com/xlcnd/isbntools/workflows/tests/badge.svg
+    :target: https://github.com/xlcnd/isbntools/actions
+    :alt: Built Status
 
 .. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=master
     :target: https://coveralls.io/github/xlcnd/isbntools?branch=master
     :alt: Coverage Status
-
-.. image:: https://github.com/xlcnd/isbntools/workflows/tests/badge.svg
-    :target: https://github.com/xlcnd/isbntools/actions
-    :alt: Built Status
 
 .. image:: https://img.shields.io/github/issues/xlcnd/isbntools/bug.svg?label=bugs&style=flat
     :target: https://github.com/xlcnd/isbntools/labels/bug
@@ -15,7 +14,6 @@
 .. image:: https://img.shields.io/pypi/dm/isbntools.svg?style=flat
     :target: https://pypi.org/project/isbntools/
     :alt: PYPI Downloads
-
 
 
 Info
