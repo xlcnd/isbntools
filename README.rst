@@ -1,7 +1,7 @@
 
 
-.. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=v4.3.28
-    :target: https://coveralls.io/github/xlcnd/isbntools?branch=v4.3.28
+.. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=v4.3.29
+    :target: https://coveralls.io/github/xlcnd/isbntools?branch=v4.3.29
     :alt: Coverage Status
 
 .. image:: https://github.com/xlcnd/isbntools/workflows/tests/badge.svg
@@ -165,7 +165,7 @@ Following is a typical session:
 
     $ isbn_repl
 
-        Welcome to the isbntools 4.3.28 REPL.
+        Welcome to the isbntools 4.3.29 REPL.
         ** For help type 'help' or '?'
         ** To exit type 'exit' :)
         ** To run a shell command, type '!<shellcmnd>'

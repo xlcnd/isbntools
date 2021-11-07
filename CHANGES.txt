@@ -101,3 +101,4 @@ v4.3.25, 2021-01-26 -- Fix py27 issues and close issue #106.
 v4.3.26, 2021-04-13 -- Improved speed with isbnlib-3.10.7.
 v4.3.27, 2021-04-13 -- Fix 'deleted imports'.
 v4.3.28, 2021-11-07 -- Use isbnlib-3.10.9+ to reflect changes in external services.
+v4.3.29, 2021-11-07 -- TENTATIVE
