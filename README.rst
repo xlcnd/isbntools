@@ -58,7 +58,8 @@ gives you the *group identifier* of the ISBN.
 
 gives you the main metadata associated with the ISBN, ``goob`` uses the **Google Books service** (**no key is needed**),
 and **is the default option** (you only have to enter, e.g. ``isbn_meta 9780321534965``),
-``openl`` uses the **OpenLibrary.org** api (**no key is needed**).
+``openl`` uses the **OpenLibrary.org** api (**no key is needed**) and
+``wiki`` uses the **Wikipedia** api (**no key is needed**).
 You can enter API keys and
 set preferences in the file ``isbntools.conf`` in your
 ``$HOME\.isbntools`` directory (UNIX). For Windows, you should look at
@@ -77,7 +78,7 @@ set preferences in the file ``isbntools.conf`` in your
 
     $ isbn_editions ISBN
 
-gives the collection of ISBNs that represent a given book (uses **Open Library** and **LibraryThing**).
+gives the collection of ISBNs that represent a given book (uses **Wikipedia** and **LibraryThing**).
 
 .. code-block:: console
 
@@ -199,7 +200,7 @@ Following is a typical session:
          thumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=1
     smallThumbnail:  http://books.google.com/books/content?id=PVVyuD1UY1wC&printsec=frontcover&img=1&zoom=5
     $ isbn> PROVIDERS
-    bnf  dnb  goob  loc  mcues  openl  porbase  wiki
+    bnf  dnb  goob  kb loc  mcues  openl  porbase  wiki
     $ isbn> exit
     bye
 
