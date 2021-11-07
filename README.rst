@@ -71,7 +71,8 @@ set preferences in the file ``isbntools.conf`` in your
     (e.g. ``type FILE_WITH_ISBNs.txt | isbn_meta [SERVICE] [FORMAT] [APIKEY]`` in Windows)
 
     You can add more sources for metadata by installing ``isbnlib`` plugins: isbnlib-bnf_,
-    isbnlib-porbase_, isbnlib-loc_, isbnlib-mcues_, isbnlib-dnb_, ... (check pypi_ for available plugins).
+    isbnlib-porbase_, isbnlib-loc_, isbnlib-mcues_, isbnlib-dnb_, isbnlib-sbn_, isbnlib-kb_, ...
+    (check pypi_ for available plugins).
 
 
 .. code-block:: console
@@ -279,8 +280,6 @@ If all you want is to add ``isbntools`` to the requirements of your project,
 probably you will better served with isbnlib_, it implements the basic functionality
 of ``isbntools`` without end user scripts and configuration files!
 
-If you think that that is not enough, please read_ at least this page of the documentation.
-
 If you would like to contribute to the project please read the guidelines_.
 
 
@@ -359,19 +358,10 @@ Any issue that you would like to report, please do it at github_
 or at stackoverflow_ with tag **isbntools**.
 
 
---------------------------------
-
-.. class:: center
-
-More documentation at Read the Docs_.
-
---------------------------------
 
 .. _github: https://github.com/xlcnd/isbntools/issues
 
 .. _range: https://www.isbn-international.org/range_file_generation
-
-.. _read: http://isbntools.readthedocs.org/en/latest/devs.html
 
 .. _guidelines: http://bit.ly/1jcxq8W
 
@@ -392,5 +382,9 @@ More documentation at Read the Docs_.
 .. _isbnlib-mcues: https://pypi.org/project/isbnlib-mcues/
 
 .. _isbnlib-dnb: https://pypi.org/project/isbnlib-dnb/
+
+.. _isbnlib-sbn: https://pypi.org/project/isbnlib-sbn/
+
+.. _isbnlib-kb: https://pypi.org/project/isbnlib-kb/
 
 .. _pypi: https://pypi.python.org/pypi?%3Aaction=search&term=isbnlib_&submit=search
