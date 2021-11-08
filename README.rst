@@ -3,10 +3,6 @@
     :target: https://github.com/xlcnd/isbntools/actions
     :alt: Built Status
 
-.. image:: https://coveralls.io/repos/github/xlcnd/isbntools/badge.svg?branch=master
-    :target: https://coveralls.io/github/xlcnd/isbntools?branch=master
-    :alt: Coverage Status
-
 .. image:: https://img.shields.io/github/issues/xlcnd/isbntools/bug.svg?label=bugs&style=flat
     :target: https://github.com/xlcnd/isbntools/labels/bug
     :alt: Bugs
