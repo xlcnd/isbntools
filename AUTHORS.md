@@ -2,7 +2,7 @@
 Main Author
 ===========
 
-Alexandre Conde (@xlcnd) <alexandreconde@hotmail.com>
+xlcnd xlcnd@outlook.com
 
 
 
@@ -10,7 +10,7 @@ Alexandre Conde (@xlcnd) <alexandreconde@hotmail.com>
 With fine contributions from
 ----------------------------
 
-Christoph Mack (@cdpm) <christophmack@web.de>
+Christoph Mack
 
 
 
