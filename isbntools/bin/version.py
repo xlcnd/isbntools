@@ -62,16 +62,3 @@ def main():
         RDDATE[0:8],
         colors.RESET,
     ))
-    print('')
-
-    # check for updates and pypi packages
-    print(' Checking %sonline%s services ... %sWAIT%s' %
-          (colors.BOLD, colors.RESET, colors.BOLD, colors.RESET))
-    try:
-        from isbntools.contrib.modules.report import check_pypi
-
-        if check_pypi() == 1:
-            raise
-    except:
-        print(' %spypi%s "search" services are %sNOT%s available now!' %
-              (colors.BOLD, colors.RESET, colors.BOLD, colors.RESET))
