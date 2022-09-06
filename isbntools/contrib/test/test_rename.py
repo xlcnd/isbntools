@@ -78,16 +78,15 @@ def teardown_module():
 
 def test_checkpattern():
     """Test the validation of placeholders"""
-    assert_equals(
-        checkpattern('{authorsLastNames}_{year}_{title}_{isbn}.pdf'), True)
-    assert_equals(checkpattern('mypattern.pdf'), False)
-    assert_equals(checkpattern('mypattern{year}'), True)
-    assert_equals(
+    assert (
+        checkpattern('{authorsLastNames}_{year}_{title}_{isbn}.pdf') == True)
+    assert checkpattern('mypattern.pdf') == False
+    assert checkpattern('mypattern{year}') == True
+    assert (
         checkpattern('.{authorsFullNames}_{authorsLastNames} {year}..'
-                     '{publisher}({title}){isbn}{language}'),
-        True,
-    )
-    assert_equals(checkpattern('authors:{authorsFullNames}'), False)
+                     '{publisher}({title}){isbn}{language}') ==
+        True)
+    assert checkpattern('authors:{authorsFullNames}') == False
 
 
 def test_newfilename():
@@ -100,63 +99,58 @@ def test_newfilename():
         'Language': 'eng',
         'Year': '2009',
     }
-    assert_equals(
-        newfilename(metadata, '{authorsLastNames}_{year}_{title}_{isbn}.epub'),
+    assert (
+        newfilename(metadata, '{authorsLastNames}_{year}_{title}_{isbn}.epub') ==
         'Ince,Press_2009_A Dictionary Of '
-        'The Internet_9780199571444.epub',
-    )
-    assert_equals(
-        newfilename(metadata, '{authorsFullNames}_{publisher}_{language}'),
-        'Darrel Ince,Oxford University Press_Oxford University Press_eng',
-    )
-    assert_equals(
-        newfilename(metadata, 'myfile_{year} {authorsLastNames}.pdf'),
-        'myfile_2009 Ince,Press.pdf',
-    )
+        'The Internet_9780199571444.epub')
+    assert (
+        newfilename(metadata, '{authorsFullNames}_{publisher}_{language}') ==
+        'Darrel Ince,Oxford University Press_Oxford University Press_eng')
+    assert (
+        newfilename(metadata, 'myfile_{year} {authorsLastNames}.pdf') ==
+        'myfile_2009 Ince,Press.pdf')
 
-    assert_equals(newfilename(metadata, 'myfile_{nokey}'), None)
-    assert_equals(
-        newfilename(metadata, '{authorsFullNames}: {title}'),
+    assert newfilename(metadata, 'myfile_{nokey}') == None
+    assert (
+        newfilename(metadata, '{authorsFullNames}: {title}') ==
         'Darrel Ince,Oxford University Press: A '
-        'Dictionary Of The Internet',
-    )
-    assert_equals(newfilename(metadata, 'myfile.pdf'), 'myfile.pdf')
+        'Dictionary Of The Internet')
+    assert newfilename(metadata, 'myfile.pdf') == 'myfile.pdf'
 
     metadata['Publisher'] = u('')
-    assert_equals(
+    assert (
         newfilename(
-            metadata, pattern='{authorsFullNames}_{publisher}_{language}'),
-        'Darrel Ince,Oxford University Press_UNKNOWN_eng',
-    )
+            metadata, pattern='{authorsFullNames}_{publisher}_{language}') ==
+        'Darrel Ince,Oxford University Press_UNKNOWN_eng')
     metadata['Title'] = u('')
-    assert_equals(newfilename(metadata), None)
+    assert newfilename(metadata) == None
 
 
 def test_cleannewname():
     """Test the cleaning of new filename"""
-    assert_equals(
-        cleannewname(' this, is a newname., _'), 'this, is a newname')
+    assert (
+        cleannewname(' this, is a newname., _') == 'this, is a newname')
 
 
 def test_get_isbn():
     """Test isbn extraction from file names"""
-    assert_equals(get_isbn('The Internet_9780199571444.epub'), '9780199571444')
+    assert get_isbn('The Internet_9780199571444.epub') == '9780199571444'
     # assert_equals(
     #    get_isbn('海明威2007_Lao ren yu hai_9787500117018.pdf'), '9787500117018')
-    assert_equals(get_isbn('ebook 0826497527 isbn.pdf'), '9780826497529')
+    assert get_isbn('ebook 0826497527 isbn.pdf') == '9780826497529'
     # assert_equals(get_isbn('9780199571445.epub'), None)
 
 
 def test_renfile():
     """Test the renaming of a file"""
     renfile(F11, '9781593271923', 'default', PATT0)
-    assert_equals(
-        'Seitz2009_Gray Hat Python_9781593271923.pdf' in cwdfiles('*.pdf'),
+    assert (
+        ('Seitz2009_Gray Hat Python_9781593271923.pdf' in cwdfiles('*.pdf')) ==
         True)
     create_files([F11])
     renfile(F11, '9781593271923', 'default', PATT1)
-    assert_equals(
-        '2009_Gray Hat Python_9781593271923.pdf' in cwdfiles('*.pdf'), True)
+    assert (
+        ('2009_Gray Hat Python_9781593271923.pdf' in cwdfiles('*.pdf')) == True)
     delete_files('*9781593271923*.pdf')
 
 
