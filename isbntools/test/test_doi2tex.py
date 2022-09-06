@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
 # pylint: skip-file
-"""nose tests for doi2tex."""
-
-from nose.tools import assert_equals
+"""tests for doi2tex."""
 
 from ..app import doi2tex
 

@@ -112,6 +112,6 @@ setup(
     keywords=
     'ISBN metadata Google_Books Open_Library Wikipedia BibTeX EndNote RefWorks MSWord BibJSON ISBN-A doi',
     classifiers=PYPI_CLASSIFIERS,
-    tests_require=['nose', 'coverage'],
-    test_suite='nose.collector',
+    tests_require=['pytest', 'coverage'],
+    # test_suite='nose.collector',
 )

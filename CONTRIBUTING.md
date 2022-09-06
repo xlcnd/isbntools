@@ -21,10 +21,10 @@ adventure in open-source.
    and be OS independent** It is easier if you start to write in python 3 and then
    adapt for python 2) (you will find [Github Actions](https://docs.github.com/en/actions) very handy for
    testing with this requirement!)
-6. Write tests for your code using `nose` and put then in the directory `isbntools/test`
+6. Write tests for your code using `pytest` and put then in the directory `isbntools/test`
 7. Pass **all tests** and with **coverage > 90%**.
    Check the coverage locally with the command
-   `nosetests --with-coverage --cover-package=isbntools`.
+   `pytest --with-coverage --cover-package=isbntools`.
 8. **Check if all requirements are fulfilled**!
 9. **Push** your local changes to GitHub and make there a **pull request**
    ([help](https://help.github.com/articles/using-pull-requests/))
@@ -101,7 +101,7 @@ see them as a learning opportunity. Thanks!
 |                             | http://git-scm.com/documentation                                        |
 |                             | http://gitimmersion.com/                                                |
 |                             | http://www.youtube.com/playlist?list=PLq0VzNtDZbe9QLq8YCizFN2TVWvlLjrvX |
-|                   nosetests | http://pythontesting.net/framework/nose/nose-introduction/              |
+|                      pytest | https://docs.pytest.org              |
 |                contributing | https://www.youtube.com/watch?v=IXnNgLmd6BM                             |
 |                             | http://openhatch.org/missions                                           |
 |                             | http://opensource.com/resources/how-get-started-open-source             |
