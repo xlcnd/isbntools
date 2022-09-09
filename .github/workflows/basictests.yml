@@ -43,8 +43,8 @@ jobs:
         # nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
-        if [ ${{ matrix.python-version }} = 3.7 ]; then pip install tox && tox -e py37; fi
-        if [ ${{ matrix.python-version }} = 3.8 ]; then pip install tox && tox -e py38; fi
+        pip install tox
+        tox -e py
 
 
   basic-tests-macos:
@@ -52,7 +52,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.x]
     env:
       GITHUB_OS: macos
     steps:
@@ -72,7 +72,8 @@ jobs:
         # nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
-        if [ ${{ matrix.python-version }} = 3.7 ]; then pip install tox && tox -e py37; fi
+        pip install tox
+        tox -e py
 
 
   basic-tests-windows:
@@ -80,7 +81,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.x]
     env:
       GITHUB_OS: windows
     steps:
@@ -101,4 +102,4 @@ jobs:
     - name: Test with tox
       run: |
         pip install tox
-        tox -e py37
+        tox -e py
