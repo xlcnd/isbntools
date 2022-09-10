@@ -14,8 +14,9 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: [3.7, 3.8]
+        python-version: ['3.7', '3.8', '3.9', '3.10', 3.11-dev]
     env:
       GITHUB_OS: linux
     steps:
@@ -35,14 +36,15 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Run nose tests
+    - name: Run pytest tests
       run: |
-        pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
+        pip install pytest coverage
+        pytest
+        # nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
-        if [ ${{ matrix.python-version }} = 3.7 ]; then pip install tox && tox -e py37; fi
-        if [ ${{ matrix.python-version }} = 3.8 ]; then pip install tox && tox -e py38; fi
+        pip install tox
+        tox -e py
 
 
   basic-tests-macos:
@@ -50,7 +52,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.x]
     env:
       GITHUB_OS: macos
     steps:
@@ -63,13 +65,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run nose tests
+    - name: Run pytest tests
       run: |
-        pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
+        pip install pytest coverage
+        pytest
+        # nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
-        if [ ${{ matrix.python-version }} = 3.7 ]; then pip install tox && tox -e py37; fi
+        pip install tox
+        tox -e py
 
 
   basic-tests-windows:
@@ -77,7 +81,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.x]
     env:
       GITHUB_OS: windows
     steps:
@@ -90,11 +94,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run nose tests
+    - name: Run pytest tests
       run: |
-        pip install nose coverage
-        nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
+        pip install pytest coverage
+        pytest
+        # nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
         pip install tox
-        tox -e py37
+        tox -e py
