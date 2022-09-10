@@ -38,9 +38,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run pytest tests
       run: |
-        pip install pytest coverage
+        pip install wheel pytest pytest-cov coverage
         pytest
-        # nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
         pip install tox
@@ -67,9 +66,8 @@ jobs:
         pip install -r requirements.txt
     - name: Run pytest tests
       run: |
-        pip install pytest coverage
+        pip install wheel pytest pytest-cov coverage
         pytest
-        # nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
         pip install tox
@@ -96,9 +94,8 @@ jobs:
         pip install -r requirements.txt
     - name: Run pytest tests
       run: |
-        pip install pytest coverage
+        pip install wheel pytest pytest-cov coverage
         pytest
-        # nosetests -v --with-coverage --cover-package=isbntools --cover-min-percentage=80
     - name: Test with tox
       run: |
         pip install tox
