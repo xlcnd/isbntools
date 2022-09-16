@@ -39,7 +39,7 @@ jobs:
     - name: Run pytest tests
       run: |
         pip install wheel pytest pytest-cov coverage
-        pytest
+        pytest --cov-config=setup.cfg isbntools
     - name: Test with tox
       run: |
         pip install tox
@@ -67,7 +67,7 @@ jobs:
     - name: Run pytest tests
       run: |
         pip install wheel pytest pytest-cov coverage
-        pytest
+        pytest --cov-config=setup.cfg isbntools
     - name: Test with tox
       run: |
         pip install tox
@@ -95,7 +95,7 @@ jobs:
     - name: Run pytest tests
       run: |
         pip install wheel pytest pytest-cov coverage
-        pytest
+        pytest --cov-config=setup.cfg isbntools
     - name: Test with tox
       run: |
         pip install tox

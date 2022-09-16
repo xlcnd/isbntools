@@ -20,13 +20,4 @@ def audit():
         columnize(sorted(cmds))
         errcode = 0
 
-    plug = [
-        entry.name for entry in iter_entry_points(group='isbntools.plugins')
-    ]
-    if plug:  # pragma: no cover
-        print(' The following isbntools plugins are available in your system:')
-        print('')
-        columnize(sorted(plug))
-        errcode = 1 if errcode == 1 else 0
-
     return errcode
