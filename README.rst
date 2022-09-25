@@ -202,51 +202,7 @@ Following is a typical session:
 
 **Within REPL many of the operations are faster.**
 
-Many more scripts could be written with the ``isbntools`` and ``isbnlib`` library,
-using the methods for extraction, cleaning, validation and standardization of ISBNs.
 
-Just for fun, suppose I want the *most spoken about* book with certain words in his title.
-For a *quick-and-dirty solution*, enter the following code in a file
-and save it as ``isbn_tmsa_book.py``.
-
-.. code-block:: python
-
-    #!/usr/bin/env python
-    import sys
-    from isbntools.app import *
-
-    query = sys.argv[1].replace(' ', '+')
-    isbn = isbn_from_words(query)
-
-    print("The ISBN of the most `spoken-about` book with this title is %s" % isbn)
-    print("")
-    print("... and the book is:")
-    print("")
-    print(registry.bibformatters['labels'](meta(isbn)))
-
-
-Then in a command line (in the same directory):
-
-.. code-block:: console
-
-    $ python isbn_tmsa_book.py 'noise'
-
-In my case I get::
-
-
-    The ISBN of the most `spoken-about` book with this title is 9780143105985
-
-    ... and the book is:
-
-    Type:      BOOK
-    Title:     White Noise
-    Author:    Don DeLillo
-    ISBN:      9780670803736
-    Year:      1985
-    Publisher: Viking
-
-
-Have fun!
 
 
 Install
@@ -269,10 +225,6 @@ usually these packages are **very old and don't work well anymore**!
 
 For Devs
 ========
-
-If all you want is to add ``isbntools`` to the requirements of your project,
-probably you will better served with isbnlib_, it implements the basic functionality
-of ``isbntools`` without end user scripts and configuration files!
 
 If you would like to contribute to the project please read the guidelines_.
 
