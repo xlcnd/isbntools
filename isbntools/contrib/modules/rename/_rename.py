@@ -112,9 +112,9 @@ def newfilename(metadata, pattern=PATTERN):
         return None
 
 
-def renfile(filename, isbn, service, pattern=PATTERN):
+def renfile(filename, isbn, service='default', pattern=PATTERN):
     """Rename file with associate ISBN."""
-    service = service if service else 'default'
+    # service = service if service else 'default'
     metadata = meta(isbn, service)
     if not metadata:  # pragma: no cover
         LOGGER.warning('No metadata for %s', filename)
