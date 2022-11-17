@@ -11,6 +11,7 @@ from isbntools.contrib.modules.report import audit
 def test_audit():
     """Test if the audit report runs without errors"""
     if os.getenv('GITHUB_RUN_ID', '') != '':
-        return True
-    errcode = audit()
-    assert errcode == 0
+        assert True
+    else:
+        errcode = audit()
+        assert errcode == 0
