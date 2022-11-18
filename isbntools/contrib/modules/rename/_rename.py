@@ -61,7 +61,7 @@ def get_isbn(filename):
     if not isbn:  # pragma: no cover
         LOGGER.warning('No ISBN found in name of file %s', filename)
         sys.stderr.write('no ISBN found in name of file %s \n' % filename)
-        return None
+        return ''
     return isbn
 
 
@@ -76,7 +76,6 @@ def cleannewname(newname):
 
 def newfilename(metadata, pattern=PATTERN):
     """Return a new file name created from book metadata."""
-    pattern = pattern if pattern else PATTERN
     for key in metadata.keys():
         if not metadata[key]:
             metadata[key] = u('UNKNOWN')
@@ -114,17 +113,16 @@ def newfilename(metadata, pattern=PATTERN):
 
 def renfile(filename, isbn, service='default', pattern=PATTERN):
     """Rename file with associate ISBN."""
-    # service = service if service else 'default'
     metadata = meta(isbn, service)
     if not metadata:  # pragma: no cover
         LOGGER.warning('No metadata for %s', filename)
         sys.stderr.write('No metadata for %s\n' % filename)
-        return None
+        return False
     newname = newfilename(metadata, pattern)
     if not newname:  # pragma: no cover
         LOGGER.warning('%s NOT renamed!', filename)
         sys.stderr.write('%s NOT renamed \n' % filename)
-        return None
+        return False
     oldfile = File(filename)
     ext = oldfile.ext
     newbasename = b2u3(newname + ext)
@@ -139,7 +137,7 @@ def renfile(filename, isbn, service='default', pattern=PATTERN):
         except Exception as e:  # pragma: no cover
             LOGGER.info('Error when writing for stdout: %s', e)
         return True
-    return None  # pragma: no cover
+    return False  # pragma: no cover
 
 
 def rencwdfiles(fnpatt='*', service='default', pattern=PATTERN):
