@@ -8,5 +8,5 @@ isort==5.10.1
 pep8-naming==0.13.1
 pytest==7.0.1
 pytest-cov==3.0.0
-wheel==0.37.1
+wheel==0.38.1
 yapf==0.32.0
