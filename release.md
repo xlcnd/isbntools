@@ -2,4 +2,5 @@
 
 ## What's new?
 
-1. TENTATIVE...
+1. Migrate tests to 'pytest'.
+2. Fix 'audit' error message.
