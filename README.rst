@@ -160,7 +160,7 @@ Following is a typical session:
 
     $ isbn_repl
 
-        Welcome to the isbntools 4.3.29 REPL.
+        Welcome to the isbntools 4.3.30 REPL.
         ** For help type 'help' or '?'
         ** To exit type 'exit' :)
         ** To run a shell command, type '!<shellcmnd>'

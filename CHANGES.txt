@@ -102,3 +102,4 @@ v4.3.26, 2021-04-13 -- Improved speed with isbnlib-3.10.7.
 v4.3.27, 2021-04-13 -- Fix 'deleted imports'.
 v4.3.28, 2021-11-07 -- Use isbnlib-3.10.9+ to reflect changes in external services.
 v4.3.29, 2023-02-22 -- Migrate tests to 'pytest'.
+v4.3.30, 2023-02-22 -- TENTATIVE
